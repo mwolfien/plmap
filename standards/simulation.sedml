@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SED-ML template for the Prevention & Longevity Map coupled model.
+     NOTE: MaBoSS is executed from MUS_P1_coupled.bnd/.cfg (the authoritative simulation setup, bundled
+     in this archive). Running this SED-ML against MaBoSS goes through BioSimulators/the MaBoSS engine.
+     The algorithm KISAO id below (BKMC, Boolean kinetic Monte-Carlo) should be confirmed against the
+     current BioSimulators MaBoSS entry before submission. -->
+<sedML xmlns="http://sed-ml.org/sed-ml/level1/version4" level="1" version="4">
+  <listOfModels>
+    <model id="PLM" language="urn:sedml:language:sbml.level-3.version-1" source="PLM_model.sbml"/>
+  </listOfModels>
+  <listOfSimulations>
+    <uniformTimeCourse id="sim" initialTime="0" outputStartTime="0" outputEndTime="40" numberOfSteps="80">
+      <algorithm kisaoID="KISAO:0000581"/> <!-- BKMC (MaBoSS); verify term -->
+    </uniformTimeCourse>
+  </listOfSimulations>
+  <listOfTasks>
+    <task id="task_main" modelReference="PLM" simulationReference="sim"/>
+  </listOfTasks>
+  <listOfDataGenerators>
+    <dataGenerator id="dg_time"><listOfVariables>
+      <variable id="t" symbol="urn:sedml:symbol:time" taskReference="task_main"/></listOfVariables>
+      <math xmlns="http://www.w3.org/1998/Math/MathML"><ci>t</ci></math></dataGenerator>
+    <dataGenerator id="dg_aging"><listOfVariables>
+      <variable id="v_aging" taskReference="task_main"
+        target="/sbml:sbml/sbml:model/qual:listOfQualitativeSpecies/qual:qualitativeSpecies[@qual:id='Aging_index']"/>
+      </listOfVariables><math xmlns="http://www.w3.org/1998/Math/MathML"><ci>v_aging</ci></math></dataGenerator>
+    <dataGenerator id="dg_sarco"><listOfVariables>
+      <variable id="v_sarco" taskReference="task_main"
+        target="/sbml:sbml/sbml:model/qual:listOfQualitativeSpecies/qual:qualitativeSpecies[@qual:id='Sarcopenia']"/>
+      </listOfVariables><math xmlns="http://www.w3.org/1998/Math/MathML"><ci>v_sarco</ci></math></dataGenerator>
+  </listOfDataGenerators>
+  <listOfOutputs>
+    <report id="report_main">
+      <listOfDataSets>
+        <dataSet id="ds_t" label="time" dataReference="dg_time"/>
+        <dataSet id="ds_aging" label="Aging_index" dataReference="dg_aging"/>
+        <dataSet id="ds_sarco" label="Sarcopenia" dataReference="dg_sarco"/>
+      </listOfDataSets>
+    </report>
+  </listOfOutputs>
+</sedML>
