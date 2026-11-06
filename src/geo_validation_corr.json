@@ -1,0 +1,38 @@
+{
+ "Aging_index": {
+  "pearson_r": 0.725,
+  "slope_per_decade": 0.01
+ },
+ "Aging_nutrient_sensing": {
+  "pearson_r": 0.527,
+  "slope_per_decade": 0.01
+ },
+ "Aging_mito": {
+  "pearson_r": 0.595,
+  "slope_per_decade": 0.01
+ },
+ "Aging_NAD": {
+  "pearson_r": 0.851,
+  "slope_per_decade": 0.052
+ },
+ "Aging_inflammation": {
+  "pearson_r": 0.791,
+  "slope_per_decade": 0.02
+ },
+ "Aging_senescence_genomic": {
+  "pearson_r": -0.087,
+  "slope_per_decade": -0.006
+ },
+ "Aging_proteostasis": {
+  "pearson_r": 0.039,
+  "slope_per_decade": 0.0
+ },
+ "Aging_secretory": {
+  "pearson_r": 0.626,
+  "slope_per_decade": 0.006
+ },
+ "Sarcopenia": {
+  "pearson_r": 0.259,
+  "slope_per_decade": 0.002
+ }
+}

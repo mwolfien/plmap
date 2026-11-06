@@ -1,0 +1,28 @@
+{
+  "module": "LIV",
+  "title": "Liver / metabolic module — scaffold (collaboration starter for Carolin Schneider)",
+  "status": "scaffold v0 — anchor edges PubMed-verified; proposed edges to curate with collaborator",
+  "connects_to_existing_map": ["Insulin_resistance", "Insulin_sensitivity", "AMPK", "NFkB", "MSTN", "GDF15", "FGF21", "hyperammonemia", "FGL1", "LECT2", "Inflammaging", "PRRs/TLR4"],
+  "new_nodes": ["AHSG_FetuinA", "SELENOP", "TLR4", "Hepatic_steatosis_MASLD", "Cirrhosis", "Hepatic_fibrosis", "Bile_acids", "FXR", "De_novo_lipogenesis", "Urea_cycle"],
+  "edges": [
+    {"source": "AHSG_FetuinA", "effect": "activation", "target": "TLR4", "rationale": "Fetuin-A is an endogenous TLR4 ligand; FFA-induced inflammation/IR needs both FetA and TLR4", "pmids": ["22842477"], "evidence_type": "perturbation", "status": "anchor_verified"},
+    {"source": "TLR4", "effect": "activation", "target": "Insulin_resistance", "rationale": "TLR4 inflammatory signalling drives lipid-induced insulin resistance (links to muscle PRRs->catabolism, MUS-063)", "pmids": ["22842477"], "evidence_type": "perturbation", "status": "anchor_verified"},
+    {"source": "SELENOP", "effect": "inhibition", "target": "AMPK", "rationale": "Selenoprotein P (hepatokine) inactivates AMPK, impairing insulin signalling in hepatocytes and myocytes", "pmids": ["21035759"], "evidence_type": "perturbation", "status": "anchor_verified"},
+    {"source": "SELENOP", "effect": "activation", "target": "Insulin_resistance", "rationale": "SeP causes systemic insulin resistance; KO/knockdown improves insulin sensitivity and glucose tolerance", "pmids": ["21035759"], "evidence_type": "perturbation", "status": "anchor_verified"},
+    {"source": "FGL1", "effect": "activation", "target": "Insulin_resistance", "rationale": "Hepassocin/FGL1 impairs muscle insulin signalling via EGFR/JNK (already in MUS as MUS-049)", "pmids": ["29111387"], "evidence_type": "perturbation", "status": "anchor_verified"},
+    {"source": "hyperammonemia", "effect": "activation", "target": "MSTN", "rationale": "Cirrhotic hyperammonemia raises muscle myostatin via NF-kB (already in map; the hepatic->muscle sarcopenia bridge)", "pmids": ["24145431"], "evidence_type": "perturbation", "status": "anchor_verified"},
+    {"source": "Hepatic_steatosis_MASLD", "effect": "activation", "target": "AHSG_FetuinA", "rationale": "Fatty liver raises hepatokine secretion (Fetuin-A, SeP, FGL1, LECT2)", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Hepatic_steatosis_MASLD", "effect": "activation", "target": "SELENOP", "rationale": "hepatic SeP mRNA correlates with insulin resistance", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Hepatic_steatosis_MASLD", "effect": "activation", "target": "GDF15", "rationale": "GDF15 rises in liver disease (secretory aging marker)", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "LECT2", "effect": "activation", "target": "Insulin_resistance", "rationale": "LECT2 hepatokine links obesity to skeletal-muscle insulin resistance (Lan 2014 Diabetes; PMID not retrievable via tools here)", "pmids": [], "evidence_type": "proposed", "status": "proposed_pmid_pending"},
+    {"source": "Insulin_resistance", "effect": "activation", "target": "De_novo_lipogenesis", "rationale": "hyperinsulinaemia/IR drives hepatic DNL (feed-forward to steatosis)", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "De_novo_lipogenesis", "effect": "activation", "target": "Hepatic_steatosis_MASLD", "rationale": "DNL contributes to hepatic fat accumulation", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Cirrhosis", "effect": "inhibition", "target": "Urea_cycle", "rationale": "cirrhotic hepatocyte failure impairs urea-cycle ammonia detoxification", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Urea_cycle", "effect": "inhibition", "target": "hyperammonemia", "rationale": "intact urea cycle clears ammonia; its failure raises it", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Hepatic_steatosis_MASLD", "effect": "activation", "target": "Hepatic_fibrosis", "rationale": "steatohepatitis progresses to fibrosis/cirrhosis", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Hepatic_fibrosis", "effect": "activation", "target": "Cirrhosis", "rationale": "fibrosis progression to cirrhosis", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Bile_acids", "effect": "activation", "target": "FXR", "rationale": "bile acids activate FXR; FXR axis modulates hepatic lipid/glucose metabolism", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "FXR", "effect": "inhibition", "target": "De_novo_lipogenesis", "rationale": "FXR signalling restrains lipogenesis (candidate intervention node, e.g. FXR agonists)", "pmids": [], "evidence_type": "proposed", "status": "proposed"}
+  ],
+  "for_schneider": "Priorities to co-develop: (1) confirm/complete the hepatokine panel (Fetuin-A, SeP, FGL1, LECT2, GDF15) and their muscle/adipose targets; (2) the ammonia-urea-cycle-myostatin sarcopenia axis (your cirrhosis/sarcopenia domain); (3) MASLD progression and candidate intervention nodes (FXR agonists, resmetirom). Anchor edges are primary-verified; proposed edges need your domain curation + PMIDs."
+}

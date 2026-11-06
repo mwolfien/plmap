@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+# large/raw methylation data never goes in git
+data/raw/
+*.idat
+*.RData
+# scratch
+scratch/
+outputs/

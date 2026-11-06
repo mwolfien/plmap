@@ -1,0 +1,185 @@
+{
+ "baseline_healthy_fed": {
+  "Aging_index": 0.465,
+  "Aging_nutrient_sensing": 0.665,
+  "Aging_mito": 0.566,
+  "Aging_NAD": 0.183,
+  "Aging_inflammation": 0.474,
+  "Aging_senescence_genomic": 0.378,
+  "Aging_proteostasis": 0.291,
+  "Aging_secretory": 0.481
+ },
+ "intervention_delta": {
+  "Exercise": {
+   "Aging_index": -0.03,
+   "Aging_nutrient_sensing": -0.077,
+   "Aging_mito": -0.135,
+   "Aging_NAD": -0.021,
+   "Aging_inflammation": 0.003,
+   "Aging_senescence_genomic": 0.025,
+   "Aging_proteostasis": -0.014,
+   "Aging_secretory": -0.114
+  },
+  "Ex+Leucine": {
+   "Aging_index": -0.032,
+   "Aging_nutrient_sensing": -0.026,
+   "Aging_mito": -0.145,
+   "Aging_NAD": -0.02,
+   "Aging_inflammation": 0.018,
+   "Aging_senescence_genomic": 0.026,
+   "Aging_proteostasis": -0.038,
+   "Aging_secretory": -0.102
+  },
+  "DR": {
+   "Aging_index": -0.038,
+   "Aging_nutrient_sensing": -0.25,
+   "Aging_mito": -0.075,
+   "Aging_NAD": -0.02,
+   "Aging_inflammation": 0.008,
+   "Aging_senescence_genomic": 0.001,
+   "Aging_proteostasis": 0.035,
+   "Aging_secretory": -0.009
+  },
+  "Rapamycin": {
+   "Aging_index": -0.005,
+   "Aging_nutrient_sensing": -0.04,
+   "Aging_mito": -0.024,
+   "Aging_NAD": -0.04,
+   "Aging_inflammation": -0.018,
+   "Aging_senescence_genomic": 0.021,
+   "Aging_proteostasis": 0.039,
+   "Aging_secretory": -0.01
+  },
+  "NMN": {
+   "Aging_index": -0.035,
+   "Aging_nutrient_sensing": 0.014,
+   "Aging_mito": -0.039,
+   "Aging_NAD": -0.044,
+   "Aging_inflammation": -0.01,
+   "Aging_senescence_genomic": 0.043,
+   "Aging_proteostasis": 0.015,
+   "Aging_secretory": -0.022
+  },
+  "NR": {
+   "Aging_index": 0.01,
+   "Aging_nutrient_sensing": 0.031,
+   "Aging_mito": -0.064,
+   "Aging_NAD": -0.066,
+   "Aging_inflammation": -0.013,
+   "Aging_senescence_genomic": 0.031,
+   "Aging_proteostasis": 0.02,
+   "Aging_secretory": -0.033
+  },
+  "Metformin": {
+   "Aging_index": 0.017,
+   "Aging_nutrient_sensing": -0.12,
+   "Aging_mito": -0.065,
+   "Aging_NAD": -0.025,
+   "Aging_inflammation": 0.017,
+   "Aging_senescence_genomic": 0.022,
+   "Aging_proteostasis": 0.052,
+   "Aging_secretory": 0.227
+  },
+  "Resveratrol": {
+   "Aging_index": -0.017,
+   "Aging_nutrient_sensing": -0.108,
+   "Aging_mito": -0.102,
+   "Aging_NAD": -0.019,
+   "Aging_inflammation": 0.019,
+   "Aging_senescence_genomic": -0.008,
+   "Aging_proteostasis": 0.031,
+   "Aging_secretory": -0.014
+  },
+  "Omega-3": {
+   "Aging_index": -0.004,
+   "Aging_nutrient_sensing": 0.012,
+   "Aging_mito": -0.036,
+   "Aging_NAD": -0.002,
+   "Aging_inflammation": -0.059,
+   "Aging_senescence_genomic": 0.01,
+   "Aging_proteostasis": 0.037,
+   "Aging_secretory": -0.018
+  },
+  "CD38i": {
+   "Aging_index": 0.017,
+   "Aging_nutrient_sensing": 0.038,
+   "Aging_mito": -0.003,
+   "Aging_NAD": -0.085,
+   "Aging_inflammation": -0.004,
+   "Aging_senescence_genomic": 0.041,
+   "Aging_proteostasis": 0.009,
+   "Aging_secretory": -0.001
+  },
+  "GLP-1": {
+   "Aging_index": -0.018,
+   "Aging_nutrient_sensing": 0.003,
+   "Aging_mito": -0.035,
+   "Aging_NAD": -0.011,
+   "Aging_inflammation": 0.014,
+   "Aging_senescence_genomic": 0.003,
+   "Aging_proteostasis": 0.034,
+   "Aging_secretory": -0.017
+  }
+ },
+ "archetype_profile": {
+  "Healthy (fed)": {
+   "Aging_index": 0.465,
+   "Aging_nutrient_sensing": 0.665,
+   "Aging_mito": 0.566,
+   "Aging_NAD": 0.183,
+   "Aging_inflammation": 0.474,
+   "Aging_senescence_genomic": 0.378,
+   "Aging_proteostasis": 0.291,
+   "Aging_secretory": 0.481
+  },
+  "Obese": {
+   "Aging_index": 0.512,
+   "Aging_nutrient_sensing": 0.715,
+   "Aging_mito": 0.599,
+   "Aging_NAD": 0.169,
+   "Aging_inflammation": 0.763,
+   "Aging_senescence_genomic": 0.412,
+   "Aging_proteostasis": 0.327,
+   "Aging_secretory": 0.537
+  },
+  "Inflammaged": {
+   "Aging_index": 0.572,
+   "Aging_nutrient_sensing": 0.626,
+   "Aging_mito": 0.624,
+   "Aging_NAD": 0.651,
+   "Aging_inflammation": 0.818,
+   "Aging_senescence_genomic": 0.813,
+   "Aging_proteostasis": 0.4,
+   "Aging_secretory": 0.577
+  },
+  "Cirrhotic/hepatic": {
+   "Aging_index": 0.572,
+   "Aging_nutrient_sensing": 0.589,
+   "Aging_mito": 0.712,
+   "Aging_NAD": 0.624,
+   "Aging_inflammation": 0.819,
+   "Aging_senescence_genomic": 0.409,
+   "Aging_proteostasis": 0.366,
+   "Aging_secretory": 0.584
+  },
+  "Sarcopenic-aged": {
+   "Aging_index": 0.577,
+   "Aging_nutrient_sensing": 0.603,
+   "Aging_mito": 0.676,
+   "Aging_NAD": 0.659,
+   "Aging_inflammation": 0.829,
+   "Aging_senescence_genomic": 0.825,
+   "Aging_proteostasis": 0.36,
+   "Aging_secretory": 0.588
+  }
+ },
+ "subscores": [
+  "Aging_nutrient_sensing",
+  "Aging_mito",
+  "Aging_NAD",
+  "Aging_inflammation",
+  "Aging_senescence_genomic",
+  "Aging_proteostasis",
+  "Aging_secretory"
+ ]
+}

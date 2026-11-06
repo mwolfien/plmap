@@ -1,0 +1,13 @@
+name: plmap
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - numpy=2.5
+  - matplotlib=3.11
+  - openpyxl=3.1
+  - pip
+  - pip:
+      - cmaboss==1.0.0b34
+# Create with:  conda env create -f environment.yml  &&  conda activate plmap
+# The R stack for the GEO methylation preprocessing is separate — see SETUP.md.

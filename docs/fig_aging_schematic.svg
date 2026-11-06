@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="860" font-family="DejaVu Sans, Arial, sans-serif">
+<style>.t{font-size:13px;font-weight:700}.n{font-size:11.5px;fill:#333}.s{font-size:10.5px;fill:#666}.lit{font-size:10px;fill:#2e6da4;font-style:italic}text{dominant-baseline:middle}</style>
+<rect width="1360" height="860" fill="#ffffff"/>
+<text x="40" y="34" font-size="22" font-weight="700" fill="#1F3864">Aging layer — hallmarks of aging as mechanistic sub-scores</text>
+<text x="40" y="58" font-size="13" fill="#808080">Each sub-score is read from pathway activity / metabolites already in the map (↑ = more aged). No clocks → no circularity.</text>
+
+<!-- 7 subscore cards (2 columns) -->
+<g>
+<rect x="40" y="86" width="560" height="92" rx="8" fill="#eef4fb" stroke="#2e6da4"/>
+<text x="56" y="108" class="t" fill="#2e6da4">1 · Deregulated nutrient-sensing</text>
+<text x="56" y="130" class="n">↑ mTOR · ↑ IGF1 · ↑ insulin resistance · ↓ AMPK</text>
+<text x="56" y="152" class="s">hyperactive growth signalling with age</text>
+<text x="56" y="170" class="lit">López-Otín 2013</text>
+
+<rect x="40" y="188" width="560" height="92" rx="8" fill="#eef4fb" stroke="#2e6da4"/>
+<text x="56" y="210" class="t" fill="#2e6da4">2 · Mitochondrial dysfunction</text>
+<text x="56" y="232" class="n">↑ mito dysfunction · ↑ ROS · ↓ PGC1A / biogenesis</text>
+<text x="56" y="254" class="s">falling oxidative capacity, rising oxidative stress</text>
+<text x="56" y="272" class="lit">López-Otín 2013 / 2023</text>
+
+<rect x="40" y="290" width="560" height="92" rx="8" fill="#eef4fb" stroke="#2e6da4"/>
+<text x="56" y="312" class="t" fill="#2e6da4">3 · NAD⁺ decline</text>
+<text x="56" y="334" class="n">↑ CD38 · ↓ NAD⁺</text>
+<text x="56" y="356" class="s">CD38 rises with age, consumes NAD⁺</text>
+<text x="56" y="374" class="lit">Camacho-Pereira 2016</text>
+
+<rect x="40" y="392" width="560" height="92" rx="8" fill="#eef4fb" stroke="#2e6da4"/>
+<text x="56" y="414" class="t" fill="#2e6da4">4 · Inflammaging</text>
+<text x="56" y="436" class="n">↑ NF-κB · ↑ IL-6 · ↑ TNF</text>
+<text x="56" y="458" class="s">chronic low-grade inflammation; IL-6+TNF predict mortality</text>
+<text x="56" y="476" class="lit">Varadhan 2014</text>
+
+<rect x="40" y="494" width="560" height="92" rx="8" fill="#eef4fb" stroke="#2e6da4"/>
+<text x="56" y="516" class="t" fill="#2e6da4">5 · Senescence / genomic instability</text>
+<text x="56" y="538" class="n">↑ p53 · ↑ PARP1 · ↑ DNA damage</text>
+<text x="56" y="560" class="s">accumulating damage &amp; senescent signalling</text>
+<text x="56" y="578" class="lit">López-Otín 2013</text>
+
+<rect x="40" y="596" width="560" height="92" rx="8" fill="#eef4fb" stroke="#2e6da4"/>
+<text x="56" y="618" class="t" fill="#2e6da4">6 · Loss of proteostasis</text>
+<text x="56" y="640" class="n">↑ proteolysis · ↓ autophagy · ↓ protein synthesis</text>
+<text x="56" y="662" class="s">impaired protein quality control</text>
+<text x="56" y="680" class="lit">López-Otín 2023</text>
+
+<rect x="40" y="698" width="560" height="92" rx="8" fill="#eef4fb" stroke="#2e6da4"/>
+<text x="56" y="720" class="t" fill="#2e6da4">7 · Altered secretion (metabolite / secretory)</text>
+<text x="56" y="742" class="n">↑ GDF15 · ↑ myostatin · (↑ ammonia, lactate)</text>
+<text x="56" y="764" class="s">GDF15 = strong plasma all-cause-mortality marker</text>
+<text x="56" y="782" class="lit">Wiklund 2010</text>
+</g>
+
+<!-- arrows to index -->
+<g stroke="#8e44ad" stroke-width="1.6" fill="none" marker-end="url(#m)">
+<path d="M600,132 C 700,132 760,360 860,400"/>
+<path d="M600,234 C 700,234 770,370 860,410"/>
+<path d="M600,336 C 710,336 790,390 860,420"/>
+<path d="M600,438 C 720,438 800,430 860,430"/>
+<path d="M600,540 C 720,540 790,470 860,440"/>
+<path d="M600,642 C 710,642 780,490 860,450"/>
+<path d="M600,744 C 700,744 760,520 860,460"/>
+</g>
+
+<!-- Aging index -->
+<rect x="860" y="380" width="220" height="100" rx="12" fill="#efe9f6" stroke="#8e44ad" stroke-width="2.5"/>
+<text x="890" y="414" class="t" font-size="16" fill="#8e44ad">Aging index</text>
+<text x="878" y="440" class="s">weighted integration</text>
+<text x="878" y="458" class="s">of the 7 sub-scores</text>
+
+<!-- clocks external -->
+<rect x="860" y="530" width="460" height="86" rx="9" fill="#eef6ee" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="880" y="554" class="t" fill="#2e8b57">Epigenetic clocks — external comparison</text>
+<text x="880" y="578" class="n">Horvath · TFMethyl — compared TO the index, not used to build it</text>
+<text x="880" y="600" class="s">circularity avoided by construction</text>
+<path d="M1080,430 C 1180,430 1150,520 1090,530" stroke="#2e8b57" stroke-width="1.6" fill="none" stroke-dasharray="5 4" marker-end="url(#gm)"/>
+<text x="1120" y="485" class="s">compare</text>
+
+<!-- example box -->
+<rect x="860" y="96" width="460" height="250" rx="9" fill="#fbfbfb" stroke="#ccc"/>
+<text x="880" y="120" class="t" fill="#333">Key score example — which lever targets which hallmark</text>
+<text x="880" y="148" class="n">DR → nutrient-sensing ↓ (−0.25)</text>
+<text x="880" y="170" class="n">Exercise → mitochondrial ↓, secretory/myostatin ↓</text>
+<text x="880" y="192" class="n">NMN / NR / CD38i → NAD decline ↓</text>
+<text x="880" y="214" class="n">Omega-3 → inflammaging ↓</text>
+<text x="880" y="236" class="n">Metformin → nutrient-sensing ↓ BUT secretory/GDF15 ↑</text>
+<text x="880" y="266" class="s">Per patient: the profile says which hallmark dominates,</text>
+<text x="880" y="286" class="s">and the matrix says which intervention addresses it.</text>
+<text x="880" y="314" class="s" font-style="italic">(full matrices: MUS_P1_model_characterization.xlsx)</text>
+
+<defs>
+<marker id="m" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8e44ad"/></marker>
+<marker id="gm" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2e8b57"/></marker>
+</defs>
+</svg>

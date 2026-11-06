@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1040" font-family="DejaVu Sans, Arial, sans-serif">
+<style>
+ .band{font-size:13px;font-weight:700;fill:#555;letter-spacing:.5px}
+ .mod{font-size:15px;font-weight:700}
+ .n{font-size:12px;fill:#333}
+ .sub{font-size:11px;fill:#555}
+ .ar{font-size:11px;fill:#444}
+ text{dominant-baseline:middle}
+</style>
+<rect width="1480" height="1040" fill="#ffffff"/>
+<text x="40" y="34" font-size="22" font-weight="700" fill="#1F3864">Prevention &amp; Longevity Map — system architecture</text>
+<text x="40" y="58" font-size="13" fill="#808080">Blood methylation + lifestyle/compounds → mechanistic modules → aging sub-scores &amp; muscle phenotype → clocks / ML / validation</text>
+
+<!-- INPUT band -->
+<text x="40" y="92" class="band">INPUTS</text>
+<rect x="40" y="104" width="300" height="118" rx="9" fill="#e7f1fb" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="56" y="126" class="mod" fill="#2e6da4">Lifestyle</text>
+<text x="56" y="150" class="n">Dietary restriction · Exercise</text>
+<text x="56" y="170" class="n">Leucine · Omega-3 · Alcohol</text>
+<text x="56" y="196" class="sub">reference inputs the patient can change</text>
+
+<rect x="360" y="104" width="330" height="118" rx="9" fill="#e7f1fb" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="376" y="126" class="mod" fill="#2e6da4">Compounds</text>
+<text x="376" y="150" class="n">Rapamycin · Metformin · NMN/NR</text>
+<text x="376" y="170" class="n">Resveratrol · CD38i · GLP-1 · SGLT2i</text>
+<text x="376" y="196" class="sub">longevity/geroprotector candidates</text>
+
+<rect x="710" y="104" width="360" height="118" rx="9" fill="#f5f5f5" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="726" y="126" class="mod" fill="#666">Methylation layer  (next step)</text>
+<text x="726" y="150" class="n">EpiScores · immune cell composition</text>
+<text x="726" y="170" class="n">TF-binding-site CpGs · exposure scores</text>
+<text x="726" y="196" class="sub">sets node states per patient</text>
+
+<rect x="1090" y="104" width="350" height="118" rx="9" fill="#eef6ee" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="1106" y="126" class="mod" fill="#2e8b57">Patient meta-data</text>
+<text x="1106" y="150" class="n">Age, sex, BMI, comorbidity</text>
+<text x="1106" y="170" class="n">Clinical labs, history</text>
+<text x="1106" y="196" class="sub">context for personalization</text>
+
+<!-- arrows input->mechanism -->
+<line x1="740" y1="222" x2="740" y2="258" stroke="#999" stroke-width="2" marker-end="url(#a)"/>
+
+<!-- MECHANISM band -->
+<text x="40" y="250" class="band">MECHANISM LAYER — Boolean modules (CaSQ → MaBoSS), primary/canonical-curated edges</text>
+<rect x="40" y="262" width="1400" height="300" rx="10" fill="#fcfcff" stroke="#ccc"/>
+
+<!-- P1 core -->
+<rect x="66" y="286" width="330" height="250" rx="9" fill="#e5f4e4" stroke="#2e8b57" stroke-width="2"/>
+<text x="84" y="310" class="mod" fill="#2e8b57">P1 — Nutrient-sensing &amp; NAD⁺ (core)</text>
+<text x="84" y="336" class="n">mTOR · AMPK · IGF/Insulin · IRS1/PI3K/Akt</text>
+<text x="84" y="356" class="n">NAD⁺ · SIRT1/3/6 · CD38 · PARP1</text>
+<text x="84" y="376" class="n">FOXO3 · Autophagy · PGC1A · mito</text>
+<text x="84" y="402" class="sub">60-node core; S6K1⊣IRS1 feedback</text>
+<text x="84" y="420" class="sub">(gates DR vs rapamycin response)</text>
+<text x="84" y="470" class="sub" font-style="italic">feeds anabolism, NAD, mito, inflammation</text>
+
+<!-- MUS module -->
+<rect x="420" y="286" width="330" height="250" rx="9" fill="#efedff" stroke="#8e44ad" stroke-width="2"/>
+<text x="438" y="310" class="mod" fill="#8e44ad">MUS — Muscle &amp; myokines</text>
+<text x="438" y="336" class="n">Myostatin/ActRIIB/Smad2-3</text>
+<text x="438" y="356" class="n">UPS/MuRF1 · proteolysis · protein synth.</text>
+<text x="438" y="376" class="n">FNDC5/irisin · IL-15 · decorin · follistatin</text>
+<text x="438" y="402" class="sub">191 edges, 149 in executable model</text>
+<text x="438" y="420" class="sub">(primary + canonical)</text>
+<text x="438" y="470" class="sub" font-style="italic">drives catabolism &amp; sarcopenia</text>
+
+<!-- shared hubs column -->
+<rect x="774" y="286" width="300" height="120" rx="9" fill="#f9ece7" stroke="#e08a2e" stroke-width="2"/>
+<text x="790" y="310" class="mod" fill="#e08a2e">Inflammation hub (shared)</text>
+<text x="790" y="336" class="n">NF-κB · IL-6 · TNF · CRP</text>
+<text x="790" y="358" class="n">leptin · adiponectin</text>
+<text x="790" y="384" class="sub">inflammaging → catabolism, IR</text>
+
+<rect x="774" y="416" width="300" height="120" rx="9" fill="#f9eeda" stroke="#caa23a" stroke-width="2"/>
+<text x="790" y="440" class="mod" fill="#b8860b">Liver bridge (Schneider)</text>
+<text x="790" y="466" class="n">hyperammonemia → myostatin</text>
+<text x="790" y="488" class="n">FGL1 / LECT2 → insulin resistance</text>
+<text x="790" y="514" class="sub">hepatic → muscle cross-talk</text>
+
+<!-- future organ modules -->
+<rect x="1096" y="286" width="320" height="250" rx="9" fill="#f5f5f5" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="1112" y="310" class="mod" fill="#666">Organ modules (planned)</text>
+<text x="1112" y="338" class="n">NSCLC / lung disease map</text>
+<text x="1112" y="360" class="n">Liver (outcomes)</text>
+<text x="1112" y="382" class="n">Stem-cell / haematopoiesis (P5)</text>
+<text x="1112" y="410" class="sub">attach via the shared</text>
+<text x="1112" y="428" class="sub">secretome / inflammation hub</text>
+
+<!-- interaction arrows between modules -->
+<line x1="396" y1="360" x2="420" y2="360" stroke="#2e8b57" stroke-width="2.5" marker-end="url(#g)"/>
+<text x="330" y="270" class="ar"> </text>
+<line x1="420" y1="400" x2="396" y2="400" stroke="#8e44ad" stroke-width="2.5" marker-end="url(#p)"/>
+<text x="300" y="556" class="ar">P1 ⇄ MUS: nutrient/NAD → anabolism; AMPK/exercise → mito</text>
+<line x1="774" y1="346" x2="750" y2="346" stroke="#e08a2e" stroke-width="2.5" marker-end="url(#o)"/>
+<line x1="774" y1="470" x2="750" y2="470" stroke="#caa23a" stroke-width="2.5" marker-end="url(#y)"/>
+<line x1="774" y1="330" x2="396" y2="330" stroke="#e08a2e" stroke-width="1.5" stroke-dasharray="3 3"/>
+<line x1="1096" y1="410" x2="1074" y2="470" stroke="#999" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+<!-- arrow mechanism->readout -->
+<line x1="740" y1="562" x2="740" y2="600" stroke="#999" stroke-width="2" marker-end="url(#a)"/>
+
+<!-- READOUT band -->
+<text x="40" y="592" class="band">READOUTS</text>
+<rect x="66" y="610" width="640" height="180" rx="10" fill="#fff" stroke="#8e44ad" stroke-width="1.5"/>
+<text x="84" y="634" class="mod" fill="#8e44ad">Muscle phenotype</text>
+<text x="84" y="662" class="n">Protein synthesis → <tspan font-weight="700">Anabolism</tspan></text>
+<text x="84" y="686" class="n">Proteolysis + myostatin + mito → <tspan font-weight="700">Catabolism</tspan></text>
+<text x="360" y="674" class="n" font-weight="700" fill="#c0392b">→ Sarcopenia</text>
+<text x="84" y="724" class="sub">recalibrated: healthy &lt; aged &lt; cachectic,</text>
+<text x="84" y="742" class="sub">range ≈ doubled, robustness intact</text>
+<rect x="470" y="650" width="210" height="80" rx="8" fill="#fbeaea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="490" y="676" class="n" font-weight="700" fill="#c0392b">Sarcopenia risk</text>
+<text x="490" y="700" class="sub">net balance readout</text>
+
+<rect x="726" y="610" width="690" height="180" rx="10" fill="#fff" stroke="#555" stroke-width="1.5"/>
+<text x="744" y="634" class="mod" fill="#333">Aging layer — 7 hallmark sub-scores → Aging index</text>
+<text x="744" y="662" class="n">nutrient-sensing · mitochondrial · NAD decline · inflammaging</text>
+<text x="744" y="684" class="n">senescence/genomic · proteostasis · secretory (GDF15)</text>
+<text x="744" y="714" class="sub">built from pathway activity + metabolites, NOT from clocks</text>
+<text x="744" y="734" class="sub">→ per-patient profile of WHICH hallmark dominates</text>
+<rect x="1180" y="648" width="210" height="84" rx="8" fill="#eef0f4" stroke="#1F3864" stroke-width="1.5"/>
+<text x="1200" y="674" class="n" font-weight="700" fill="#1F3864">Aging index</text>
+<text x="1200" y="698" class="sub">+ hallmark profile</text>
+
+<!-- arrow readout->validation -->
+<line x1="740" y1="790" x2="740" y2="826" stroke="#999" stroke-width="2" marker-end="url(#a)"/>
+
+<!-- VALIDATION band -->
+<text x="40" y="818" class="band">OUTCOMES · VALIDATION · PERSONALIZATION</text>
+<rect x="66" y="836" width="330" height="150" rx="9" fill="#eef6ee" stroke="#2e8b57" stroke-width="1.5"/>
+<text x="84" y="860" class="mod" fill="#2e8b57">Epigenetic clocks</text>
+<text x="84" y="886" class="n">Horvath · TFMethyl (Patel/Hoffmann)</text>
+<text x="84" y="910" class="n">external comparison — NOT an input</text>
+<text x="84" y="940" class="sub">agreement with aging index = a result,</text>
+<text x="84" y="958" class="sub">not an assumption (no circularity)</text>
+
+<rect x="416" y="836" width="330" height="150" rx="9" fill="#eef0f4" stroke="#1F3864" stroke-width="1.5"/>
+<text x="434" y="860" class="mod" fill="#1F3864">ML layer</text>
+<text x="434" y="886" class="n">node states → clock / outcome</text>
+<text x="434" y="910" class="n">predicts &amp; ranks interventions</text>
+<text x="434" y="940" class="sub">personalized optimization per patient</text>
+
+<rect x="766" y="836" width="650" height="150" rx="9" fill="#f5f5f5" stroke="#999" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="784" y="860" class="mod" fill="#666">Validation data (planned)</text>
+<text x="784" y="886" class="n">GEO blood methylation + intervention cohorts — Claude can run</text>
+<text x="784" y="910" class="n">TCGA lung (LUAD/LUSC) methylation — student subtask, re-uses resources</text>
+<text x="784" y="946" class="sub">targets: 1–2 npj Systems Biology papers (isolated validation → personalization)</text>
+
+<defs>
+<marker id="a" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#999"/></marker>
+<marker id="g" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#2e8b57"/></marker>
+<marker id="p" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8e44ad"/></marker>
+<marker id="o" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e08a2e"/></marker>
+<marker id="y" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#caa23a"/></marker>
+</defs>
+</svg>

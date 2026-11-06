@@ -1,0 +1,98 @@
+Node Nutrients { logic = Nutrients; rate_up = 0.0; rate_down = 0.0; }
+Node DR { logic = DR; rate_up = 0.0; rate_down = 0.0; }
+Node Inflammaging { logic = Inflammaging; rate_up = 0.0; rate_down = 0.0; }
+Node DNA_damage { logic = DNA_damage; rate_up = 0.0; rate_down = 0.0; }
+Node Rapamycin { logic = Rapamycin; rate_up = 0.0; rate_down = 0.0; }
+Node Metformin { logic = Metformin; rate_up = 0.0; rate_down = 0.0; }
+Node NMN_supp { logic = NMN_supp; rate_up = 0.0; rate_down = 0.0; }
+Node NR_supp { logic = NR_supp; rate_up = 0.0; rate_down = 0.0; }
+Node Resveratrol { logic = Resveratrol; rate_up = 0.0; rate_down = 0.0; }
+Node Semaglutide { logic = Semaglutide; rate_up = 0.0; rate_down = 0.0; }
+Node Canagliflozin { logic = Canagliflozin; rate_up = 0.0; rate_down = 0.0; }
+Node CD38i { logic = CD38i; rate_up = 0.0; rate_down = 0.0; }
+Node NNMT { logic = NNMT; rate_up = 0.0; rate_down = 0.0; }
+Node Exercise { logic = Exercise; rate_up = 0.0; rate_down = 0.0; }
+Node leucine { logic = leucine; rate_up = 0.0; rate_down = 0.0; }
+Node FST { logic = FST; rate_up = 0.0; rate_down = 0.0; }
+Node hyperammonemia { logic = hyperammonemia; rate_up = 0.0; rate_down = 0.0; }
+Node glucocorticoids { logic = glucocorticoids; rate_up = 0.0; rate_down = 0.0; }
+Node LEP { logic = LEP; rate_up = 0.0; rate_down = 0.0; }
+Node ADIPOQ { logic = ADIPOQ; rate_up = 0.0; rate_down = 0.0; }
+Node FGL1 { logic = FGL1; rate_up = 0.0; rate_down = 0.0; }
+Node Omega3_PUFA { logic = Omega3_PUFA; rate_up = 0.0; rate_down = 0.0; }
+Node Insulin { rate_up = (Nutrients ? 1 : 0.0); rate_down = 0.3 + (DR ? 2 : 0.0); }
+Node PPARA { rate_up = 0.1 + (DR ? 1 : 0.0); rate_down = 1; }
+Node FGF21 { rate_up = 0.1 + (DR ? 1 : 0.0) + (PPARA ? 1 : 0.0) + (Mito_dysfunction ? 1 : 0.0); rate_down = 1; }
+Node FGF21R { rate_up = (FGF21 ? 1 : 0.0); rate_down = 0.5; }
+Node IGF1 { rate_up = (Nutrients ? 1 : 0.0) + (Testosterone ? 0.7 : 0.0); rate_down = 0.3 + (DR ? 1 : 0.0) + (FGF21R ? 1 : 0.0); }
+Node INSR { rate_up = (Insulin ? 1 : 0.0); rate_down = 0.5; }
+Node IGF1R { rate_up = (IGF1 ? 1 : 0.0); rate_down = 0.5; }
+Node IRS1 { rate_up = (INSR ? 1 : 0.0) + (IGF1R ? 1 : 0.0); rate_down = 0.3 + (S6K1 ? 1 : 0.0); }
+Node PI3K { rate_up = (IRS1 ? 1 : 0.0); rate_down = 0.5; }
+Node mTORC2 { rate_up = (PI3K ? 1 : 0.0); rate_down = 0.3 + (Rapamycin ? 2 : 0.0); }
+Node Akt { rate_up = (PI3K ? 0.5 : 0.0) + (mTORC2 ? 0.7 : 0.0); rate_down = 0.5 + (smad2_3 ? 1.5 : 0.0); }
+Node FOXO3 { rate_up = 0.12 + (SIRT1 ? 0.5 : 0.0) + (AMPK ? 0.5 : 0.0); rate_down = 0.2 + (Akt ? 2 : 0.0); }
+Node Complex_I { rate_up = 1; rate_down = 0.1 + (Metformin ? 2 : 0.0) + (Canagliflozin ? 2 : 0.0); }
+Node LKB1 { rate_up = 1 + (SIRT1 ? 1 : 0.0); rate_down = 0.5; }
+Node AMPK { rate_up = 0.1 + (Complex_I ? 0.0 : 2) + (DR ? 1 : 0.0) + (FGF21R ? 1 : 0.0) + (Resveratrol ? 1 : 0.0) + (Exercise ? 1 : 0.0) + (ADIPOQ ? 0.8 : 0.0); rate_down = 1 + (LKB1 ? 0.0 : 0.5) + (leucine ? 0.5 : 0.0); }
+Node TSC2 { rate_up = 0.3 + (AMPK ? 1 : 0.0); rate_down = 0.3 + (Akt ? 1 : 0.0); }
+Node RHEB { rate_up = 1; rate_down = 0.2 + (TSC2 ? 2 : 0.0); }
+Node mTOR { rate_up = (RHEB ? 1.5 : 0.0) + (leucine ? 1 : 0.0); rate_down = 0.2 + (AMPK ? 1 : 0.0) + (Rapamycin ? 3 : 0.0) + (DR ? 1 : 0.0) + (Nutrients ? 0.0 : 1); }
+Node S6K1 { rate_up = (mTOR ? 1 : 0.0); rate_down = 0.5; }
+Node EIF4EBP1 { rate_up = 1; rate_down = 0.2 + (mTOR ? 2 : 0.0); }
+Node Protein_synthesis { rate_up = (S6K1 ? 1 : 0.0) + (leucine ? 0.5 : 0.0) + (VDR ? 0.3 : 0.0) + (FNDC5 ? 0.5 : 0.0); rate_down = 0.2 + (EIF4EBP1 ? 1 : 0.0); }
+Node TFEB { rate_up = 1; rate_down = 0.2 + (mTOR ? 2 : 0.0); }
+Node ULK1 { rate_up = 0.1 + (AMPK ? 1 : 0.0) + (mTOR ? 0.0 : 1); rate_down = 0.3 + (mTOR ? 1 : 0.0); }
+Node Autophagy { rate_up = 0.05 + (ULK1 ? 1 : 0.0) + (TFEB ? 1 : 0.0) + (FOXO3 ? 1 : 0.0) + (DR ? 0.5 : 0.0); rate_down = 1.5; }
+Node PGC1A { rate_up = 0.1 + (AMPK ? 1 : 0.0) + (SIRT1 ? 1 : 0.0) + (FGF21R ? 0.5 : 0.0) + (Exercise ? 1 : 0.0); rate_down = 1 + (smad2_3 ? 1 : 0.0); }
+Node Mito_biogenesis { rate_up = (PGC1A ? 1 : 0.0); rate_down = 0.5; }
+Node NAM { rate_up = 1; rate_down = 0.2 + (NNMT ? 1 : 0.0); }
+Node NAMPT { rate_up = 0.5 + (AMPK ? 1 : 0.0); rate_down = 0.5; }
+Node NMN { rate_up = 0.1 + (NAMPT ? 1 : 0.0) + (NR_supp ? 1 : 0.0) + (NMN_supp ? 1.5 : 0.0); rate_down = 0.5 + (NAM ? 0.0 : 1) + (CD38 ? 1.5 : 0.0); }
+Node NAD { rate_up = 0.1 + (NMN ? 1 : 0.0) + (NR_supp ? 0.5 : 0.0); rate_down = 0.3 + (CD38 ? 1.5 : 0.0) + (PARP1 ? 1 : 0.0); }
+Node CD38 { rate_up = 0.1 + (Inflammaging ? 2 : 0.0); rate_down = 1 + (CD38i ? 3 : 0.0); }
+Node PARP1 { rate_up = 0.1 + (DNA_damage ? 2 : 0.0) + (SIRT6 ? 0.3 : 0.0); rate_down = 1; }
+Node SIRT1 { rate_up = (NAD ? 0.3 : 0.0) + ((NAD & AMPK) ? 0.6 : 0.0) + ((NAD & DR) ? 0.6 : 0.0) + ((NAD & FGF21R) ? 0.4 : 0.0) + ((NAD & Resveratrol) ? 0.3 : 0.0); rate_down = 0.5 + (PARP1 ? 1 : 0.0); }
+Node SIRT3 { rate_up = (NAD ? 1 : 0.0); rate_down = 0.5; }
+Node SIRT6 { rate_up = (NAD ? 1 : 0.0); rate_down = 0.5; }
+Node SOD2 { rate_up = 0.2 + (SIRT3 ? 1 : 0.0); rate_down = 0.5; }
+Node ROS { rate_up = 0.6 + (TNF ? 0.7 : 0.0); rate_down = 0.2 + (SOD2 ? 1 : 0.0); }
+Node p53 { rate_up = 0.2 + (DNA_damage ? 2 : 0.0); rate_down = 0.5 + (SIRT1 ? 1 : 0.0); }
+Node NFkB { rate_up = 0.2 + (Inflammaging ? 2 : 0.0) + (hyperammonemia ? 1.5 : 0.0) + (TNF ? 1 : 0.0); rate_down = 0.5 + (SIRT1 ? 1 : 0.0) + (SIRT6 ? 1 : 0.0); }
+Node GLP1R { rate_up = 0.1 + (Semaglutide ? 2 : 0.0); rate_down = 1; }
+Node Body_weight { rate_up = (Nutrients ? 1 : 0.0); rate_down = 0.3 + (GLP1R ? 2 : 0.0) + (DR ? 1 : 0.0); }
+Node GDF15 { rate_up = 0.2 + (Metformin ? 2 : 0.0); rate_down = 1; }
+Node Insulin_sensitivity { rate_up = 0.3 + (DR ? 1 : 0.0) + (FGF21R ? 1 : 0.0) + (Metformin ? 1 : 0.0) + (NMN_supp ? 1 : 0.0); rate_down = 0.3 + (S6K1 ? 1 : 0.0) + (mTORC2 ? 0.0 : 1) + (Insulin_resistance ? 1 : 0.0); }
+Node Infection_susceptibility { rate_up = 0.1 + (DR ? 1 : 0.0); rate_down = 1; }
+Node Impaired_wound_healing { rate_up = 0.1 + (DR ? 0.3 : 0.0) + (Rapamycin ? 2 : 0.0); rate_down = 1; }
+Node Cold_sensitivity { rate_up = 0.1 + (DR ? 1 : 0.0) + (FGF21R ? 0.5 : 0.0); rate_down = 1; }
+Node Vaccine_response { rate_up = 0.5 + (Rapamycin ? 1 : 0.0); rate_down = 1; }
+Node Testosterone { rate_up = 0.1 + (Exercise ? 1.5 : 0.0); rate_down = 1; }
+Node VDR { rate_up = 0.2 + (Vitamin_D ? 1 : 0.0); rate_down = 1; }
+Node Vitamin_D { rate_up = 0.3; rate_down = 1; }
+Node Mito_dysfunction { rate_up = 0.12 + (ROS ? 1 : 0.0) + (hyperammonemia ? 1.5 : 0.0); rate_down = 0.5 + (PGC1A ? 2.5 : 0.0); }
+Node MSTN { rate_up = 0.1 + (NFkB ? 1.5 : 0.0); rate_down = 0.3 + (FST ? 2 : 0.0) + (Testosterone ? 1 : 0.0) + (DCN ? 1 : 0.0); }
+Node ACVR2 { rate_up = (MSTN ? 1 : 0.0); rate_down = 0.5; }
+Node smad2_3 { rate_up = 0.1 + (ACVR2 ? 1.5 : 0.0); rate_down = 0.5; }
+Node TRIM63 { rate_up = 0.08 + (NFkB ? 1 : 0.0) + (FOXO3 ? 1 : 0.0); rate_down = 1.0; }
+Node UPS { rate_up = 0.08 + (NFkB ? 1 : 0.0) + (TRIM63 ? 1 : 0.0) + (smad2_3 ? 1 : 0.0) + (glucocorticoids ? 1.5 : 0.0); rate_down = 1.3 + (IL15 ? 1 : 0.0); }
+Node Proteolysis { rate_up = 0.05 + (UPS ? 1.5 : 0.0) + (Autophagy ? 0.5 : 0.0) + (FOXO3 ? 1.2 : 0.0); rate_down = 2.0 + (FNDC5 ? 1.0 : 0.0); }
+Node TNF { rate_up = 0.1 + (LEP ? 1 : 0.0) + (Inflammaging ? 1.5 : 0.0); rate_down = 0.5; }
+Node IL6 { rate_up = 0.1 + (LEP ? 1 : 0.0) + (Inflammaging ? 1 : 0.0); rate_down = 0.3 + (Omega3_PUFA ? 1 : 0.0); }
+Node FNDC5 { rate_up = 0.1 + (Exercise ? 1.5 : 0.0); rate_down = 1; }
+Node METRNL { rate_up = 0.1 + (Exercise ? 1.5 : 0.0); rate_down = 1; }
+Node IL10 { rate_up = 0.1 + (METRNL ? 1 : 0.0); rate_down = 1; }
+Node IL15 { rate_up = 0.1 + (Exercise ? 1 : 0.0); rate_down = 1; }
+Node DCN { rate_up = 0.1 + (Exercise ? 1.5 : 0.0); rate_down = 1; }
+Node Insulin_resistance { rate_up = 0.1 + (FGL1 ? 1 : 0.0) + (TNF ? 1 : 0.0) + (NFkB ? 1 : 0.0); rate_down = 0.3 + (ADIPOQ ? 1.5 : 0.0) + (Insulin_sensitivity ? 1 : 0.0); }
+Node Anabolism { rate_up = 0.3 + (Protein_synthesis ? 2.4 : 0.0); rate_down = 0.3 + (Proteolysis ? 0.8 : 0.0); }
+Node Catabolism { rate_up = 0.05 + (Proteolysis ? 1.2 : 0.0) + (MSTN ? 1.3 : 0.0) + (Mito_dysfunction ? 0.9 : 0.0); rate_down = 0.3 + (Anabolism ? 1.6 : 0.0); }
+Node Sarcopenia { rate_up = 0.05 + (Catabolism ? 3.4 : 0.0); rate_down = 0.05 + (Anabolism ? 3.4 : 0.0); }
+Node Aging_nutrient_sensing { rate_up = 0.05 + (mTOR ? 1.0 : 0.0) + (IGF1 ? 0.7 : 0.0) + (Insulin_resistance ? 0.8 : 0.0); rate_down = 0.3 + (AMPK ? 1.2 : 0.0); }
+Node Aging_mito { rate_up = 0.05 + (Mito_dysfunction ? 1.2 : 0.0) + (ROS ? 0.8 : 0.0); rate_down = 0.3 + (Mito_biogenesis ? 1.3 : 0.0); }
+Node Aging_NAD { rate_up = 0.05 + (CD38 ? 1.3 : 0.0); rate_down = 0.3 + (NAD ? 1.4 : 0.0); }
+Node Aging_inflammation { rate_up = 0.05 + (NFkB ? 1.0 : 0.0) + (IL6 ? 1.0 : 0.0) + (TNF ? 1.0 : 0.0); rate_down = 0.5; }
+Node Aging_senescence_genomic { rate_up = 0.05 + (p53 ? 1.0 : 0.0) + (PARP1 ? 1.0 : 0.0) + (DNA_damage ? 1.0 : 0.0); rate_down = 0.5; }
+Node Aging_proteostasis { rate_up = 0.05 + (Proteolysis ? 1.3 : 0.0); rate_down = 0.3 + (Autophagy ? 1.0 : 0.0) + (Protein_synthesis ? 0.6 : 0.0); }
+Node Aging_secretory { rate_up = 0.05 + (GDF15 ? 1.3 : 0.0) + (MSTN ? 0.8 : 0.0); rate_down = 0.5; }
+Node Aging_index { rate_up = 0.05 + (Aging_nutrient_sensing ? 0.7 : 0.0) + (Aging_mito ? 0.7 : 0.0) + (Aging_NAD ? 0.7 : 0.0) + (Aging_inflammation ? 0.7 : 0.0) + (Aging_senescence_genomic ? 0.7 : 0.0) + (Aging_proteostasis ? 0.7 : 0.0) + (Aging_secretory ? 0.7 : 0.0); rate_down = 2.3; }

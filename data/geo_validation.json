@@ -1,0 +1,1806 @@
+{
+ "dataset_target": "GSE40279 (simulation pending real matrix)",
+ "n": 60,
+ "cohort": [
+  {
+   "age": 73.08109920469357,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.7511742528769226,
+    "immune_aging": 0.47161566196933646,
+    "nad_depletion": 0.614794646727652,
+    "hepatic": 0.40190338492872335,
+    "adiposity_lep": 0.5571803030866517,
+    "adiponectin": 0.5671086326664512,
+    "damage_smoke": 0.2293347235199925
+   },
+   "readout": {
+    "Aging_index": 0.542,
+    "Aging_nutrient_sensing": 0.552,
+    "Aging_mito": 0.635,
+    "Aging_NAD": 0.641,
+    "Aging_inflammation": 0.815,
+    "Aging_senescence_genomic": 0.465,
+    "Aging_proteostasis": 0.374,
+    "Aging_secretory": 0.603,
+    "Sarcopenia": 0.585,
+    "Anabolism": 0.513,
+    "Catabolism": 0.689,
+    "MSTN": 0.709,
+    "Insulin_resistance": 0.599,
+    "IL6": 0.836,
+    "NAD": 0.211
+   }
+  },
+  {
+   "age": 50.96597702363545,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.3899404450828416,
+    "immune_aging": 0.5458880089973425,
+    "nad_depletion": 0.4424661412167959,
+    "hepatic": 0.09135838160060653,
+    "adiposity_lep": 0.18448252154690334,
+    "adiponectin": 0.401489382015346,
+    "damage_smoke": 0.7997160744053764
+   },
+   "readout": {
+    "Aging_index": 0.53,
+    "Aging_nutrient_sensing": 0.528,
+    "Aging_mito": 0.626,
+    "Aging_NAD": 0.542,
+    "Aging_inflammation": 0.784,
+    "Aging_senescence_genomic": 0.741,
+    "Aging_proteostasis": 0.354,
+    "Aging_secretory": 0.608,
+    "Sarcopenia": 0.563,
+    "Anabolism": 0.52,
+    "Catabolism": 0.621,
+    "MSTN": 0.655,
+    "Insulin_resistance": 0.586,
+    "IL6": 0.708,
+    "NAD": 0.213
+   }
+  },
+  {
+   "age": 78.66746271415124,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.7657222086094287,
+    "immune_aging": 0.6805475078871931,
+    "nad_depletion": 0.7218887290505023,
+    "hepatic": 0.4952705421557487,
+    "adiposity_lep": 0.4119389448907892,
+    "adiponectin": 0.5089896330830715,
+    "damage_smoke": 0.08380740589333487
+   },
+   "readout": {
+    "Aging_index": 0.537,
+    "Aging_nutrient_sensing": 0.55,
+    "Aging_mito": 0.652,
+    "Aging_NAD": 0.633,
+    "Aging_inflammation": 0.839,
+    "Aging_senescence_genomic": 0.384,
+    "Aging_proteostasis": 0.36,
+    "Aging_secretory": 0.59,
+    "Sarcopenia": 0.566,
+    "Anabolism": 0.506,
+    "Catabolism": 0.675,
+    "MSTN": 0.722,
+    "Insulin_resistance": 0.611,
+    "IL6": 0.834,
+    "NAD": 0.225
+   }
+  },
+  {
+   "age": 68.02628991791802,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.545845366302355,
+    "immune_aging": 0.4773448373876032,
+    "nad_depletion": 0.6700906112764243,
+    "hepatic": 0.28541660576066863,
+    "adiposity_lep": 0.43946691256503523,
+    "adiponectin": 0.5505895348433221,
+    "damage_smoke": 0.7946531176029944
+   },
+   "readout": {
+    "Aging_index": 0.557,
+    "Aging_nutrient_sensing": 0.53,
+    "Aging_mito": 0.639,
+    "Aging_NAD": 0.64,
+    "Aging_inflammation": 0.828,
+    "Aging_senescence_genomic": 0.731,
+    "Aging_proteostasis": 0.37,
+    "Aging_secretory": 0.588,
+    "Sarcopenia": 0.57,
+    "Anabolism": 0.523,
+    "Catabolism": 0.659,
+    "MSTN": 0.735,
+    "Insulin_resistance": 0.601,
+    "IL6": 0.816,
+    "NAD": 0.178
+   }
+  },
+  {
+   "age": 28.21570496058487,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.2386020700924538,
+    "immune_aging": 0.15488226857222948,
+    "nad_depletion": 0.26085414292481673,
+    "hepatic": 0.03,
+    "adiposity_lep": 0.06299319770837247,
+    "adiponectin": 0.42225325471617936,
+    "damage_smoke": 0.05027531723985182
+   },
+   "readout": {
+    "Aging_index": 0.503,
+    "Aging_nutrient_sensing": 0.497,
+    "Aging_mito": 0.565,
+    "Aging_NAD": 0.325,
+    "Aging_inflammation": 0.657,
+    "Aging_senescence_genomic": 0.41,
+    "Aging_proteostasis": 0.365,
+    "Aging_secretory": 0.561,
+    "Sarcopenia": 0.567,
+    "Anabolism": 0.53,
+    "Catabolism": 0.601,
+    "MSTN": 0.597,
+    "Insulin_resistance": 0.469,
+    "IL6": 0.489,
+    "NAD": 0.357
+   }
+  },
+  {
+   "age": 86.3910752080259,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.640408872282729,
+    "immune_aging": 0.766984563541829,
+    "nad_depletion": 0.9249737546602642,
+    "hepatic": 0.3810935838037542,
+    "adiposity_lep": 0.622441588632721,
+    "adiponectin": 0.27284636511271165,
+    "damage_smoke": 0.12945624421323698
+   },
+   "readout": {
+    "Aging_index": 0.556,
+    "Aging_nutrient_sensing": 0.577,
+    "Aging_mito": 0.63,
+    "Aging_NAD": 0.646,
+    "Aging_inflammation": 0.847,
+    "Aging_senescence_genomic": 0.401,
+    "Aging_proteostasis": 0.366,
+    "Aging_secretory": 0.607,
+    "Sarcopenia": 0.569,
+    "Anabolism": 0.532,
+    "Catabolism": 0.646,
+    "MSTN": 0.736,
+    "Insulin_resistance": 0.7,
+    "IL6": 0.849,
+    "NAD": 0.212
+   }
+  },
+  {
+   "age": 72.2352203313633,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.5870464908750466,
+    "immune_aging": 0.7655757028076761,
+    "nad_depletion": 0.44045200920003225,
+    "hepatic": 0.43902877652343564,
+    "adiposity_lep": 0.492035895080848,
+    "adiponectin": 0.37432314831918334,
+    "damage_smoke": 0.6053942145611545
+   },
+   "readout": {
+    "Aging_index": 0.577,
+    "Aging_nutrient_sensing": 0.576,
+    "Aging_mito": 0.631,
+    "Aging_NAD": 0.643,
+    "Aging_inflammation": 0.835,
+    "Aging_senescence_genomic": 0.636,
+    "Aging_proteostasis": 0.388,
+    "Aging_secretory": 0.597,
+    "Sarcopenia": 0.577,
+    "Anabolism": 0.529,
+    "Catabolism": 0.677,
+    "MSTN": 0.743,
+    "Insulin_resistance": 0.671,
+    "IL6": 0.828,
+    "NAD": 0.181
+   }
+  },
+  {
+   "age": 73.88024414827896,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.5782915390404493,
+    "immune_aging": 0.7098151200517594,
+    "nad_depletion": 0.6644529215909187,
+    "hepatic": 0.62118216576219,
+    "adiposity_lep": 0.4108595417642241,
+    "adiponectin": 0.3040459327200097,
+    "damage_smoke": 0.16792756349563162
+   },
+   "readout": {
+    "Aging_index": 0.55,
+    "Aging_nutrient_sensing": 0.577,
+    "Aging_mito": 0.673,
+    "Aging_NAD": 0.638,
+    "Aging_inflammation": 0.841,
+    "Aging_senescence_genomic": 0.418,
+    "Aging_proteostasis": 0.342,
+    "Aging_secretory": 0.59,
+    "Sarcopenia": 0.549,
+    "Anabolism": 0.531,
+    "Catabolism": 0.644,
+    "MSTN": 0.733,
+    "Insulin_resistance": 0.679,
+    "IL6": 0.826,
+    "NAD": 0.211
+   }
+  },
+  {
+   "age": 30.45549975658603,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.43272107837101836,
+    "immune_aging": 0.329249275542718,
+    "nad_depletion": 0.3324430964401071,
+    "hepatic": 0.4143047183540173,
+    "adiposity_lep": 0.11589550666927548,
+    "adiponectin": 0.516696199528302,
+    "damage_smoke": 0.6573424058594475
+   },
+   "readout": {
+    "Aging_index": 0.532,
+    "Aging_nutrient_sensing": 0.518,
+    "Aging_mito": 0.661,
+    "Aging_NAD": 0.506,
+    "Aging_inflammation": 0.764,
+    "Aging_senescence_genomic": 0.677,
+    "Aging_proteostasis": 0.396,
+    "Aging_secretory": 0.602,
+    "Sarcopenia": 0.578,
+    "Anabolism": 0.497,
+    "Catabolism": 0.645,
+    "MSTN": 0.667,
+    "Insulin_resistance": 0.535,
+    "IL6": 0.664,
+    "NAD": 0.215
+   }
+  },
+  {
+   "age": 51.725471901107426,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.28673027858844946,
+    "immune_aging": 0.5270694634435631,
+    "nad_depletion": 0.44526589264335376,
+    "hepatic": 0.06534536397220458,
+    "adiposity_lep": 0.20783997081437802,
+    "adiponectin": 0.5837218203278599,
+    "damage_smoke": 0.2338126567894381
+   },
+   "readout": {
+    "Aging_index": 0.516,
+    "Aging_nutrient_sensing": 0.51,
+    "Aging_mito": 0.586,
+    "Aging_NAD": 0.486,
+    "Aging_inflammation": 0.779,
+    "Aging_senescence_genomic": 0.505,
+    "Aging_proteostasis": 0.362,
+    "Aging_secretory": 0.578,
+    "Sarcopenia": 0.565,
+    "Anabolism": 0.51,
+    "Catabolism": 0.628,
+    "MSTN": 0.62,
+    "Insulin_resistance": 0.499,
+    "IL6": 0.679,
+    "NAD": 0.276
+   }
+  },
+  {
+   "age": 46.47266959935036,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.7565720924867398,
+    "immune_aging": 0.4458012578149162,
+    "nad_depletion": 0.30816402216203664,
+    "hepatic": 0.03,
+    "adiposity_lep": 0.4238242620771772,
+    "adiponectin": 0.43351358713434274,
+    "damage_smoke": 0.10846427398203146
+   },
+   "readout": {
+    "Aging_index": 0.546,
+    "Aging_nutrient_sensing": 0.555,
+    "Aging_mito": 0.608,
+    "Aging_NAD": 0.638,
+    "Aging_inflammation": 0.839,
+    "Aging_senescence_genomic": 0.431,
+    "Aging_proteostasis": 0.38,
+    "Aging_secretory": 0.603,
+    "Sarcopenia": 0.562,
+    "Anabolism": 0.517,
+    "Catabolism": 0.656,
+    "MSTN": 0.728,
+    "Insulin_resistance": 0.613,
+    "IL6": 0.839,
+    "NAD": 0.205
+   }
+  },
+  {
+   "age": 83.16648926400772,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.7045321444643856,
+    "immune_aging": 0.9066538728763119,
+    "nad_depletion": 0.7602728789277933,
+    "hepatic": 0.3969182998613727,
+    "adiposity_lep": 0.2940580081028046,
+    "adiponectin": 0.1732029537800332,
+    "damage_smoke": 0.1013692090926669
+   },
+   "readout": {
+    "Aging_index": 0.555,
+    "Aging_nutrient_sensing": 0.585,
+    "Aging_mito": 0.621,
+    "Aging_NAD": 0.643,
+    "Aging_inflammation": 0.823,
+    "Aging_senescence_genomic": 0.386,
+    "Aging_proteostasis": 0.37,
+    "Aging_secretory": 0.576,
+    "Sarcopenia": 0.567,
+    "Anabolism": 0.523,
+    "Catabolism": 0.633,
+    "MSTN": 0.723,
+    "Insulin_resistance": 0.724,
+    "IL6": 0.817,
+    "NAD": 0.19
+   }
+  },
+  {
+   "age": 64.49509792532386,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.5950689656798042,
+    "immune_aging": 0.7961718965651061,
+    "nad_depletion": 0.5970194962223794,
+    "hepatic": 0.4881042034762752,
+    "adiposity_lep": 0.33725564347816367,
+    "adiponectin": 0.3133473710184326,
+    "damage_smoke": 0.0534883237767628
+   },
+   "readout": {
+    "Aging_index": 0.558,
+    "Aging_nutrient_sensing": 0.565,
+    "Aging_mito": 0.661,
+    "Aging_NAD": 0.652,
+    "Aging_inflammation": 0.841,
+    "Aging_senescence_genomic": 0.378,
+    "Aging_proteostasis": 0.38,
+    "Aging_secretory": 0.593,
+    "Sarcopenia": 0.559,
+    "Anabolism": 0.52,
+    "Catabolism": 0.645,
+    "MSTN": 0.727,
+    "Insulin_resistance": 0.687,
+    "IL6": 0.805,
+    "NAD": 0.217
+   }
+  },
+  {
+   "age": 76.30226647587477,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.9180072233997179,
+    "immune_aging": 0.6085858060271963,
+    "nad_depletion": 0.7832095599558596,
+    "hepatic": 0.2558563510406951,
+    "adiposity_lep": 0.6285467608198633,
+    "adiponectin": 0.5066631217877553,
+    "damage_smoke": 0.13433621023419096
+   },
+   "readout": {
+    "Aging_index": 0.534,
+    "Aging_nutrient_sensing": 0.572,
+    "Aging_mito": 0.63,
+    "Aging_NAD": 0.636,
+    "Aging_inflammation": 0.824,
+    "Aging_senescence_genomic": 0.417,
+    "Aging_proteostasis": 0.379,
+    "Aging_secretory": 0.595,
+    "Sarcopenia": 0.551,
+    "Anabolism": 0.547,
+    "Catabolism": 0.651,
+    "MSTN": 0.716,
+    "Insulin_resistance": 0.624,
+    "IL6": 0.848,
+    "NAD": 0.208
+   }
+  },
+  {
+   "age": 51.26533712260385,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.36941408045650626,
+    "immune_aging": 0.49958146559928984,
+    "nad_depletion": 0.4133905862671395,
+    "hepatic": 0.10015343738892932,
+    "adiposity_lep": 0.15930077125847952,
+    "adiponectin": 0.5642262693633042,
+    "damage_smoke": 0.3079091256410435
+   },
+   "readout": {
+    "Aging_index": 0.502,
+    "Aging_nutrient_sensing": 0.519,
+    "Aging_mito": 0.585,
+    "Aging_NAD": 0.524,
+    "Aging_inflammation": 0.774,
+    "Aging_senescence_genomic": 0.54,
+    "Aging_proteostasis": 0.374,
+    "Aging_secretory": 0.592,
+    "Sarcopenia": 0.568,
+    "Anabolism": 0.505,
+    "Catabolism": 0.626,
+    "MSTN": 0.641,
+    "Insulin_resistance": 0.528,
+    "IL6": 0.683,
+    "NAD": 0.235
+   }
+  },
+  {
+   "age": 36.99775563779527,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.31145844919077353,
+    "immune_aging": 0.33156144554645584,
+    "nad_depletion": 0.5024152573287785,
+    "hepatic": 0.25575489936655815,
+    "adiposity_lep": 0.27459811455791383,
+    "adiponectin": 0.7552370363740002,
+    "damage_smoke": 0.19287564384616135
+   },
+   "readout": {
+    "Aging_index": 0.5,
+    "Aging_nutrient_sensing": 0.478,
+    "Aging_mito": 0.626,
+    "Aging_NAD": 0.456,
+    "Aging_inflammation": 0.777,
+    "Aging_senescence_genomic": 0.463,
+    "Aging_proteostasis": 0.366,
+    "Aging_secretory": 0.589,
+    "Sarcopenia": 0.577,
+    "Anabolism": 0.487,
+    "Catabolism": 0.621,
+    "MSTN": 0.666,
+    "Insulin_resistance": 0.484,
+    "IL6": 0.672,
+    "NAD": 0.295
+   }
+  },
+  {
+   "age": 58.602595943045095,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.5328675262641581,
+    "immune_aging": 0.37563364531386734,
+    "nad_depletion": 0.3667002898880496,
+    "hepatic": 0.5630788867334522,
+    "adiposity_lep": 0.7205529610068366,
+    "adiponectin": 0.485205703925306,
+    "damage_smoke": 0.11168126788640122
+   },
+   "readout": {
+    "Aging_index": 0.534,
+    "Aging_nutrient_sensing": 0.598,
+    "Aging_mito": 0.666,
+    "Aging_NAD": 0.551,
+    "Aging_inflammation": 0.827,
+    "Aging_senescence_genomic": 0.434,
+    "Aging_proteostasis": 0.36,
+    "Aging_secretory": 0.588,
+    "Sarcopenia": 0.562,
+    "Anabolism": 0.538,
+    "Catabolism": 0.641,
+    "MSTN": 0.708,
+    "Insulin_resistance": 0.619,
+    "IL6": 0.826,
+    "NAD": 0.256
+   }
+  },
+  {
+   "age": 26.211938902875573,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.1003997087508578,
+    "immune_aging": 0.07741440628386038,
+    "nad_depletion": 0.3304444059587617,
+    "hepatic": 0.11743182686909973,
+    "adiposity_lep": 0.31682646085574595,
+    "adiponectin": 0.6032980691396246,
+    "damage_smoke": 0.18375745487989337
+   },
+   "readout": {
+    "Aging_index": 0.477,
+    "Aging_nutrient_sensing": 0.519,
+    "Aging_mito": 0.539,
+    "Aging_NAD": 0.27,
+    "Aging_inflammation": 0.663,
+    "Aging_senescence_genomic": 0.457,
+    "Aging_proteostasis": 0.354,
+    "Aging_secretory": 0.532,
+    "Sarcopenia": 0.531,
+    "Anabolism": 0.542,
+    "Catabolism": 0.544,
+    "MSTN": 0.538,
+    "Insulin_resistance": 0.438,
+    "IL6": 0.534,
+    "NAD": 0.38
+   }
+  },
+  {
+   "age": 76.62365735151042,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.6762158232697273,
+    "immune_aging": 0.787776510430403,
+    "nad_depletion": 0.43932498231779515,
+    "hepatic": 0.3853650569312413,
+    "adiposity_lep": 0.31000042949445583,
+    "adiponectin": 0.26495069325249004,
+    "damage_smoke": 0.662184763307125
+   },
+   "readout": {
+    "Aging_index": 0.573,
+    "Aging_nutrient_sensing": 0.552,
+    "Aging_mito": 0.659,
+    "Aging_NAD": 0.634,
+    "Aging_inflammation": 0.846,
+    "Aging_senescence_genomic": 0.664,
+    "Aging_proteostasis": 0.379,
+    "Aging_secretory": 0.584,
+    "Sarcopenia": 0.565,
+    "Anabolism": 0.543,
+    "Catabolism": 0.645,
+    "MSTN": 0.726,
+    "Insulin_resistance": 0.695,
+    "IL6": 0.81,
+    "NAD": 0.169
+   }
+  },
+  {
+   "age": 63.68985034205628,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.6643927365860611,
+    "immune_aging": 0.4164555988669821,
+    "nad_depletion": 0.5781602106146697,
+    "hepatic": 0.264616800751633,
+    "adiposity_lep": 0.36584698684929357,
+    "adiponectin": 0.6443784940026325,
+    "damage_smoke": 0.20381154370039262
+   },
+   "readout": {
+    "Aging_index": 0.537,
+    "Aging_nutrient_sensing": 0.528,
+    "Aging_mito": 0.638,
+    "Aging_NAD": 0.647,
+    "Aging_inflammation": 0.832,
+    "Aging_senescence_genomic": 0.47,
+    "Aging_proteostasis": 0.385,
+    "Aging_secretory": 0.595,
+    "Sarcopenia": 0.56,
+    "Anabolism": 0.493,
+    "Catabolism": 0.659,
+    "MSTN": 0.719,
+    "Insulin_resistance": 0.584,
+    "IL6": 0.817,
+    "NAD": 0.214
+   }
+  },
+  {
+   "age": 72.03379084563467,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.6074632400240234,
+    "immune_aging": 0.5791249911325628,
+    "nad_depletion": 0.6191408635083515,
+    "hepatic": 0.409376479457689,
+    "adiposity_lep": 0.4804511783663385,
+    "adiponectin": 0.30150682185915695,
+    "damage_smoke": 0.1590489781627874
+   },
+   "readout": {
+    "Aging_index": 0.56,
+    "Aging_nutrient_sensing": 0.563,
+    "Aging_mito": 0.624,
+    "Aging_NAD": 0.657,
+    "Aging_inflammation": 0.845,
+    "Aging_senescence_genomic": 0.415,
+    "Aging_proteostasis": 0.353,
+    "Aging_secretory": 0.603,
+    "Sarcopenia": 0.576,
+    "Anabolism": 0.518,
+    "Catabolism": 0.661,
+    "MSTN": 0.732,
+    "Insulin_resistance": 0.673,
+    "IL6": 0.845,
+    "NAD": 0.217
+   }
+  },
+  {
+   "age": 45.39871389657131,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.6998001464746817,
+    "immune_aging": 0.6100936554180441,
+    "nad_depletion": 0.3153140599035529,
+    "hepatic": 0.2157441267529292,
+    "adiposity_lep": 0.1091481936595432,
+    "adiponectin": 0.4706842554177223,
+    "damage_smoke": 0.18156050035903404
+   },
+   "readout": {
+    "Aging_index": 0.532,
+    "Aging_nutrient_sensing": 0.498,
+    "Aging_mito": 0.63,
+    "Aging_NAD": 0.629,
+    "Aging_inflammation": 0.85,
+    "Aging_senescence_genomic": 0.468,
+    "Aging_proteostasis": 0.37,
+    "Aging_secretory": 0.591,
+    "Sarcopenia": 0.57,
+    "Anabolism": 0.502,
+    "Catabolism": 0.627,
+    "MSTN": 0.718,
+    "Insulin_resistance": 0.621,
+    "IL6": 0.794,
+    "NAD": 0.2
+   }
+  },
+  {
+   "age": 86.06606961006362,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.6587905361284552,
+    "immune_aging": 0.730477153125385,
+    "nad_depletion": 0.5086059130890497,
+    "hepatic": 0.408740410247108,
+    "adiposity_lep": 0.29752560475117473,
+    "adiponectin": 0.3346338372877189,
+    "damage_smoke": 0.6623139221832411
+   },
+   "readout": {
+    "Aging_index": 0.562,
+    "Aging_nutrient_sensing": 0.557,
+    "Aging_mito": 0.655,
+    "Aging_NAD": 0.64,
+    "Aging_inflammation": 0.84,
+    "Aging_senescence_genomic": 0.673,
+    "Aging_proteostasis": 0.392,
+    "Aging_secretory": 0.597,
+    "Sarcopenia": 0.558,
+    "Anabolism": 0.528,
+    "Catabolism": 0.653,
+    "MSTN": 0.721,
+    "Insulin_resistance": 0.674,
+    "IL6": 0.814,
+    "NAD": 0.174
+   }
+  },
+  {
+   "age": 80.94599400726506,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.49146682738519054,
+    "immune_aging": 0.579534222343131,
+    "nad_depletion": 0.97,
+    "hepatic": 0.21808372998288847,
+    "adiposity_lep": 0.2767100073274936,
+    "adiponectin": 0.7078727649365362,
+    "damage_smoke": 0.44050671692404064
+   },
+   "readout": {
+    "Aging_index": 0.548,
+    "Aging_nutrient_sensing": 0.491,
+    "Aging_mito": 0.655,
+    "Aging_NAD": 0.648,
+    "Aging_inflammation": 0.833,
+    "Aging_senescence_genomic": 0.578,
+    "Aging_proteostasis": 0.371,
+    "Aging_secretory": 0.6,
+    "Sarcopenia": 0.576,
+    "Anabolism": 0.491,
+    "Catabolism": 0.642,
+    "MSTN": 0.711,
+    "Insulin_resistance": 0.569,
+    "IL6": 0.806,
+    "NAD": 0.193
+   }
+  },
+  {
+   "age": 73.37331080686829,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.5932956463871646,
+    "immune_aging": 0.7175940502416305,
+    "nad_depletion": 0.8649292385303994,
+    "hepatic": 0.23071419883662847,
+    "adiposity_lep": 0.40834516146432964,
+    "adiponectin": 0.5759816692418749,
+    "damage_smoke": 0.7934766074466618
+   },
+   "readout": {
+    "Aging_index": 0.543,
+    "Aging_nutrient_sensing": 0.508,
+    "Aging_mito": 0.655,
+    "Aging_NAD": 0.618,
+    "Aging_inflammation": 0.833,
+    "Aging_senescence_genomic": 0.73,
+    "Aging_proteostasis": 0.373,
+    "Aging_secretory": 0.581,
+    "Sarcopenia": 0.566,
+    "Anabolism": 0.528,
+    "Catabolism": 0.654,
+    "MSTN": 0.724,
+    "Insulin_resistance": 0.589,
+    "IL6": 0.82,
+    "NAD": 0.169
+   }
+  },
+  {
+   "age": 34.84615471822986,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.2911939989857596,
+    "immune_aging": 0.10983668791428505,
+    "nad_depletion": 0.29867190545072475,
+    "hepatic": 0.173668253862499,
+    "adiposity_lep": 0.38420816504195426,
+    "adiponectin": 0.5136789360406124,
+    "damage_smoke": 0.1971538522545139
+   },
+   "readout": {
+    "Aging_index": 0.497,
+    "Aging_nutrient_sensing": 0.526,
+    "Aging_mito": 0.571,
+    "Aging_NAD": 0.382,
+    "Aging_inflammation": 0.728,
+    "Aging_senescence_genomic": 0.45,
+    "Aging_proteostasis": 0.375,
+    "Aging_secretory": 0.565,
+    "Sarcopenia": 0.561,
+    "Anabolism": 0.53,
+    "Catabolism": 0.609,
+    "MSTN": 0.599,
+    "Insulin_resistance": 0.514,
+    "IL6": 0.636,
+    "NAD": 0.331
+   }
+  },
+  {
+   "age": 52.803586245984256,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.4798251157143667,
+    "immune_aging": 0.5043053112874545,
+    "nad_depletion": 0.4875522381034949,
+    "hepatic": 0.2905994571607875,
+    "adiposity_lep": 0.26384408609367105,
+    "adiponectin": 0.5803184740867667,
+    "damage_smoke": 0.14027134015865106
+   },
+   "readout": {
+    "Aging_index": 0.509,
+    "Aging_nutrient_sensing": 0.511,
+    "Aging_mito": 0.619,
+    "Aging_NAD": 0.572,
+    "Aging_inflammation": 0.826,
+    "Aging_senescence_genomic": 0.442,
+    "Aging_proteostasis": 0.345,
+    "Aging_secretory": 0.578,
+    "Sarcopenia": 0.555,
+    "Anabolism": 0.514,
+    "Catabolism": 0.607,
+    "MSTN": 0.681,
+    "Insulin_resistance": 0.565,
+    "IL6": 0.759,
+    "NAD": 0.252
+   }
+  },
+  {
+   "age": 24.891048541957097,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.4107258615138042,
+    "immune_aging": 0.2173082353871898,
+    "nad_depletion": 0.15035640805340306,
+    "hepatic": 0.03,
+    "adiposity_lep": 0.5283801559615874,
+    "adiponectin": 0.6719443532650812,
+    "damage_smoke": 0.7980143403391611
+   },
+   "readout": {
+    "Aging_index": 0.513,
+    "Aging_nutrient_sensing": 0.477,
+    "Aging_mito": 0.616,
+    "Aging_NAD": 0.424,
+    "Aging_inflammation": 0.738,
+    "Aging_senescence_genomic": 0.723,
+    "Aging_proteostasis": 0.387,
+    "Aging_secretory": 0.547,
+    "Sarcopenia": 0.548,
+    "Anabolism": 0.547,
+    "Catabolism": 0.631,
+    "MSTN": 0.619,
+    "Insulin_resistance": 0.477,
+    "IL6": 0.71,
+    "NAD": 0.249
+   }
+  },
+  {
+   "age": 32.18310647645816,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.3957192447280516,
+    "immune_aging": 0.30158283669735864,
+    "nad_depletion": 0.17117494481133255,
+    "hepatic": 0.1314845923530426,
+    "adiposity_lep": 0.38227797243119677,
+    "adiponectin": 0.6143589251946575,
+    "damage_smoke": 0.7207828814196445
+   },
+   "readout": {
+    "Aging_index": 0.517,
+    "Aging_nutrient_sensing": 0.476,
+    "Aging_mito": 0.643,
+    "Aging_NAD": 0.446,
+    "Aging_inflammation": 0.754,
+    "Aging_senescence_genomic": 0.682,
+    "Aging_proteostasis": 0.384,
+    "Aging_secretory": 0.567,
+    "Sarcopenia": 0.579,
+    "Anabolism": 0.492,
+    "Catabolism": 0.634,
+    "MSTN": 0.619,
+    "Insulin_resistance": 0.501,
+    "IL6": 0.688,
+    "NAD": 0.254
+   }
+  },
+  {
+   "age": 67.081230914002,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.5533161224494767,
+    "immune_aging": 0.6292974809840315,
+    "nad_depletion": 0.7801324445934819,
+    "hepatic": 0.03,
+    "adiposity_lep": 0.3918847549996911,
+    "adiponectin": 0.5083296099415742,
+    "damage_smoke": 0.77959939896871
+   },
+   "readout": {
+    "Aging_index": 0.557,
+    "Aging_nutrient_sensing": 0.513,
+    "Aging_mito": 0.661,
+    "Aging_NAD": 0.651,
+    "Aging_inflammation": 0.836,
+    "Aging_senescence_genomic": 0.73,
+    "Aging_proteostasis": 0.385,
+    "Aging_secretory": 0.59,
+    "Sarcopenia": 0.576,
+    "Anabolism": 0.518,
+    "Catabolism": 0.66,
+    "MSTN": 0.708,
+    "Insulin_resistance": 0.604,
+    "IL6": 0.847,
+    "NAD": 0.14
+   }
+  },
+  {
+   "age": 71.15430228991593,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.40765883430184957,
+    "immune_aging": 0.6928257533548164,
+    "nad_depletion": 0.8457474738989817,
+    "hepatic": 0.13915351336221907,
+    "adiposity_lep": 0.6016441918654336,
+    "adiponectin": 0.4180272797818662,
+    "damage_smoke": 0.7438675654171153
+   },
+   "readout": {
+    "Aging_index": 0.557,
+    "Aging_nutrient_sensing": 0.542,
+    "Aging_mito": 0.641,
+    "Aging_NAD": 0.618,
+    "Aging_inflammation": 0.821,
+    "Aging_senescence_genomic": 0.739,
+    "Aging_proteostasis": 0.399,
+    "Aging_secretory": 0.591,
+    "Sarcopenia": 0.568,
+    "Anabolism": 0.526,
+    "Catabolism": 0.675,
+    "MSTN": 0.718,
+    "Insulin_resistance": 0.657,
+    "IL6": 0.841,
+    "NAD": 0.173
+   }
+  },
+  {
+   "age": 85.85564234065785,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.7043421936657909,
+    "immune_aging": 0.9627856214878784,
+    "nad_depletion": 0.8343955633870209,
+    "hepatic": 0.6920852079857396,
+    "adiposity_lep": 0.7000931181321501,
+    "adiponectin": 0.4806642791942299,
+    "damage_smoke": 0.3243934526167792
+   },
+   "readout": {
+    "Aging_index": 0.543,
+    "Aging_nutrient_sensing": 0.593,
+    "Aging_mito": 0.656,
+    "Aging_NAD": 0.656,
+    "Aging_inflammation": 0.843,
+    "Aging_senescence_genomic": 0.512,
+    "Aging_proteostasis": 0.385,
+    "Aging_secretory": 0.612,
+    "Sarcopenia": 0.562,
+    "Anabolism": 0.551,
+    "Catabolism": 0.685,
+    "MSTN": 0.71,
+    "Insulin_resistance": 0.659,
+    "IL6": 0.867,
+    "NAD": 0.214
+   }
+  },
+  {
+   "age": 43.504473637118025,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.4808254981052302,
+    "immune_aging": 0.3295295677914944,
+    "nad_depletion": 0.40945241479268774,
+    "hepatic": 0.14611988494975003,
+    "adiposity_lep": 0.5452807471902679,
+    "adiponectin": 0.3893099078287773,
+    "damage_smoke": 0.22823503424176614
+   },
+   "readout": {
+    "Aging_index": 0.53,
+    "Aging_nutrient_sensing": 0.584,
+    "Aging_mito": 0.618,
+    "Aging_NAD": 0.519,
+    "Aging_inflammation": 0.778,
+    "Aging_senescence_genomic": 0.486,
+    "Aging_proteostasis": 0.368,
+    "Aging_secretory": 0.592,
+    "Sarcopenia": 0.534,
+    "Anabolism": 0.547,
+    "Catabolism": 0.633,
+    "MSTN": 0.685,
+    "Insulin_resistance": 0.616,
+    "IL6": 0.778,
+    "NAD": 0.245
+   }
+  },
+  {
+   "age": 46.450340598301345,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.4151649076758968,
+    "immune_aging": 0.5363889174555065,
+    "nad_depletion": 0.5168214837760484,
+    "hepatic": 0.5364555262111688,
+    "adiposity_lep": 0.5071118461143884,
+    "adiponectin": 0.31972845951522344,
+    "damage_smoke": 0.1433046827101799
+   },
+   "readout": {
+    "Aging_index": 0.535,
+    "Aging_nutrient_sensing": 0.591,
+    "Aging_mito": 0.663,
+    "Aging_NAD": 0.555,
+    "Aging_inflammation": 0.809,
+    "Aging_senescence_genomic": 0.429,
+    "Aging_proteostasis": 0.333,
+    "Aging_secretory": 0.61,
+    "Sarcopenia": 0.536,
+    "Anabolism": 0.53,
+    "Catabolism": 0.624,
+    "MSTN": 0.699,
+    "Insulin_resistance": 0.667,
+    "IL6": 0.794,
+    "NAD": 0.239
+   }
+  },
+  {
+   "age": 52.99068354420332,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.40058370643778984,
+    "immune_aging": 0.645393111811327,
+    "nad_depletion": 0.5592813448294663,
+    "hepatic": 0.1865490794740594,
+    "adiposity_lep": 0.21178996988130916,
+    "adiponectin": 0.537093444130713,
+    "damage_smoke": 0.03
+   },
+   "readout": {
+    "Aging_index": 0.513,
+    "Aging_nutrient_sensing": 0.509,
+    "Aging_mito": 0.584,
+    "Aging_NAD": 0.586,
+    "Aging_inflammation": 0.82,
+    "Aging_senescence_genomic": 0.389,
+    "Aging_proteostasis": 0.364,
+    "Aging_secretory": 0.579,
+    "Sarcopenia": 0.577,
+    "Anabolism": 0.494,
+    "Catabolism": 0.635,
+    "MSTN": 0.669,
+    "Insulin_resistance": 0.569,
+    "IL6": 0.765,
+    "NAD": 0.238
+   }
+  },
+  {
+   "age": 34.50510969956286,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.3417706482966881,
+    "immune_aging": 0.4099050169139591,
+    "nad_depletion": 0.3973808883774716,
+    "hepatic": 0.03,
+    "adiposity_lep": 0.39622918179562633,
+    "adiponectin": 0.6090010727721622,
+    "damage_smoke": 0.7913890285372693
+   },
+   "readout": {
+    "Aging_index": 0.528,
+    "Aging_nutrient_sensing": 0.496,
+    "Aging_mito": 0.636,
+    "Aging_NAD": 0.491,
+    "Aging_inflammation": 0.769,
+    "Aging_senescence_genomic": 0.738,
+    "Aging_proteostasis": 0.392,
+    "Aging_secretory": 0.568,
+    "Sarcopenia": 0.566,
+    "Anabolism": 0.517,
+    "Catabolism": 0.648,
+    "MSTN": 0.635,
+    "Insulin_resistance": 0.506,
+    "IL6": 0.732,
+    "NAD": 0.213
+   }
+  },
+  {
+   "age": 30.574819352141127,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.03,
+    "immune_aging": 0.15934784793511048,
+    "nad_depletion": 0.3615500674678408,
+    "hepatic": 0.03,
+    "adiposity_lep": 0.5958845982271777,
+    "adiponectin": 0.6674862799331662,
+    "damage_smoke": 0.2346583985843404
+   },
+   "readout": {
+    "Aging_index": 0.478,
+    "Aging_nutrient_sensing": 0.516,
+    "Aging_mito": 0.562,
+    "Aging_NAD": 0.236,
+    "Aging_inflammation": 0.729,
+    "Aging_senescence_genomic": 0.496,
+    "Aging_proteostasis": 0.374,
+    "Aging_secretory": 0.538,
+    "Sarcopenia": 0.527,
+    "Anabolism": 0.571,
+    "Catabolism": 0.589,
+    "MSTN": 0.559,
+    "Insulin_resistance": 0.408,
+    "IL6": 0.671,
+    "NAD": 0.4
+   }
+  },
+  {
+   "age": 53.39652513091163,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.5639075724894735,
+    "immune_aging": 0.5964946345124773,
+    "nad_depletion": 0.5142012921099886,
+    "hepatic": 0.32828809875156856,
+    "adiposity_lep": 0.44408042630188677,
+    "adiponectin": 0.4012249062501227,
+    "damage_smoke": 0.1352471319759647
+   },
+   "readout": {
+    "Aging_index": 0.549,
+    "Aging_nutrient_sensing": 0.56,
+    "Aging_mito": 0.615,
+    "Aging_NAD": 0.65,
+    "Aging_inflammation": 0.847,
+    "Aging_senescence_genomic": 0.435,
+    "Aging_proteostasis": 0.351,
+    "Aging_secretory": 0.585,
+    "Sarcopenia": 0.557,
+    "Anabolism": 0.519,
+    "Catabolism": 0.647,
+    "MSTN": 0.733,
+    "Insulin_resistance": 0.654,
+    "IL6": 0.829,
+    "NAD": 0.219
+   }
+  },
+  {
+   "age": 36.97601703735835,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.37151598118549106,
+    "immune_aging": 0.41701451587597244,
+    "nad_depletion": 0.21848438762566255,
+    "hepatic": 0.20400300418359918,
+    "adiposity_lep": 0.615164904399639,
+    "adiponectin": 0.47783313340183564,
+    "damage_smoke": 0.667774998270968
+   },
+   "readout": {
+    "Aging_index": 0.535,
+    "Aging_nutrient_sensing": 0.559,
+    "Aging_mito": 0.615,
+    "Aging_NAD": 0.465,
+    "Aging_inflammation": 0.792,
+    "Aging_senescence_genomic": 0.671,
+    "Aging_proteostasis": 0.389,
+    "Aging_secretory": 0.574,
+    "Sarcopenia": 0.542,
+    "Anabolism": 0.55,
+    "Catabolism": 0.631,
+    "MSTN": 0.637,
+    "Insulin_resistance": 0.58,
+    "IL6": 0.77,
+    "NAD": 0.236
+   }
+  },
+  {
+   "age": 66.20772364904568,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.6773924255643443,
+    "immune_aging": 0.6032516732930412,
+    "nad_depletion": 0.7555414735585446,
+    "hepatic": 0.47655219873803195,
+    "adiposity_lep": 0.583549679608913,
+    "adiponectin": 0.5680898907377366,
+    "damage_smoke": 0.3827653100346085
+   },
+   "readout": {
+    "Aging_index": 0.54,
+    "Aging_nutrient_sensing": 0.554,
+    "Aging_mito": 0.647,
+    "Aging_NAD": 0.657,
+    "Aging_inflammation": 0.828,
+    "Aging_senescence_genomic": 0.542,
+    "Aging_proteostasis": 0.387,
+    "Aging_secretory": 0.589,
+    "Sarcopenia": 0.584,
+    "Anabolism": 0.52,
+    "Catabolism": 0.675,
+    "MSTN": 0.697,
+    "Insulin_resistance": 0.615,
+    "IL6": 0.838,
+    "NAD": 0.195
+   }
+  },
+  {
+   "age": 50.85202664557383,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.20402326762836548,
+    "immune_aging": 0.6342530869716125,
+    "nad_depletion": 0.40952201096152807,
+    "hepatic": 0.2984050379896285,
+    "adiposity_lep": 0.6238677708336772,
+    "adiponectin": 0.29947525939268327,
+    "damage_smoke": 0.03
+   },
+   "readout": {
+    "Aging_index": 0.545,
+    "Aging_nutrient_sensing": 0.577,
+    "Aging_mito": 0.638,
+    "Aging_NAD": 0.469,
+    "Aging_inflammation": 0.803,
+    "Aging_senescence_genomic": 0.351,
+    "Aging_proteostasis": 0.349,
+    "Aging_secretory": 0.606,
+    "Sarcopenia": 0.519,
+    "Anabolism": 0.563,
+    "Catabolism": 0.61,
+    "MSTN": 0.682,
+    "Insulin_resistance": 0.661,
+    "IL6": 0.794,
+    "NAD": 0.289
+   }
+  },
+  {
+   "age": 76.95676093981727,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.5729044532525258,
+    "immune_aging": 0.7667340425229908,
+    "nad_depletion": 0.7511033491931092,
+    "hepatic": 0.4355415309270714,
+    "adiposity_lep": 0.20843574358456624,
+    "adiponectin": 0.10006748114861314,
+    "damage_smoke": 0.15543535853903823
+   },
+   "readout": {
+    "Aging_index": 0.544,
+    "Aging_nutrient_sensing": 0.611,
+    "Aging_mito": 0.625,
+    "Aging_NAD": 0.603,
+    "Aging_inflammation": 0.821,
+    "Aging_senescence_genomic": 0.444,
+    "Aging_proteostasis": 0.374,
+    "Aging_secretory": 0.6,
+    "Sarcopenia": 0.562,
+    "Anabolism": 0.519,
+    "Catabolism": 0.635,
+    "MSTN": 0.727,
+    "Insulin_resistance": 0.757,
+    "IL6": 0.799,
+    "NAD": 0.204
+   }
+  },
+  {
+   "age": 68.21749673214845,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.6484191217386945,
+    "immune_aging": 0.7070740439246719,
+    "nad_depletion": 0.6298818009797429,
+    "hepatic": 0.47066637737272854,
+    "adiposity_lep": 0.4790223237182793,
+    "adiponectin": 0.5573043603682613,
+    "damage_smoke": 0.07953267371301175
+   },
+   "readout": {
+    "Aging_index": 0.543,
+    "Aging_nutrient_sensing": 0.548,
+    "Aging_mito": 0.646,
+    "Aging_NAD": 0.655,
+    "Aging_inflammation": 0.823,
+    "Aging_senescence_genomic": 0.388,
+    "Aging_proteostasis": 0.383,
+    "Aging_secretory": 0.59,
+    "Sarcopenia": 0.579,
+    "Anabolism": 0.494,
+    "Catabolism": 0.674,
+    "MSTN": 0.717,
+    "Insulin_resistance": 0.6,
+    "IL6": 0.837,
+    "NAD": 0.211
+   }
+  },
+  {
+   "age": 42.61619833121471,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.39746626015210385,
+    "immune_aging": 0.45431805678990084,
+    "nad_depletion": 0.3466041878863203,
+    "hepatic": 0.32510165263645135,
+    "adiposity_lep": 0.3167667269729881,
+    "adiponectin": 0.551596538003585,
+    "damage_smoke": 0.8329519042024073
+   },
+   "readout": {
+    "Aging_index": 0.533,
+    "Aging_nutrient_sensing": 0.519,
+    "Aging_mito": 0.65,
+    "Aging_NAD": 0.509,
+    "Aging_inflammation": 0.782,
+    "Aging_senescence_genomic": 0.757,
+    "Aging_proteostasis": 0.376,
+    "Aging_secretory": 0.591,
+    "Sarcopenia": 0.563,
+    "Anabolism": 0.521,
+    "Catabolism": 0.637,
+    "MSTN": 0.644,
+    "Insulin_resistance": 0.54,
+    "IL6": 0.708,
+    "NAD": 0.201
+   }
+  },
+  {
+   "age": 76.92914689208327,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.5123874368488853,
+    "immune_aging": 0.535827427038587,
+    "nad_depletion": 0.4079301818360601,
+    "hepatic": 0.29224239208565184,
+    "adiposity_lep": 0.5975528073569455,
+    "adiponectin": 0.4039490082851736,
+    "damage_smoke": 0.1697790081941852
+   },
+   "readout": {
+    "Aging_index": 0.523,
+    "Aging_nutrient_sensing": 0.574,
+    "Aging_mito": 0.648,
+    "Aging_NAD": 0.606,
+    "Aging_inflammation": 0.811,
+    "Aging_senescence_genomic": 0.445,
+    "Aging_proteostasis": 0.367,
+    "Aging_secretory": 0.618,
+    "Sarcopenia": 0.543,
+    "Anabolism": 0.52,
+    "Catabolism": 0.639,
+    "MSTN": 0.71,
+    "Insulin_resistance": 0.656,
+    "IL6": 0.82,
+    "NAD": 0.225
+   }
+  },
+  {
+   "age": 75.11444759478891,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.8117318866845995,
+    "immune_aging": 0.6864684013213762,
+    "nad_depletion": 0.8348398575608043,
+    "hepatic": 0.4000237741713546,
+    "adiposity_lep": 0.3067381699818823,
+    "adiponectin": 0.3640026343316579,
+    "damage_smoke": 0.03
+   },
+   "readout": {
+    "Aging_index": 0.552,
+    "Aging_nutrient_sensing": 0.546,
+    "Aging_mito": 0.621,
+    "Aging_NAD": 0.654,
+    "Aging_inflammation": 0.86,
+    "Aging_senescence_genomic": 0.362,
+    "Aging_proteostasis": 0.376,
+    "Aging_secretory": 0.603,
+    "Sarcopenia": 0.563,
+    "Anabolism": 0.513,
+    "Catabolism": 0.631,
+    "MSTN": 0.732,
+    "Insulin_resistance": 0.658,
+    "IL6": 0.805,
+    "NAD": 0.217
+   }
+  },
+  {
+   "age": 47.573573015991514,
+   "smoker": true,
+   "features": {
+    "inflammation": 0.37338290899671006,
+    "immune_aging": 0.5039831780636294,
+    "nad_depletion": 0.6428372913055597,
+    "hepatic": 0.06084522847626478,
+    "adiposity_lep": 0.4494905814753326,
+    "adiponectin": 0.39544136264068586,
+    "damage_smoke": 0.7974697088463202
+   },
+   "readout": {
+    "Aging_index": 0.554,
+    "Aging_nutrient_sensing": 0.554,
+    "Aging_mito": 0.619,
+    "Aging_NAD": 0.562,
+    "Aging_inflammation": 0.813,
+    "Aging_senescence_genomic": 0.756,
+    "Aging_proteostasis": 0.375,
+    "Aging_secretory": 0.575,
+    "Sarcopenia": 0.565,
+    "Anabolism": 0.512,
+    "Catabolism": 0.646,
+    "MSTN": 0.684,
+    "Insulin_resistance": 0.627,
+    "IL6": 0.77,
+    "NAD": 0.187
+   }
+  },
+  {
+   "age": 41.02965485939611,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.14054548540740588,
+    "immune_aging": 0.4507048968076347,
+    "nad_depletion": 0.3076540989720618,
+    "hepatic": 0.16004205649852155,
+    "adiposity_lep": 0.167529294137559,
+    "adiponectin": 0.47675159828473773,
+    "damage_smoke": 0.1927890440694917
+   },
+   "readout": {
+    "Aging_index": 0.481,
+    "Aging_nutrient_sensing": 0.51,
+    "Aging_mito": 0.566,
+    "Aging_NAD": 0.379,
+    "Aging_inflammation": 0.717,
+    "Aging_senescence_genomic": 0.464,
+    "Aging_proteostasis": 0.373,
+    "Aging_secretory": 0.56,
+    "Sarcopenia": 0.583,
+    "Anabolism": 0.507,
+    "Catabolism": 0.6,
+    "MSTN": 0.602,
+    "Insulin_resistance": 0.511,
+    "IL6": 0.564,
+    "NAD": 0.34
+   }
+  },
+  {
+   "age": 67.04470326234838,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.6226797539511695,
+    "immune_aging": 0.6540396707788085,
+    "nad_depletion": 0.7617197123406518,
+    "hepatic": 0.300202234208979,
+    "adiposity_lep": 0.1685790308601922,
+    "adiponectin": 0.6420665651202676,
+    "damage_smoke": 0.11685118279027452
+   },
+   "readout": {
+    "Aging_index": 0.516,
+    "Aging_nutrient_sensing": 0.486,
+    "Aging_mito": 0.623,
+    "Aging_NAD": 0.648,
+    "Aging_inflammation": 0.845,
+    "Aging_senescence_genomic": 0.424,
+    "Aging_proteostasis": 0.377,
+    "Aging_secretory": 0.576,
+    "Sarcopenia": 0.542,
+    "Anabolism": 0.499,
+    "Catabolism": 0.616,
+    "MSTN": 0.711,
+    "Insulin_resistance": 0.577,
+    "IL6": 0.813,
+    "NAD": 0.206
+   }
+  },
+  {
+   "age": 31.22366391821445,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.3222080871665917,
+    "immune_aging": 0.22131027723697788,
+    "nad_depletion": 0.3380559408702507,
+    "hepatic": 0.49075330081129254,
+    "adiposity_lep": 0.705924106424574,
+    "adiponectin": 0.6203226562762938,
+    "damage_smoke": 0.16601905933170752
+   },
+   "readout": {
+    "Aging_index": 0.53,
+    "Aging_nutrient_sensing": 0.553,
+    "Aging_mito": 0.608,
+    "Aging_NAD": 0.409,
+    "Aging_inflammation": 0.809,
+    "Aging_senescence_genomic": 0.448,
+    "Aging_proteostasis": 0.35,
+    "Aging_secretory": 0.584,
+    "Sarcopenia": 0.549,
+    "Anabolism": 0.523,
+    "Catabolism": 0.615,
+    "MSTN": 0.696,
+    "Insulin_resistance": 0.553,
+    "IL6": 0.764,
+    "NAD": 0.313
+   }
+  },
+  {
+   "age": 35.19394136335715,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.2087544591824082,
+    "immune_aging": 0.31841954750348656,
+    "nad_depletion": 0.3271302413600271,
+    "hepatic": 0.26220312327587797,
+    "adiposity_lep": 0.19340487596727024,
+    "adiponectin": 0.3573007997059505,
+    "damage_smoke": 0.03
+   },
+   "readout": {
+    "Aging_index": 0.491,
+    "Aging_nutrient_sensing": 0.545,
+    "Aging_mito": 0.544,
+    "Aging_NAD": 0.369,
+    "Aging_inflammation": 0.715,
+    "Aging_senescence_genomic": 0.389,
+    "Aging_proteostasis": 0.378,
+    "Aging_secretory": 0.59,
+    "Sarcopenia": 0.552,
+    "Anabolism": 0.515,
+    "Catabolism": 0.592,
+    "MSTN": 0.655,
+    "Insulin_resistance": 0.555,
+    "IL6": 0.585,
+    "NAD": 0.337
+   }
+  },
+  {
+   "age": 22.485909803566365,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.14626676412356315,
+    "immune_aging": 0.11074149755362639,
+    "nad_depletion": 0.45377553780782515,
+    "hepatic": 0.32655290464423625,
+    "adiposity_lep": 0.13392619849726817,
+    "adiponectin": 0.6932780185691922,
+    "damage_smoke": 0.10929217636496749
+   },
+   "readout": {
+    "Aging_index": 0.46,
+    "Aging_nutrient_sensing": 0.449,
+    "Aging_mito": 0.574,
+    "Aging_NAD": 0.314,
+    "Aging_inflammation": 0.697,
+    "Aging_senescence_genomic": 0.421,
+    "Aging_proteostasis": 0.373,
+    "Aging_secretory": 0.568,
+    "Sarcopenia": 0.553,
+    "Anabolism": 0.497,
+    "Catabolism": 0.575,
+    "MSTN": 0.613,
+    "Insulin_resistance": 0.436,
+    "IL6": 0.5,
+    "NAD": 0.355
+   }
+  },
+  {
+   "age": 73.93700891514113,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.6645562972024841,
+    "immune_aging": 0.7567864841520904,
+    "nad_depletion": 0.6216062012065565,
+    "hepatic": 0.5407363395464729,
+    "adiposity_lep": 0.24855685905191338,
+    "adiponectin": 0.45831868465740766,
+    "damage_smoke": 0.4097673726595832
+   },
+   "readout": {
+    "Aging_index": 0.56,
+    "Aging_nutrient_sensing": 0.549,
+    "Aging_mito": 0.653,
+    "Aging_NAD": 0.644,
+    "Aging_inflammation": 0.845,
+    "Aging_senescence_genomic": 0.553,
+    "Aging_proteostasis": 0.362,
+    "Aging_secretory": 0.6,
+    "Sarcopenia": 0.565,
+    "Anabolism": 0.51,
+    "Catabolism": 0.659,
+    "MSTN": 0.726,
+    "Insulin_resistance": 0.651,
+    "IL6": 0.824,
+    "NAD": 0.197
+   }
+  },
+  {
+   "age": 65.88015653507412,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.7452442253790904,
+    "immune_aging": 0.6094469109608437,
+    "nad_depletion": 0.6629517360259253,
+    "hepatic": 0.3381117631342711,
+    "adiposity_lep": 0.40041279691922643,
+    "adiponectin": 0.3692199385802081,
+    "damage_smoke": 0.19303013589575532
+   },
+   "readout": {
+    "Aging_index": 0.546,
+    "Aging_nutrient_sensing": 0.568,
+    "Aging_mito": 0.639,
+    "Aging_NAD": 0.65,
+    "Aging_inflammation": 0.847,
+    "Aging_senescence_genomic": 0.462,
+    "Aging_proteostasis": 0.358,
+    "Aging_secretory": 0.604,
+    "Sarcopenia": 0.568,
+    "Anabolism": 0.509,
+    "Catabolism": 0.659,
+    "MSTN": 0.722,
+    "Insulin_resistance": 0.659,
+    "IL6": 0.829,
+    "NAD": 0.227
+   }
+  },
+  {
+   "age": 68.54091498933812,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.6759352139805098,
+    "immune_aging": 0.7564468397080353,
+    "nad_depletion": 0.6600487544913659,
+    "hepatic": 0.31509518277809534,
+    "adiposity_lep": 0.5204021328165314,
+    "adiponectin": 0.43033863099183056,
+    "damage_smoke": 0.24355471254651492
+   },
+   "readout": {
+    "Aging_index": 0.551,
+    "Aging_nutrient_sensing": 0.582,
+    "Aging_mito": 0.638,
+    "Aging_NAD": 0.661,
+    "Aging_inflammation": 0.834,
+    "Aging_senescence_genomic": 0.482,
+    "Aging_proteostasis": 0.368,
+    "Aging_secretory": 0.597,
+    "Sarcopenia": 0.569,
+    "Anabolism": 0.506,
+    "Catabolism": 0.671,
+    "MSTN": 0.706,
+    "Insulin_resistance": 0.657,
+    "IL6": 0.836,
+    "NAD": 0.208
+   }
+  },
+  {
+   "age": 73.52811604744988,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.5985395390896185,
+    "immune_aging": 0.4393243422228119,
+    "nad_depletion": 0.47940512363659155,
+    "hepatic": 0.5839855461040145,
+    "adiposity_lep": 0.6140707711761888,
+    "adiponectin": 0.3509061219806747,
+    "damage_smoke": 0.03
+   },
+   "readout": {
+    "Aging_index": 0.54,
+    "Aging_nutrient_sensing": 0.585,
+    "Aging_mito": 0.643,
+    "Aging_NAD": 0.644,
+    "Aging_inflammation": 0.828,
+    "Aging_senescence_genomic": 0.367,
+    "Aging_proteostasis": 0.374,
+    "Aging_secretory": 0.599,
+    "Sarcopenia": 0.55,
+    "Anabolism": 0.524,
+    "Catabolism": 0.658,
+    "MSTN": 0.734,
+    "Insulin_resistance": 0.666,
+    "IL6": 0.842,
+    "NAD": 0.224
+   }
+  },
+  {
+   "age": 52.28844118553044,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.3915386063526305,
+    "immune_aging": 0.74717211669022,
+    "nad_depletion": 0.5289441798801844,
+    "hepatic": 0.20444319074484993,
+    "adiposity_lep": 0.4759671268115707,
+    "adiponectin": 0.30054038567393915,
+    "damage_smoke": 0.12026766373023645
+   },
+   "readout": {
+    "Aging_index": 0.549,
+    "Aging_nutrient_sensing": 0.576,
+    "Aging_mito": 0.639,
+    "Aging_NAD": 0.602,
+    "Aging_inflammation": 0.824,
+    "Aging_senescence_genomic": 0.439,
+    "Aging_proteostasis": 0.366,
+    "Aging_secretory": 0.595,
+    "Sarcopenia": 0.542,
+    "Anabolism": 0.533,
+    "Catabolism": 0.639,
+    "MSTN": 0.722,
+    "Insulin_resistance": 0.656,
+    "IL6": 0.823,
+    "NAD": 0.222
+   }
+  },
+  {
+   "age": 59.536918932890984,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.5085557983491112,
+    "immune_aging": 0.6272103177601014,
+    "nad_depletion": 0.5802453037159633,
+    "hepatic": 0.41969284100001814,
+    "adiposity_lep": 0.289055614721009,
+    "adiponectin": 0.6434690293584001,
+    "damage_smoke": 0.31289369476239914
+   },
+   "readout": {
+    "Aging_index": 0.542,
+    "Aging_nutrient_sensing": 0.501,
+    "Aging_mito": 0.657,
+    "Aging_NAD": 0.658,
+    "Aging_inflammation": 0.833,
+    "Aging_senescence_genomic": 0.524,
+    "Aging_proteostasis": 0.39,
+    "Aging_secretory": 0.599,
+    "Sarcopenia": 0.571,
+    "Anabolism": 0.504,
+    "Catabolism": 0.648,
+    "MSTN": 0.7,
+    "Insulin_resistance": 0.576,
+    "IL6": 0.819,
+    "NAD": 0.207
+   }
+  },
+  {
+   "age": 31.22660187642539,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.16970453739789904,
+    "immune_aging": 0.39737153992686414,
+    "nad_depletion": 0.273266737680239,
+    "hepatic": 0.40868721685180665,
+    "adiposity_lep": 0.2524195772206223,
+    "adiponectin": 0.8281618297390875,
+    "damage_smoke": 0.16314858168054522
+   },
+   "readout": {
+    "Aging_index": 0.5,
+    "Aging_nutrient_sensing": 0.463,
+    "Aging_mito": 0.617,
+    "Aging_NAD": 0.377,
+    "Aging_inflammation": 0.722,
+    "Aging_senescence_genomic": 0.463,
+    "Aging_proteostasis": 0.367,
+    "Aging_secretory": 0.576,
+    "Sarcopenia": 0.572,
+    "Anabolism": 0.487,
+    "Catabolism": 0.603,
+    "MSTN": 0.664,
+    "Insulin_resistance": 0.437,
+    "IL6": 0.579,
+    "NAD": 0.332
+   }
+  },
+  {
+   "age": 29.55898485337425,
+   "smoker": false,
+   "features": {
+    "inflammation": 0.44970031848645353,
+    "immune_aging": 0.1762740990347452,
+    "nad_depletion": 0.16899950437507003,
+    "hepatic": 0.12368244673877934,
+    "adiposity_lep": 0.40873149641111994,
+    "adiponectin": 0.38099690755372917,
+    "damage_smoke": 0.21374709026511213
+   },
+   "readout": {
+    "Aging_index": 0.514,
+    "Aging_nutrient_sensing": 0.556,
+    "Aging_mito": 0.588,
+    "Aging_NAD": 0.441,
+    "Aging_inflammation": 0.769,
+    "Aging_senescence_genomic": 0.486,
+    "Aging_proteostasis": 0.38,
+    "Aging_secretory": 0.563,
+    "Sarcopenia": 0.543,
+    "Anabolism": 0.538,
+    "Catabolism": 0.606,
+    "MSTN": 0.643,
+    "Insulin_resistance": 0.579,
+    "IL6": 0.728,
+    "NAD": 0.296
+   }
+  }
+ ]
+}

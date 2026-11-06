@@ -1,0 +1,72 @@
+{
+ "eps": 0.3,
+ "reps": 16,
+ "contrasts": {
+  "Leucine raises Anabolism": {
+   "baseline_diff": 0.149,
+   "expected_sign": 1,
+   "frac_preserved": 1.0,
+   "mean_diff": 0.164
+  },
+  "DR lowers Anabolism (mTOR trade-off)": {
+   "baseline_diff": -0.116,
+   "expected_sign": -1,
+   "frac_preserved": 0.875,
+   "mean_diff": -0.051
+  },
+  "Rapamycin lowers Anabolism": {
+   "baseline_diff": -0.123,
+   "expected_sign": -1,
+   "frac_preserved": 0.875,
+   "mean_diff": -0.056
+  },
+  "Exercise lowers MSTN": {
+   "baseline_diff": -0.177,
+   "expected_sign": -1,
+   "frac_preserved": 1.0,
+   "mean_diff": -0.232
+  },
+  "Hyperammonemia raises MSTN (liver bridge)": {
+   "baseline_diff": 0.268,
+   "expected_sign": 1,
+   "frac_preserved": 1.0,
+   "mean_diff": 0.262
+  },
+  "Aged+Ex+Leu rescues Anabolism vs Aged": {
+   "baseline_diff": 0.233,
+   "expected_sign": 1,
+   "frac_preserved": 1.0,
+   "mean_diff": 0.23
+  },
+  "Aged+Ex+Leu lowers Sarcopenia vs Aged": {
+   "baseline_diff": -0.182,
+   "expected_sign": -1,
+   "frac_preserved": 1.0,
+   "mean_diff": -0.189
+  },
+  "Aged+Ex+Leu lowers MSTN vs Aged": {
+   "baseline_diff": -0.254,
+   "expected_sign": -1,
+   "frac_preserved": 1.0,
+   "mean_diff": -0.272
+  },
+  "Obesity raises insulin resistance": {
+   "baseline_diff": 0.405,
+   "expected_sign": 1,
+   "frac_preserved": 1.0,
+   "mean_diff": 0.392
+  },
+  "Adiponectin lowers insulin resistance (sign fix)": {
+   "baseline_diff": -0.298,
+   "expected_sign": -1,
+   "frac_preserved": 1.0,
+   "mean_diff": -0.314
+  },
+  "Omega-3 lowers IL-6": {
+   "baseline_diff": -0.368,
+   "expected_sign": -1,
+   "frac_preserved": 1.0,
+   "mean_diff": -0.335
+  }
+ }
+}

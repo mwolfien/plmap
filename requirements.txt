@@ -1,0 +1,9 @@
+# Prevention & Longevity Map — Python dependencies (model + simulation + analysis)
+# These are the exact versions used to produce the current results.
+cmaboss==1.0.0b34        # MaBoSS Python engine; ships cmaboss_128n / _256n / _512n / _1024n builds
+numpy==2.5.3
+matplotlib==3.11.2
+openpyxl==3.1.5          # Excel workbooks (characterization / module tables)
+
+# Optional — only needed to re-render the schematic figures (not for the model):
+# playwright==1.56.0     # after install run:  python -m playwright install chromium

@@ -1,0 +1,2880 @@
+{
+ "baseline": {
+  "Aging_index": 0.427,
+  "Aging_nutrient_sensing": 0.516,
+  "Aging_mito": 0.536,
+  "Aging_NAD": 0.153,
+  "Aging_inflammation": 0.44,
+  "Aging_senescence_genomic": 0.395,
+  "Aging_proteostasis": 0.335,
+  "Aging_secretory": 0.464,
+  "Sarcopenia": 0.514,
+  "Anabolism": 0.539,
+  "Catabolism": 0.576,
+  "Proteolysis": 0.397,
+  "Protein_synthesis": 0.272,
+  "MSTN": 0.45,
+  "mTOR": 0.29,
+  "AMPK": 0.261,
+  "FOXO3": 0.58,
+  "Autophagy": 0.527,
+  "PGC1A": 0.31,
+  "Mito_biogenesis": 0.328,
+  "NAD": 0.449,
+  "SIRT1": 0.255,
+  "Insulin_sensitivity": 0.25,
+  "Insulin_resistance": 0.434,
+  "IL6": 0.26,
+  "TNF": 0.163,
+  "FGF21": 0.317,
+  "ROS": 0.556,
+  "NFkB": 0.228
+ },
+ "single_input_delta": {
+  "Nutrients": {
+   "Aging_index": 0.05,
+   "Aging_nutrient_sensing": 0.141,
+   "Aging_mito": 0.045,
+   "Aging_NAD": 0.032,
+   "Aging_inflammation": 0.031,
+   "Aging_senescence_genomic": -0.002,
+   "Aging_proteostasis": -0.049,
+   "Aging_secretory": 0.024,
+   "Sarcopenia": -0.075,
+   "Anabolism": 0.08,
+   "Catabolism": -0.082,
+   "Proteolysis": -0.025,
+   "Protein_synthesis": 0.169,
+   "MSTN": 0.011,
+   "mTOR": 0.296,
+   "AMPK": 0.014,
+   "FOXO3": -0.223,
+   "Autophagy": -0.058,
+   "PGC1A": 0.021,
+   "Mito_biogenesis": -0.01,
+   "NAD": -0.014,
+   "SIRT1": -0.027,
+   "Insulin_sensitivity": 0.05,
+   "Insulin_resistance": -0.042,
+   "IL6": 0.002,
+   "TNF": 0.009,
+   "FGF21": -0.007,
+   "ROS": -0.017,
+   "NFkB": 0.053
+  },
+  "DR": {
+   "Aging_index": 0.001,
+   "Aging_nutrient_sensing": -0.232,
+   "Aging_mito": -0.035,
+   "Aging_NAD": -0.006,
+   "Aging_inflammation": 0.003,
+   "Aging_senescence_genomic": 0.023,
+   "Aging_proteostasis": -0.014,
+   "Aging_secretory": 0.012,
+   "Sarcopenia": 0.017,
+   "Anabolism": -0.056,
+   "Catabolism": 0.006,
+   "Proteolysis": 0.044,
+   "Protein_synthesis": -0.042,
+   "MSTN": -0.014,
+   "mTOR": -0.122,
+   "AMPK": 0.343,
+   "FOXO3": 0.134,
+   "Autophagy": 0.103,
+   "PGC1A": 0.152,
+   "Mito_biogenesis": 0.121,
+   "NAD": 0.012,
+   "SIRT1": 0.137,
+   "Insulin_sensitivity": 0.282,
+   "Insulin_resistance": -0.085,
+   "IL6": -0.037,
+   "TNF": 0.01,
+   "FGF21": 0.328,
+   "ROS": -0.014,
+   "NFkB": 0.005
+  },
+  "Inflammaging": {
+   "Aging_index": 0.111,
+   "Aging_nutrient_sensing": 0.096,
+   "Aging_mito": 0.105,
+   "Aging_NAD": 0.483,
+   "Aging_inflammation": 0.379,
+   "Aging_senescence_genomic": -0.022,
+   "Aging_proteostasis": 0.067,
+   "Aging_secretory": 0.133,
+   "Sarcopenia": 0.076,
+   "Anabolism": -0.046,
+   "Catabolism": 0.08,
+   "Proteolysis": 0.053,
+   "Protein_synthesis": 0.035,
+   "MSTN": 0.307,
+   "mTOR": -0.012,
+   "AMPK": 0.006,
+   "FOXO3": -0.032,
+   "Autophagy": 0.006,
+   "PGC1A": -0.051,
+   "Mito_biogenesis": -0.06,
+   "NAD": -0.241,
+   "SIRT1": -0.131,
+   "Insulin_sensitivity": -0.031,
+   "Insulin_resistance": 0.343,
+   "IL6": 0.539,
+   "TNF": 0.596,
+   "FGF21": 0.029,
+   "ROS": 0.093,
+   "NFkB": 0.558
+  },
+  "DNA_damage": {
+   "Aging_index": 0.086,
+   "Aging_nutrient_sensing": 0.015,
+   "Aging_mito": 0.018,
+   "Aging_NAD": 0.022,
+   "Aging_inflammation": 0.054,
+   "Aging_senescence_genomic": 0.434,
+   "Aging_proteostasis": 0.019,
+   "Aging_secretory": 0.005,
+   "Sarcopenia": -0.024,
+   "Anabolism": -0.002,
+   "Catabolism": -0.027,
+   "Proteolysis": 0.012,
+   "Protein_synthesis": 0.028,
+   "MSTN": -0.024,
+   "mTOR": 0.001,
+   "AMPK": 0.006,
+   "FOXO3": -0.049,
+   "Autophagy": -0.012,
+   "PGC1A": -0.029,
+   "Mito_biogenesis": -0.027,
+   "NAD": -0.119,
+   "SIRT1": -0.135,
+   "Insulin_sensitivity": -0.003,
+   "Insulin_resistance": -0.013,
+   "IL6": 0.007,
+   "TNF": -0.002,
+   "FGF21": 0.025,
+   "ROS": 0.021,
+   "NFkB": 0.055
+  },
+  "Rapamycin": {
+   "Aging_index": 0.012,
+   "Aging_nutrient_sensing": -0.09,
+   "Aging_mito": 0.014,
+   "Aging_NAD": -0.009,
+   "Aging_inflammation": 0.001,
+   "Aging_senescence_genomic": 0.009,
+   "Aging_proteostasis": 0.015,
+   "Aging_secretory": -0.003,
+   "Sarcopenia": -0.001,
+   "Anabolism": -0.068,
+   "Catabolism": -0.02,
+   "Proteolysis": 0.027,
+   "Protein_synthesis": -0.054,
+   "MSTN": -0.04,
+   "mTOR": -0.172,
+   "AMPK": 0.033,
+   "FOXO3": 0.017,
+   "Autophagy": 0.048,
+   "PGC1A": 0.006,
+   "Mito_biogenesis": 0.005,
+   "NAD": 0.046,
+   "SIRT1": 0.023,
+   "Insulin_sensitivity": -0.018,
+   "Insulin_resistance": -0.015,
+   "IL6": -0.058,
+   "TNF": -0.02,
+   "FGF21": 0.029,
+   "ROS": -0.015,
+   "NFkB": -0.012
+  },
+  "Metformin": {
+   "Aging_index": 0.024,
+   "Aging_nutrient_sensing": -0.174,
+   "Aging_mito": -0.052,
+   "Aging_NAD": 0.016,
+   "Aging_inflammation": 0.058,
+   "Aging_senescence_genomic": -0.03,
+   "Aging_proteostasis": 0.023,
+   "Aging_secretory": 0.2,
+   "Sarcopenia": 0.01,
+   "Anabolism": -0.018,
+   "Catabolism": -0.027,
+   "Proteolysis": 0.012,
+   "Protein_synthesis": 0.011,
+   "MSTN": -0.026,
+   "mTOR": -0.053,
+   "AMPK": 0.329,
+   "FOXO3": 0.11,
+   "Autophagy": 0.041,
+   "PGC1A": 0.1,
+   "Mito_biogenesis": 0.107,
+   "NAD": 0.012,
+   "SIRT1": 0.035,
+   "Insulin_sensitivity": 0.232,
+   "Insulin_resistance": -0.096,
+   "IL6": 0.035,
+   "TNF": 0.02,
+   "FGF21": -0.021,
+   "ROS": 0.002,
+   "NFkB": 0.024
+  },
+  "NMN_supp": {
+   "Aging_index": 0.011,
+   "Aging_nutrient_sensing": -0.026,
+   "Aging_mito": -0.019,
+   "Aging_NAD": -0.031,
+   "Aging_inflammation": 0.007,
+   "Aging_senescence_genomic": 0.01,
+   "Aging_proteostasis": 0.062,
+   "Aging_secretory": -0.019,
+   "Sarcopenia": -0.029,
+   "Anabolism": -0.002,
+   "Catabolism": -0.037,
+   "Proteolysis": 0.029,
+   "Protein_synthesis": 0.058,
+   "MSTN": -0.059,
+   "mTOR": -0.014,
+   "AMPK": 0.04,
+   "FOXO3": -0.021,
+   "Autophagy": 0.008,
+   "PGC1A": 0.007,
+   "Mito_biogenesis": -0.006,
+   "NAD": 0.153,
+   "SIRT1": 0.084,
+   "Insulin_sensitivity": 0.24,
+   "Insulin_resistance": -0.117,
+   "IL6": -0.015,
+   "TNF": -0.013,
+   "FGF21": -0.02,
+   "ROS": -0.06,
+   "NFkB": -0.033
+  },
+  "NR_supp": {
+   "Aging_index": 0.005,
+   "Aging_nutrient_sensing": -0.014,
+   "Aging_mito": -0.027,
+   "Aging_NAD": -0.056,
+   "Aging_inflammation": 0.022,
+   "Aging_senescence_genomic": -0.007,
+   "Aging_proteostasis": 0.01,
+   "Aging_secretory": -0.046,
+   "Sarcopenia": -0.006,
+   "Anabolism": 0.001,
+   "Catabolism": -0.027,
+   "Proteolysis": 0.027,
+   "Protein_synthesis": 0.028,
+   "MSTN": -0.046,
+   "mTOR": -0.009,
+   "AMPK": 0.03,
+   "FOXO3": 0.046,
+   "Autophagy": 0.017,
+   "PGC1A": 0.045,
+   "Mito_biogenesis": 0.007,
+   "NAD": 0.248,
+   "SIRT1": 0.047,
+   "Insulin_sensitivity": 0.01,
+   "Insulin_resistance": -0.023,
+   "IL6": -0.036,
+   "TNF": -0.004,
+   "FGF21": -0.026,
+   "ROS": -0.046,
+   "NFkB": -0.015
+  },
+  "Resveratrol": {
+   "Aging_index": 0.004,
+   "Aging_nutrient_sensing": -0.158,
+   "Aging_mito": -0.038,
+   "Aging_NAD": 0.001,
+   "Aging_inflammation": -0.017,
+   "Aging_senescence_genomic": -0.003,
+   "Aging_proteostasis": 0.004,
+   "Aging_secretory": 0.01,
+   "Sarcopenia": -0.017,
+   "Anabolism": -0.012,
+   "Catabolism": -0.037,
+   "Proteolysis": 0.009,
+   "Protein_synthesis": 0.046,
+   "MSTN": 0.019,
+   "mTOR": -0.069,
+   "AMPK": 0.298,
+   "FOXO3": 0.096,
+   "Autophagy": 0.046,
+   "PGC1A": 0.149,
+   "Mito_biogenesis": 0.066,
+   "NAD": 0.047,
+   "SIRT1": 0.115,
+   "Insulin_sensitivity": 0.02,
+   "Insulin_resistance": -0.045,
+   "IL6": -0.03,
+   "TNF": -0.003,
+   "FGF21": -0.03,
+   "ROS": -0.016,
+   "NFkB": 0.01
+  },
+  "Semaglutide": {
+   "Aging_index": 0.019,
+   "Aging_nutrient_sensing": 0.009,
+   "Aging_mito": 0.03,
+   "Aging_NAD": -0.001,
+   "Aging_inflammation": 0.012,
+   "Aging_senescence_genomic": -0.023,
+   "Aging_proteostasis": -0.018,
+   "Aging_secretory": 0.024,
+   "Sarcopenia": -0.008,
+   "Anabolism": -0.025,
+   "Catabolism": -0.005,
+   "Proteolysis": 0.019,
+   "Protein_synthesis": 0.036,
+   "MSTN": -0.02,
+   "mTOR": 0.014,
+   "AMPK": -0.011,
+   "FOXO3": 0.023,
+   "Autophagy": 0.014,
+   "PGC1A": 0.004,
+   "Mito_biogenesis": -0.008,
+   "NAD": 0.026,
+   "SIRT1": 0.007,
+   "Insulin_sensitivity": -0.02,
+   "Insulin_resistance": -0.026,
+   "IL6": -0.039,
+   "TNF": -0.012,
+   "FGF21": -0.032,
+   "ROS": -0.018,
+   "NFkB": 0.031
+  },
+  "Canagliflozin": {
+   "Aging_index": 0.031,
+   "Aging_nutrient_sensing": -0.141,
+   "Aging_mito": -0.04,
+   "Aging_NAD": 0.018,
+   "Aging_inflammation": 0.004,
+   "Aging_senescence_genomic": -0.001,
+   "Aging_proteostasis": 0.016,
+   "Aging_secretory": 0.032,
+   "Sarcopenia": -0.002,
+   "Anabolism": -0.03,
+   "Catabolism": -0.03,
+   "Proteolysis": 0.048,
+   "Protein_synthesis": 0.009,
+   "MSTN": -0.014,
+   "mTOR": -0.058,
+   "AMPK": 0.339,
+   "FOXO3": 0.074,
+   "Autophagy": 0.024,
+   "PGC1A": 0.144,
+   "Mito_biogenesis": 0.075,
+   "NAD": 0.017,
+   "SIRT1": 0.041,
+   "Insulin_sensitivity": 0.002,
+   "Insulin_resistance": -0.011,
+   "IL6": -0.015,
+   "TNF": 0.014,
+   "FGF21": -0.011,
+   "ROS": 0.016,
+   "NFkB": -0.006
+  },
+  "CD38i": {
+   "Aging_index": 0.024,
+   "Aging_nutrient_sensing": 0.01,
+   "Aging_mito": -0.007,
+   "Aging_NAD": -0.056,
+   "Aging_inflammation": 0.03,
+   "Aging_senescence_genomic": 0.008,
+   "Aging_proteostasis": 0.011,
+   "Aging_secretory": -0.008,
+   "Sarcopenia": -0.018,
+   "Anabolism": 0.009,
+   "Catabolism": -0.017,
+   "Proteolysis": -0.015,
+   "Protein_synthesis": 0.059,
+   "MSTN": -0.003,
+   "mTOR": -0.002,
+   "AMPK": 0.039,
+   "FOXO3": 0.001,
+   "Autophagy": -0.016,
+   "PGC1A": 0.026,
+   "Mito_biogenesis": -0.017,
+   "NAD": 0.03,
+   "SIRT1": -0.01,
+   "Insulin_sensitivity": 0.018,
+   "Insulin_resistance": -0.019,
+   "IL6": -0.006,
+   "TNF": -0.005,
+   "FGF21": -0.002,
+   "ROS": -0.025,
+   "NFkB": 0.03
+  },
+  "NNMT": {
+   "Aging_index": 0.049,
+   "Aging_nutrient_sensing": 0.021,
+   "Aging_mito": -0.015,
+   "Aging_NAD": 0.038,
+   "Aging_inflammation": 0.047,
+   "Aging_senescence_genomic": -0.007,
+   "Aging_proteostasis": 0.006,
+   "Aging_secretory": -0.03,
+   "Sarcopenia": -0.033,
+   "Anabolism": 0.03,
+   "Catabolism": -0.047,
+   "Proteolysis": 0.009,
+   "Protein_synthesis": 0.054,
+   "MSTN": -0.016,
+   "mTOR": -0.016,
+   "AMPK": 0.026,
+   "FOXO3": 0.005,
+   "Autophagy": 0.001,
+   "PGC1A": 0.03,
+   "Mito_biogenesis": -0.006,
+   "NAD": -0.005,
+   "SIRT1": -0.022,
+   "Insulin_sensitivity": 0.009,
+   "Insulin_resistance": 0.004,
+   "IL6": -0.028,
+   "TNF": -0.008,
+   "FGF21": 0.026,
+   "ROS": -0.008,
+   "NFkB": 0.031
+  },
+  "Exercise": {
+   "Aging_index": -0.02,
+   "Aging_nutrient_sensing": -0.026,
+   "Aging_mito": -0.115,
+   "Aging_NAD": 0.01,
+   "Aging_inflammation": 0.047,
+   "Aging_senescence_genomic": 0.02,
+   "Aging_proteostasis": -0.07,
+   "Aging_secretory": -0.095,
+   "Sarcopenia": -0.149,
+   "Anabolism": 0.105,
+   "Catabolism": -0.156,
+   "Proteolysis": -0.062,
+   "Protein_synthesis": 0.158,
+   "MSTN": -0.255,
+   "mTOR": -0.059,
+   "AMPK": 0.276,
+   "FOXO3": -0.04,
+   "Autophagy": 0.017,
+   "PGC1A": 0.263,
+   "Mito_biogenesis": 0.207,
+   "NAD": 0.017,
+   "SIRT1": 0.023,
+   "Insulin_sensitivity": 0.005,
+   "Insulin_resistance": -0.001,
+   "IL6": 0.01,
+   "TNF": 0.014,
+   "FGF21": -0.071,
+   "ROS": -0.027,
+   "NFkB": 0.029
+  },
+  "leucine": {
+   "Aging_index": 0.032,
+   "Aging_nutrient_sensing": 0.119,
+   "Aging_mito": 0.002,
+   "Aging_NAD": -0.009,
+   "Aging_inflammation": 0.04,
+   "Aging_senescence_genomic": -0.005,
+   "Aging_proteostasis": -0.021,
+   "Aging_secretory": -0.011,
+   "Sarcopenia": -0.151,
+   "Anabolism": 0.186,
+   "Catabolism": -0.104,
+   "Proteolysis": 0.02,
+   "Protein_synthesis": 0.357,
+   "MSTN": -0.025,
+   "mTOR": 0.234,
+   "AMPK": -0.015,
+   "FOXO3": 0.017,
+   "Autophagy": -0.053,
+   "PGC1A": 0.019,
+   "Mito_biogenesis": 0.0,
+   "NAD": 0.06,
+   "SIRT1": 0.019,
+   "Insulin_sensitivity": -0.031,
+   "Insulin_resistance": 0.017,
+   "IL6": -0.016,
+   "TNF": -0.012,
+   "FGF21": 0.037,
+   "ROS": 0.001,
+   "NFkB": 0.048
+  },
+  "FST": {
+   "Aging_index": 0.011,
+   "Aging_nutrient_sensing": 0.025,
+   "Aging_mito": -0.008,
+   "Aging_NAD": 0.035,
+   "Aging_inflammation": 0.02,
+   "Aging_senescence_genomic": 0.005,
+   "Aging_proteostasis": -0.014,
+   "Aging_secretory": -0.114,
+   "Sarcopenia": -0.059,
+   "Anabolism": 0.009,
+   "Catabolism": -0.093,
+   "Proteolysis": 0.016,
+   "Protein_synthesis": 0.039,
+   "MSTN": -0.325,
+   "mTOR": 0.007,
+   "AMPK": 0.02,
+   "FOXO3": -0.008,
+   "Autophagy": -0.017,
+   "PGC1A": 0.033,
+   "Mito_biogenesis": 0.034,
+   "NAD": 0.015,
+   "SIRT1": -0.007,
+   "Insulin_sensitivity": -0.018,
+   "Insulin_resistance": 0.01,
+   "IL6": 0.019,
+   "TNF": 0.005,
+   "FGF21": -0.018,
+   "ROS": -0.015,
+   "NFkB": 0.016
+  },
+  "hyperammonemia": {
+   "Aging_index": 0.051,
+   "Aging_nutrient_sensing": 0.062,
+   "Aging_mito": 0.115,
+   "Aging_NAD": -0.01,
+   "Aging_inflammation": 0.207,
+   "Aging_senescence_genomic": 0.032,
+   "Aging_proteostasis": 0.053,
+   "Aging_secretory": 0.102,
+   "Sarcopenia": 0.053,
+   "Anabolism": -0.002,
+   "Catabolism": 0.072,
+   "Proteolysis": 0.059,
+   "Protein_synthesis": 0.044,
+   "MSTN": 0.212,
+   "mTOR": -0.014,
+   "AMPK": 0.039,
+   "FOXO3": 0.022,
+   "Autophagy": -0.014,
+   "PGC1A": 0.015,
+   "Mito_biogenesis": 0.005,
+   "NAD": 0.01,
+   "SIRT1": 0.01,
+   "Insulin_sensitivity": -0.006,
+   "Insulin_resistance": 0.195,
+   "IL6": -0.025,
+   "TNF": -0.007,
+   "FGF21": 0.132,
+   "ROS": -0.007,
+   "NFkB": 0.408
+  },
+  "glucocorticoids": {
+   "Aging_index": 0.027,
+   "Aging_nutrient_sensing": -0.03,
+   "Aging_mito": 0.022,
+   "Aging_NAD": 0.023,
+   "Aging_inflammation": 0.049,
+   "Aging_senescence_genomic": -0.006,
+   "Aging_proteostasis": 0.038,
+   "Aging_secretory": 0.0,
+   "Sarcopenia": 0.016,
+   "Anabolism": -0.051,
+   "Catabolism": 0.001,
+   "Proteolysis": 0.061,
+   "Protein_synthesis": -0.003,
+   "MSTN": -0.031,
+   "mTOR": 0.0,
+   "AMPK": 0.043,
+   "FOXO3": -0.004,
+   "Autophagy": 0.014,
+   "PGC1A": 0.013,
+   "Mito_biogenesis": -0.018,
+   "NAD": -0.013,
+   "SIRT1": -0.008,
+   "Insulin_sensitivity": -0.019,
+   "Insulin_resistance": -0.017,
+   "IL6": -0.008,
+   "TNF": -0.01,
+   "FGF21": -0.021,
+   "ROS": -0.018,
+   "NFkB": 0.018
+  },
+  "LEP": {
+   "Aging_index": 0.088,
+   "Aging_nutrient_sensing": 0.057,
+   "Aging_mito": 0.072,
+   "Aging_NAD": 0.019,
+   "Aging_inflammation": 0.357,
+   "Aging_senescence_genomic": 0.01,
+   "Aging_proteostasis": -0.002,
+   "Aging_secretory": 0.068,
+   "Sarcopenia": 0.022,
+   "Anabolism": -0.032,
+   "Catabolism": 0.021,
+   "Proteolysis": 0.03,
+   "Protein_synthesis": 0.011,
+   "MSTN": 0.128,
+   "mTOR": -0.023,
+   "AMPK": 0.028,
+   "FOXO3": -0.038,
+   "Autophagy": -0.007,
+   "PGC1A": -0.015,
+   "Mito_biogenesis": -0.015,
+   "NAD": 0.016,
+   "SIRT1": -0.024,
+   "Insulin_sensitivity": -0.012,
+   "Insulin_resistance": 0.24,
+   "IL6": 0.52,
+   "TNF": 0.551,
+   "FGF21": -0.006,
+   "ROS": 0.076,
+   "NFkB": 0.23
+  },
+  "ADIPOQ": {
+   "Aging_index": 0.024,
+   "Aging_nutrient_sensing": -0.184,
+   "Aging_mito": -0.053,
+   "Aging_NAD": 0.057,
+   "Aging_inflammation": 0.071,
+   "Aging_senescence_genomic": 0.053,
+   "Aging_proteostasis": 0.016,
+   "Aging_secretory": 0.016,
+   "Sarcopenia": -0.004,
+   "Anabolism": 0.006,
+   "Catabolism": 0.001,
+   "Proteolysis": 0.035,
+   "Protein_synthesis": -0.008,
+   "MSTN": -0.027,
+   "mTOR": -0.07,
+   "AMPK": 0.263,
+   "FOXO3": 0.076,
+   "Autophagy": 0.02,
+   "PGC1A": 0.067,
+   "Mito_biogenesis": 0.032,
+   "NAD": 0.002,
+   "SIRT1": 0.032,
+   "Insulin_sensitivity": -0.009,
+   "Insulin_resistance": -0.245,
+   "IL6": 0.005,
+   "TNF": 0.027,
+   "FGF21": -0.046,
+   "ROS": 0.005,
+   "NFkB": 0.033
+  },
+  "FGL1": {
+   "Aging_index": 0.032,
+   "Aging_nutrient_sensing": 0.098,
+   "Aging_mito": 0.024,
+   "Aging_NAD": 0.029,
+   "Aging_inflammation": 0.031,
+   "Aging_senescence_genomic": -0.018,
+   "Aging_proteostasis": -0.001,
+   "Aging_secretory": -0.011,
+   "Sarcopenia": 0.018,
+   "Anabolism": -0.01,
+   "Catabolism": -0.013,
+   "Proteolysis": 0.003,
+   "Protein_synthesis": 0.015,
+   "MSTN": -0.032,
+   "mTOR": 0.018,
+   "AMPK": 0.016,
+   "FOXO3": 0.001,
+   "Autophagy": 0.013,
+   "PGC1A": 0.0,
+   "Mito_biogenesis": 0.017,
+   "NAD": 0.013,
+   "SIRT1": -0.01,
+   "Insulin_sensitivity": -0.043,
+   "Insulin_resistance": 0.298,
+   "IL6": -0.007,
+   "TNF": 0.033,
+   "FGF21": 0.01,
+   "ROS": -0.013,
+   "NFkB": 0.023
+  },
+  "Omega3_PUFA": {
+   "Aging_index": 0.006,
+   "Aging_nutrient_sensing": 0.021,
+   "Aging_mito": 0.0,
+   "Aging_NAD": 0.021,
+   "Aging_inflammation": -0.028,
+   "Aging_senescence_genomic": -0.006,
+   "Aging_proteostasis": 0.027,
+   "Aging_secretory": -0.017,
+   "Sarcopenia": -0.017,
+   "Anabolism": 0.008,
+   "Catabolism": -0.006,
+   "Proteolysis": 0.008,
+   "Protein_synthesis": 0.065,
+   "MSTN": -0.039,
+   "mTOR": 0.016,
+   "AMPK": 0.04,
+   "FOXO3": 0.002,
+   "Autophagy": 0.002,
+   "PGC1A": 0.014,
+   "Mito_biogenesis": 0.003,
+   "NAD": 0.012,
+   "SIRT1": -0.032,
+   "Insulin_sensitivity": -0.022,
+   "Insulin_resistance": 0.01,
+   "IL6": -0.186,
+   "TNF": 0.006,
+   "FGF21": 0.017,
+   "ROS": 0.002,
+   "NFkB": 0.017
+  }
+ },
+ "dose_response": {
+  "DR": {
+   "0.0": {
+    "Sarcopenia": 0.514,
+    "Anabolism": 0.539,
+    "MSTN": 0.45,
+    "Autophagy": 0.527,
+    "NAD": 0.449,
+    "Insulin_sensitivity": 0.25,
+    "Mito_biogenesis": 0.328,
+    "Protein_synthesis": 0.272
+   },
+   "0.25": {
+    "Sarcopenia": 0.476,
+    "Anabolism": 0.55,
+    "MSTN": 0.444,
+    "Autophagy": 0.55,
+    "NAD": 0.423,
+    "Insulin_sensitivity": 0.316,
+    "Mito_biogenesis": 0.348,
+    "Protein_synthesis": 0.309
+   },
+   "0.5": {
+    "Sarcopenia": 0.509,
+    "Anabolism": 0.51,
+    "MSTN": 0.452,
+    "Autophagy": 0.581,
+    "NAD": 0.432,
+    "Insulin_sensitivity": 0.375,
+    "Mito_biogenesis": 0.389,
+    "Protein_synthesis": 0.287
+   },
+   "0.75": {
+    "Sarcopenia": 0.514,
+    "Anabolism": 0.505,
+    "MSTN": 0.439,
+    "Autophagy": 0.605,
+    "NAD": 0.438,
+    "Insulin_sensitivity": 0.431,
+    "Mito_biogenesis": 0.43,
+    "Protein_synthesis": 0.28
+   },
+   "1.0": {
+    "Sarcopenia": 0.507,
+    "Anabolism": 0.518,
+    "MSTN": 0.412,
+    "Autophagy": 0.622,
+    "NAD": 0.444,
+    "Insulin_sensitivity": 0.511,
+    "Mito_biogenesis": 0.464,
+    "Protein_synthesis": 0.262
+   }
+  },
+  "Rapamycin": {
+   "0.0": {
+    "Sarcopenia": 0.514,
+    "Anabolism": 0.539,
+    "MSTN": 0.45,
+    "Autophagy": 0.527,
+    "NAD": 0.449,
+    "Insulin_sensitivity": 0.25,
+    "Mito_biogenesis": 0.328,
+    "Protein_synthesis": 0.272
+   },
+   "0.25": {
+    "Sarcopenia": 0.487,
+    "Anabolism": 0.542,
+    "MSTN": 0.467,
+    "Autophagy": 0.542,
+    "NAD": 0.436,
+    "Insulin_sensitivity": 0.251,
+    "Mito_biogenesis": 0.307,
+    "Protein_synthesis": 0.29
+   },
+   "0.5": {
+    "Sarcopenia": 0.529,
+    "Anabolism": 0.497,
+    "MSTN": 0.474,
+    "Autophagy": 0.549,
+    "NAD": 0.447,
+    "Insulin_sensitivity": 0.253,
+    "Mito_biogenesis": 0.304,
+    "Protein_synthesis": 0.26
+   },
+   "0.75": {
+    "Sarcopenia": 0.562,
+    "Anabolism": 0.475,
+    "MSTN": 0.445,
+    "Autophagy": 0.557,
+    "NAD": 0.459,
+    "Insulin_sensitivity": 0.252,
+    "Mito_biogenesis": 0.32,
+    "Protein_synthesis": 0.233
+   },
+   "1.0": {
+    "Sarcopenia": 0.565,
+    "Anabolism": 0.467,
+    "MSTN": 0.411,
+    "Autophagy": 0.565,
+    "NAD": 0.467,
+    "Insulin_sensitivity": 0.264,
+    "Mito_biogenesis": 0.305,
+    "Protein_synthesis": 0.209
+   }
+  },
+  "Exercise": {
+   "0.0": {
+    "Sarcopenia": 0.514,
+    "Anabolism": 0.539,
+    "MSTN": 0.45,
+    "Autophagy": 0.527,
+    "NAD": 0.449,
+    "Insulin_sensitivity": 0.25,
+    "Mito_biogenesis": 0.328,
+    "Protein_synthesis": 0.272
+   },
+   "0.25": {
+    "Sarcopenia": 0.438,
+    "Anabolism": 0.572,
+    "MSTN": 0.393,
+    "Autophagy": 0.528,
+    "NAD": 0.454,
+    "Insulin_sensitivity": 0.274,
+    "Mito_biogenesis": 0.367,
+    "Protein_synthesis": 0.348
+   },
+   "0.5": {
+    "Sarcopenia": 0.429,
+    "Anabolism": 0.583,
+    "MSTN": 0.327,
+    "Autophagy": 0.537,
+    "NAD": 0.46,
+    "Insulin_sensitivity": 0.269,
+    "Mito_biogenesis": 0.42,
+    "Protein_synthesis": 0.379
+   },
+   "0.75": {
+    "Sarcopenia": 0.402,
+    "Anabolism": 0.609,
+    "MSTN": 0.249,
+    "Autophagy": 0.536,
+    "NAD": 0.474,
+    "Insulin_sensitivity": 0.277,
+    "Mito_biogenesis": 0.475,
+    "Protein_synthesis": 0.417
+   },
+   "1.0": {
+    "Sarcopenia": 0.374,
+    "Anabolism": 0.631,
+    "MSTN": 0.167,
+    "Autophagy": 0.543,
+    "NAD": 0.504,
+    "Insulin_sensitivity": 0.301,
+    "Mito_biogenesis": 0.531,
+    "Protein_synthesis": 0.429
+   }
+  },
+  "leucine": {
+   "0.0": {
+    "Sarcopenia": 0.514,
+    "Anabolism": 0.539,
+    "MSTN": 0.45,
+    "Autophagy": 0.527,
+    "NAD": 0.449,
+    "Insulin_sensitivity": 0.25,
+    "Mito_biogenesis": 0.328,
+    "Protein_synthesis": 0.272
+   },
+   "0.25": {
+    "Sarcopenia": 0.438,
+    "Anabolism": 0.591,
+    "MSTN": 0.453,
+    "Autophagy": 0.518,
+    "NAD": 0.442,
+    "Insulin_sensitivity": 0.252,
+    "Mito_biogenesis": 0.311,
+    "Protein_synthesis": 0.391
+   },
+   "0.5": {
+    "Sarcopenia": 0.413,
+    "Anabolism": 0.614,
+    "MSTN": 0.461,
+    "Autophagy": 0.504,
+    "NAD": 0.43,
+    "Insulin_sensitivity": 0.23,
+    "Mito_biogenesis": 0.307,
+    "Protein_synthesis": 0.47
+   },
+   "0.75": {
+    "Sarcopenia": 0.392,
+    "Anabolism": 0.651,
+    "MSTN": 0.445,
+    "Autophagy": 0.497,
+    "NAD": 0.413,
+    "Insulin_sensitivity": 0.219,
+    "Mito_biogenesis": 0.315,
+    "Protein_synthesis": 0.548
+   },
+   "1.0": {
+    "Sarcopenia": 0.375,
+    "Anabolism": 0.69,
+    "MSTN": 0.421,
+    "Autophagy": 0.484,
+    "NAD": 0.422,
+    "Insulin_sensitivity": 0.222,
+    "Mito_biogenesis": 0.291,
+    "Protein_synthesis": 0.61
+   }
+  },
+  "Inflammaging": {
+   "0.0": {
+    "Sarcopenia": 0.514,
+    "Anabolism": 0.539,
+    "MSTN": 0.45,
+    "Autophagy": 0.527,
+    "NAD": 0.449,
+    "Insulin_sensitivity": 0.25,
+    "Mito_biogenesis": 0.328,
+    "Protein_synthesis": 0.272
+   },
+   "0.25": {
+    "Sarcopenia": 0.484,
+    "Anabolism": 0.549,
+    "MSTN": 0.54,
+    "Autophagy": 0.531,
+    "NAD": 0.381,
+    "Insulin_sensitivity": 0.236,
+    "Mito_biogenesis": 0.3,
+    "Protein_synthesis": 0.325
+   },
+   "0.5": {
+    "Sarcopenia": 0.515,
+    "Anabolism": 0.528,
+    "MSTN": 0.618,
+    "Autophagy": 0.531,
+    "NAD": 0.317,
+    "Insulin_sensitivity": 0.219,
+    "Mito_biogenesis": 0.286,
+    "Protein_synthesis": 0.324
+   },
+   "0.75": {
+    "Sarcopenia": 0.537,
+    "Anabolism": 0.534,
+    "MSTN": 0.68,
+    "Autophagy": 0.509,
+    "NAD": 0.26,
+    "Insulin_sensitivity": 0.208,
+    "Mito_biogenesis": 0.299,
+    "Protein_synthesis": 0.332
+   },
+   "1.0": {
+    "Sarcopenia": 0.551,
+    "Anabolism": 0.543,
+    "MSTN": 0.728,
+    "Autophagy": 0.49,
+    "NAD": 0.2,
+    "Insulin_sensitivity": 0.204,
+    "Mito_biogenesis": 0.284,
+    "Protein_synthesis": 0.324
+   }
+  },
+  "NMN_supp": {
+   "0.0": {
+    "Sarcopenia": 0.514,
+    "Anabolism": 0.539,
+    "MSTN": 0.45,
+    "Autophagy": 0.527,
+    "NAD": 0.449,
+    "Insulin_sensitivity": 0.25,
+    "Mito_biogenesis": 0.328,
+    "Protein_synthesis": 0.272
+   },
+   "0.25": {
+    "Sarcopenia": 0.469,
+    "Anabolism": 0.558,
+    "MSTN": 0.446,
+    "Autophagy": 0.528,
+    "NAD": 0.477,
+    "Insulin_sensitivity": 0.305,
+    "Mito_biogenesis": 0.317,
+    "Protein_synthesis": 0.323
+   },
+   "0.5": {
+    "Sarcopenia": 0.484,
+    "Anabolism": 0.561,
+    "MSTN": 0.453,
+    "Autophagy": 0.534,
+    "NAD": 0.502,
+    "Insulin_sensitivity": 0.351,
+    "Mito_biogenesis": 0.326,
+    "Protein_synthesis": 0.33
+   },
+   "0.75": {
+    "Sarcopenia": 0.475,
+    "Anabolism": 0.561,
+    "MSTN": 0.43,
+    "Autophagy": 0.535,
+    "NAD": 0.548,
+    "Insulin_sensitivity": 0.411,
+    "Mito_biogenesis": 0.331,
+    "Protein_synthesis": 0.343
+   },
+   "1.0": {
+    "Sarcopenia": 0.469,
+    "Anabolism": 0.577,
+    "MSTN": 0.401,
+    "Autophagy": 0.537,
+    "NAD": 0.604,
+    "Insulin_sensitivity": 0.477,
+    "Mito_biogenesis": 0.33,
+    "Protein_synthesis": 0.343
+   }
+  },
+  "Metformin": {
+   "0.0": {
+    "Sarcopenia": 0.514,
+    "Anabolism": 0.539,
+    "MSTN": 0.45,
+    "Autophagy": 0.527,
+    "NAD": 0.449,
+    "Insulin_sensitivity": 0.25,
+    "Mito_biogenesis": 0.328,
+    "Protein_synthesis": 0.272
+   },
+   "0.25": {
+    "Sarcopenia": 0.486,
+    "Anabolism": 0.542,
+    "MSTN": 0.455,
+    "Autophagy": 0.544,
+    "NAD": 0.42,
+    "Insulin_sensitivity": 0.319,
+    "Mito_biogenesis": 0.355,
+    "Protein_synthesis": 0.32
+   },
+   "0.5": {
+    "Sarcopenia": 0.503,
+    "Anabolism": 0.534,
+    "MSTN": 0.445,
+    "Autophagy": 0.558,
+    "NAD": 0.443,
+    "Insulin_sensitivity": 0.372,
+    "Mito_biogenesis": 0.376,
+    "Protein_synthesis": 0.316
+   },
+   "0.75": {
+    "Sarcopenia": 0.506,
+    "Anabolism": 0.523,
+    "MSTN": 0.427,
+    "Autophagy": 0.571,
+    "NAD": 0.447,
+    "Insulin_sensitivity": 0.433,
+    "Mito_biogenesis": 0.402,
+    "Protein_synthesis": 0.321
+   },
+   "1.0": {
+    "Sarcopenia": 0.506,
+    "Anabolism": 0.53,
+    "MSTN": 0.414,
+    "Autophagy": 0.573,
+    "NAD": 0.46,
+    "Insulin_sensitivity": 0.506,
+    "Mito_biogenesis": 0.411,
+    "Protein_synthesis": 0.306
+   }
+  },
+  "Semaglutide": {
+   "0.0": {
+    "Sarcopenia": 0.514,
+    "Anabolism": 0.539,
+    "MSTN": 0.45,
+    "Autophagy": 0.527,
+    "NAD": 0.449,
+    "Insulin_sensitivity": 0.25,
+    "Mito_biogenesis": 0.328,
+    "Protein_synthesis": 0.272
+   },
+   "0.25": {
+    "Sarcopenia": 0.459,
+    "Anabolism": 0.559,
+    "MSTN": 0.475,
+    "Autophagy": 0.525,
+    "NAD": 0.445,
+    "Insulin_sensitivity": 0.248,
+    "Mito_biogenesis": 0.326,
+    "Protein_synthesis": 0.326
+   },
+   "0.5": {
+    "Sarcopenia": 0.474,
+    "Anabolism": 0.536,
+    "MSTN": 0.48,
+    "Autophagy": 0.54,
+    "NAD": 0.453,
+    "Insulin_sensitivity": 0.228,
+    "Mito_biogenesis": 0.328,
+    "Protein_synthesis": 0.329
+   },
+   "0.75": {
+    "Sarcopenia": 0.488,
+    "Anabolism": 0.528,
+    "MSTN": 0.464,
+    "Autophagy": 0.53,
+    "NAD": 0.454,
+    "Insulin_sensitivity": 0.226,
+    "Mito_biogenesis": 0.34,
+    "Protein_synthesis": 0.342
+   },
+   "1.0": {
+    "Sarcopenia": 0.503,
+    "Anabolism": 0.524,
+    "MSTN": 0.448,
+    "Autophagy": 0.547,
+    "NAD": 0.459,
+    "Insulin_sensitivity": 0.236,
+    "Mito_biogenesis": 0.335,
+    "Protein_synthesis": 0.323
+   }
+  }
+ },
+ "single_delta_key": {
+  "DR": {
+   "Sarcopenia": 0.017,
+   "Anabolism": -0.056,
+   "Autophagy": 0.103,
+   "NAD": 0.012,
+   "Insulin_sensitivity": 0.282,
+   "Mito_biogenesis": 0.121
+  },
+  "Rapamycin": {
+   "Sarcopenia": -0.001,
+   "Anabolism": -0.068,
+   "Autophagy": 0.048,
+   "NAD": 0.046,
+   "Insulin_sensitivity": -0.018,
+   "Mito_biogenesis": 0.005
+  },
+  "Exercise": {
+   "Sarcopenia": -0.149,
+   "Anabolism": 0.105,
+   "Autophagy": 0.017,
+   "NAD": 0.017,
+   "Insulin_sensitivity": 0.005,
+   "Mito_biogenesis": 0.207
+  },
+  "leucine": {
+   "Sarcopenia": -0.151,
+   "Anabolism": 0.186,
+   "Autophagy": -0.053,
+   "NAD": 0.06,
+   "Insulin_sensitivity": -0.031,
+   "Mito_biogenesis": 0.0
+  },
+  "Metformin": {
+   "Sarcopenia": 0.01,
+   "Anabolism": -0.018,
+   "Autophagy": 0.041,
+   "NAD": 0.012,
+   "Insulin_sensitivity": 0.232,
+   "Mito_biogenesis": 0.107
+  },
+  "NMN_supp": {
+   "Sarcopenia": -0.029,
+   "Anabolism": -0.002,
+   "Autophagy": 0.008,
+   "NAD": 0.153,
+   "Insulin_sensitivity": 0.24,
+   "Mito_biogenesis": -0.006
+  },
+  "Semaglutide": {
+   "Sarcopenia": -0.008,
+   "Anabolism": -0.025,
+   "Autophagy": 0.014,
+   "NAD": 0.026,
+   "Insulin_sensitivity": -0.02,
+   "Mito_biogenesis": -0.008
+  },
+  "Omega3_PUFA": {
+   "Sarcopenia": -0.017,
+   "Anabolism": 0.008,
+   "Autophagy": 0.002,
+   "NAD": 0.012,
+   "Insulin_sensitivity": -0.022,
+   "Mito_biogenesis": 0.003
+  },
+  "Resveratrol": {
+   "Sarcopenia": -0.017,
+   "Anabolism": -0.012,
+   "Autophagy": 0.046,
+   "NAD": 0.047,
+   "Insulin_sensitivity": 0.02,
+   "Mito_biogenesis": 0.066
+  }
+ },
+ "pairwise_interaction": {
+  "DR+Rapamycin": {
+   "Sarcopenia": {
+    "combined_delta": 0.05,
+    "additive_pred": 0.016,
+    "interaction": 0.034
+   },
+   "Anabolism": {
+    "combined_delta": -0.103,
+    "additive_pred": -0.124,
+    "interaction": 0.021
+   },
+   "Autophagy": {
+    "combined_delta": 0.125,
+    "additive_pred": 0.151,
+    "interaction": -0.026
+   },
+   "NAD": {
+    "combined_delta": 0.063,
+    "additive_pred": 0.058,
+    "interaction": 0.005
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.283,
+    "additive_pred": 0.264,
+    "interaction": 0.019
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.142,
+    "additive_pred": 0.126,
+    "interaction": 0.016
+   }
+  },
+  "DR+Exercise": {
+   "Sarcopenia": {
+    "combined_delta": -0.118,
+    "additive_pred": -0.132,
+    "interaction": 0.014
+   },
+   "Anabolism": {
+    "combined_delta": 0.069,
+    "additive_pred": 0.049,
+    "interaction": 0.02
+   },
+   "Autophagy": {
+    "combined_delta": 0.071,
+    "additive_pred": 0.12,
+    "interaction": -0.049
+   },
+   "NAD": {
+    "combined_delta": 0.025,
+    "additive_pred": 0.029,
+    "interaction": -0.004
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.315,
+    "additive_pred": 0.287,
+    "interaction": 0.028
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.216,
+    "additive_pred": 0.328,
+    "interaction": -0.112
+   }
+  },
+  "DR+leucine": {
+   "Sarcopenia": {
+    "combined_delta": -0.109,
+    "additive_pred": -0.134,
+    "interaction": 0.025
+   },
+   "Anabolism": {
+    "combined_delta": 0.125,
+    "additive_pred": 0.13,
+    "interaction": -0.005
+   },
+   "Autophagy": {
+    "combined_delta": 0.076,
+    "additive_pred": 0.05,
+    "interaction": 0.026
+   },
+   "NAD": {
+    "combined_delta": 0.023,
+    "additive_pred": 0.072,
+    "interaction": -0.049
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.237,
+    "additive_pred": 0.251,
+    "interaction": -0.014
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.121,
+    "additive_pred": 0.121,
+    "interaction": 0.0
+   }
+  },
+  "DR+Metformin": {
+   "Sarcopenia": {
+    "combined_delta": -0.003,
+    "additive_pred": 0.027,
+    "interaction": -0.03
+   },
+   "Anabolism": {
+    "combined_delta": -0.02,
+    "additive_pred": -0.074,
+    "interaction": 0.054
+   },
+   "Autophagy": {
+    "combined_delta": 0.103,
+    "additive_pred": 0.144,
+    "interaction": -0.041
+   },
+   "NAD": {
+    "combined_delta": 0.022,
+    "additive_pred": 0.024,
+    "interaction": -0.002
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.373,
+    "additive_pred": 0.514,
+    "interaction": -0.141
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.132,
+    "additive_pred": 0.228,
+    "interaction": -0.096
+   }
+  },
+  "DR+NMN_supp": {
+   "Sarcopenia": {
+    "combined_delta": 0.027,
+    "additive_pred": -0.012,
+    "interaction": 0.039
+   },
+   "Anabolism": {
+    "combined_delta": -0.063,
+    "additive_pred": -0.058,
+    "interaction": -0.005
+   },
+   "Autophagy": {
+    "combined_delta": 0.127,
+    "additive_pred": 0.111,
+    "interaction": 0.016
+   },
+   "NAD": {
+    "combined_delta": 0.135,
+    "additive_pred": 0.165,
+    "interaction": -0.03
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.396,
+    "additive_pred": 0.522,
+    "interaction": -0.126
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.128,
+    "additive_pred": 0.115,
+    "interaction": 0.013
+   }
+  },
+  "DR+Semaglutide": {
+   "Sarcopenia": {
+    "combined_delta": 0.016,
+    "additive_pred": 0.009,
+    "interaction": 0.007
+   },
+   "Anabolism": {
+    "combined_delta": -0.077,
+    "additive_pred": -0.081,
+    "interaction": 0.004
+   },
+   "Autophagy": {
+    "combined_delta": 0.121,
+    "additive_pred": 0.117,
+    "interaction": 0.004
+   },
+   "NAD": {
+    "combined_delta": -0.012,
+    "additive_pred": 0.038,
+    "interaction": -0.05
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.267,
+    "additive_pred": 0.262,
+    "interaction": 0.005
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.104,
+    "additive_pred": 0.113,
+    "interaction": -0.009
+   }
+  },
+  "DR+Omega3_PUFA": {
+   "Sarcopenia": {
+    "combined_delta": 0.038,
+    "additive_pred": 0.0,
+    "interaction": 0.038
+   },
+   "Anabolism": {
+    "combined_delta": -0.082,
+    "additive_pred": -0.048,
+    "interaction": -0.034
+   },
+   "Autophagy": {
+    "combined_delta": 0.097,
+    "additive_pred": 0.105,
+    "interaction": -0.008
+   },
+   "NAD": {
+    "combined_delta": 0.04,
+    "additive_pred": 0.024,
+    "interaction": 0.016
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.266,
+    "additive_pred": 0.26,
+    "interaction": 0.006
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.101,
+    "additive_pred": 0.124,
+    "interaction": -0.023
+   }
+  },
+  "DR+Resveratrol": {
+   "Sarcopenia": {
+    "combined_delta": 0.032,
+    "additive_pred": 0.0,
+    "interaction": 0.032
+   },
+   "Anabolism": {
+    "combined_delta": -0.057,
+    "additive_pred": -0.068,
+    "interaction": 0.011
+   },
+   "Autophagy": {
+    "combined_delta": 0.105,
+    "additive_pred": 0.149,
+    "interaction": -0.044
+   },
+   "NAD": {
+    "combined_delta": 0.049,
+    "additive_pred": 0.059,
+    "interaction": -0.01
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.281,
+    "additive_pred": 0.302,
+    "interaction": -0.021
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.127,
+    "additive_pred": 0.187,
+    "interaction": -0.06
+   }
+  },
+  "Rapamycin+Exercise": {
+   "Sarcopenia": {
+    "combined_delta": -0.113,
+    "additive_pred": -0.15,
+    "interaction": 0.037
+   },
+   "Anabolism": {
+    "combined_delta": 0.053,
+    "additive_pred": 0.037,
+    "interaction": 0.016
+   },
+   "Autophagy": {
+    "combined_delta": 0.035,
+    "additive_pred": 0.065,
+    "interaction": -0.03
+   },
+   "NAD": {
+    "combined_delta": 0.03,
+    "additive_pred": 0.063,
+    "interaction": -0.033
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": -0.017,
+    "additive_pred": -0.013,
+    "interaction": -0.004
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.198,
+    "additive_pred": 0.212,
+    "interaction": -0.014
+   }
+  },
+  "Rapamycin+leucine": {
+   "Sarcopenia": {
+    "combined_delta": -0.109,
+    "additive_pred": -0.152,
+    "interaction": 0.043
+   },
+   "Anabolism": {
+    "combined_delta": 0.138,
+    "additive_pred": 0.118,
+    "interaction": 0.02
+   },
+   "Autophagy": {
+    "combined_delta": -0.015,
+    "additive_pred": -0.005,
+    "interaction": -0.01
+   },
+   "NAD": {
+    "combined_delta": 0.008,
+    "additive_pred": 0.106,
+    "interaction": -0.098
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": -0.019,
+    "additive_pred": -0.049,
+    "interaction": 0.03
+   },
+   "Mito_biogenesis": {
+    "combined_delta": -0.059,
+    "additive_pred": 0.005,
+    "interaction": -0.064
+   }
+  },
+  "Rapamycin+Metformin": {
+   "Sarcopenia": {
+    "combined_delta": 0.05,
+    "additive_pred": 0.009,
+    "interaction": 0.041
+   },
+   "Anabolism": {
+    "combined_delta": -0.075,
+    "additive_pred": -0.086,
+    "interaction": 0.011
+   },
+   "Autophagy": {
+    "combined_delta": 0.049,
+    "additive_pred": 0.089,
+    "interaction": -0.04
+   },
+   "NAD": {
+    "combined_delta": 0.026,
+    "additive_pred": 0.058,
+    "interaction": -0.032
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.25,
+    "additive_pred": 0.214,
+    "interaction": 0.036
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.072,
+    "additive_pred": 0.112,
+    "interaction": -0.04
+   }
+  },
+  "Rapamycin+NMN_supp": {
+   "Sarcopenia": {
+    "combined_delta": 0.027,
+    "additive_pred": -0.03,
+    "interaction": 0.057
+   },
+   "Anabolism": {
+    "combined_delta": -0.064,
+    "additive_pred": -0.07,
+    "interaction": 0.006
+   },
+   "Autophagy": {
+    "combined_delta": 0.035,
+    "additive_pred": 0.056,
+    "interaction": -0.021
+   },
+   "NAD": {
+    "combined_delta": 0.144,
+    "additive_pred": 0.199,
+    "interaction": -0.055
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.257,
+    "additive_pred": 0.222,
+    "interaction": 0.035
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.017,
+    "additive_pred": -0.001,
+    "interaction": 0.018
+   }
+  },
+  "Rapamycin+Semaglutide": {
+   "Sarcopenia": {
+    "combined_delta": 0.048,
+    "additive_pred": -0.009,
+    "interaction": 0.057
+   },
+   "Anabolism": {
+    "combined_delta": -0.069,
+    "additive_pred": -0.093,
+    "interaction": 0.024
+   },
+   "Autophagy": {
+    "combined_delta": 0.036,
+    "additive_pred": 0.062,
+    "interaction": -0.026
+   },
+   "NAD": {
+    "combined_delta": -0.016,
+    "additive_pred": 0.072,
+    "interaction": -0.088
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.032,
+    "additive_pred": -0.038,
+    "interaction": 0.07
+   },
+   "Mito_biogenesis": {
+    "combined_delta": -0.011,
+    "additive_pred": -0.003,
+    "interaction": -0.008
+   }
+  },
+  "Rapamycin+Omega3_PUFA": {
+   "Sarcopenia": {
+    "combined_delta": 0.023,
+    "additive_pred": -0.018,
+    "interaction": 0.041
+   },
+   "Anabolism": {
+    "combined_delta": -0.032,
+    "additive_pred": -0.06,
+    "interaction": 0.028
+   },
+   "Autophagy": {
+    "combined_delta": 0.055,
+    "additive_pred": 0.05,
+    "interaction": 0.005
+   },
+   "NAD": {
+    "combined_delta": -0.021,
+    "additive_pred": 0.058,
+    "interaction": -0.079
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": -0.013,
+    "additive_pred": -0.04,
+    "interaction": 0.027
+   },
+   "Mito_biogenesis": {
+    "combined_delta": -0.033,
+    "additive_pred": 0.008,
+    "interaction": -0.041
+   }
+  },
+  "Rapamycin+Resveratrol": {
+   "Sarcopenia": {
+    "combined_delta": 0.036,
+    "additive_pred": -0.018,
+    "interaction": 0.054
+   },
+   "Anabolism": {
+    "combined_delta": -0.05,
+    "additive_pred": -0.08,
+    "interaction": 0.03
+   },
+   "Autophagy": {
+    "combined_delta": 0.041,
+    "additive_pred": 0.094,
+    "interaction": -0.053
+   },
+   "NAD": {
+    "combined_delta": 0.006,
+    "additive_pred": 0.093,
+    "interaction": -0.087
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": -0.012,
+    "additive_pred": 0.002,
+    "interaction": -0.014
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.067,
+    "additive_pred": 0.071,
+    "interaction": -0.004
+   }
+  },
+  "Exercise+leucine": {
+   "Sarcopenia": {
+    "combined_delta": -0.225,
+    "additive_pred": -0.3,
+    "interaction": 0.075
+   },
+   "Anabolism": {
+    "combined_delta": 0.201,
+    "additive_pred": 0.291,
+    "interaction": -0.09
+   },
+   "Autophagy": {
+    "combined_delta": -0.038,
+    "additive_pred": -0.036,
+    "interaction": -0.002
+   },
+   "NAD": {
+    "combined_delta": 0.011,
+    "additive_pred": 0.077,
+    "interaction": -0.066
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": -0.006,
+    "additive_pred": -0.026,
+    "interaction": 0.02
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.185,
+    "additive_pred": 0.207,
+    "interaction": -0.022
+   }
+  },
+  "Exercise+Metformin": {
+   "Sarcopenia": {
+    "combined_delta": -0.138,
+    "additive_pred": -0.139,
+    "interaction": 0.001
+   },
+   "Anabolism": {
+    "combined_delta": 0.098,
+    "additive_pred": 0.087,
+    "interaction": 0.011
+   },
+   "Autophagy": {
+    "combined_delta": -0.003,
+    "additive_pred": 0.058,
+    "interaction": -0.061
+   },
+   "NAD": {
+    "combined_delta": 0.046,
+    "additive_pred": 0.029,
+    "interaction": 0.017
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.258,
+    "additive_pred": 0.237,
+    "interaction": 0.021
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.241,
+    "additive_pred": 0.314,
+    "interaction": -0.073
+   }
+  },
+  "Exercise+NMN_supp": {
+   "Sarcopenia": {
+    "combined_delta": -0.115,
+    "additive_pred": -0.178,
+    "interaction": 0.063
+   },
+   "Anabolism": {
+    "combined_delta": 0.065,
+    "additive_pred": 0.103,
+    "interaction": -0.038
+   },
+   "Autophagy": {
+    "combined_delta": 0.026,
+    "additive_pred": 0.025,
+    "interaction": 0.001
+   },
+   "NAD": {
+    "combined_delta": 0.136,
+    "additive_pred": 0.17,
+    "interaction": -0.034
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.284,
+    "additive_pred": 0.245,
+    "interaction": 0.039
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.199,
+    "additive_pred": 0.201,
+    "interaction": -0.002
+   }
+  },
+  "Exercise+Semaglutide": {
+   "Sarcopenia": {
+    "combined_delta": -0.168,
+    "additive_pred": -0.157,
+    "interaction": -0.011
+   },
+   "Anabolism": {
+    "combined_delta": 0.104,
+    "additive_pred": 0.08,
+    "interaction": 0.024
+   },
+   "Autophagy": {
+    "combined_delta": 0.012,
+    "additive_pred": 0.031,
+    "interaction": -0.019
+   },
+   "NAD": {
+    "combined_delta": 0.028,
+    "additive_pred": 0.043,
+    "interaction": -0.015
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.035,
+    "additive_pred": -0.015,
+    "interaction": 0.05
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.201,
+    "additive_pred": 0.199,
+    "interaction": 0.002
+   }
+  },
+  "Exercise+Omega3_PUFA": {
+   "Sarcopenia": {
+    "combined_delta": -0.117,
+    "additive_pred": -0.166,
+    "interaction": 0.049
+   },
+   "Anabolism": {
+    "combined_delta": 0.065,
+    "additive_pred": 0.113,
+    "interaction": -0.048
+   },
+   "Autophagy": {
+    "combined_delta": 0.012,
+    "additive_pred": 0.019,
+    "interaction": -0.007
+   },
+   "NAD": {
+    "combined_delta": 0.026,
+    "additive_pred": 0.029,
+    "interaction": -0.003
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.008,
+    "additive_pred": -0.017,
+    "interaction": 0.025
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.18,
+    "additive_pred": 0.21,
+    "interaction": -0.03
+   }
+  },
+  "Exercise+Resveratrol": {
+   "Sarcopenia": {
+    "combined_delta": -0.134,
+    "additive_pred": -0.166,
+    "interaction": 0.032
+   },
+   "Anabolism": {
+    "combined_delta": 0.068,
+    "additive_pred": 0.093,
+    "interaction": -0.025
+   },
+   "Autophagy": {
+    "combined_delta": 0.031,
+    "additive_pred": 0.063,
+    "interaction": -0.032
+   },
+   "NAD": {
+    "combined_delta": 0.044,
+    "additive_pred": 0.064,
+    "interaction": -0.02
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.065,
+    "additive_pred": 0.025,
+    "interaction": 0.04
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.196,
+    "additive_pred": 0.273,
+    "interaction": -0.077
+   }
+  },
+  "leucine+Metformin": {
+   "Sarcopenia": {
+    "combined_delta": -0.126,
+    "additive_pred": -0.141,
+    "interaction": 0.015
+   },
+   "Anabolism": {
+    "combined_delta": 0.146,
+    "additive_pred": 0.168,
+    "interaction": -0.022
+   },
+   "Autophagy": {
+    "combined_delta": -0.011,
+    "additive_pred": -0.012,
+    "interaction": 0.001
+   },
+   "NAD": {
+    "combined_delta": 0.04,
+    "additive_pred": 0.072,
+    "interaction": -0.032
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.2,
+    "additive_pred": 0.201,
+    "interaction": -0.001
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.064,
+    "additive_pred": 0.107,
+    "interaction": -0.043
+   }
+  },
+  "leucine+NMN_supp": {
+   "Sarcopenia": {
+    "combined_delta": -0.139,
+    "additive_pred": -0.18,
+    "interaction": 0.041
+   },
+   "Anabolism": {
+    "combined_delta": 0.168,
+    "additive_pred": 0.184,
+    "interaction": -0.016
+   },
+   "Autophagy": {
+    "combined_delta": -0.003,
+    "additive_pred": -0.045,
+    "interaction": 0.042
+   },
+   "NAD": {
+    "combined_delta": 0.136,
+    "additive_pred": 0.213,
+    "interaction": -0.077
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.192,
+    "additive_pred": 0.209,
+    "interaction": -0.017
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.006,
+    "additive_pred": -0.006,
+    "interaction": 0.012
+   }
+  },
+  "leucine+Semaglutide": {
+   "Sarcopenia": {
+    "combined_delta": -0.15,
+    "additive_pred": -0.159,
+    "interaction": 0.009
+   },
+   "Anabolism": {
+    "combined_delta": 0.17,
+    "additive_pred": 0.161,
+    "interaction": 0.009
+   },
+   "Autophagy": {
+    "combined_delta": -0.033,
+    "additive_pred": -0.039,
+    "interaction": 0.006
+   },
+   "NAD": {
+    "combined_delta": 0.003,
+    "additive_pred": 0.086,
+    "interaction": -0.083
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": -0.026,
+    "additive_pred": -0.051,
+    "interaction": 0.025
+   },
+   "Mito_biogenesis": {
+    "combined_delta": -0.005,
+    "additive_pred": -0.008,
+    "interaction": 0.003
+   }
+  },
+  "leucine+Omega3_PUFA": {
+   "Sarcopenia": {
+    "combined_delta": -0.144,
+    "additive_pred": -0.168,
+    "interaction": 0.024
+   },
+   "Anabolism": {
+    "combined_delta": 0.192,
+    "additive_pred": 0.194,
+    "interaction": -0.002
+   },
+   "Autophagy": {
+    "combined_delta": -0.051,
+    "additive_pred": -0.051,
+    "interaction": 0.0
+   },
+   "NAD": {
+    "combined_delta": 0.019,
+    "additive_pred": 0.072,
+    "interaction": -0.053
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": -0.022,
+    "additive_pred": -0.053,
+    "interaction": 0.031
+   },
+   "Mito_biogenesis": {
+    "combined_delta": -0.016,
+    "additive_pred": 0.003,
+    "interaction": -0.019
+   }
+  },
+  "leucine+Resveratrol": {
+   "Sarcopenia": {
+    "combined_delta": -0.153,
+    "additive_pred": -0.168,
+    "interaction": 0.015
+   },
+   "Anabolism": {
+    "combined_delta": 0.148,
+    "additive_pred": 0.174,
+    "interaction": -0.026
+   },
+   "Autophagy": {
+    "combined_delta": -0.004,
+    "additive_pred": -0.007,
+    "interaction": 0.003
+   },
+   "NAD": {
+    "combined_delta": 0.027,
+    "additive_pred": 0.107,
+    "interaction": -0.08
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": -0.036,
+    "additive_pred": -0.011,
+    "interaction": -0.025
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.07,
+    "additive_pred": 0.066,
+    "interaction": 0.004
+   }
+  },
+  "Metformin+NMN_supp": {
+   "Sarcopenia": {
+    "combined_delta": -0.003,
+    "additive_pred": -0.019,
+    "interaction": 0.016
+   },
+   "Anabolism": {
+    "combined_delta": -0.037,
+    "additive_pred": -0.02,
+    "interaction": -0.017
+   },
+   "Autophagy": {
+    "combined_delta": 0.046,
+    "additive_pred": 0.049,
+    "interaction": -0.003
+   },
+   "NAD": {
+    "combined_delta": 0.165,
+    "additive_pred": 0.165,
+    "interaction": 0.0
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.375,
+    "additive_pred": 0.472,
+    "interaction": -0.097
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.072,
+    "additive_pred": 0.101,
+    "interaction": -0.029
+   }
+  },
+  "Metformin+Semaglutide": {
+   "Sarcopenia": {
+    "combined_delta": -0.002,
+    "additive_pred": 0.002,
+    "interaction": -0.004
+   },
+   "Anabolism": {
+    "combined_delta": -0.028,
+    "additive_pred": -0.043,
+    "interaction": 0.015
+   },
+   "Autophagy": {
+    "combined_delta": 0.019,
+    "additive_pred": 0.055,
+    "interaction": -0.036
+   },
+   "NAD": {
+    "combined_delta": 0.041,
+    "additive_pred": 0.038,
+    "interaction": 0.003
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.239,
+    "additive_pred": 0.212,
+    "interaction": 0.027
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.081,
+    "additive_pred": 0.099,
+    "interaction": -0.018
+   }
+  },
+  "Metformin+Omega3_PUFA": {
+   "Sarcopenia": {
+    "combined_delta": 0.032,
+    "additive_pred": -0.007,
+    "interaction": 0.039
+   },
+   "Anabolism": {
+    "combined_delta": -0.037,
+    "additive_pred": -0.01,
+    "interaction": -0.027
+   },
+   "Autophagy": {
+    "combined_delta": 0.06,
+    "additive_pred": 0.043,
+    "interaction": 0.017
+   },
+   "NAD": {
+    "combined_delta": 0.005,
+    "additive_pred": 0.024,
+    "interaction": -0.019
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.243,
+    "additive_pred": 0.21,
+    "interaction": 0.033
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.088,
+    "additive_pred": 0.11,
+    "interaction": -0.022
+   }
+  },
+  "Metformin+Resveratrol": {
+   "Sarcopenia": {
+    "combined_delta": -0.016,
+    "additive_pred": -0.007,
+    "interaction": -0.009
+   },
+   "Anabolism": {
+    "combined_delta": -0.013,
+    "additive_pred": -0.03,
+    "interaction": 0.017
+   },
+   "Autophagy": {
+    "combined_delta": 0.024,
+    "additive_pred": 0.087,
+    "interaction": -0.063
+   },
+   "NAD": {
+    "combined_delta": 0.044,
+    "additive_pred": 0.059,
+    "interaction": -0.015
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.203,
+    "additive_pred": 0.252,
+    "interaction": -0.049
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.089,
+    "additive_pred": 0.173,
+    "interaction": -0.084
+   }
+  },
+  "NMN_supp+Semaglutide": {
+   "Sarcopenia": {
+    "combined_delta": 0.017,
+    "additive_pred": -0.037,
+    "interaction": 0.054
+   },
+   "Anabolism": {
+    "combined_delta": -0.018,
+    "additive_pred": -0.027,
+    "interaction": 0.009
+   },
+   "Autophagy": {
+    "combined_delta": 0.021,
+    "additive_pred": 0.022,
+    "interaction": -0.001
+   },
+   "NAD": {
+    "combined_delta": 0.168,
+    "additive_pred": 0.179,
+    "interaction": -0.011
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.243,
+    "additive_pred": 0.22,
+    "interaction": 0.023
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.006,
+    "additive_pred": -0.014,
+    "interaction": 0.02
+   }
+  },
+  "NMN_supp+Omega3_PUFA": {
+   "Sarcopenia": {
+    "combined_delta": -0.037,
+    "additive_pred": -0.046,
+    "interaction": 0.009
+   },
+   "Anabolism": {
+    "combined_delta": 0.004,
+    "additive_pred": 0.006,
+    "interaction": -0.002
+   },
+   "Autophagy": {
+    "combined_delta": -0.015,
+    "additive_pred": 0.01,
+    "interaction": -0.025
+   },
+   "NAD": {
+    "combined_delta": 0.151,
+    "additive_pred": 0.165,
+    "interaction": -0.014
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.211,
+    "additive_pred": 0.218,
+    "interaction": -0.007
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.0,
+    "additive_pred": -0.003,
+    "interaction": 0.003
+   }
+  },
+  "NMN_supp+Resveratrol": {
+   "Sarcopenia": {
+    "combined_delta": -0.013,
+    "additive_pred": -0.046,
+    "interaction": 0.033
+   },
+   "Anabolism": {
+    "combined_delta": -0.021,
+    "additive_pred": -0.014,
+    "interaction": -0.007
+   },
+   "Autophagy": {
+    "combined_delta": 0.04,
+    "additive_pred": 0.054,
+    "interaction": -0.014
+   },
+   "NAD": {
+    "combined_delta": 0.188,
+    "additive_pred": 0.2,
+    "interaction": -0.012
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.235,
+    "additive_pred": 0.26,
+    "interaction": -0.025
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.105,
+    "additive_pred": 0.06,
+    "interaction": 0.045
+   }
+  },
+  "Semaglutide+Omega3_PUFA": {
+   "Sarcopenia": {
+    "combined_delta": -0.019,
+    "additive_pred": -0.025,
+    "interaction": 0.006
+   },
+   "Anabolism": {
+    "combined_delta": -0.002,
+    "additive_pred": -0.017,
+    "interaction": 0.015
+   },
+   "Autophagy": {
+    "combined_delta": 0.006,
+    "additive_pred": 0.016,
+    "interaction": -0.01
+   },
+   "NAD": {
+    "combined_delta": 0.04,
+    "additive_pred": 0.038,
+    "interaction": 0.002
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.005,
+    "additive_pred": -0.042,
+    "interaction": 0.047
+   },
+   "Mito_biogenesis": {
+    "combined_delta": -0.021,
+    "additive_pred": -0.005,
+    "interaction": -0.016
+   }
+  },
+  "Semaglutide+Resveratrol": {
+   "Sarcopenia": {
+    "combined_delta": 0.001,
+    "additive_pred": -0.025,
+    "interaction": 0.026
+   },
+   "Anabolism": {
+    "combined_delta": -0.044,
+    "additive_pred": -0.037,
+    "interaction": -0.007
+   },
+   "Autophagy": {
+    "combined_delta": 0.015,
+    "additive_pred": 0.06,
+    "interaction": -0.045
+   },
+   "NAD": {
+    "combined_delta": 0.015,
+    "additive_pred": 0.073,
+    "interaction": -0.058
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": 0.005,
+    "additive_pred": 0.0,
+    "interaction": 0.005
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.107,
+    "additive_pred": 0.058,
+    "interaction": 0.049
+   }
+  },
+  "Omega3_PUFA+Resveratrol": {
+   "Sarcopenia": {
+    "combined_delta": 0.0,
+    "additive_pred": -0.034,
+    "interaction": 0.034
+   },
+   "Anabolism": {
+    "combined_delta": -0.019,
+    "additive_pred": -0.004,
+    "interaction": -0.015
+   },
+   "Autophagy": {
+    "combined_delta": 0.014,
+    "additive_pred": 0.048,
+    "interaction": -0.034
+   },
+   "NAD": {
+    "combined_delta": 0.048,
+    "additive_pred": 0.059,
+    "interaction": -0.011
+   },
+   "Insulin_sensitivity": {
+    "combined_delta": -0.008,
+    "additive_pred": -0.002,
+    "interaction": -0.006
+   },
+   "Mito_biogenesis": {
+    "combined_delta": 0.08,
+    "additive_pred": 0.069,
+    "interaction": 0.011
+   }
+  }
+ },
+ "archetypes": {
+  "Healthy young": {
+   "(none)": {
+    "Sarcopenia": 0.514,
+    "Anabolism": 0.539,
+    "MSTN": 0.45,
+    "Insulin_resistance": 0.434,
+    "IL6": 0.26,
+    "NAD": 0.449,
+    "Autophagy": 0.527,
+    "Mito_biogenesis": 0.328
+   },
+   "Exercise": {
+    "Sarcopenia": 0.365,
+    "Anabolism": 0.644,
+    "MSTN": 0.195,
+    "Insulin_resistance": 0.433,
+    "IL6": 0.27,
+    "NAD": 0.466,
+    "Autophagy": 0.544,
+    "Mito_biogenesis": 0.535
+   },
+   "Exercise+Leucine": {
+    "Sarcopenia": 0.289,
+    "Anabolism": 0.74,
+    "MSTN": 0.189,
+    "Insulin_resistance": 0.421,
+    "IL6": 0.279,
+    "NAD": 0.46,
+    "Autophagy": 0.489,
+    "Mito_biogenesis": 0.513
+   },
+   "DR": {
+    "Sarcopenia": 0.531,
+    "Anabolism": 0.483,
+    "MSTN": 0.436,
+    "Insulin_resistance": 0.349,
+    "IL6": 0.223,
+    "NAD": 0.461,
+    "Autophagy": 0.63,
+    "Mito_biogenesis": 0.449
+   },
+   "Rapamycin": {
+    "Sarcopenia": 0.513,
+    "Anabolism": 0.471,
+    "MSTN": 0.41,
+    "Insulin_resistance": 0.419,
+    "IL6": 0.202,
+    "NAD": 0.495,
+    "Autophagy": 0.575,
+    "Mito_biogenesis": 0.333
+   },
+   "NMN": {
+    "Sarcopenia": 0.485,
+    "Anabolism": 0.537,
+    "MSTN": 0.391,
+    "Insulin_resistance": 0.317,
+    "IL6": 0.245,
+    "NAD": 0.602,
+    "Autophagy": 0.535,
+    "Mito_biogenesis": 0.322
+   },
+   "Metformin": {
+    "Sarcopenia": 0.524,
+    "Anabolism": 0.521,
+    "MSTN": 0.424,
+    "Insulin_resistance": 0.338,
+    "IL6": 0.295,
+    "NAD": 0.461,
+    "Autophagy": 0.568,
+    "Mito_biogenesis": 0.435
+   },
+   "Omega-3": {
+    "Sarcopenia": 0.497,
+    "Anabolism": 0.547,
+    "MSTN": 0.411,
+    "Insulin_resistance": 0.444,
+    "IL6": 0.074,
+    "NAD": 0.461,
+    "Autophagy": 0.529,
+    "Mito_biogenesis": 0.331
+   },
+   "GLP-1": {
+    "Sarcopenia": 0.506,
+    "Anabolism": 0.514,
+    "MSTN": 0.43,
+    "Insulin_resistance": 0.408,
+    "IL6": 0.221,
+    "NAD": 0.475,
+    "Autophagy": 0.541,
+    "Mito_biogenesis": 0.32
+   }
+  },
+  "Metabolically unhealthy (obese)": {
+   "(none)": {
+    "Sarcopenia": 0.463,
+    "Anabolism": 0.62,
+    "MSTN": 0.577,
+    "Insulin_resistance": 0.795,
+    "IL6": 0.783,
+    "NAD": 0.426,
+    "Autophagy": 0.431,
+    "Mito_biogenesis": 0.297
+   },
+   "Exercise": {
+    "Sarcopenia": 0.373,
+    "Anabolism": 0.653,
+    "MSTN": 0.294,
+    "Insulin_resistance": 0.818,
+    "IL6": 0.788,
+    "NAD": 0.489,
+    "Autophagy": 0.487,
+    "Mito_biogenesis": 0.55
+   },
+   "Exercise+Leucine": {
+    "Sarcopenia": 0.308,
+    "Anabolism": 0.756,
+    "MSTN": 0.319,
+    "Insulin_resistance": 0.813,
+    "IL6": 0.792,
+    "NAD": 0.484,
+    "Autophagy": 0.441,
+    "Mito_biogenesis": 0.492
+   },
+   "DR": {
+    "Sarcopenia": 0.516,
+    "Anabolism": 0.534,
+    "MSTN": 0.59,
+    "Insulin_resistance": 0.722,
+    "IL6": 0.766,
+    "NAD": 0.482,
+    "Autophagy": 0.614,
+    "Mito_biogenesis": 0.426
+   },
+   "Rapamycin": {
+    "Sarcopenia": 0.557,
+    "Anabolism": 0.492,
+    "MSTN": 0.572,
+    "Insulin_resistance": 0.823,
+    "IL6": 0.797,
+    "NAD": 0.448,
+    "Autophagy": 0.497,
+    "Mito_biogenesis": 0.329
+   },
+   "NMN": {
+    "Sarcopenia": 0.483,
+    "Anabolism": 0.603,
+    "MSTN": 0.562,
+    "Insulin_resistance": 0.756,
+    "IL6": 0.77,
+    "NAD": 0.59,
+    "Autophagy": 0.425,
+    "Mito_biogenesis": 0.326
+   },
+   "Metformin": {
+    "Sarcopenia": 0.481,
+    "Anabolism": 0.593,
+    "MSTN": 0.578,
+    "Insulin_resistance": 0.723,
+    "IL6": 0.77,
+    "NAD": 0.448,
+    "Autophagy": 0.51,
+    "Mito_biogenesis": 0.393
+   },
+   "Omega-3": {
+    "Sarcopenia": 0.472,
+    "Anabolism": 0.608,
+    "MSTN": 0.603,
+    "Insulin_resistance": 0.813,
+    "IL6": 0.467,
+    "NAD": 0.472,
+    "Autophagy": 0.41,
+    "Mito_biogenesis": 0.322
+   },
+   "GLP-1": {
+    "Sarcopenia": 0.481,
+    "Anabolism": 0.585,
+    "MSTN": 0.591,
+    "Insulin_resistance": 0.794,
+    "IL6": 0.808,
+    "NAD": 0.465,
+    "Autophagy": 0.428,
+    "Mito_biogenesis": 0.319
+   }
+  },
+  "Inflammaged": {
+   "(none)": {
+    "Sarcopenia": 0.557,
+    "Anabolism": 0.51,
+    "MSTN": 0.715,
+    "Insulin_resistance": 0.776,
+    "IL6": 0.786,
+    "NAD": 0.15,
+    "Autophagy": 0.512,
+    "Mito_biogenesis": 0.299
+   },
+   "Exercise": {
+    "Sarcopenia": 0.473,
+    "Anabolism": 0.595,
+    "MSTN": 0.454,
+    "Insulin_resistance": 0.761,
+    "IL6": 0.787,
+    "NAD": 0.17,
+    "Autophagy": 0.541,
+    "Mito_biogenesis": 0.48
+   },
+   "Exercise+Leucine": {
+    "Sarcopenia": 0.381,
+    "Anabolism": 0.731,
+    "MSTN": 0.446,
+    "Insulin_resistance": 0.745,
+    "IL6": 0.808,
+    "NAD": 0.163,
+    "Autophagy": 0.499,
+    "Mito_biogenesis": 0.505
+   },
+   "DR": {
+    "Sarcopenia": 0.594,
+    "Anabolism": 0.459,
+    "MSTN": 0.756,
+    "Insulin_resistance": 0.713,
+    "IL6": 0.773,
+    "NAD": 0.164,
+    "Autophagy": 0.637,
+    "Mito_biogenesis": 0.411
+   },
+   "Rapamycin": {
+    "Sarcopenia": 0.583,
+    "Anabolism": 0.471,
+    "MSTN": 0.725,
+    "Insulin_resistance": 0.753,
+    "IL6": 0.795,
+    "NAD": 0.146,
+    "Autophagy": 0.527,
+    "Mito_biogenesis": 0.28
+   },
+   "NMN": {
+    "Sarcopenia": 0.561,
+    "Anabolism": 0.506,
+    "MSTN": 0.741,
+    "Insulin_resistance": 0.714,
+    "IL6": 0.785,
+    "NAD": 0.25,
+    "Autophagy": 0.554,
+    "Mito_biogenesis": 0.244
+   },
+   "Metformin": {
+    "Sarcopenia": 0.597,
+    "Anabolism": 0.466,
+    "MSTN": 0.736,
+    "Insulin_resistance": 0.711,
+    "IL6": 0.81,
+    "NAD": 0.186,
+    "Autophagy": 0.537,
+    "Mito_biogenesis": 0.364
+   },
+   "Omega-3": {
+    "Sarcopenia": 0.58,
+    "Anabolism": 0.527,
+    "MSTN": 0.724,
+    "Insulin_resistance": 0.767,
+    "IL6": 0.442,
+    "NAD": 0.156,
+    "Autophagy": 0.549,
+    "Mito_biogenesis": 0.262
+   },
+   "GLP-1": {
+    "Sarcopenia": 0.579,
+    "Anabolism": 0.52,
+    "MSTN": 0.737,
+    "Insulin_resistance": 0.77,
+    "IL6": 0.755,
+    "NAD": 0.155,
+    "Autophagy": 0.498,
+    "Mito_biogenesis": 0.263
+   }
+  },
+  "Cirrhotic / hepatic (Schneider)": {
+   "(none)": {
+    "Sarcopenia": 0.571,
+    "Anabolism": 0.538,
+    "MSTN": 0.751,
+    "Insulin_resistance": 0.855,
+    "IL6": 0.784,
+    "NAD": 0.212,
+    "Autophagy": 0.518,
+    "Mito_biogenesis": 0.288
+   },
+   "Exercise": {
+    "Sarcopenia": 0.472,
+    "Anabolism": 0.625,
+    "MSTN": 0.454,
+    "Insulin_resistance": 0.836,
+    "IL6": 0.769,
+    "NAD": 0.241,
+    "Autophagy": 0.561,
+    "Mito_biogenesis": 0.514
+   },
+   "Exercise+Leucine": {
+    "Sarcopenia": 0.399,
+    "Anabolism": 0.723,
+    "MSTN": 0.485,
+    "Insulin_resistance": 0.87,
+    "IL6": 0.812,
+    "NAD": 0.193,
+    "Autophagy": 0.469,
+    "Mito_biogenesis": 0.536
+   },
+   "DR": {
+    "Sarcopenia": 0.585,
+    "Anabolism": 0.479,
+    "MSTN": 0.722,
+    "Insulin_resistance": 0.781,
+    "IL6": 0.813,
+    "NAD": 0.204,
+    "Autophagy": 0.651,
+    "Mito_biogenesis": 0.432
+   },
+   "Rapamycin": {
+    "Sarcopenia": 0.638,
+    "Anabolism": 0.451,
+    "MSTN": 0.763,
+    "Insulin_resistance": 0.846,
+    "IL6": 0.792,
+    "NAD": 0.207,
+    "Autophagy": 0.572,
+    "Mito_biogenesis": 0.318
+   },
+   "NMN": {
+    "Sarcopenia": 0.579,
+    "Anabolism": 0.504,
+    "MSTN": 0.716,
+    "Insulin_resistance": 0.802,
+    "IL6": 0.787,
+    "NAD": 0.339,
+    "Autophagy": 0.541,
+    "Mito_biogenesis": 0.341
+   },
+   "Metformin": {
+    "Sarcopenia": 0.586,
+    "Anabolism": 0.538,
+    "MSTN": 0.747,
+    "Insulin_resistance": 0.789,
+    "IL6": 0.795,
+    "NAD": 0.228,
+    "Autophagy": 0.577,
+    "Mito_biogenesis": 0.392
+   },
+   "Omega-3": {
+    "Sarcopenia": 0.594,
+    "Anabolism": 0.509,
+    "MSTN": 0.726,
+    "Insulin_resistance": 0.831,
+    "IL6": 0.461,
+    "NAD": 0.204,
+    "Autophagy": 0.532,
+    "Mito_biogenesis": 0.301
+   },
+   "GLP-1": {
+    "Sarcopenia": 0.607,
+    "Anabolism": 0.523,
+    "MSTN": 0.752,
+    "Insulin_resistance": 0.848,
+    "IL6": 0.779,
+    "NAD": 0.226,
+    "Autophagy": 0.534,
+    "Mito_biogenesis": 0.322
+   }
+  },
+  "Sarcopenic-aged": {
+   "(none)": {
+    "Sarcopenia": 0.584,
+    "Anabolism": 0.531,
+    "MSTN": 0.748,
+    "Insulin_resistance": 0.787,
+    "IL6": 0.81,
+    "NAD": 0.139,
+    "Autophagy": 0.509,
+    "Mito_biogenesis": 0.321
+   },
+   "Exercise": {
+    "Sarcopenia": 0.489,
+    "Anabolism": 0.607,
+    "MSTN": 0.473,
+    "Insulin_resistance": 0.771,
+    "IL6": 0.756,
+    "NAD": 0.176,
+    "Autophagy": 0.541,
+    "Mito_biogenesis": 0.514
+   },
+   "Exercise+Leucine": {
+    "Sarcopenia": 0.383,
+    "Anabolism": 0.73,
+    "MSTN": 0.465,
+    "Insulin_resistance": 0.743,
+    "IL6": 0.791,
+    "NAD": 0.176,
+    "Autophagy": 0.484,
+    "Mito_biogenesis": 0.496
+   },
+   "DR": {
+    "Sarcopenia": 0.616,
+    "Anabolism": 0.46,
+    "MSTN": 0.739,
+    "Insulin_resistance": 0.697,
+    "IL6": 0.809,
+    "NAD": 0.145,
+    "Autophagy": 0.63,
+    "Mito_biogenesis": 0.421
+   },
+   "Rapamycin": {
+    "Sarcopenia": 0.624,
+    "Anabolism": 0.464,
+    "MSTN": 0.76,
+    "Insulin_resistance": 0.761,
+    "IL6": 0.796,
+    "NAD": 0.145,
+    "Autophagy": 0.581,
+    "Mito_biogenesis": 0.329
+   },
+   "NMN": {
+    "Sarcopenia": 0.6,
+    "Anabolism": 0.498,
+    "MSTN": 0.738,
+    "Insulin_resistance": 0.728,
+    "IL6": 0.778,
+    "NAD": 0.266,
+    "Autophagy": 0.51,
+    "Mito_biogenesis": 0.312
+   },
+   "Metformin": {
+    "Sarcopenia": 0.597,
+    "Anabolism": 0.493,
+    "MSTN": 0.745,
+    "Insulin_resistance": 0.708,
+    "IL6": 0.791,
+    "NAD": 0.161,
+    "Autophagy": 0.54,
+    "Mito_biogenesis": 0.351
+   },
+   "Omega-3": {
+    "Sarcopenia": 0.558,
+    "Anabolism": 0.549,
+    "MSTN": 0.747,
+    "Insulin_resistance": 0.766,
+    "IL6": 0.443,
+    "NAD": 0.163,
+    "Autophagy": 0.537,
+    "Mito_biogenesis": 0.317
+   },
+   "GLP-1": {
+    "Sarcopenia": 0.585,
+    "Anabolism": 0.535,
+    "MSTN": 0.758,
+    "Insulin_resistance": 0.766,
+    "IL6": 0.782,
+    "NAD": 0.143,
+    "Autophagy": 0.534,
+    "Mito_biogenesis": 0.316
+   }
+  }
+ },
+ "readout_dynamic_range": {
+  "IL6": 0.725,
+  "MSTN": 0.632,
+  "TNF": 0.616,
+  "NFkB": 0.591,
+  "Insulin_resistance": 0.588,
+  "Aging_NAD": 0.539,
+  "NAD": 0.489,
+  "mTOR": 0.468,
+  "Aging_senescence_genomic": 0.464,
+  "Protein_synthesis": 0.411,
+  "Aging_inflammation": 0.407,
+  "FGF21": 0.399,
+  "Aging_nutrient_sensing": 0.373,
+  "AMPK": 0.358,
+  "FOXO3": 0.357,
+  "Insulin_sensitivity": 0.325,
+  "Aging_secretory": 0.314,
+  "PGC1A": 0.314,
+  "SIRT1": 0.272,
+  "Mito_biogenesis": 0.267,
+  "Anabolism": 0.254,
+  "Catabolism": 0.236,
+  "Aging_mito": 0.23,
+  "Sarcopenia": 0.227,
+  "Autophagy": 0.161,
+  "ROS": 0.153,
+  "Aging_proteostasis": 0.137,
+  "Aging_index": 0.131,
+  "Proteolysis": 0.123
+ },
+ "input_total_influence": {
+  "Inflammaging": 4.721,
+  "LEP": 2.718,
+  "DR": 2.39,
+  "Exercise": 2.347,
+  "hyperammonemia": 1.983,
+  "Metformin": 1.898,
+  "leucine": 1.661,
+  "Nutrients": 1.659,
+  "ADIPOQ": 1.487,
+  "Resveratrol": 1.415,
+  "DNA_damage": 1.274,
+  "Canagliflozin": 1.263,
+  "NMN_supp": 1.23,
+  "FST": 1.015,
+  "NR_supp": 0.931,
+  "Rapamycin": 0.88,
+  "FGL1": 0.85,
+  "Omega3_PUFA": 0.65,
+  "NNMT": 0.627,
+  "glucocorticoids": 0.582,
+  "Semaglutide": 0.534,
+  "CD38i": 0.521
+ }
+}

@@ -1,0 +1,4701 @@
+{
+ "module": "P1",
+ "species": {
+  "nampt": {
+   "label": "NAMPT",
+   "symbol": "NAMPT",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Nicotinamide phosphoribosyltransferase; rate-limiting enzyme of the NAD+ salvage pathway, converts NAM to NMN.",
+   "aging_relevance": "NAMPT/NAD+ decline with age in multiple tissues; AMPK- and CR-inducible node controlling SIRT1 activity.",
+   "human_evidence": "NAMPT and NAD+ decrease in aged human tissues (reviewed); mechanistic data mostly rodent/cell.",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "15381699",
+    "18477450"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "nmnat1": {
+   "label": "NMNAT1",
+   "symbol": "NMNAT1",
+   "class": "PROTEIN",
+   "compartment": "Nucleus",
+   "existing_map_node": null,
+   "function": "Nicotinamide/nicotinic acid mononucleotide adenylyltransferase; converts NMN to NAD+ (family NMNAT1/2/3).",
+   "aging_relevance": "Obligatory final step of NAD+ synthesis; not rate-limiting but essential.",
+   "human_evidence": "Conserved human enzyme; kinetics characterized.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "15381699"
+   ],
+   "members": [
+    "NMNAT1",
+    "NMNAT2",
+    "NMNAT3"
+   ],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "nmrk1": {
+   "label": "NMRK1",
+   "symbol": "NMRK1",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Nicotinamide riboside kinase 1 (NRK1); phosphorylates NR to NMN, enabling the Preiss-Handler-independent route to NAD+.",
+   "aging_relevance": "Required for NR-based NAD+ repletion strategies.",
+   "human_evidence": "Human NRK1 identified and shown essential for NR utilisation.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "15137942"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "nam": {
+   "label": "NAM",
+   "symbol": "NAM",
+   "class": "SIMPLE_MOLECULE",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Nicotinamide; NAD+ salvage precursor and substrate of NAMPT; also a product/feedback inhibitor of sirtuins.",
+   "aging_relevance": "Central salvage metabolite; its methylation by NNMT diverts it from NAD+ synthesis.",
+   "human_evidence": "Human vitamin B3 metabolite.",
+   "molecule_confidence": 2,
+   "priority": "B",
+   "pmids": [
+    "15381699"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "nmn": {
+   "label": "NMN",
+   "symbol": "NMN",
+   "class": "SIMPLE_MOLECULE",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Nicotinamide mononucleotide; key NAD+ intermediate, product of NAMPT and NMRK1, substrate of NMNAT; used as a supplement.",
+   "aging_relevance": "Supplementation restores NAD+ and improves age-related physiology in mice and insulin sensitivity in humans.",
+   "human_evidence": "RCT: NMN improves muscle insulin sensitivity in prediabetic women (Yoshino 2021).",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "21982712",
+    "28068222",
+    "33888596"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "nr": {
+   "label": "NR",
+   "symbol": "NR",
+   "class": "SIMPLE_MOLECULE",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Nicotinamide riboside; NAD+ precursor vitamin, phosphorylated by NMRK1 to NMN; orally bioavailable.",
+   "aging_relevance": "Raises blood NAD+ in middle-aged/older humans; well tolerated.",
+   "human_evidence": "Human trials (Trammell 2016, Martens 2018) show dose-dependent NAD+ elevation.",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "27721479",
+    "29599478"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "nad+": {
+   "label": "NAD+",
+   "symbol": "NAD+",
+   "class": "SIMPLE_MOLECULE",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Nicotinamide adenine dinucleotide; redox cofactor and obligate co-substrate for sirtuins, PARPs, CD38 and SARM1.",
+   "aging_relevance": "Declines with age in rodents (human evidence more limited); its restoration improves healthspan in mice.",
+   "human_evidence": "Age-related decline inconsistently observed in humans; precursor supplementation raises NAD+ (reviewed Vinten 2025).",
+   "molecule_confidence": 5,
+   "priority": "A",
+   "pmids": [
+    "27304511",
+    "29514064",
+    "41083806"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "parp1": {
+   "label": "PARP1",
+   "symbol": "PARP1",
+   "class": "PROTEIN",
+   "compartment": "Nucleus",
+   "existing_map_node": "PARP1",
+   "function": "Poly(ADP-ribose) polymerase 1; major NAD+-consuming enzyme activated by DNA damage.",
+   "aging_relevance": "PARP1 activation lowers NAD+ and SIRT1 activity; PARP1 deletion raises NAD+ and mitochondrial function.",
+   "human_evidence": "Human enzyme; genetic data rodent.",
+   "molecule_confidence": 3,
+   "priority": "A",
+   "pmids": [
+    "21459330"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "cd38": {
+   "label": "CD38",
+   "symbol": "CD38",
+   "class": "PROTEIN",
+   "compartment": "Membrane",
+   "existing_map_node": null,
+   "function": "NAD+ glycohydrolase/ADP-ribosyl cyclase; main NADase driving age-related NAD+ decline and degrading NMN.",
+   "aging_relevance": "CD38 expression/activity rises with age on M1-like macrophages; CD38 KO or inhibition preserves NAD+.",
+   "human_evidence": "Human ecto-enzyme; aging data from mice and human senescent-cell/SASP models.",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "27304511",
+    "33199924"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "sarm1": {
+   "label": "SARM1",
+   "symbol": "SARM1",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Sterile alpha and TIR motif protein 1; intrinsic NAD+ hydrolase (TIR domain) executing axon degeneration.",
+   "aging_relevance": "Context-specific NAD+ consumer relevant to neurodegeneration rather than blood prevention.",
+   "human_evidence": "Human enzyme; activity shown with purified protein.",
+   "molecule_confidence": 2,
+   "priority": "C",
+   "pmids": [
+    "28334607"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "nnmt": {
+   "label": "NNMT",
+   "symbol": "NNMT",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Nicotinamide N-methyltransferase; methylates NAM to 1-methylnicotinamide using SAM, diverting NAM from NAD+ salvage.",
+   "aging_relevance": "Elevated in obesity/metabolic disease; knockdown raises NAD+ and energy expenditure.",
+   "human_evidence": "Human enzyme; mouse knockdown data.",
+   "molecule_confidence": 2,
+   "priority": "B",
+   "pmids": [
+    "24717514"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "inflammaging": {
+   "label": "Inflammaging",
+   "symbol": "Inflammaging",
+   "class": "INPUT",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "Chronic low-grade sterile inflammation of ageing (SASP, inflammatory cytokines) feeding into the NAD+ axis.",
+   "aging_relevance": "Senescent-cell SASP induces CD38+ macrophages that degrade NAD+.",
+   "human_evidence": "Human senescent cells/SASP characterised; causal NAD+ link from mouse models.",
+   "molecule_confidence": 3,
+   "priority": "A",
+   "pmids": [
+    "33199924"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "sirt1": {
+   "label": "SIRT1",
+   "symbol": "SIRT1",
+   "class": "PROTEIN",
+   "compartment": "Nucleus",
+   "existing_map_node": "SIRT1",
+   "function": "NAD+-dependent class III deacetylase; hub integrating nutrient/NAD+ status to PGC-1a, FOXO, p53, NF-kB, LKB1. | NAD+-dependent deacetylase; induced by caloric restriction serum; promotes cell survival (deacetylates Ku70). | NAD+-dependent deacetylase; downstream of AMPK-driven NAD+ increase; deacetylates PGC-1alpha.",
+   "aging_relevance": "Central longevity deacetylase; activity tracks NAD+ availability. | Proposed mediator of CR lifespan benefits; induced by CR in rats and human cells (Cohen 2004). | Core longevity-associated sirtuin; activated by FGF21 via raised NAD+.",
+   "human_evidence": "Human enzyme; downstream effects mostly cellular/rodent. | Human cells exposed to CR serum show SIRT1 induction. | Human metabolic/longevity signalling.",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "15205477",
+    "15381699",
+    "19262508",
+    "20616029"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "sirt3": {
+   "label": "SIRT3",
+   "symbol": "SIRT3",
+   "class": "PROTEIN",
+   "compartment": "Mitochondrion",
+   "existing_map_node": null,
+   "function": "Mitochondrial NAD+-dependent deacetylase; deacetylates and activates SOD2 and other metabolic enzymes.",
+   "aging_relevance": "Mediates CR-induced reduction of oxidative stress; tumour suppressor.",
+   "human_evidence": "Human enzyme; reduced SIRT3 in human cancers.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "12186850",
+    "21109198"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "sirt6": {
+   "label": "SIRT6",
+   "symbol": "SIRT6",
+   "class": "PROTEIN",
+   "compartment": "Nucleus",
+   "existing_map_node": null,
+   "function": "NAD+-dependent H3K9/H3K56 deacetylase and mono-ADP-ribosyltransferase; genome stability and NF-kB attenuation.",
+   "aging_relevance": "Overexpression extends mouse lifespan/healthspan; deficiency causes premature ageing.",
+   "human_evidence": "Human enzyme; lifespan data from transgenic mice.",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "18337721",
+    "22367546",
+    "34050173"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "ppargc1a": {
+   "label": "PPARGC1A",
+   "symbol": "PPARGC1A",
+   "class": "PROTEIN",
+   "compartment": "Nucleus",
+   "existing_map_node": null,
+   "function": "PGC-1alpha; transcriptional coactivator of mitochondrial biogenesis and oxidative metabolism; deacetylated/activated by SIRT1. | PGC-1alpha; master coactivator of mitochondrial biogenesis; directly phosphorylated/activated by AMPK (T177/S538). | PGC-1alpha, master transcriptional coactivator of mitochondrial biogenesis and oxidative metabolism; activated by AMPK-SIRT1.",
+   "aging_relevance": "Links NAD+/SIRT1 to mitochondrial function and gluconeogenesis. | Mitochondrial biogenesis declines with age; PGC-1alpha mediates exercise/CR/AMPK benefits. | Drives mitochondrial oxidative capacity; downstream effector of FGF21/AMPK/SIRT1.",
+   "human_evidence": "Human coactivator; mechanism shown in rodent tissue/cells. | Primary muscle cells and KO mice (Jager 2007). | Human mitochondrial biogenesis regulator.",
+   "molecule_confidence": 3,
+   "priority": "A",
+   "pmids": [
+    "15744310",
+    "17347648",
+    "17609368",
+    "20616029"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "foxo3": {
+   "label": "FOXO3",
+   "symbol": "FOXO3",
+   "class": "PROTEIN",
+   "compartment": "Nucleus",
+   "existing_map_node": null,
+   "function": "Forkhead transcription factor; deacetylated by SIRT1, promoting stress resistance over apoptosis. | Forkhead transcription factor; phosphorylated by Akt (T32/S253) causing 14-3-3 binding and nuclear exclusion; drives autophagy, stress-resistance and antioxidant genes.",
+   "aging_relevance": "Human longevity-associated locus; downstream of insulin/NAD+ signalling. | FOXO3 genotype robustly associated with human longevity (Willcox 2008; Flachsbart 2009); orthologue of C. elegans DAF-16.",
+   "human_evidence": "FOXO3 variants associated with human longevity; mechanism cellular. | FOXO3A SNPs associated with longevity in Japanese, German and French cohorts.",
+   "molecule_confidence": 5,
+   "priority": "A",
+   "pmids": [
+    "10102273",
+    "14976264",
+    "18765803",
+    "19196970"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "p53": {
+   "label": "p53",
+   "symbol": "TP53",
+   "class": "PROTEIN",
+   "compartment": "Nucleus",
+   "existing_map_node": "p53",
+   "function": "Tumour suppressor transcription factor; acetylation at K382 activates it, SIRT1 deacetylates and dampens it.",
+   "aging_relevance": "Node linking NAD+/sirtuins to apoptosis/senescence balance.",
+   "human_evidence": "Human protein; deacetylation shown in human cells.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "11672523",
+    "11672522"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "nf-kb": {
+   "label": "NF-kB",
+   "symbol": "RELA",
+   "class": "PROTEIN",
+   "compartment": "Nucleus",
+   "existing_map_node": "NF-kB",
+   "function": "Pro-inflammatory transcription factor (RelA/p65); inhibited by SIRT1 (K310 deacetylation) and SIRT6 (H3K9 deacetylation at target promoters).",
+   "aging_relevance": "Driver of inflammaging; sirtuin target.",
+   "human_evidence": "Human factor; mechanisms cellular/mouse.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "15152190",
+    "19135889"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "lkb1": {
+   "label": "LKB1",
+   "symbol": "STK11",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": "LKB1",
+   "function": "Master upstream kinase of AMPK; deacetylated by SIRT1 (K48), increasing its activity and cytoplasmic localisation.",
+   "aging_relevance": "Couples SIRT1/NAD+ to AMPK energy sensing.",
+   "human_evidence": "Human kinase; SIRT1 regulation shown in cells and rodent liver.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "18687677"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "ampk": {
+   "label": "AMPK",
+   "symbol": "PRKAA1",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": "AMPK",
+   "function": "AMP-activated protein kinase; energy sensor that induces NAMPT/NAD+ and thereby SIRT1. | Energy-sensing kinase; activated by low energy/CR/metformin; phosphorylates TSC2, RAPTOR, ULK1, PGC-1alpha. | Cellular energy sensor; activated by raised AMP/ADP and by LKB1; central hub of the nutrient-sensing network.",
+   "aging_relevance": "Feedback loop partner of SIRT1 in the nutrient-sensing network. | Conserved mediator of CR longevity (AMPK-FOXO in C. elegans; CR-mimetic transcriptome). | Activation mimics caloric restriction and extends lifespan in model organisms; target of FGF21 and canagliflozin.",
+   "human_evidence": "Human kinase; NAD+/SIRT1 coupling shown in mouse muscle. | Human/animal mechanistic and intervention data. | Human drug target (metformin, canagliflozin pathway).",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "17900900",
+    "18477450",
+    "19262508",
+    "20616029",
+    "27381369"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "sod2": {
+   "label": "SOD2",
+   "symbol": "SOD2",
+   "class": "PROTEIN",
+   "compartment": "Mitochondrion",
+   "existing_map_node": null,
+   "function": "Manganese superoxide dismutase (MnSOD); scavenges mitochondrial superoxide; activated by SIRT3 deacetylation (K68/K122).",
+   "aging_relevance": "Effector of CR/SIRT3-mediated oxidative stress reduction.",
+   "human_evidence": "Human enzyme; deacetylation sites conserved, shown in mouse.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "21109198",
+    "21172655"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "ros": {
+   "label": "ROS",
+   "symbol": "ROS",
+   "class": "SIMPLE_MOLECULE",
+   "compartment": "Mitochondrion",
+   "existing_map_node": "ROS",
+   "function": "Reactive oxygen species (mitochondrial superoxide); reduced by SOD2 activity.",
+   "aging_relevance": "Oxidative damage central to ageing.",
+   "human_evidence": "General.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "21109198"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "lifespan_extension": {
+   "label": "Lifespan_extension",
+   "symbol": "Lifespan_extension",
+   "class": "PHENOTYPE",
+   "compartment": "default",
+   "existing_map_node": null,
+   "function": "Phenotypic output: extension of mammalian lifespan/healthspan. | Phenotype node: extension of median/maximal lifespan (strong mouse/genetic data).",
+   "aging_relevance": "Primary longevity readout; used only for strong genetic/mouse data. | Primary longevity outcome.",
+   "human_evidence": "Mouse transgenic data (SIRT6). | Inferred from mammalian models.",
+   "molecule_confidence": 5,
+   "priority": "B",
+   "pmids": [
+    "22367546",
+    "23066506",
+    "32990681",
+    "34050173"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "insulin_sensitivity": {
+   "label": "Insulin_sensitivity",
+   "symbol": "Insulin_sensitivity",
+   "class": "PHENOTYPE",
+   "compartment": "default",
+   "existing_map_node": null,
+   "function": "Phenotypic output: tissue insulin sensitivity / glucose disposal. | Whole-body/tissue responsiveness to insulin; enhanced by DR and S6K1 loss, impaired by chronic rapamycin (mTORC2 loss). | Phenotype node: whole-body/tissue insulin sensitivity.",
+   "aging_relevance": "Blood-readable age-related phenotype improved by NAD+ precursors. | Improved insulin sensitivity is a core blood-readable healthspan outcome of CR and S6K1/mTOR manipulation. | Improved insulin sensitivity is a healthspan-associated readout.",
+   "human_evidence": "Human RCT: NMN improves muscle insulin sensitivity. | CALERIE improved insulin sensitivity index (Kraus 2019). | Human metabolic outcome.",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "23066506",
+    "31303390",
+    "33888596"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "78c": {
+   "label": "78c",
+   "symbol": "78c",
+   "class": "DRUG",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "Thiazoloquin(az)olin(on)e CD38 inhibitor; reverses tissue NAD+ decline.",
+   "aging_relevance": "Improves glucose tolerance, muscle and cardiac function in aged mice.",
+   "human_evidence": "Preclinical (mouse) only.",
+   "molecule_confidence": 3,
+   "priority": "A",
+   "pmids": [
+    "29719225"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "resveratrol": {
+   "label": "Resveratrol",
+   "symbol": "Resveratrol",
+   "class": "DRUG",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "Polyphenol; reported SIRT1 activator (substrate/fluorophore-dependent) and AMPK activator via PDE inhibition.",
+   "aging_relevance": "CR mimetic candidate; mechanism contested.",
+   "human_evidence": "Human supplement; direct SIRT1 activation disputed.",
+   "molecule_confidence": 2,
+   "priority": "A",
+   "pmids": [
+    "12939617",
+    "22304913"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: B)"
+  },
+  "insulin": {
+   "label": "Insulin",
+   "symbol": "INS",
+   "class": "SIMPLE_MOLECULE",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "Anabolic hormone; ligand of INSR, activates PI3K-Akt and mTORC1; lower fasting insulin is a hallmark of dietary restriction and improved insulin sensitivity.",
+   "aging_relevance": "Lower circulating insulin associates with longevity; reduced insulin/IGF signalling extends lifespan across taxa.",
+   "human_evidence": "Fasting insulin lowered by long-term CR in humans (Fontana 2004).",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "15096581"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "insr": {
+   "label": "INSR",
+   "symbol": "INSR",
+   "class": "PROTEIN",
+   "compartment": "Membrane",
+   "existing_map_node": null,
+   "function": "Insulin receptor tyrosine kinase; autophosphorylates on insulin binding and phosphorylates IRS1.",
+   "aging_relevance": "Core node of insulin/IGF signalling axis implicated in ageing.",
+   "human_evidence": "Insulin-stimulated receptor autophosphorylation shown in human lymphocytes (Kasuga 1982).",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "7031900"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "irs1": {
+   "label": "IRS1",
+   "symbol": "IRS1",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Docking adaptor downstream of INSR/IGF1R; tyrosine-phosphorylated IRS1 binds and activates PI3K; node of S6K1 negative feedback (Ser1101).",
+   "aging_relevance": "Hub of insulin/IGF signalling and of the mTOR-S6K1 feedback loop central to nutrient sensing and ageing.",
+   "human_evidence": "S6K1-mediated IRS1 Ser1101 phosphorylation and insulin resistance demonstrated in humans (Tremblay 2007).",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "1648180",
+    "1332046"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "pi3k": {
+   "label": "PI3K",
+   "symbol": "PIK3CA",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": "PI3K",
+   "function": "Phosphoinositide 3-kinase; activated by tyrosine-phosphorylated IRS1 via p85 SH2 domains; generates PIP3 to activate Akt.",
+   "aging_relevance": "Core transducer of insulin/IGF signalling.",
+   "human_evidence": "Reactome/SIGNOR curated; human cell data.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "1332046"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "igf1": {
+   "label": "IGF1",
+   "symbol": "IGF1",
+   "class": "SIMPLE_MOLECULE",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "Insulin-like growth factor 1; ligand of IGF1R activating IRS1-PI3K-Akt; reduced by protein restriction in humans. | Insulin-like growth factor 1; principal somatic growth mediator of GH, downstream STAT5 target in liver.",
+   "aging_relevance": "Reduced IGF-1 signalling extends lifespan in model organisms; blood-readable biomarker of nutrient/protein status. | Reduced GH/IGF-1 signalling is strongly associated with longevity; FGF21 induces GH resistance and lowers IGF-1.",
+   "human_evidence": "Serum IGF-1 lowered by protein restriction but not CR-alone in humans (Fontana 2008). | Human blood biomarker; low IGF-1 signalling linked to human longevity.",
+   "molecule_confidence": 5,
+   "priority": "A",
+   "pmids": [
+    "18585098",
+    "18843793",
+    "23066506"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "igf1r": {
+   "label": "IGF1R",
+   "symbol": "IGF1R",
+   "class": "PROTEIN",
+   "compartment": "Membrane",
+   "existing_map_node": null,
+   "function": "IGF-1 receptor tyrosine kinase; phosphorylates IRS1 on ligand binding.",
+   "aging_relevance": "Igf1r+/- mice live ~26% longer with greater oxidative-stress resistance (Holzenberger 2003); central regulator of mammalian lifespan.",
+   "human_evidence": "IGF1R mutations enriched in human centenarians (literature); mouse lifespan data.",
+   "molecule_confidence": 4,
+   "priority": "B",
+   "pmids": [
+    "12483226",
+    "2877871"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "akt": {
+   "label": "Akt",
+   "symbol": "AKT1",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": "Akt",
+   "function": "Serine/threonine kinase; activated by PI3K (T308) and mTORC2 (S473); phosphorylates FOXO3, TSC2, MDM2.",
+   "aging_relevance": "Central effector of insulin/IGF signalling; suppresses FOXO and activates mTORC1.",
+   "human_evidence": "Human cell mechanistic data; Akt2 essential for glucose homeostasis (mouse).",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "15718470"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "tsc2": {
+   "label": "TSC2",
+   "symbol": "TSC2",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": "TSC2",
+   "function": "Tuberin; GAP for RHEB; inhibited by Akt phosphorylation (T1462), activated by AMPK; gatekeeper of mTORC1.",
+   "aging_relevance": "Integrator of growth-factor and energy signals onto mTORC1.",
+   "human_evidence": "Human cell mechanistic data.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "12172553",
+    "12150915"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "rheb": {
+   "label": "RHEB",
+   "symbol": "RHEB",
+   "class": "PROTEIN",
+   "compartment": "Membrane",
+   "existing_map_node": null,
+   "function": "Ras-family GTPase; GTP-RHEB directly binds and activates mTORC1; inhibited by TSC2 GAP activity.",
+   "aging_relevance": "Obligatory activator of mTORC1, the central nutrient-sensing kinase in ageing.",
+   "human_evidence": "Human cell mechanistic data.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "12869586",
+    "15854902"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "mtor": {
+   "label": "mTOR",
+   "symbol": "MTOR",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": "mTOR",
+   "function": "mTORC1 catalytic kinase (with RAPTOR); activated by RHEB; phosphorylates S6K1 (T389), 4E-BP1 (T37/46), TFEB (S211) and ULK1; inhibited by rapamycin-FKBP12.",
+   "aging_relevance": "Rapamycin inhibition of mTORC1 extends lifespan in genetically heterogeneous mice even when started late (Harrison 2009).",
+   "human_evidence": "Human cell mechanism; drug target in trials.",
+   "molecule_confidence": 5,
+   "priority": "A",
+   "pmids": [
+    "19587680"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "rps6kb1": {
+   "label": "RPS6KB1",
+   "symbol": "RPS6KB1",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "p70 S6 kinase 1 (S6K1); mTORC1 substrate (T389); promotes protein synthesis; phosphorylates IRS1 (S1101) in negative feedback.",
+   "aging_relevance": "S6K1-deficient mice are long-lived, insulin-sensitive and CR-mimetic (Selman 2009; Um 2004).",
+   "human_evidence": "S6K1-IRS1 Ser1101 feedback shown in humans (Tremblay 2007).",
+   "molecule_confidence": 4,
+   "priority": "B",
+   "pmids": [
+    "19797661",
+    "15306821"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "eif4ebp1": {
+   "label": "EIF4EBP1",
+   "symbol": "EIF4EBP1",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "4E-BP1; translational repressor that binds eIF4E; phosphorylation by mTORC1 (T37/46 priming) releases eIF4E to permit cap-dependent translation.",
+   "aging_relevance": "4E-BP mediates lifespan effects of reduced TOR in flies; translational output node.",
+   "human_evidence": "Human cell mechanistic data.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "10364159"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "tfeb": {
+   "label": "TFEB",
+   "symbol": "TFEB",
+   "class": "PROTEIN",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Master transcription factor of lysosomal/autophagy genes; phosphorylated by mTORC1 (S211) causing 14-3-3 binding and cytoplasmic retention; mTORC1 inhibition drives its nuclear translocation.",
+   "aging_relevance": "Links mTORC1 inhibition to transcriptional autophagy induction, a conserved pro-longevity program.",
+   "human_evidence": "HeLa/human cell mechanistic data.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "22343943",
+    "22576015"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "mtorc2": {
+   "label": "mTORC2",
+   "symbol": "RICTOR",
+   "class": "COMPLEX",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Rapamycin-insensitive mTOR complex 2 (RICTOR-defined); phosphorylates Akt on S473; required for insulin suppression of hepatic gluconeogenesis.",
+   "aging_relevance": "Chronic rapamycin disrupts mTORC2, causing insulin resistance uncoupled from longevity (Lamming 2012).",
+   "human_evidence": "Human cell mechanism; mouse in vivo.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "15718470",
+    "16603397"
+   ],
+   "members": [
+    "RICTOR",
+    "MTOR",
+    "MLST8"
+   ],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "rapamycin": {
+   "label": "Rapamycin",
+   "symbol": "Rapamycin",
+   "class": "DRUG",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "mTORC1 inhibitor (FKBP12-dependent); chronic dosing also disrupts mTORC2. | Macrolide mTORC1 inhibitor (via FKBP12); rapalogs include everolimus. Inhibits mTOR-driven growth, protein synthesis and immunosenescence.",
+   "aging_relevance": "Extends median/maximal lifespan in genetically heterogeneous mice even started at 600 days (Harrison 2009). | Canonical mTOR-inhibiting geroprotector (extends lifespan in ITP mice); mTOR inhibition improves immune/vaccine response in the elderly but impairs wound healing in some clinical settings.",
+   "human_evidence": "Mouse lifespan; human immunosuppressant/geroprotector trials. | Everolimus RCT improved influenza vaccine response in elderly; sirolimus RCT/clinical data on wound-healing complications.",
+   "molecule_confidence": 5,
+   "priority": "A",
+   "pmids": [
+    "18727661",
+    "19587680",
+    "22461615",
+    "25540326"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "metformin": {
+   "label": "Metformin",
+   "symbol": "Metformin",
+   "class": "DRUG",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Biguanide; inhibits mitochondrial complex I, activates AMPK, raises GDF15; anti-hyperglycaemic.",
+   "aging_relevance": "Improves healthspan/lifespan in male mice (Martin-Montalvo 2013); but alone did not extend lifespan in NIA ITP (Strong 2016) - conflicting.",
+   "human_evidence": "Widely used anti-diabetic; GDF15 induction shown in human RCTs (Coll 2020); TAME trial ongoing.",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "23900241",
+    "31875646",
+    "27312235"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "complex_i": {
+   "label": "Complex_I",
+   "symbol": "MT-ND1",
+   "class": "COMPLEX",
+   "compartment": "Mitochondrion",
+   "existing_map_node": null,
+   "function": "Mitochondrial respiratory chain NADH:ubiquinone oxidoreductase (complex I); primary molecular target of metformin.",
+   "aging_relevance": "Partial complex I inhibition lowers cellular energy charge, activating AMPK; mitohormetic.",
+   "human_evidence": "Biochemical inhibition data (Owen 2000).",
+   "molecule_confidence": 2,
+   "priority": "B",
+   "pmids": [
+    "10839993"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "gdf15": {
+   "label": "GDF15",
+   "symbol": "GDF15",
+   "class": "PROTEIN",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "Growth/differentiation factor 15; stress cytokine secreted in response to metformin; acts on brainstem GFRAL to reduce food intake.",
+   "aging_relevance": "Blood-readable biomarker rising with metformin and age; mediates metformin's weight/energy-balance effects.",
+   "human_evidence": "Elevated by metformin in two human RCTs (Coll 2020).",
+   "molecule_confidence": 3,
+   "priority": "A",
+   "pmids": [
+    "31875646"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "dietary_restriction": {
+   "label": "Dietary_restriction",
+   "symbol": "Dietary_restriction",
+   "class": "INPUT",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "Reduced calorie (and/or protein) intake without malnutrition; upstream input activating AMPK/FOXO, inhibiting mTOR/insulin/IGF, inducing SIRT1 and autophagy. | Input node for caloric/protein restriction and fasting; canonical pro-longevity dietary intervention that reprograms nutrient-sensing pathways.",
+   "aging_relevance": "Most robust environmental lifespan/healthspan intervention across taxa; CALERIE human trial slowed DunedinPACE of aging (Waziry 2023). | Extends lifespan/healthspan across species and improves metabolic markers in human trials (CALERIE); also carries adverse effects (infection susceptibility, cold sensitivity, impaired wound healing).",
+   "human_evidence": "CALERIE 2-year RCT improved cardiometabolic risk and insulin sensitivity (Kraus 2019); slowed pace of aging (Waziry 2023). | CALERIE 2-year RCT (metabolic adaptation, reduced thyroid axis/oxidative stress); 28-day low-protein diet raises FGF21 in humans; CR lowers core body temperature in long-term human practitioners.",
+   "molecule_confidence": 5,
+   "priority": "A",
+   "pmids": [
+    "21483032",
+    "25133427",
+    "29576535",
+    "31303390",
+    "37118425"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "autophagy": {
+   "label": "Autophagy",
+   "symbol": "Autophagy",
+   "class": "PHENOTYPE",
+   "compartment": "Cytoplasm",
+   "existing_map_node": "Autophagy",
+   "function": "Lysosomal bulk degradation/recycling pathway; output of FOXO3, TFEB, DR and mTOR inhibition.",
+   "aging_relevance": "Required for lifespan extension by DR and TOR inhibition (Hansen 2008).",
+   "human_evidence": "Model-organism genetics; conserved pathway.",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "18282106"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "protein_synthesis": {
+   "label": "Protein_synthesis",
+   "symbol": "Protein_synthesis",
+   "class": "PHENOTYPE",
+   "compartment": "Cytoplasm",
+   "existing_map_node": null,
+   "function": "Cap-dependent mRNA translation output of mTORC1 via S6K1 and 4E-BP1.",
+   "aging_relevance": "Reduced translation extends lifespan in flies/worms; mTORC1 output.",
+   "human_evidence": "Human cell mechanism.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "9465032",
+    "10364159"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "mitochondrial_biogenesis": {
+   "label": "Mitochondrial_biogenesis",
+   "symbol": "Mitochondrial_biogenesis",
+   "class": "PHENOTYPE",
+   "compartment": "Mitochondrion",
+   "existing_map_node": null,
+   "function": "Generation of new mitochondria driven by PGC-1alpha downstream of AMPK.",
+   "aging_relevance": "Declines with age; AMPK-PGC-1alpha axis is a CR/exercise mimetic target.",
+   "human_evidence": "Muscle cell and KO mouse data.",
+   "molecule_confidence": 3,
+   "priority": "A",
+   "pmids": [
+    "17609368"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "fgf21": {
+   "label": "FGF21",
+   "symbol": "FGF21",
+   "class": "PROTEIN",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "Liver-derived (also adipose) endocrine FGF; starvation/protein-restriction hormone signalling through the betaKlotho-FGFR1c co-receptor complex to coordinate the adaptive fasting response.",
+   "aging_relevance": "Transgenic FGF21 overexpression extends mouse lifespan while blunting GH/IGF-1 signalling; circulating FGF21 is a human blood biomarker.",
+   "human_evidence": "Blood-measurable hormone; induced by protein restriction and fasting/ketogenic diet in humans.",
+   "molecule_confidence": 5,
+   "priority": "A",
+   "pmids": [
+    "25133427",
+    "23066506",
+    "17550777"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "ppara": {
+   "label": "PPARA",
+   "symbol": "PPARA",
+   "class": "PROTEIN",
+   "compartment": "Nucleus",
+   "existing_map_node": null,
+   "function": "Nuclear receptor/transcription factor governing fatty-acid oxidation and ketogenesis during fasting; directly induces hepatic FGF21 transcription.",
+   "aging_relevance": "Mediator of the hepatic fasting response upstream of FGF21; mechanistic node.",
+   "human_evidence": "Target of fibrate drugs in humans; FGF21 induction pathway conserved.",
+   "molecule_confidence": 2,
+   "priority": "B",
+   "pmids": [
+    "17550777",
+    "17550778"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "klb-fgfr1": {
+   "label": "KLB-FGFR1",
+   "symbol": "KLB-FGFR1",
+   "class": "COMPLEX",
+   "compartment": "Membrane",
+   "existing_map_node": null,
+   "function": "Co-receptor complex of betaKlotho (KLB) with FGF receptor 1c that constitutes the obligate signalling receptor for FGF21; betaKlotho confers tissue-specific FGF21 responsiveness.",
+   "aging_relevance": "Required transducer of all FGF21 metabolic/longevity actions.",
+   "human_evidence": "KLB and FGFR1 expressed in human adipose/metabolic tissues.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "17452648",
+    "17623664"
+   ],
+   "members": [
+    "KLB",
+    "FGFR1"
+   ],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "klb": {
+   "label": "KLB",
+   "symbol": "KLB",
+   "class": "PROTEIN",
+   "compartment": "Membrane",
+   "existing_map_node": null,
+   "function": "betaKlotho, single-pass transmembrane co-receptor essential for FGF21 (and FGF19) binding/activity.",
+   "aging_relevance": "Obligatory FGF21 co-receptor.",
+   "human_evidence": "Human KLB required for FGF21 metabolic activity.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "17452648",
+    "17623664"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "fgfr1": {
+   "label": "FGFR1",
+   "symbol": "FGFR1",
+   "class": "PROTEIN",
+   "compartment": "Membrane",
+   "existing_map_node": null,
+   "function": "Fibroblast growth factor receptor 1c; tyrosine-kinase receptor that, bound to betaKlotho, transduces FGF21 signalling (MAPK cascade).",
+   "aging_relevance": "Signalling receptor for FGF21 metabolic actions.",
+   "human_evidence": "Expressed in human adipocytes; FGF21 receptor.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "17452648",
+    "17623664"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "semaglutide": {
+   "label": "Semaglutide",
+   "symbol": "Semaglutide",
+   "class": "DRUG",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "Long-acting GLP-1 receptor agonist; incretin mimetic used for type 2 diabetes and obesity.",
+   "aging_relevance": "Produces large weight loss and reduces major adverse cardiovascular events in humans without diabetes; emerging geroprotective interest.",
+   "human_evidence": "STEP 1 (weight loss) and SELECT (cardiovascular outcome) RCTs.",
+   "molecule_confidence": 3,
+   "priority": "A",
+   "pmids": [
+    "33567185",
+    "37952131"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "glp1r": {
+   "label": "GLP1R",
+   "symbol": "GLP1R",
+   "class": "PROTEIN",
+   "compartment": "Membrane",
+   "existing_map_node": null,
+   "function": "Glucagon-like peptide-1 receptor; Gs-coupled receptor mediating glucose-dependent insulin secretion, appetite/food-intake suppression and cardiovascular effects.",
+   "aging_relevance": "Agonism lowers body weight and cardiovascular event risk in humans.",
+   "human_evidence": "Target of semaglutide in human RCTs.",
+   "molecule_confidence": 3,
+   "priority": "A",
+   "pmids": [
+    "33567185",
+    "37952131"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "canagliflozin": {
+   "label": "Canagliflozin",
+   "symbol": "Canagliflozin",
+   "class": "DRUG",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "SGLT2 inhibitor (phlorizin-derived) that blocks renal glucose reabsorption; also inhibits mitochondrial complex I to activate AMPK.",
+   "aging_relevance": "Extends median lifespan of male genetically heterogeneous mice (ITP); lowers peak glucose.",
+   "human_evidence": "Approved human antidiabetic with cardiovascular/renal benefit.",
+   "molecule_confidence": 4,
+   "priority": "A",
+   "pmids": [
+    "32990681",
+    "27381369"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "slc5a2": {
+   "label": "SLC5A2",
+   "symbol": "SLC5A2",
+   "class": "PROTEIN",
+   "compartment": "Membrane",
+   "existing_map_node": null,
+   "function": "Sodium/glucose cotransporter 2 (SGLT2); mediates renal proximal-tubule glucose reabsorption; molecular target of canagliflozin.",
+   "aging_relevance": "Pharmacological inhibition lowers glycaemia and extends male mouse lifespan.",
+   "human_evidence": "Validated human drug target.",
+   "molecule_confidence": 3,
+   "priority": "A",
+   "pmids": [
+    "27381369",
+    "32990681"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: B)"
+  },
+  "glucose": {
+   "label": "Glucose",
+   "symbol": "Glucose",
+   "class": "SIMPLE_MOLECULE",
+   "compartment": "Extracellular",
+   "existing_map_node": null,
+   "function": "Blood glucose; nutrient input to insulin/nutrient-sensing pathways.",
+   "aging_relevance": "Lowering daily peak glucose is proposed to underlie canagliflozin/acarbose lifespan benefit.",
+   "human_evidence": "Human glycaemic control.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "32990681"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "cold_sensitivity": {
+   "label": "Cold_sensitivity",
+   "symbol": "Cold_sensitivity",
+   "class": "PHENOTYPE",
+   "compartment": "default",
+   "existing_map_node": null,
+   "function": "Phenotype node: reduced core body temperature / increased cold sensitivity (torpor-like regulated hypothermia).",
+   "aging_relevance": "Lowered body temperature contributes to CR anti-aging effects but is an adverse/comfort cost.",
+   "human_evidence": "Lower core body temperature in long-term human CR practitioners.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "21483032",
+    "17550777"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "infection_susceptibility": {
+   "label": "Infection_susceptibility",
+   "symbol": "Infection_susceptibility",
+   "class": "PHENOTYPE",
+   "compartment": "default",
+   "existing_map_node": null,
+   "function": "Phenotype node: susceptibility to / impaired survival from primary infection.",
+   "aging_relevance": "Adverse effect of dietary restriction in aged animals (reduced NK activity, higher viral titers).",
+   "human_evidence": "Rodent aging data; human relevance inferred.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "15983169"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "impaired_wound_healing": {
+   "label": "Impaired_wound_healing",
+   "symbol": "Impaired_wound_healing",
+   "class": "PHENOTYPE",
+   "compartment": "default",
+   "existing_map_node": null,
+   "function": "Phenotype node: delayed/complicated cutaneous or surgical wound healing.",
+   "aging_relevance": "Adverse effect of mTOR inhibition (sirolimus) and, at review level, of dietary restriction.",
+   "human_evidence": "Clinical transplant data for sirolimus; review-level data for CR.",
+   "molecule_confidence": 2,
+   "priority": "B",
+   "pmids": [
+    "18727661",
+    "40247012"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: C)"
+  },
+  "body_weight": {
+   "label": "Body_weight",
+   "symbol": "Body_weight",
+   "class": "PHENOTYPE",
+   "compartment": "default",
+   "existing_map_node": null,
+   "function": "Phenotype node: body weight / adiposity.",
+   "aging_relevance": "Weight/adiposity reduction accompanies GLP-1R agonism and FGF21 action and improves cardiometabolic risk.",
+   "human_evidence": "STEP 1 RCT weight loss.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "33567185"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ]
+  },
+  "cardiovascular_events": {
+   "label": "Cardiovascular_events",
+   "symbol": "Cardiovascular_events",
+   "class": "PHENOTYPE",
+   "compartment": "default",
+   "existing_map_node": null,
+   "function": "Phenotype node: major adverse cardiovascular events (CV death, nonfatal MI, nonfatal stroke).",
+   "aging_relevance": "Key age-related clinical outcome reduced by GLP-1R agonism.",
+   "human_evidence": "SELECT RCT (HR 0.80).",
+   "molecule_confidence": 4,
+   "priority": "B",
+   "pmids": [
+    "37952131"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  },
+  "vaccine_response": {
+   "label": "Vaccine_response",
+   "symbol": "Vaccine_response",
+   "class": "PHENOTYPE",
+   "compartment": "default",
+   "existing_map_node": null,
+   "function": "Phenotype node: adaptive immune / vaccine (influenza) response capacity; inverse of immunosenescence.",
+   "aging_relevance": "Improved by mTOR inhibition in the elderly (reduced PD-1+ T cells, enhanced antibody titers).",
+   "human_evidence": "Everolimus RCT in elderly volunteers.",
+   "molecule_confidence": 3,
+   "priority": "B",
+   "pmids": [
+    "25540326"
+   ],
+   "members": [],
+   "_modules": [
+    "P1"
+   ],
+   "priority_note": "rebalanced at merge (agent: A)"
+  }
+ },
+ "reactions": [
+  {
+   "rid": "P1A-001",
+   "source": "NAMPT",
+   "target": "NMN",
+   "action": "synthesis",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "NAMPT is the rate-limiting enzyme of NAD+ salvage, phosphoribosylating nicotinamide (NAM) to NMN; increased NAMPT dosage raises cellular NAD+ and SIRT1 activity.",
+   "context": "NAD+ salvage, mouse fibroblasts/myoblasts",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "15381699",
+    "18477450"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 0,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Kinetics (Revollo) establish NAMPT as rate-limiting; Fulco confirms NAMPT induction raises NAD+.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-002",
+   "source": "NMNAT1",
+   "target": "NAD+",
+   "action": "synthesis",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "NMNAT (NMNAT1/2/3) adenylyltransferase condenses NMN with ATP to form NAD+; final, obligatory step of NAD+ biosynthesis.",
+   "context": "NAD+ salvage, in vitro kinetics",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "15381699"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "NMNAT modelled as family label; not rate-limiting but essential.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-003",
+   "source": "NMRK1",
+   "target": "NMN",
+   "action": "synthesis",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Nicotinamide riboside kinase 1 (NRK1/NMRK1) phosphorylates NR to NMN, a Preiss-Handler-independent route to NAD+.",
+   "context": "NR utilisation, yeast/human enzymes",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "15137942"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Bieganowski & Brenner identified NRK genes essential for NR->NMN.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-004",
+   "source": "NMN",
+   "target": "NAD+",
+   "action": "synthesis",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "NMN is the immediate NAD+ precursor; supplying NMN restores NAD+ pools in metabolic tissues of HFD-fed and aged mice.",
+   "context": "diet-/age-induced diabetes, aged mice",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "21982712",
+    "28068222"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Substrate-availability edge; long-term NMN (Mills) restores tissue NAD+ in normal ageing.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-005",
+   "source": "NR",
+   "target": "NMN",
+   "action": "synthesis",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "NR is salvaged to NMN via NMRK1 before conversion to NAD+.",
+   "context": "NAD+ salvage",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "15137942"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 0,
+   "confidence": 2,
+   "notes": "Substrate-flux edge complementing the NMRK1 catalytic edge.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-006",
+   "source": "NAM",
+   "target": "NMN",
+   "action": "synthesis",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "NAM is the NAMPT substrate feeding the salvage pathway toward NMN/NAD+.",
+   "context": "NAD+ salvage",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "15381699"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Catalysed by NAMPT (see P1A-001).",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-007",
+   "source": "PARP1",
+   "target": "NAD+",
+   "action": "consumption",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "PARP1 is a major NAD+-consuming enzyme; its activation/presence lowers the NAD+ pool, and PARP1 deletion or pharmacological inhibition raises NAD+.",
+   "context": "brown fat/muscle, PARP1-/- mice",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "21459330",
+    "29514064"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 1,
+   "confidence": 3,
+   "notes": "Rajman review corroborates PARP1 as a principal NAD+ consumer in ageing.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-008",
+   "source": "PARP1",
+   "target": "SIRT1",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "By depleting NAD+, PARP1 activity limits SIRT1 deacetylase activity; PARP1 deletion/inhibition increases NAD+ content and SIRT1 activity, phenocopying SIRT1 activation.",
+   "context": "brown fat/muscle, PARP1-/- mice",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "21459330"
+   ],
+   "db_support": "SIGNOR (PARP1-NAD-SIRT1 axis)",
+   "E": 2,
+   "C": 0,
+   "R": 0,
+   "confidence": 2,
+   "notes": "Indirect (NAD+-mediated) inhibition; a key feedback node between NAD+ consumers and sirtuins.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-009",
+   "source": "CD38",
+   "target": "NAD+",
+   "action": "consumption",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "CD38 is an NADase whose expression and activity rise with age and drive the age-related decline in tissue NAD+; CD38 KO preserves NAD+.",
+   "context": "aged mouse tissues",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "27304511",
+    "29514064"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Camacho-Pereira (KO, aged mice) + Rajman review.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-010",
+   "source": "CD38",
+   "target": "NMN",
+   "action": "consumption",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "CD38 is the main enzyme degrading the NAD+ precursor NMN in vivo, limiting the efficacy of NAD+-replacement therapy.",
+   "context": "aged mouse tissues",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "27304511"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Explains CD38 inhibition as a route to boost NMN/NAD+.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-011",
+   "source": "SARM1",
+   "target": "NAD+",
+   "action": "consumption",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "The SARM1 TIR domain has intrinsic NAD+ hydrolase activity, cleaving NAD+ into ADPR, cADPR and nicotinamide to execute axonal NAD+ depletion.",
+   "context": "injured neurons/axons, purified enzyme",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "28334607"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Context-specific (axonal) NAD+ consumer; peripheral to blood-based prevention.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-012",
+   "source": "NNMT",
+   "target": "NAM",
+   "action": "consumption",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "NNMT methylates NAM to 1-methylnicotinamide using SAM, removing NAM from the NAD+ salvage pool; NNMT knockdown raises NAD+ and SAM.",
+   "context": "white adipose/liver, mouse knockdown",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "24717514"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 0,
+   "confidence": 2,
+   "notes": "Reduces substrate (NAM) available to NAMPT; edge sign = depletes NAM.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-013",
+   "source": "Inflammaging",
+   "target": "CD38",
+   "action": "transcriptional activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Senescent-cell SASP cytokines induce proliferation of pro-inflammatory M1-like macrophages that express high CD38 and CD38-dependent NADase activity in metabolic tissues during ageing.",
+   "context": "aged visceral WAT/liver, senescence/SASP models",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "33199924"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Links the inflammation module to NAD+ decline via CD38 induction.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-014",
+   "source": "NAD+",
+   "target": "SIRT1",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "SIRT1 is an NAD+-dependent deacetylase; its activity scales with NAD+ availability (raised by NAMPT, lowered by NAD+ consumers).",
+   "context": "mammalian cells; NAD+ biosynthesis",
+   "evidence_type": "direct",
+   "aging_context": true,
+   "pmids": [
+    "15381699",
+    "19262508"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 1,
+   "R": 1,
+   "confidence": 5,
+   "notes": "Core cofactor dependency and hub of the NAD+-SIRT1 feedback loop.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-015",
+   "source": "NAD+",
+   "target": "SIRT3",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "SIRT3 is the major mitochondrial NAD+-dependent deacetylase; activity depends on mitochondrial NAD+.",
+   "context": "mitochondria",
+   "evidence_type": "direct",
+   "aging_context": true,
+   "pmids": [
+    "12186850",
+    "21109198"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 1,
+   "R": 1,
+   "confidence": 5,
+   "notes": "Schwer establishes NAD+ dependence; Qiu links to CR/ageing.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-016",
+   "source": "NAD+",
+   "target": "SIRT6",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "SIRT6 is an NAD+-dependent H3K9 deacetylase; cofactor availability governs its chromatin activity.",
+   "context": "chromatin/telomeres",
+   "evidence_type": "direct",
+   "aging_context": true,
+   "pmids": [
+    "18337721",
+    "19135889"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 1,
+   "R": 1,
+   "confidence": 5,
+   "notes": "Michishita (enzymology) + Kawahara (NF-kB/ageing).",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-017",
+   "source": "SIRT1",
+   "target": "PPARGC1A",
+   "action": "deacetylation",
+   "site": "multiple Lys",
+   "effect": "activation",
+   "mechanism": "SIRT1 binds and deacetylates PGC-1alpha at specific lysines in an NAD+-dependent manner, activating gluconeogenic and mitochondrial fatty-acid-oxidation gene programs.",
+   "context": "liver (fasting) and skeletal muscle",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "15744310",
+    "17347648"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 0,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Two independent groups/tissues.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-018",
+   "source": "SIRT1",
+   "target": "FOXO3",
+   "action": "deacetylation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Under oxidative stress SIRT1 complexes with and deacetylates FOXO3, biasing FOXO3 toward cell-cycle arrest/stress resistance and away from apoptosis.",
+   "context": "mammalian cells, oxidative stress",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "14976264"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Effect sign = activation of stress-resistance arm of FOXO3.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-019",
+   "source": "SIRT1",
+   "target": "p53",
+   "action": "deacetylation",
+   "site": "K382",
+   "effect": "inhibition",
+   "mechanism": "SIRT1/Sir2alpha binds p53 and deacetylates C-terminal K382, reducing p53 transcriptional activity and p53-dependent apoptosis.",
+   "context": "human/mouse cells, DNA damage",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "11672523",
+    "11672522"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 0,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Two independent 2001 Cell papers.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-020",
+   "source": "SIRT1",
+   "target": "NF-kB",
+   "action": "deacetylation",
+   "site": "RelA/p65 K310",
+   "effect": "inhibition",
+   "mechanism": "SIRT1 interacts with RelA/p65 and deacetylates K310, inhibiting NF-kB transcriptional activity and sensitising cells to TNF-induced apoptosis.",
+   "context": "human cells",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "15152190"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Anti-inflammatory arm of SIRT1.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-021",
+   "source": "SIRT1",
+   "target": "LKB1",
+   "action": "deacetylation",
+   "site": "K48",
+   "effect": "activation",
+   "mechanism": "SIRT1 deacetylates LKB1 (K48), increasing its cytoplasmic localisation, STRAD association and kinase activity, thereby activating AMPK.",
+   "context": "HEK293T, rodent liver/adipose",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "18687677"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Feeds the SIRT1->LKB1->AMPK limb of the loop (AMPK/LKB1 edges exist in map).",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-022",
+   "source": "AMPK",
+   "target": "NAMPT",
+   "action": "transcriptional activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "AMPK activation induces Nampt transcription/activity, raising the NAD+/NADH ratio; required for glucose-restriction effects on SIRT1.",
+   "context": "skeletal myoblasts/muscle",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "18477450",
+    "19262508"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 1,
+   "confidence": 3,
+   "notes": "Fulco (Sartorelli) + Canto (Auwerx); establishes AMPK->NAD+ arm.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-023",
+   "source": "AMPK",
+   "target": "SIRT1",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "AMPK raises cellular NAD+ levels, enhancing SIRT1 activity and deacetylation of PGC-1alpha/FOXO targets; convergent control of energy metabolism.",
+   "context": "mouse skeletal muscle",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "19262508"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 1,
+   "confidence": 3,
+   "notes": "Net (NAD+-mediated) AMPK->SIRT1 edge; closes the AMPK-SIRT1 mutual-activation loop.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-024",
+   "source": "SIRT3",
+   "target": "SOD2",
+   "action": "deacetylation",
+   "site": "K68/K122",
+   "effect": "activation",
+   "mechanism": "SIRT3 deacetylates critical lysines on SOD2/MnSOD, enhancing its antioxidant activity; mediates CR-induced reduction of oxidative stress.",
+   "context": "CR mice, MEFs",
+   "evidence_type": "direct",
+   "aging_context": true,
+   "pmids": [
+    "21109198",
+    "21172655"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 1,
+   "R": 1,
+   "confidence": 5,
+   "notes": "Two independent groups (Chen; Gius) with site mutants.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-025",
+   "source": "SOD2",
+   "target": "ROS",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "Activated SOD2 dismutates mitochondrial superoxide, lowering ROS; SIRT3/SOD2 axis reduces cellular ROS and oxidative damage.",
+   "context": "CR mice, SIRT3-/- MEFs",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "21109198",
+    "20129246"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Connects SIRT3 axis to existing ROS node.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-026",
+   "source": "SIRT6",
+   "target": "PARP1",
+   "action": "activation",
+   "site": "K521 mono-ADP-ribosylation",
+   "effect": "activation",
+   "mechanism": "Under oxidative stress SIRT6 associates with PARP1 and mono-ADP-ribosylates it on K521, stimulating PARP1 poly-ADP-ribosylase activity and enhancing double-strand-break repair.",
+   "context": "oxidative stress, mammalian cells",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "21680843"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Note: SIRT6 activates PARP1 for DNA repair, distinct from PARP1's NAD+-draining role.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-027",
+   "source": "SIRT6",
+   "target": "NF-kB",
+   "action": "deacetylation",
+   "site": "H3K9 at NF-kB promoters",
+   "effect": "inhibition",
+   "mechanism": "SIRT6 binds RELA and deacetylates H3K9 at NF-kB target-gene promoters, attenuating NF-kB-dependent transcription; RelA haploinsufficiency rescues Sirt6-/- degeneration.",
+   "context": "Sirt6-deficient cells/mice",
+   "evidence_type": "direct",
+   "aging_context": true,
+   "pmids": [
+    "19135889"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 1,
+   "R": 0,
+   "confidence": 4,
+   "notes": "Hyperactive NF-kB links SIRT6 loss to premature ageing.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-028",
+   "source": "SIRT6",
+   "target": "Lifespan_extension",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Transgenic SIRT6 overexpression extends lifespan (initially male mice, later both sexes) and reduces frailty, with lower IGF1 signalling and preserved energy homeostasis.",
+   "context": "SIRT6-transgenic mice",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "22367546",
+    "34050173"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Kanfi 2012 (males) + Roichman 2021 (both sexes, healthspan).",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-029",
+   "source": "78c",
+   "target": "CD38",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "The potent specific CD38 inhibitor 78c reverses age-related tissue NAD+ decline and improves glucose tolerance, muscle function, exercise capacity and cardiac function in aged mice; effects depend on NAD+ synthesis.",
+   "context": "natural/accelerated ageing mice",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "29719225"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Pharmacological validation of CD38 as an NAD+-boosting target.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-030",
+   "source": "Resveratrol",
+   "target": "SIRT1",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Resveratrol lowers the Km of SIRT1 for substrate and NAD+ and stimulates deacetylation of p53; activation is allosteric and depends on hydrophobic substrate motifs.",
+   "context": "yeast/cell assays",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "12939617",
+    "23471411",
+    "20061378"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 1,
+   "confidence": 3,
+   "notes": "CONFLICT: Pacholec (20061378) shows apparent activation is fluorophore/substrate-dependent, not with native substrates; Hubbard (23471411) reconciles via substrate hydrophobic motifs/E230. Kept as contested edge.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-031",
+   "source": "Resveratrol",
+   "target": "AMPK",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Resveratrol competitively inhibits cAMP phosphodiesterases (PDE4), raising cAMP->Epac1->CamKKbeta, which activates AMPK and secondarily raises NAD+/SIRT1; PDE4 inhibition (rolipram) reproduces the metabolic benefits.",
+   "context": "mice, metabolic phenotypes",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "22304913"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Provides a SIRT1-independent route for resveratrol into the nutrient-sensing network.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-032",
+   "source": "NMN",
+   "target": "Insulin_sensitivity",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "NMN supplementation restores NAD+ and improves insulin sensitivity: enhances muscle insulin signalling (AKT/mTOR) and glucose disposal in prediabetic women, and ameliorates glucose intolerance in diet-/age-induced diabetic mice.",
+   "context": "human RCT + aged/HFD mice",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "33888596",
+    "21982712"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Yoshino 2021 is a randomized human trial (blood-readable outcome); Mills/Yoshino 2011 mouse support.",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1A-033",
+   "source": "NR",
+   "target": "NAD+",
+   "action": "synthesis",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Oral NR is uniquely bioavailable and produces dose-dependent increases in blood NAD+ metabolome in humans; chronic NR elevates NAD+ in middle-aged/older adults.",
+   "context": "human pharmacokinetic/RCT",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "27721479",
+    "29599478"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Net NR->NAD+ (via NMRK1->NMN->NMNAT). CONFLICT: human physiological/clinical efficacy of raised NAD+ is limited (Vinten 2025, 41083806).",
+   "module": "P1",
+   "axis": "A"
+  },
+  {
+   "rid": "P1B-001",
+   "source": "Insulin",
+   "target": "INSR",
+   "action": "activation",
+   "site": "beta-subunit autophosphorylation",
+   "effect": "activation",
+   "mechanism": "Insulin binding stimulates dose-dependent phosphorylation of the 95 kDa beta-subunit of its own receptor, activating the receptor tyrosine kinase.",
+   "context": "Human lymphocytes and rat hepatoma cells",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "7031900"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Classic demonstration of ligand-activated INSR autophosphorylation.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-002",
+   "source": "INSR",
+   "target": "IRS1",
+   "action": "phosphorylation",
+   "site": "multiple Tyr (YMXM motifs)",
+   "effect": "activation",
+   "mechanism": "Activated INSR tyrosine-kinase phosphorylates IRS1, which acts as a multisite docking protein binding SH2-domain signalling proteins including PI3K.",
+   "context": "Insulin-stimulated cells",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "1648180"
+   ],
+   "db_support": "SIGNOR/Reactome",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Original IRS-1 cloning/characterisation.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-003",
+   "source": "IRS1",
+   "target": "PI3K",
+   "action": "activation",
+   "site": "p85 SH2 binding",
+   "effect": "activation",
+   "mechanism": "Tyrosine-phosphorylated IRS1 binds the SH2 domains of the p85 subunit of PI3K and activates PtdIns 3'-kinase; blocked by phosphotyrosine peptides.",
+   "context": "3T3 fibroblasts, recombinant proteins",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "1332046"
+   ],
+   "db_support": "SIGNOR/Reactome",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Connects to existing PI3K -> Akt edge in the map.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-004",
+   "source": "IGF1",
+   "target": "IGF1R",
+   "action": "activation",
+   "site": "beta-subunit tyrosine autophosphorylation",
+   "effect": "activation",
+   "mechanism": "IGF-1 binding stimulates a time- and dose-dependent tyrosine-specific kinase, the high-affinity IGF-1 receptor beta-subunit (distinct from insulin receptor).",
+   "context": "Human placental membranes",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "6312321"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "IGF1R structure defined by Ullrich 1986 (2877871).",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-005",
+   "source": "IGF1R",
+   "target": "IRS1",
+   "action": "phosphorylation",
+   "site": "Tyr",
+   "effect": "activation",
+   "mechanism": "IGF-1/IGF1R stimulates tyrosine phosphorylation of IRS1, feeding the same PI3K-Akt cascade as insulin.",
+   "context": "Hematopoietic and transfected cells; mouse lifespan genetics",
+   "evidence_type": "correlative",
+   "aging_context": true,
+   "pmids": [
+    "7683417",
+    "12483226"
+   ],
+   "db_support": null,
+   "E": 1,
+   "C": 1,
+   "R": 0,
+   "confidence": 2,
+   "notes": "Aging relevance from Holzenberger 2003: Igf1r+/- mice live ~26% longer; establishes IGF1R axis as a mammalian lifespan regulator. | Merge review: PMID 7683417 only mentions IRS-1 as the IGF-I substrate in background and 12483226 supports IGF1R lifespan relevance, not the phosphorylation itself; needs a primary IGF1R->IRS1 citation.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-006",
+   "source": "Akt",
+   "target": "FOXO3",
+   "action": "phosphorylation",
+   "site": "T32/S253 (FKHRL1)",
+   "effect": "inhibition",
+   "mechanism": "Akt phosphorylates FOXO3 (FKHRL1), promoting 14-3-3 binding and cytoplasmic retention, blocking its transcriptional activity.",
+   "context": "Survival-factor signalling, mammalian cells",
+   "evidence_type": "direct",
+   "aging_context": true,
+   "pmids": [
+    "10102273",
+    "18765803"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 1,
+   "R": 1,
+   "confidence": 5,
+   "notes": "Aging context: FOXO3 variants strongly associated with human longevity (Willcox 2008; Flachsbart 2009).",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-007",
+   "source": "FOXO3",
+   "target": "Autophagy",
+   "action": "transcriptional activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Nuclear FOXO3 transcribes autophagy genes (LC3, Bnip3, Gabarap, Atg12) to induce autophagy in skeletal muscle in vivo, independent of mTOR.",
+   "context": "Mouse skeletal muscle; C2C12 myotubes",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "18054315",
+    "18054316"
+   ],
+   "db_support": "SIGNOR",
+   "E": 2,
+   "C": 0,
+   "R": 1,
+   "confidence": 3,
+   "notes": "Two independent labs (Sandri; Goldberg). Provides transcription-dependent route to the existing Autophagy node.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-008",
+   "source": "Akt",
+   "target": "TSC2",
+   "action": "phosphorylation",
+   "site": "T1462 (also S939)",
+   "effect": "inhibition",
+   "mechanism": "Akt directly phosphorylates TSC2 (tuberin), destabilising it and disrupting the TSC1-TSC2 complex, relieving inhibition of mTORC1.",
+   "context": "Human cells, insulin signalling",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "12172553",
+    "12150915"
+   ],
+   "db_support": "SIGNOR/Reactome",
+   "E": 3,
+   "C": 0,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Two independent groups (Guan; Cantley). Connects growth-factor signalling to existing TSC2 -| mTOR edge.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-009",
+   "source": "TSC2",
+   "target": "RHEB",
+   "action": "inhibition",
+   "site": "GAP activity",
+   "effect": "inhibition",
+   "mechanism": "TSC2 is a GTPase-activating protein toward RHEB, converting it to the inactive GDP-bound form and thereby suppressing mTORC1.",
+   "context": "Human cell biochemistry",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "12869586"
+   ],
+   "db_support": "SIGNOR/Reactome",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Mechanistic basis for how TSC2 (existing node) controls mTOR.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-010",
+   "source": "RHEB",
+   "target": "mTOR",
+   "action": "activation",
+   "site": "GTP-RHEB binds mTOR catalytic domain/mLST8",
+   "effect": "activation",
+   "mechanism": "GTP-loaded RHEB binds the mTOR kinase domain and mLST8 and directly stimulates mTORC1 kinase activity toward S6K1 and 4E-BP1.",
+   "context": "Human cells; reconstitution",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "15854902",
+    "12869586"
+   ],
+   "db_support": "SIGNOR/Reactome",
+   "E": 3,
+   "C": 0,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Two groups (Avruch; Guan). RHEB is the obligatory mTORC1 activator.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-011",
+   "source": "mTOR",
+   "target": "RPS6KB1",
+   "action": "phosphorylation",
+   "site": "T389",
+   "effect": "activation",
+   "mechanism": "mTORC1 (RAFT1/FRAP/mTOR) directly phosphorylates p70 S6K1 on the rapamycin-sensitive T389 required for its kinase activity.",
+   "context": "In vitro kinase assay, human",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "9465032"
+   ],
+   "db_support": "SIGNOR/Reactome",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Core mTORC1 output arm.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-012",
+   "source": "mTOR",
+   "target": "EIF4EBP1",
+   "action": "phosphorylation",
+   "site": "T37/T46",
+   "effect": "inhibition",
+   "mechanism": "mTORC1 phosphorylates 4E-BP1 on priming sites Thr37/Thr46 (two-step mechanism), enabling release of eIF4E and derepression of translation.",
+   "context": "In vitro and in vivo, human cells",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "10364159",
+    "9465032"
+   ],
+   "db_support": "SIGNOR/Reactome",
+   "E": 3,
+   "C": 0,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Effect 'inhibition' = inhibition of 4E-BP1 repressor function. Two groups (Sonenberg; Sabatini).",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-013",
+   "source": "EIF4EBP1",
+   "target": "Protein_synthesis",
+   "action": "inhibition",
+   "site": "eIF4E sequestration",
+   "effect": "inhibition",
+   "mechanism": "Hypophosphorylated 4E-BP1 binds eIF4E and blocks eIF4F assembly, inhibiting cap-dependent translation; mTORC1 phosphorylation relieves this.",
+   "context": "Human cells",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "10364159"
+   ],
+   "db_support": "Reactome",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Translational-repressor output; sign is net inhibition of protein synthesis by 4E-BP1.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-014",
+   "source": "RPS6KB1",
+   "target": "Protein_synthesis",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Active S6K1 promotes translation of ribosomal/TOP mRNAs and translational efficiency, increasing protein synthesis downstream of mTORC1.",
+   "context": "Mammalian cells",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "9465032"
+   ],
+   "db_support": "Reactome",
+   "E": 2,
+   "C": 0,
+   "R": 0,
+   "confidence": 2,
+   "notes": "Positive arm of mTORC1 translational output.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-015",
+   "source": "RPS6KB1",
+   "target": "IRS1",
+   "action": "phosphorylation",
+   "site": "S1101",
+   "effect": "inhibition",
+   "mechanism": "S6K1 directly phosphorylates IRS1 on Ser1101, suppressing IRS1 tyrosine phosphorylation and downstream PI3K/Akt - a nutrient/insulin negative-feedback loop.",
+   "context": "Mouse liver/muscle (db/db, high-fat diet) and human skeletal muscle amino-acid infusion",
+   "evidence_type": "direct",
+   "aging_context": true,
+   "pmids": [
+    "17709744",
+    "15306821"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 1,
+   "R": 1,
+   "confidence": 5,
+   "notes": "Core mTOR-S6K1 feedback onto insulin signalling; Um 2004 ties it to age/diet-induced insulin resistance.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-016",
+   "source": "RPS6KB1",
+   "target": "Insulin_sensitivity",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "S6K1 activity blunts insulin signalling via IRS1; S6K1-null mice are protected from age- and diet-induced insulin resistance and are long-lived.",
+   "context": "S6K1-/- mice (aging/lifespan study)",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "15306821",
+    "19797661"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Selman 2009: S6K1 deletion extends lifespan and preserves insulin sensitivity; CR-mimetic transcriptome.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-017",
+   "source": "mTOR",
+   "target": "TFEB",
+   "action": "phosphorylation",
+   "site": "S211",
+   "effect": "inhibition",
+   "mechanism": "mTORC1 on the lysosomal surface phosphorylates TFEB Ser211, promoting 14-3-3 binding and cytosolic retention; mTORC1 inhibition drives TFEB nuclear translocation.",
+   "context": "Human/mouse cells, lysosome",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "22343943",
+    "22576015"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 0,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Two independent groups (Ballabio; Puertollano).",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-018",
+   "source": "TFEB",
+   "target": "Autophagy",
+   "action": "transcriptional activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Nuclear TFEB transcriptionally activates lysosomal and autophagy (CLEAR network) genes, increasing autophagic-lysosomal flux.",
+   "context": "Human/mouse cells",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "22343943",
+    "22576015"
+   ],
+   "db_support": "SIGNOR",
+   "E": 2,
+   "C": 0,
+   "R": 1,
+   "confidence": 3,
+   "notes": "Transcriptional route from mTORC1 inhibition to the existing Autophagy node.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-019",
+   "source": "mTORC2",
+   "target": "Akt",
+   "action": "phosphorylation",
+   "site": "S473",
+   "effect": "activation",
+   "mechanism": "The rictor-mTOR complex (mTORC2) directly phosphorylates Akt on Ser473 in its hydrophobic motif and facilitates T308 phosphorylation, fully activating Akt.",
+   "context": "Drosophila and human cells",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "15718470"
+   ],
+   "db_support": "SIGNOR/Reactome",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Second input to Akt besides PDK1/PI3K; relevant to rapamycin side-effects.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-020",
+   "source": "Rapamycin",
+   "target": "mTOR",
+   "action": "inhibition",
+   "site": "FKBP12-rapamycin binds FRB",
+   "effect": "inhibition",
+   "mechanism": "Rapamycin, bound to FKBP12, binds mTOR (FRAP) and inhibits mTORC1 kinase activity toward S6K1/4E-BP1.",
+   "context": "Mammalian cells; genetically heterogeneous mouse lifespan",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "8008069",
+    "19587680"
+   ],
+   "db_support": "SIGNOR",
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Harrison 2009: rapamycin extends lifespan even when started late in life - landmark pharmacological longevity result.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-021",
+   "source": "Rapamycin",
+   "target": "mTORC2",
+   "action": "inhibition",
+   "site": "complex assembly",
+   "effect": "inhibition",
+   "mechanism": "Prolonged rapamycin treatment inhibits de novo mTORC2 assembly, reducing mTORC2 below the level needed to sustain Akt S473 phosphorylation in many cell types.",
+   "context": "Multiple human cell lines, chronic treatment",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "16603397"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 0,
+   "confidence": 2,
+   "notes": "Explains off-target metabolic effects of chronic rapamycin.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-022",
+   "source": "Rapamycin",
+   "target": "Insulin_sensitivity",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "Chronic rapamycin disrupts mTORC2 in vivo, which is required for insulin-mediated suppression of hepatic gluconeogenesis; this causes glucose intolerance/insulin resistance, uncoupled from the longevity benefit.",
+   "context": "Mice in vivo",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "22461615"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Conflict/nuance: decreased mTORC1 extends lifespan while mTORC2 loss impairs glucose homeostasis.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-023",
+   "source": "AMPK",
+   "target": "PPARGC1A",
+   "action": "phosphorylation",
+   "site": "T177/S538",
+   "effect": "activation",
+   "mechanism": "AMPK directly phosphorylates PGC-1alpha at Thr177 and Ser538, required for PGC-1alpha-dependent induction of its own promoter and mitochondrial genes.",
+   "context": "Primary mouse muscle cells and PGC-1alpha-null mice",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "17609368"
+   ],
+   "db_support": "SIGNOR",
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Links existing AMPK node to mitochondrial biogenesis.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-024",
+   "source": "PPARGC1A",
+   "target": "Mitochondrial_biogenesis",
+   "action": "transcriptional activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "PGC-1alpha coactivates nuclear respiratory factors to drive mitochondrial gene expression and biogenesis; AMPK effects on mitochondrial genes are PGC-1alpha-dependent.",
+   "context": "Mouse muscle",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "17609368"
+   ],
+   "db_support": "SIGNOR",
+   "E": 2,
+   "C": 0,
+   "R": 0,
+   "confidence": 2,
+   "notes": "Phenotype output of the AMPK-PGC-1alpha arm.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-025",
+   "source": "Metformin",
+   "target": "Complex_I",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "Metformin accumulates in the mitochondrial matrix and causes time-dependent, self-limiting inhibition of respiratory-chain complex I, lowering cellular energy charge.",
+   "context": "Hepatoma cells, isolated mitochondria, rat liver",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "10839993"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 0,
+   "confidence": 2,
+   "notes": "Primary molecular target of metformin; raises AMP:ATP to activate AMPK.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-026",
+   "source": "Metformin",
+   "target": "AMPK",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Metformin activates AMPK in hepatocytes (via complex I inhibition/energy stress), reducing ACC activity and gluconeogenesis; required for its effect on hepatic glucose production.",
+   "context": "Rat hepatocytes/muscle; aged mice (healthspan study)",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "11602624",
+    "23900241"
+   ],
+   "db_support": "SIGNOR",
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "CONFLICT: Foretz 2010 (20577053) shows metformin lowers hepatic glucose production even without LKB1/AMPK, via energy state - AMPK is not strictly required for the glucose-lowering effect.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-027",
+   "source": "Metformin",
+   "target": "GDF15",
+   "action": "secretion",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Metformin raises circulating GDF15 (expressed in distal intestine and kidney); GDF15 acts on brainstem GFRAL to reduce food intake and body weight.",
+   "context": "Two human RCTs and wild-type/knockout mice",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "31875646"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Blood-readable; GDF15/GFRAL needed for metformin's weight/energy-balance effect but not its glucose-lowering.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-028",
+   "source": "Metformin",
+   "target": "Insulin_sensitivity",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Long-term metformin increases insulin sensitivity and AMPK activity and reduces oxidative damage/inflammation, mimicking some CR benefits.",
+   "context": "Middle-aged male mice (healthspan/lifespan study)",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "23900241"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "CONFLICT on lifespan: metformin improved healthspan/lifespan in Martin-Montalvo 2013, but metformin alone did NOT extend lifespan in the NIA ITP (Strong 2016, 27312235); only metformin+rapamycin did.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-029",
+   "source": "Dietary_restriction",
+   "target": "AMPK",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "DR lowers energy charge and activates AMPK, which acts (partly via FOXO/DAF-16) to extend lifespan and stress resistance.",
+   "context": "C. elegans DR; conserved energy sensing",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "17900900"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "AMPK required for DR lifespan extension (Greer 2007); mammalian CR induces AMPK-like transcriptome (Selman 2009).",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-030",
+   "source": "Dietary_restriction",
+   "target": "mTOR",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "Calorie restriction reduces mTORC1 signalling (e.g. in Paneth cells of the intestinal stem-cell niche); the ISC-enhancing effect of CR is mimicked by rapamycin and abolished by forced mTORC1 activation.",
+   "context": "Mouse intestine in vivo; C. elegans",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "22722868",
+    "18282106"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Two systems (mouse Yilmaz 2012; worm Hansen 2008) link DR to reduced TOR.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-031",
+   "source": "Dietary_restriction",
+   "target": "Insulin",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "Long-term CR markedly lowers fasting plasma insulin (and glucose) in humans practising calorie restriction.",
+   "context": "Human CR practitioners vs controls",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "15096581"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Blood-readable; part of reduced insulin/IGF signalling under DR.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-032",
+   "source": "Dietary_restriction",
+   "target": "IGF1",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "DR lowers serum IGF-1 in rodents; in humans IGF-1 is lowered only when protein intake is also restricted, not by CR alone.",
+   "context": "Rodents and humans",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "18843793"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "CONFLICT (kept): Fontana 2008 shows severe CR without protein restriction did NOT reduce IGF-1 in humans; protein intake is the key determinant. Edge sign holds for protein-restricted DR.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-033",
+   "source": "Dietary_restriction",
+   "target": "SIRT1",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "CR induces SIRT1 expression in rat tissues and in human cells treated with serum from CR animals; insulin/IGF-1 attenuate this induction.",
+   "context": "CR rats; human cells",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "15205477"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Connects DR to existing SIRT1 node and NAD+ axis (axis A).",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-034",
+   "source": "Dietary_restriction",
+   "target": "Autophagy",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "DR and TOR inhibition induce autophagy; autophagy genes are required for DR/TOR-mediated lifespan extension (via PHA-4/FOXA).",
+   "context": "C. elegans",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "18282106"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Autophagy necessary but not sufficient for DR longevity.",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1B-035",
+   "source": "Dietary_restriction",
+   "target": "Insulin_sensitivity",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Two years of 25% CR in non-obese adults (CALERIE RCT) significantly improved insulin sensitivity index and multiple cardiometabolic risk factors; CR also slowed the DunedinPACE pace of aging.",
+   "context": "Human RCT (CALERIE)",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "31303390",
+    "37118425"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Strongest human-intervention evidence; blood-readable outcome. Waziry 2023 slowed DunedinPACE (effect size small).",
+   "module": "P1",
+   "axis": "B"
+  },
+  {
+   "rid": "P1C-001",
+   "source": "Dietary_restriction",
+   "target": "FGF21",
+   "action": "transcriptional activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Dietary protein restriction (not energy restriction) induces hepatic FGF21 expression via GCN2/eIF2alpha; FGF21 is required for the behavioural and metabolic responses to low-protein diet. Circulating FGF21 rose ~10-fold in rodents and markedly in humans after a low-protein diet.",
+   "context": "Mouse/rat low-protein diet; 28-day human low-protein diet",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "25133427"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "FGF21 is an endocrine signal of protein (amino-acid) restriction; GCN2-KO and FGF21-KO blunt the response. Energy-only restriction did NOT induce FGF21 here (see conflicts).",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-002",
+   "source": "PPARA",
+   "target": "FGF21",
+   "action": "transcriptional activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "During fasting and ketogenic diet, PPARalpha directly induces hepatic FGF21 transcription (PPARalpha binding by ChIP; PPARalpha agonists induce, Ppara-KO blunts). FGF21 then drives lipolysis, ketogenesis and the adaptive starvation response; adenoviral FGF21 knockdown causes fatty liver and reduced ketones.",
+   "context": "Fasted / ketogenic-diet mouse liver",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "17550777",
+    "17550778"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 0,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Two independent groups (Inagaki/Kliewer; Badman/Maratos-Flier) establish the PPARalpha-FGF21 axis as the fasting/ketotic inducer of FGF21.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-003",
+   "source": "FGF21",
+   "target": "KLB-FGFR1",
+   "action": "binding",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "FGF21 requires the co-receptor betaKlotho (KLB), which physically binds FGFR1c (and FGFR2/3) to form the signalling complex that FGF21 activates (MAPK cascade, adipocyte glucose uptake). KLB knockdown abolishes FGF21 activity; tissue KLB+FGFR isoform expression dictates FGF21 target-tissue specificity.",
+   "context": "Adipocytes (3T3-L1), heterologous receptor assays, mouse tissues",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "17452648",
+    "17623664"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 0,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Ogawa (PNAS) and Kurosu (JBC) independently define betaKlotho as the obligate FGF21 co-receptor with FGFR1c.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-004",
+   "source": "FGF21",
+   "target": "AMPK",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Recombinant FGF21 increases AMPK phosphorylation in adipocytes and in white adipose tissue of ob/ob mice; the effect on mitochondrial function requires LKB1 (STK11), the upstream AMPK kinase.",
+   "context": "Adipocytes; ob/ob mouse WAT",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "20616029"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 0,
+   "confidence": 2,
+   "notes": "Connects FGF21 to the existing AMPK hub.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-005",
+   "source": "FGF21",
+   "target": "SIRT1",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "FGF21 raises cellular NAD+ levels, thereby activating SIRT1 and deacetylation of its downstream targets (PGC-1alpha, histone 3) in adipocytes.",
+   "context": "Adipocytes",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "20616029"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 0,
+   "confidence": 2,
+   "notes": "FGF21 -> NAD+ -> SIRT1; ties the endocrine FGF21 arm into the NAD+/sirtuin module.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-006",
+   "source": "FGF21",
+   "target": "PPARGC1A",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Via the AMPK-SIRT1 axis FGF21 induces SIRT1-dependent deacetylation/activation of PGC-1alpha, enhancing mitochondrial oxygen consumption, citrate synthase activity and oxidative gene expression; inhibition of AMPK, SIRT1 or PGC-1alpha attenuates these effects.",
+   "context": "Adipocytes",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "20616029"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 0,
+   "confidence": 2,
+   "notes": "Downstream of AMPK/SIRT1; drives mitochondrial oxidative capacity (mitochondrial biogenesis arm).",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-007",
+   "source": "FGF21",
+   "target": "IGF1",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "FGF21 causes hepatic GH resistance: it reduces active STAT5 and the expression of its target genes including IGF-1, and induces IGFBP1 and SOCS2 that blunt GH signalling; transcriptomics in FGF21-transgenic mice show blunted GH/IGF-1 signalling in liver.",
+   "context": "Mouse liver; FGF21-transgenic mice",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "18585098",
+    "23066506"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Links the FGF21 arm to the pro-longevity reduction of GH/IGF-1 signalling; supported by a mechanistic study and a lifespan study.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-008",
+   "source": "FGF21",
+   "target": "Lifespan_extension",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Transgenic overexpression of FGF21 markedly extends median and maximal lifespan in mice without reducing food intake, acting primarily by blunting hepatic GH/IGF-1 signalling (independent of AMPK/mTOR/NAD+ markers).",
+   "context": "FGF21-transgenic mice (both sexes)",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "23066506"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Genetic gain-of-function lifespan evidence.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-009",
+   "source": "FGF21",
+   "target": "Cold_sensitivity",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "FGF21 reduces physical activity and promotes torpor, a regulated hypothermia/short-term hibernation-like state that conserves energy; FGF21-transgenic mice likewise show torpor.",
+   "context": "Mouse (fasting/transgenic)",
+   "evidence_type": "perturbation",
+   "aging_context": false,
+   "pmids": [
+    "17550777",
+    "23066506"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 0,
+   "R": 1,
+   "confidence": 3,
+   "notes": "Mechanistic link from the FGF21 endocrine arm to the cold/low-body-temperature phenotype that DR also produces.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-010",
+   "source": "FGF21",
+   "target": "Insulin_sensitivity",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "FGF21 increases insulin sensitivity (FGF21-transgenic mice show insulin resistance improvement; recombinant FGF21 exerts antihyperglycaemic effects) through enhanced adipocyte glucose uptake and oxidative metabolism.",
+   "context": "FGF21-transgenic mice; adipocytes/obese rodent models",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "23066506",
+    "20616029"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Connects FGF21 to the existing Insulin_sensitivity phenotype.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-011",
+   "source": "Semaglutide",
+   "target": "GLP1R",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Semaglutide is a potent long-acting GLP-1 receptor agonist; receptor agonism underlies its glucose-dependent insulinotropic, appetite-suppressing and cardiovascular actions demonstrated in large human RCTs.",
+   "context": "Human (STEP 1, SELECT trials)",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "33567185",
+    "37952131"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Pharmacological agonism; downstream effects captured in P1C-012/013.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-012",
+   "source": "GLP1R",
+   "target": "Body_weight",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "GLP-1R agonism suppresses appetite/food intake, producing sustained weight loss: 2.4 mg weekly semaglutide gave -14.9% body weight vs -2.4% placebo at 68 weeks with improved cardiometabolic risk factors (STEP 1).",
+   "context": "Human RCT, adults with overweight/obesity without diabetes",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "33567185"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Food-intake reduction is the proximal mechanism; body weight used as the phenotype node.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-013",
+   "source": "GLP1R",
+   "target": "Cardiovascular_events",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "In 17,604 patients with pre-existing CVD and overweight/obesity but no diabetes, weekly semaglutide reduced the composite of CV death, nonfatal MI or nonfatal stroke (6.5% vs 8.0%; HR 0.80, 95% CI 0.72-0.90) over ~40 months (SELECT).",
+   "context": "Human cardiovascular outcomes RCT",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "37952131"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Blood-prevention-relevant age-associated clinical outcome of GLP-1R agonism.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-014",
+   "source": "Canagliflozin",
+   "target": "SLC5A2",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "Canagliflozin inhibits the renal sodium/glucose cotransporter SGLT2 (SLC5A2), blocking proximal-tubule glucose reabsorption and producing glucosuria and lower blood glucose.",
+   "context": "Human/mouse pharmacology (ITP mice; clinical)",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "27381369",
+    "32990681"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Primary on-target action of canagliflozin.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-015",
+   "source": "Canagliflozin",
+   "target": "AMPK",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Independently of SGLT2, canagliflozin inhibits mitochondrial respiratory complex I, raising cellular AMP/ADP and activating AMPK (at plasma concentrations seen clinically); downstream ACC1/2 phosphorylation lowers lipid synthesis. Effect is AMPK-dependent (absent in AMPK-KO cells) and occurs in mouse liver in vivo.",
+   "context": "HEK293/cell lines; mouse liver in vivo",
+   "evidence_type": "direct",
+   "aging_context": false,
+   "pmids": [
+    "27381369"
+   ],
+   "db_support": null,
+   "E": 3,
+   "C": 0,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Off-target AMPK activation distinguishes canagliflozin from dapagliflozin/empagliflozin; connects SGLT2i to the AMPK hub (shared with metformin-like action).",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-016",
+   "source": "Canagliflozin",
+   "target": "Glucose",
+   "action": "inhibition",
+   "site": null,
+   "effect": "inhibition",
+   "mechanism": "By blocking renal glucose reuptake (and reducing hyperglycaemia generally), canagliflozin lowers fasting glucose and improves glucose tolerance in both sexes of mice; blunting of daily peak glucose is proposed to mediate its lifespan benefit (parallel to acarbose).",
+   "context": "ITP mice (both sexes); cellular/clinical",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "32990681",
+    "27381369"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Glucose-lowering is the proposed longevity mechanism and connects to the Glucose nutrient node.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-017",
+   "source": "Canagliflozin",
+   "target": "Lifespan_extension",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "In the NIA Interventions Testing Program, chow canagliflozin (180 ppm from 7 months) extended median survival of male genetically heterogeneous mice by 14% and raised 90th-percentile age by 9%, consistently across 3 sites; no lifespan benefit in females despite improved glucose handling in both sexes.",
+   "context": "Genetically heterogeneous (UM-HET3) mice, 3 ITP sites",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "32990681"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Male-specific lifespan extension; strong sex conflict (see conflicts). Single PMID but multi-site ITP.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-018",
+   "source": "Dietary_restriction",
+   "target": "Infection_susceptibility",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Caloric restriction decreased survival of aged mice after primary influenza infection, with increased lung virus titers and reduced NK-cell activity, despite preserved mitogen-induced lymphoproliferation; i.e. CR impairs the primary antiviral response in aged hosts.",
+   "context": "Aged CR mice, primary influenza challenge (review corroboration)",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "15983169",
+    "40247012"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Adverse effect of DR; Wang 2025 review corroborates increased infection vulnerability under CR.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-019",
+   "source": "Dietary_restriction",
+   "target": "Cold_sensitivity",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Long-term CR lowers core body temperature in humans: 24-h telemetric core temperature was significantly lower in people practising ~6 years of CR than in Western-diet or exercise-matched controls, independent of leanness. Sustained CALERIE CR produced metabolic adaptation with reduced thyroid-axis (T3) activity, the endocrine basis of lower heat production.",
+   "context": "Human CR practitioners (Soare); CALERIE 2-year RCT (Redman)",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "21483032",
+    "29576535"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Lower body temperature is both a proposed longevity mediator and an adverse comfort/cold-tolerance cost; Conti & de Cabo 2025 (PMID 40205073, review) further argues lowered T contributes to CR anti-aging.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-020",
+   "source": "Dietary_restriction",
+   "target": "Impaired_wound_healing",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "Review synthesis (primarily rodent, some human data): calorie restriction downregulates energy-demanding processes including tissue repair, slowing/impairing wound healing as part of a trade-off prioritising survival functions.",
+   "context": "Rodent studies summarised in review; some human data",
+   "evidence_type": "review",
+   "aging_context": false,
+   "pmids": [
+    "40247012"
+   ],
+   "db_support": null,
+   "E": 1,
+   "C": 0,
+   "R": 0,
+   "confidence": 1,
+   "notes": "Review-only support (no primary rodent PMID located during curation that cleanly isolates a longevity-type DR regimen; protein-energy malnutrition literature is adjacent). Kept at low confidence per brief's request to include DR adverse effects.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-021",
+   "source": "Rapamycin",
+   "target": "Impaired_wound_healing",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "mTOR inhibition by sirolimus/rapalogs impairs wound healing in transplant recipients: a prospective RCT found sirolimus-based regimens caused high rates of wound complications (lymphocele 32%, dehiscence 10% when steroids co-administered), and benefit-risk reviews list impaired wound healing and lymphocele formation among sirolimus adverse effects (antiproliferative action on repairing tissue).",
+   "context": "Human renal-transplant recipients (RCT + review)",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "18727661",
+    "15691225"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 1,
+   "confidence": 4,
+   "notes": "Conflict: Dutt 2017 (PMID 28405603) found everolimus did NOT delay closure of small 3-mm punch-biopsy wounds in non-diabetic transplant patients; severity appears wound-size/dose/comorbidity dependent.",
+   "module": "P1",
+   "axis": "C"
+  },
+  {
+   "rid": "P1C-022",
+   "source": "Rapamycin",
+   "target": "Vaccine_response",
+   "action": "activation",
+   "site": null,
+   "effect": "activation",
+   "mechanism": "mTOR inhibition ameliorates immunosenescence: the rapalog RAD001 (everolimus) enhanced the elderly influenza-vaccine antibody response by ~20% and reduced the fraction of PD-1+ CD4/CD8 T cells in a placebo-controlled RCT, a beneficial immune effect of mTOR inhibition.",
+   "context": "Elderly human volunteers, placebo-controlled RCT",
+   "evidence_type": "perturbation",
+   "aging_context": true,
+   "pmids": [
+    "25540326"
+   ],
+   "db_support": null,
+   "E": 2,
+   "C": 1,
+   "R": 0,
+   "confidence": 3,
+   "notes": "Beneficial (not adverse) effect of mTOR inhibition; included as Rapamycin/mTOR -> immune-function phenotype as the brief allowed when supported. Opposes the wound-healing harm (same drug, opposite sign).",
+   "module": "P1",
+   "axis": "C"
+  }
+ ],
+ "conflicts": [
+  "Resveratrol as a direct SIRT1 activator is contested: Howitz 2003 (12939617) reported direct activation, but Pacholec 2010 (20061378) showed activation is an artifact of fluorophore-tagged substrates and absent with native substrates; Hubbard 2013 (23471411) reconciles by showing activation requires hydrophobic substrate motifs and SIRT1-E230, i.e. substrate-assisted allosteric activation. Resveratrol also acts SIRT1-independently via PDE4/AMPK (Park 2012, 22304913).",
+  "Human efficacy of NAD+ precursors is limited and the human age-related NAD+ decline itself is inconsistently observed: NR reliably raises blood NAD+ (Trammell 2016, Martens 2018) and NMN improves muscle insulin sensitivity in one RCT (Yoshino 2021), but Vinten 2025 (41083806, review) concludes clinical/physiological benefits and the evidence for a systemic human NAD+ decline remain weak and tissue-specific. Edges P1A-032/P1A-033 are scored with this caveat.",
+  "NAD+ is double-edged for cancer prevention: NAMPT-driven NAD+ biosynthesis supports tumour-cell proliferation, stress tolerance and immune evasion, making NAMPT/PARP inhibition anticancer strategies (Arrizabalaga 2026, 42880252, review; also flagged in Rajman 2018). Thus boosting NAD+ for ageing may conflict with cancer-prevention goals; captured here as a conflict pending a primary paper tied to a specific map node.",
+  "PARP1 appears with opposite signs: as a bulk NAD+ consumer it lowers NAD+/SIRT1 (P1A-007/P1A-008, Bai 2011), yet SIRT6 activates PARP1 to promote DNA-repair under stress (P1A-026, Mao 2011). Both are retained because they operate in different contexts (chronic NAD+ drain vs. acute genotoxic repair).",
+  "Metformin -> AMPK (P1B-026): Zhou 2001 establishes AMPK activation as the mechanism, but Foretz 2010 shows metformin still lowers hepatic glucose production in LKB1/AMPK-null hepatocytes via a fall in energy charge - AMPK is not strictly required for the glucose-lowering effect.",
+  "Metformin healthspan/lifespan (P1B-028): Martin-Montalvo 2013 reports improved healthspan/lifespan and insulin sensitivity in mice at 0.1% diet (1% was toxic), whereas the NIA Interventions Testing Program (Strong 2016) found metformin alone did not significantly extend lifespan; only metformin+rapamycin did.",
+  "Dietary_restriction -| IGF1 (P1B-032): robust in rodents, but Fontana 2008 shows severe CR without protein restriction did NOT lower serum IGF-1 in humans - protein intake, not calories, is the key determinant. Edge sign holds only for protein-restricted DR.",
+  "Rapamycin: beneficial mTORC1 inhibition (lifespan, Harrison 2009) is partly uncoupled from detrimental mTORC2 disruption (insulin resistance, Lamming 2012 / Sarbassov 2006) - same drug, opposite-sign metabolic vs longevity outcomes (P1B-020/021/022).",
+  "CALERIE human CR (Waziry 2023): slowed DunedinPACE pace-of-aging but did NOT significantly change PhenoAge/GrimAge clocks; treatment effect sizes small - human CR benefit on biological age is real but modest (P1B-035).",
+  "FGF21 induction is nutrient-specific: Laeger 2014 shows hepatic FGF21 is induced by PROTEIN (amino-acid) restriction and NOT by energy-only restriction, whereas Inagaki 2007 and Badman 2007 show acute fasting/ketogenic diet induce FGF21 via PPARalpha. Thus FGF21 marks protein restriction and acute starvation but may not rise under chronic energy restriction with adequate protein — both edges (P1C-001, P1C-002) kept.",
+  "Canagliflozin extends median lifespan in MALE but not FEMALE genetically heterogeneous mice (Miller 2020), despite improving glucose handling in both sexes — a strong sex-by-treatment interaction (P1C-017).",
+  "mTOR inhibition shows opposite-sign effects: it impairs wound healing in some clinical settings (Sandrini 2008 RCT: elevated lymphocele/dehiscence; Kuypers 2005 review) yet improves elderly immune/vaccine response (Mannick 2014). Edges P1C-021 and P1C-022 therefore carry opposite effects for the same intervention.",
+  "Rapamycin/everolimus wound-healing harm is context-dependent: Dutt 2017 found everolimus did NOT delay closure of small 3-mm punch-biopsy wounds in non-diabetic transplant patients, conflicting with the larger-wound/lymphocele complication data — severity depends on wound size, dose and comorbidity (e.g. diabetes).",
+  "Dietary restriction is simultaneously pro-longevity and carries adverse costs within this axis: increased primary-infection mortality in aged mice (Gardner 2005), lowered core body temperature/cold sensitivity (Soare 2011; Redman 2018), and review-level impaired wound healing (Wang 2025) — the latter also being a proposed longevity mediator (lower body temperature; Conti 2025)."
+ ],
+ "dropped": [
+  {
+   "edge": "NAMPT/NAD+ -> tumour cell survival (pro-cancer double edge)",
+   "reason": "Only review-level sources found within scope (Arrizabalaga 2026 42880252; Rajman 2018 review). Per rule 3 no primary perturbation paper located for a specific node, so recorded as a conflict rather than a curated edge."
+  },
+  {
+   "edge": "FK866 -| NAMPT (tool compound)",
+   "reason": "Optional edge; could not verify a correct primary PMID within the search budget (a candidate PMID returned an unrelated article), so dropped rather than cite an unchecked PMID."
+  },
+  {
+   "edge": "DYRK1A/DYRK3 -> SIRT1 phosphorylation (Guo 2010, 20167603)",
+   "reason": "Verified and real, but outside the NAD+/sirtuin salvage sub-axis scope (kinase regulation of SIRT1); omitted to stay within ~30 core edges."
+  },
+  {
+   "edge": "Metformin -> Lifespan_extension (standalone edge)",
+   "reason": "Conflicting mammalian data: Martin-Montalvo 2013 shows lifespan extension in male mice, but NIA ITP (Strong 2016) found metformin alone did not extend lifespan. Encoded instead at the metformin species level and as healthspan/insulin-sensitivity edge P1B-028 with the conflict noted; Lifespan_extension reserved for unambiguous genetic/mouse data per brief."
+  },
+  {
+   "edge": "RPS6KB1 lifespan -> Lifespan_extension (standalone)",
+   "reason": "Captured via RPS6KB1 species aging_relevance and the RPS6KB1 -| Insulin_sensitivity edge (P1B-016, Selman 2009); avoided a redundant phenotype edge."
+  },
+  {
+   "edge": "GLP1R -> Insulin_secretion (glucose-dependent)",
+   "reason": "Textbook incretin action but no primary mechanistic PMID verified within this axis, and it is peripheral to the aging/blood-prevention focus; omitted to avoid an under-supported edge. GLP-1R agonism is instead captured via weight (P1C-012) and cardiovascular (P1C-013) outcomes."
+  },
+  {
+   "edge": "Rapamycin -| mTOR (FKBP12-rapamycin binding/inhibition)",
+   "reason": "Foundational and true, but no specific primary PMID could be verified during curation (candidate PMID was incorrect on lookup) and the existing NSCLC map already represents mTOR regulation; rapamycin is connected via its phenotype edges (P1C-021 wound healing, P1C-022 vaccine response) instead. Mechanism text notes mTORC1 inhibition."
+  },
+  {
+   "edge": "Dietary_restriction -> Impaired_wound_healing (primary rodent)",
+   "reason": "No clean primary rodent study isolating a longevity-type DR regimen (vs protein-energy malnutrition) was located; retained at low confidence as a review-only edge (P1C-020) rather than dropped, per the brief's request to represent DR adverse effects."
+  }
+ ],
+ "references": {
+  "10102273": {
+   "title": "Akt promotes cell survival by phosphorylating and inhibiting a Forkhead transcription factor.",
+   "year": "1999",
+   "journal": "Cell",
+   "first_author": "Brunet",
+   "doi": "10.1016/s0092-8674(00)80595-4",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, Non-P.H.S.",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "10364159": {
+   "title": "Regulation of 4E-BP1 phosphorylation: a novel two-step mechanism.",
+   "year": "1999",
+   "journal": "Genes Dev",
+   "first_author": "Gingras",
+   "doi": "10.1101/gad.13.11.1422",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "10839993": {
+   "title": "Evidence that metformin exerts its anti-diabetic effects through inhibition of complex 1 of the mitochondrial respiratory chain.",
+   "year": "2000",
+   "journal": "Biochem J",
+   "first_author": "Owen",
+   "doi": null,
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "11602624": {
+   "title": "Role of AMP-activated protein kinase in mechanism of metformin action.",
+   "year": "2001",
+   "journal": "J Clin Invest",
+   "first_author": "Zhou",
+   "doi": "10.1172/JCI13505",
+   "types": [
+    "Journal Article"
+   ],
+   "abstract": null
+  },
+  "11672522": {
+   "title": "Negative control of p53 by Sir2alpha promotes cell survival under stress.",
+   "year": "2001",
+   "journal": "Cell",
+   "first_author": "Luo",
+   "doi": "10.1016/s0092-8674(01)00524-4",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "11672523": {
+   "title": "hSIR2(SIRT1) functions as an NAD-dependent p53 deacetylase.",
+   "year": "2001",
+   "journal": "Cell",
+   "first_author": "Vaziri",
+   "doi": "10.1016/s0092-8674(01)00527-x",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "12150915": {
+   "title": "Identification of the tuberous sclerosis complex-2 tumor suppressor gene product tuberin as a target of the phosphoinositide 3-kinase/akt pathway.",
+   "year": "2002",
+   "journal": "Mol Cell",
+   "first_author": "Manning",
+   "doi": "10.1016/s1097-2765(02)00568-3",
+   "types": [
+    "Journal Article",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "12172553": {
+   "title": "TSC2 is phosphorylated and inhibited by Akt and suppresses mTOR signalling.",
+   "year": "2002",
+   "journal": "Nat Cell Biol",
+   "first_author": "Inoki",
+   "doi": "10.1038/ncb839",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "12186850": {
+   "title": "The human silent information regulator (Sir)2 homologue hSIRT3 is a mitochondrial nicotinamide adenine dinucleotide-dependent deacetylase.",
+   "year": "2002",
+   "journal": "J Cell Biol",
+   "first_author": "Schwer",
+   "doi": "10.1083/jcb.200205057",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "12483226": {
+   "title": "IGF-1 receptor regulates lifespan and resistance to oxidative stress in mice.",
+   "year": "2002",
+   "journal": "Nature",
+   "first_author": "Holzenberger",
+   "doi": "10.1038/nature01298",
+   "types": [
+    "Journal Article"
+   ],
+   "abstract": null
+  },
+  "12869586": {
+   "title": "Rheb GTPase is a direct target of TSC2 GAP activity and regulates mTOR signaling.",
+   "year": "2003",
+   "journal": "Genes Dev",
+   "first_author": "Inoki",
+   "doi": "10.1101/gad.1110003",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "12939617": {
+   "title": "Small molecule activators of sirtuins extend Saccharomyces cerevisiae lifespan.",
+   "year": "2003",
+   "journal": "Nature",
+   "first_author": "Howitz",
+   "doi": "10.1038/nature01960",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, Non-P.H.S.",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "1332046": {
+   "title": "IRS-1 activates phosphatidylinositol 3'-kinase by associating with src homology 2 domains of p85.",
+   "year": "1992",
+   "journal": "Proc Natl Acad Sci U S A",
+   "first_author": "Myers",
+   "doi": "10.1073/pnas.89.21.10350",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "14976264": {
+   "title": "Stress-dependent regulation of FOXO transcription factors by the SIRT1 deacetylase.",
+   "year": "2004",
+   "journal": "Science",
+   "first_author": "Brunet",
+   "doi": "10.1126/science.1094637",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "15096581": {
+   "title": "Long-term calorie restriction is highly effective in reducing the risk for atherosclerosis in humans.",
+   "year": "2004",
+   "journal": "Proc Natl Acad Sci U S A",
+   "first_author": "Fontana",
+   "doi": "10.1073/pnas.0308291101",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "15137942": {
+   "title": "Discoveries of nicotinamide riboside as a nutrient and conserved NRK genes establish a Preiss-Handler independent route to NAD+ in fungi and humans.",
+   "year": "2004",
+   "journal": "Cell",
+   "first_author": "Bieganowski",
+   "doi": "10.1016/s0092-8674(04)00416-7",
+   "types": [
+    "Journal Article",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "15152190": {
+   "title": "Modulation of NF-kappaB-dependent transcription and cell survival by the SIRT1 deacetylase.",
+   "year": "2004",
+   "journal": "EMBO J",
+   "first_author": "Yeung",
+   "doi": "10.1038/sj.emboj.7600244",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "15205477": {
+   "title": "Calorie restriction promotes mammalian cell survival by inducing the SIRT1 deacetylase.",
+   "year": "2004",
+   "journal": "Science",
+   "first_author": "Cohen",
+   "doi": "10.1126/science.1099196",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "15306821": {
+   "title": "Absence of S6K1 protects against age- and diet-induced obesity while enhancing insulin sensitivity.",
+   "year": "2004",
+   "journal": "Nature",
+   "first_author": "Um",
+   "doi": "10.1038/nature02866",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "15381699": {
+   "title": "The NAD biosynthesis pathway mediated by nicotinamide phosphoribosyltransferase regulates Sir2 activity in mammalian cells.",
+   "year": "2004",
+   "journal": "J Biol Chem",
+   "first_author": "Revollo",
+   "doi": "10.1074/jbc.M408388200",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "15691225": {
+   "title": "Benefit-risk assessment of sirolimus in renal transplantation.",
+   "year": "2005",
+   "journal": "Drug Saf",
+   "first_author": "Kuypers",
+   "doi": "10.2165/00002018-200528020-00006",
+   "types": [
+    "Journal Article",
+    "Review"
+   ],
+   "abstract": null
+  },
+  "15718470": {
+   "title": "Phosphorylation and regulation of Akt/PKB by the rictor-mTOR complex.",
+   "year": "2005",
+   "journal": "Science",
+   "first_author": "Sarbassov",
+   "doi": "10.1126/science.1106148",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "15744310": {
+   "title": "Nutrient control of glucose homeostasis through a complex of PGC-1alpha and SIRT1.",
+   "year": "2005",
+   "journal": "Nature",
+   "first_author": "Rodgers",
+   "doi": "10.1038/nature03354",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "15854902": {
+   "title": "Rheb binds and regulates the mTOR kinase.",
+   "year": "2005",
+   "journal": "Curr Biol",
+   "first_author": "Long",
+   "doi": "10.1016/j.cub.2005.02.053",
+   "types": [
+    "Comparative Study",
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "15983169": {
+   "title": "Caloric restriction decreases survival of aged mice in response to primary influenza infection.",
+   "year": "2005",
+   "journal": "J Gerontol A Biol Sci Med Sci",
+   "first_author": "Gardner",
+   "doi": "10.1093/gerona/60.6.688",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "1648180": {
+   "title": "Structure of the insulin receptor substrate IRS-1 defines a unique signal transduction protein.",
+   "year": "1991",
+   "journal": "Nature",
+   "first_author": "Sun",
+   "doi": "10.1038/352073a0",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "16603397": {
+   "title": "Prolonged rapamycin treatment inhibits mTORC2 assembly and Akt/PKB.",
+   "year": "2006",
+   "journal": "Mol Cell",
+   "first_author": "Sarbassov",
+   "doi": "10.1016/j.molcel.2006.03.029",
+   "types": [
+    "Comparative Study",
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, Non-P.H.S."
+   ],
+   "abstract": null
+  },
+  "17347648": {
+   "title": "Metabolic control of muscle mitochondrial function and fatty acid oxidation through SIRT1/PGC-1alpha.",
+   "year": "2007",
+   "journal": "EMBO J",
+   "first_author": "Gerhart-Hines",
+   "doi": "10.1038/sj.emboj.7601633",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, Non-P.H.S."
+   ],
+   "abstract": null
+  },
+  "17452648": {
+   "title": "BetaKlotho is required for metabolic activity of fibroblast growth factor 21.",
+   "year": "2007",
+   "journal": "Proc Natl Acad Sci U S A",
+   "first_author": "Ogawa",
+   "doi": "10.1073/pnas.0701600104",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "17550777": {
+   "title": "Endocrine regulation of the fasting response by PPARalpha-mediated induction of fibroblast growth factor 21.",
+   "year": "2007",
+   "journal": "Cell Metab",
+   "first_author": "Inagaki",
+   "doi": "10.1016/j.cmet.2007.05.003",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "17550778": {
+   "title": "Hepatic fibroblast growth factor 21 is regulated by PPARalpha and is a key mediator of hepatic lipid metabolism in ketotic states.",
+   "year": "2007",
+   "journal": "Cell Metab",
+   "first_author": "Badman",
+   "doi": "10.1016/j.cmet.2007.05.002",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "abstract": null
+  },
+  "17609368": {
+   "title": "AMP-activated protein kinase (AMPK) action in skeletal muscle via direct phosphorylation of PGC-1alpha.",
+   "year": "2007",
+   "journal": "Proc Natl Acad Sci U S A",
+   "first_author": "Jäger",
+   "doi": "10.1073/pnas.0705070104",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "17623664": {
+   "title": "Tissue-specific expression of betaKlotho and fibroblast growth factor (FGF) receptor isoforms determines metabolic activity of FGF19 and FGF21.",
+   "year": "2007",
+   "journal": "J Biol Chem",
+   "first_author": "Kurosu",
+   "doi": "10.1074/jbc.M704165200",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "17709744": {
+   "title": "Identification of IRS-1 Ser-1101 as a target of S6K1 in nutrient- and obesity-induced insulin resistance.",
+   "year": "2007",
+   "journal": "Proc Natl Acad Sci U S A",
+   "first_author": "Tremblay",
+   "doi": "10.1073/pnas.0706517104",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "17900900": {
+   "title": "An AMPK-FOXO pathway mediates longevity induced by a novel method of dietary restriction in C. elegans.",
+   "year": "2007",
+   "journal": "Curr Biol",
+   "first_author": "Greer",
+   "doi": "10.1016/j.cub.2007.08.047",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, Non-P.H.S."
+   ],
+   "abstract": null
+  },
+  "18054315": {
+   "title": "FoxO3 controls autophagy in skeletal muscle in vivo.",
+   "year": "2007",
+   "journal": "Cell Metab",
+   "first_author": "Mammucari",
+   "doi": "10.1016/j.cmet.2007.11.001",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "18054316": {
+   "title": "FoxO3 coordinately activates protein degradation by the autophagic/lysosomal and proteasomal pathways in atrophying muscle cells.",
+   "year": "2007",
+   "journal": "Cell Metab",
+   "first_author": "Zhao",
+   "doi": "10.1016/j.cmet.2007.11.004",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "18282106": {
+   "title": "A role for autophagy in the extension of lifespan by dietary restriction in C. elegans.",
+   "year": "2008",
+   "journal": "PLoS Genet",
+   "first_author": "Hansen",
+   "doi": "10.1371/journal.pgen.0040024",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "18337721": {
+   "title": "SIRT6 is a histone H3 lysine 9 deacetylase that modulates telomeric chromatin.",
+   "year": "2008",
+   "journal": "Nature",
+   "first_author": "Michishita",
+   "doi": "10.1038/nature06736",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, Non-P.H.S."
+   ],
+   "abstract": null
+  },
+  "18477450": {
+   "title": "Glucose restriction inhibits skeletal myoblast differentiation by activating SIRT1 through AMPK-mediated regulation of Nampt.",
+   "year": "2008",
+   "journal": "Dev Cell",
+   "first_author": "Fulco",
+   "doi": "10.1016/j.devcel.2008.02.004",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Intramural"
+   ],
+   "abstract": null
+  },
+  "18585098": {
+   "title": "Inhibition of growth hormone signaling by the fasting-induced hormone FGF21.",
+   "year": "2008",
+   "journal": "Cell Metab",
+   "first_author": "Inagaki",
+   "doi": "10.1016/j.cmet.2008.05.006",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "18687677": {
+   "title": "SIRT1 modulation of the acetylation status, cytosolic localization, and activity of LKB1. Possible role in AMP-activated protein kinase activation.",
+   "year": "2008",
+   "journal": "J Biol Chem",
+   "first_author": "Lan",
+   "doi": "10.1074/jbc.M805711200",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "18727661": {
+   "title": "Steroid withdrawal five days after renal transplantation allows for the prevention of wound-healing complications associated with sirolimus therapy.",
+   "year": "2008",
+   "journal": "Clin Transplant",
+   "first_author": "Sandrini",
+   "doi": "10.1111/j.1399-0012.2008.00890.x",
+   "types": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "abstract": null
+  },
+  "18765803": {
+   "title": "FOXO3A genotype is strongly associated with human longevity.",
+   "year": "2008",
+   "journal": "Proc Natl Acad Sci U S A",
+   "first_author": "Willcox",
+   "doi": "10.1073/pnas.0801030105",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "18843793": {
+   "title": "Long-term effects of calorie or protein restriction on serum IGF-1 and IGFBP-3 concentration in humans.",
+   "year": "2008",
+   "journal": "Aging Cell",
+   "first_author": "Fontana",
+   "doi": "10.1111/j.1474-9726.2008.00417.x",
+   "types": [
+    "Clinical Trial",
+    "Comparative Study",
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "19135889": {
+   "title": "SIRT6 links histone H3 lysine 9 deacetylation to NF-kappaB-dependent gene expression and organismal life span.",
+   "year": "2009",
+   "journal": "Cell",
+   "first_author": "Kawahara",
+   "doi": "10.1016/j.cell.2008.10.052",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, Non-P.H.S."
+   ],
+   "abstract": null
+  },
+  "19262508": {
+   "title": "AMPK regulates energy expenditure by modulating NAD+ metabolism and SIRT1 activity.",
+   "year": "2009",
+   "journal": "Nature",
+   "first_author": "Cantó",
+   "doi": "10.1038/nature07813",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "19587680": {
+   "title": "Rapamycin fed late in life extends lifespan in genetically heterogeneous mice.",
+   "year": "2009",
+   "journal": "Nature",
+   "first_author": "Harrison",
+   "doi": "10.1038/nature08221",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, U.S. Gov't, Non-P.H.S."
+   ],
+   "abstract": null
+  },
+  "19797661": {
+   "title": "Ribosomal protein S6 kinase 1 signaling regulates mammalian life span.",
+   "year": "2009",
+   "journal": "Science",
+   "first_author": "Selman",
+   "doi": "10.1126/science.1177221",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "20061378": {
+   "title": "SRT1720, SRT2183, SRT1460, and resveratrol are not direct activators of SIRT1.",
+   "year": "2010",
+   "journal": "J Biol Chem",
+   "first_author": "Pacholec",
+   "doi": "10.1074/jbc.M109.088682",
+   "types": [
+    "Journal Article"
+   ],
+   "abstract": null
+  },
+  "20129246": {
+   "title": "SIRT3 is a mitochondria-localized tumor suppressor required for maintenance of mitochondrial integrity and metabolism during stress.",
+   "year": "2010",
+   "journal": "Cancer Cell",
+   "first_author": "Kim",
+   "doi": "10.1016/j.ccr.2009.11.023",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "abstract": null
+  },
+  "20616029": {
+   "title": "Fibroblast growth factor 21 regulates energy metabolism by activating the AMPK-SIRT1-PGC-1alpha pathway.",
+   "year": "2010",
+   "journal": "Proc Natl Acad Sci U S A",
+   "first_author": "Chau",
+   "doi": "10.1073/pnas.1006962107",
+   "types": [
+    "Journal Article"
+   ],
+   "abstract": null
+  },
+  "21109198": {
+   "title": "Calorie restriction reduces oxidative stress by SIRT3-mediated SOD2 activation.",
+   "year": "2010",
+   "journal": "Cell Metab",
+   "first_author": "Qiu",
+   "doi": "10.1016/j.cmet.2010.11.015",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "21172655": {
+   "title": "Sirt3-mediated deacetylation of evolutionarily conserved lysine 122 regulates MnSOD activity in response to stress.",
+   "year": "2010",
+   "journal": "Mol Cell",
+   "first_author": "Tao",
+   "doi": "10.1016/j.molcel.2010.12.013",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, U.S. Gov't, Non-P.H.S."
+   ],
+   "abstract": null
+  },
+  "21459330": {
+   "title": "PARP-1 inhibition increases mitochondrial metabolism through SIRT1 activation.",
+   "year": "2011",
+   "journal": "Cell Metab",
+   "first_author": "Bai",
+   "doi": "10.1016/j.cmet.2011.03.004",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "21483032": {
+   "title": "Long-term calorie restriction, but not endurance exercise, lowers core body temperature in humans.",
+   "year": "2011",
+   "journal": "Aging (Albany NY)",
+   "first_author": "Soare",
+   "doi": "10.18632/aging.100280",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "21680843": {
+   "title": "SIRT6 promotes DNA repair under stress by activating PARP1.",
+   "year": "2011",
+   "journal": "Science",
+   "first_author": "Mao",
+   "doi": "10.1126/science.1202723",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "21982712": {
+   "title": "Nicotinamide mononucleotide, a key NAD(+) intermediate, treats the pathophysiology of diet- and age-induced diabetes in mice.",
+   "year": "2011",
+   "journal": "Cell Metab",
+   "first_author": "Yoshino",
+   "doi": "10.1016/j.cmet.2011.08.014",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "22304913": {
+   "title": "Resveratrol ameliorates aging-related metabolic phenotypes by inhibiting cAMP phosphodiesterases.",
+   "year": "2012",
+   "journal": "Cell",
+   "first_author": "Park",
+   "doi": "10.1016/j.cell.2012.01.017",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Intramural"
+   ],
+   "abstract": null
+  },
+  "22343943": {
+   "title": "A lysosome-to-nucleus signalling mechanism senses and regulates the lysosome via mTOR and TFEB.",
+   "year": "2012",
+   "journal": "EMBO J",
+   "first_author": "Settembre",
+   "doi": "10.1038/emboj.2012.32",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "22367546": {
+   "title": "The sirtuin SIRT6 regulates lifespan in male mice.",
+   "year": "2012",
+   "journal": "Nature",
+   "first_author": "Kanfi",
+   "doi": "10.1038/nature10815",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "22461615": {
+   "title": "Rapamycin-induced insulin resistance is mediated by mTORC2 loss and uncoupled from longevity.",
+   "year": "2012",
+   "journal": "Science",
+   "first_author": "Lamming",
+   "doi": "10.1126/science.1215135",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "22576015": {
+   "title": "MTORC1 functions as a transcriptional regulator of autophagy by preventing nuclear transport of TFEB.",
+   "year": "2012",
+   "journal": "Autophagy",
+   "first_author": "Martina",
+   "doi": "10.4161/auto.19653",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Intramural"
+   ],
+   "abstract": null
+  },
+  "22722868": {
+   "title": "mTORC1 in the Paneth cell niche couples intestinal stem-cell function to calorie intake.",
+   "year": "2012",
+   "journal": "Nature",
+   "first_author": "Yilmaz",
+   "doi": "10.1038/nature11163",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "23066506": {
+   "title": "The starvation hormone, fibroblast growth factor-21, extends lifespan in mice.",
+   "year": "2012",
+   "journal": "Elife",
+   "first_author": "Zhang",
+   "doi": "10.7554/eLife.00065",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "23471411": {
+   "title": "Evidence for a common mechanism of SIRT1 regulation by allosteric activators.",
+   "year": "2013",
+   "journal": "Science",
+   "first_author": "Hubbard",
+   "doi": "10.1126/science.1231097",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, N.I.H., Intramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "23900241": {
+   "title": "Metformin improves healthspan and lifespan in mice.",
+   "year": "2013",
+   "journal": "Nat Commun",
+   "first_author": "Martin-Montalvo",
+   "doi": "10.1038/ncomms3192",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Intramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "24717514": {
+   "title": "Nicotinamide N-methyltransferase knockdown protects against diet-induced obesity.",
+   "year": "2014",
+   "journal": "Nature",
+   "first_author": "Kraus",
+   "doi": "10.1038/nature13198",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "25133427": {
+   "title": "FGF21 is an endocrine signal of protein restriction.",
+   "year": "2014",
+   "journal": "J Clin Invest",
+   "first_author": "Laeger",
+   "doi": "10.1172/JCI74915",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "25540326": {
+   "title": "mTOR inhibition improves immune function in the elderly.",
+   "year": "2014",
+   "journal": "Sci Transl Med",
+   "first_author": "Mannick",
+   "doi": "10.1126/scitranslmed.3009892",
+   "types": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "27304511": {
+   "title": "CD38 Dictates Age-Related NAD Decline and Mitochondrial Dysfunction through an SIRT3-Dependent Mechanism.",
+   "year": "2016",
+   "journal": "Cell Metab",
+   "first_author": "Camacho-Pereira",
+   "doi": "10.1016/j.cmet.2016.05.006",
+   "types": [
+    "Journal Article"
+   ],
+   "abstract": null
+  },
+  "27381369": {
+   "title": "The Na+/Glucose Cotransporter Inhibitor Canagliflozin Activates AMPK by Inhibiting Mitochondrial Function and Increasing Cellular AMP Levels.",
+   "year": "2016",
+   "journal": "Diabetes",
+   "first_author": "Hawley",
+   "doi": "10.2337/db16-0058",
+   "types": [
+    "Journal Article"
+   ],
+   "abstract": null
+  },
+  "27721479": {
+   "title": "Nicotinamide riboside is uniquely and orally bioavailable in mice and humans.",
+   "year": "2016",
+   "journal": "Nat Commun",
+   "first_author": "Trammell",
+   "doi": "10.1038/ncomms12948",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "28068222": {
+   "title": "Long-Term Administration of Nicotinamide Mononucleotide Mitigates Age-Associated Physiological Decline in Mice.",
+   "year": "2016",
+   "journal": "Cell Metab",
+   "first_author": "Mills",
+   "doi": "10.1016/j.cmet.2016.09.013",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "28334607": {
+   "title": "The SARM1 Toll/Interleukin-1 Receptor Domain Possesses Intrinsic NADCleavage Activity that Promotes Pathological Axonal Degeneration.",
+   "year": "2017",
+   "journal": "Neuron",
+   "first_author": "Essuman",
+   "doi": "10.1016/j.neuron.2017.02.022",
+   "types": [
+    "Journal Article"
+   ],
+   "abstract": null
+  },
+  "29514064": {
+   "title": "Therapeutic Potential of NAD-Boosting Molecules: The In Vivo Evidence.",
+   "year": "2018",
+   "journal": "Cell Metab",
+   "first_author": "Rajman",
+   "doi": "10.1016/j.cmet.2018.02.011",
+   "types": [
+    "Journal Article",
+    "Review"
+   ],
+   "abstract": null
+  },
+  "29576535": {
+   "title": "Metabolic Slowing and Reduced Oxidative Damage with Sustained Caloric Restriction Support the Rate of Living and Oxidative Damage Theories of Aging.",
+   "year": "2018",
+   "journal": "Cell Metab",
+   "first_author": "Redman",
+   "doi": "10.1016/j.cmet.2018.02.019",
+   "types": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "abstract": null
+  },
+  "29599478": {
+   "title": "Chronic nicotinamide riboside supplementation is well-tolerated and elevates NADin healthy middle-aged and older adults.",
+   "year": "2018",
+   "journal": "Nat Commun",
+   "first_author": "Martens",
+   "doi": "10.1038/s41467-018-03421-7",
+   "types": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "abstract": null
+  },
+  "29719225": {
+   "title": "A Potent and Specific CD38 Inhibitor Ameliorates Age-Related Metabolic Dysfunction by Reversing Tissue NADDecline.",
+   "year": "2018",
+   "journal": "Cell Metab",
+   "first_author": "Tarragó",
+   "doi": "10.1016/j.cmet.2018.03.016",
+   "types": [
+    "Journal Article"
+   ],
+   "abstract": null
+  },
+  "31303390": {
+   "title": "2 years of calorie restriction and cardiometabolic risk (CALERIE): exploratory outcomes of a multicentre, phase 2, randomised controlled trial.",
+   "year": "2019",
+   "journal": "Lancet Diabetes Endocrinol",
+   "first_author": "Kraus",
+   "doi": "10.1016/S2213-8587(19)30151-2",
+   "types": [
+    "Clinical Trial, Phase II",
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural"
+   ],
+   "abstract": null
+  },
+  "31875646": {
+   "title": "GDF15 mediates the effects of metformin on body weight and energy balance.",
+   "year": "2019",
+   "journal": "Nature",
+   "first_author": "Coll",
+   "doi": "10.1038/s41586-019-1911-y",
+   "types": [
+    "Journal Article",
+    "Randomized Controlled Trial"
+   ],
+   "abstract": null
+  },
+  "32990681": {
+   "title": "Canagliflozin extends life span in genetically heterogeneous male but not female mice.",
+   "year": "2020",
+   "journal": "JCI Insight",
+   "first_author": "Miller",
+   "doi": "10.1172/jci.insight.140019",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "33199924": {
+   "title": "Senescent cells promote tissue NADdecline during ageing via the activation of CD38macrophages.",
+   "year": "2020",
+   "journal": "Nat Metab",
+   "first_author": "Covarrubias",
+   "doi": "10.1038/s42255-020-00305-3",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "33567185": {
+   "title": "Once-Weekly Semaglutide in Adults with Overweight or Obesity.",
+   "year": "2021",
+   "journal": "N Engl J Med",
+   "first_author": "Wilding",
+   "doi": "10.1056/NEJMoa2032183",
+   "types": [
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "33888596": {
+   "title": "Nicotinamide mononucleotide increases muscle insulin sensitivity in prediabetic women.",
+   "year": "2021",
+   "journal": "Science",
+   "first_author": "Yoshino",
+   "doi": "10.1126/science.abe9985",
+   "types": [
+    "Journal Article",
+    "Randomized Controlled Trial",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "34050173": {
+   "title": "Restoration of energy homeostasis by SIRT6 extends healthy lifespan.",
+   "year": "2021",
+   "journal": "Nat Commun",
+   "first_author": "Roichman",
+   "doi": "10.1038/s41467-021-23545-7",
+   "types": [
+    "Journal Article",
+    "Research Support, N.I.H., Intramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "37118425": {
+   "title": "Effect of long-term caloric restriction on DNA methylation measures of biological aging in healthy adults from the CALERIE trial.",
+   "year": "2023",
+   "journal": "Nat Aging",
+   "first_author": "Waziry",
+   "doi": "10.1038/s43587-022-00357-y",
+   "types": [
+    "Randomized Controlled Trial",
+    "Journal Article",
+    "Research Support, N.I.H., Extramural",
+    "Research Support, Non-U.S. Gov't"
+   ],
+   "abstract": null
+  },
+  "37952131": {
+   "title": "Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes.",
+   "year": "2023",
+   "journal": "N Engl J Med",
+   "first_author": "Lincoff",
+   "doi": "10.1056/NEJMoa2307563",
+   "types": [
+    "Equivalence Trial",
+    "Journal Article",
+    "Multicenter Study",
+    "Randomized Controlled Trial"
+   ],
+   "abstract": null
+  },
+  "40247012": {
+   "title": "Potential downsides of calorie restriction.",
+   "year": "2025",
+   "journal": "Nat Rev Endocrinol",
+   "first_author": "Wang",
+   "doi": "10.1038/s41574-025-01111-1",
+   "types": [
+    "Journal Article",
+    "Review"
+   ],
+   "abstract": null
+  },
+  "6312321": {
+   "title": "Stimulation of tyrosine-specific phosphorylation in vitro by insulin-like growth factor I.",
+   "year": "",
+   "journal": "Nature",
+   "first_author": "Rubin",
+   "doi": "10.1038/305438a0",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "7031900": {
+   "title": "Insulin stimulates the phosphorylation of the 95,000-dalton subunit of its own receptor.",
+   "year": "1982",
+   "journal": "Science",
+   "first_author": "Kasuga",
+   "doi": "10.1126/science.7031900",
+   "types": [
+    "Journal Article"
+   ],
+   "abstract": null
+  },
+  "7683417": {
+   "title": "Common elements in interleukin 4 and insulin signaling pathways in factor-dependent hematopoietic cells.",
+   "year": "1993",
+   "journal": "Proc Natl Acad Sci U S A",
+   "first_author": "Wang",
+   "doi": "10.1073/pnas.90.9.4032",
+   "types": [
+    "Journal Article"
+   ],
+   "abstract": null
+  },
+  "8008069": {
+   "title": "A mammalian protein targeted by G1-arresting rapamycin-receptor complex.",
+   "year": "1994",
+   "journal": "Nature",
+   "first_author": "Brown",
+   "doi": "10.1038/369756a0",
+   "types": [
+    "Journal Article",
+    "Research Support, Non-U.S. Gov't",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  },
+  "9465032": {
+   "title": "RAFT1 phosphorylation of the translational regulators p70 S6 kinase and 4E-BP1.",
+   "year": "1998",
+   "journal": "Proc Natl Acad Sci U S A",
+   "first_author": "Burnett",
+   "doi": "10.1073/pnas.95.4.1432",
+   "types": [
+    "Journal Article",
+    "Research Support, U.S. Gov't, P.H.S."
+   ],
+   "abstract": null
+  }
+ }
+}

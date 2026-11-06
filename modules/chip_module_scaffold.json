@@ -1,0 +1,24 @@
+{
+  "module": "CHIP",
+  "title": "Stem-cell / clonal haematopoiesis module — scaffold (collaboration starter for Ingmar Glauche)",
+  "status": "scaffold v0 — anchor edges PubMed-verified; proposed edges to curate with collaborator",
+  "connects_to_existing_map": ["IL6", "IL1B", "NFkB", "TNF", "Inflammaging", "DNA_damage", "Aging_inflammation", "Aging_senescence_genomic"],
+  "new_nodes": ["HSC", "Somatic_mutation", "TET2_loss", "DNMT3A_loss", "ASXL1_loss", "JAK2_V617F", "CHIP_clone", "Clonal_expansion", "NLRP3_inflammasome", "Myeloid_bias", "Lymphoid_output"],
+  "edges": [
+    {"source": "DNA_damage", "effect": "activation", "target": "Somatic_mutation", "rationale": "age-related mutational burden in HSCs seeds driver mutations", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Somatic_mutation", "effect": "activation", "target": "CHIP_clone", "rationale": "driver mutations (TET2/DNMT3A/ASXL1/JAK2) in HSCs establish a clone; prevalence rises with age and predicts adverse outcomes", "pmids": ["25426837"], "evidence_type": "correlative", "status": "anchor_verified"},
+    {"source": "TET2_loss", "effect": "activation", "target": "CHIP_clone", "rationale": "TET2 is a frequent CHIP driver", "pmids": ["25426837"], "evidence_type": "correlative", "status": "anchor_verified"},
+    {"source": "TET2_loss", "effect": "activation", "target": "IL6", "rationale": "TET2 normally represses IL-6 (recruits HDAC2); TET2 loss de-represses IL-6 in myeloid cells", "pmids": ["26287468"], "evidence_type": "direct", "status": "anchor_verified"},
+    {"source": "TET2_loss", "effect": "activation", "target": "NLRP3_inflammasome", "rationale": "Tet2-deficient clonal haematopoiesis raises IL-1b via NLRP3; NLRP3 inhibition abolishes the effect", "pmids": ["29471939"], "evidence_type": "perturbation", "status": "anchor_verified"},
+    {"source": "NLRP3_inflammasome", "effect": "activation", "target": "IL1B", "rationale": "NLRP3 inflammasome activation processes and releases IL-1b", "pmids": ["29471939"], "evidence_type": "perturbation", "status": "anchor_verified"},
+    {"source": "CHIP_clone", "effect": "activation", "target": "Inflammaging", "rationale": "TET2 CHIP accelerates atherosclerosis via inflammatory myeloid cells; IL-6 blockade alleviates it", "pmids": ["28104796", "28636844"], "evidence_type": "perturbation", "status": "anchor_verified"},
+    {"source": "IL6", "effect": "activation", "target": "Clonal_expansion", "rationale": "inflammatory cytokines (IL-6/TNF) favour mutant-HSC fitness, a feed-forward loop driving clonal expansion", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "CHIP_clone", "effect": "activation", "target": "Clonal_expansion", "rationale": "driver mutations confer self-renewal/fitness advantage -> clone grows with age", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Clonal_expansion", "effect": "activation", "target": "Myeloid_bias", "rationale": "aged/CHIP HSCs skew toward myeloid output", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Myeloid_bias", "effect": "inhibition", "target": "Lymphoid_output", "rationale": "myeloid skew reduces lymphoid production (immune aging)", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "Lymphoid_output", "effect": "inhibition", "target": "Inflammaging", "rationale": "preserved adaptive/lymphoid immunity restrains inflammaging; its loss adds to it (links to Aging_inflammation and immune-aging methylation feature)", "pmids": [], "evidence_type": "proposed", "status": "proposed"},
+    {"source": "DNMT3A_loss", "effect": "activation", "target": "CHIP_clone", "rationale": "DNMT3A is the most common CHIP driver", "pmids": ["25426837"], "evidence_type": "correlative", "status": "anchor_verified"},
+    {"source": "JAK2_V617F", "effect": "activation", "target": "Clonal_expansion", "rationale": "JAK2 V617F drives myeloproliferation (candidate for the inflammation-CHIP loop)", "pmids": [], "evidence_type": "proposed", "status": "proposed"}
+  ],
+  "for_glauche": "Priorities to co-develop: (1) the clonal-dynamics layer (fitness, expansion rate vs age) where your HSC-modelling expertise is central — the scaffold treats expansion as a single node, but your models could make it quantitative; (2) the inflammation<->clone feed-forward loop (IL-6/TNF selecting mutant clones); (3) wiring CHIP output to the methylation layer's immune-aging / inflammation features and the Aging_inflammation and Aging_senescence_genomic sub-scores. Anchor edges are primary-verified; proposed edges (especially clonal dynamics) need your curation."
+}
