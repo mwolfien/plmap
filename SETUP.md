@@ -58,64 +58,70 @@ If `import cmaboss_128n` fails, your `cmaboss` wheel is too old — `pip install
 
 ## 4. Real GSE40279 run — step by step
 
-GSE40279 = Hannum 2013, 656 whole-blood 450K samples, ages 19–101 (PMID 23177740). Full rationale and
-the mapping are in `validation/geo_validation_pipeline.md`; this is the operational recipe.
+GSE40279 = Hannum 2013, 656 whole-blood 450K samples, ages 19–101 (PMID 23177740). Full rationale,
+the feature mapping, the `features.csv` schema and the coverage caveats are in
+`validation/geo_validation_pipeline.md`; this is the operational recipe. **Both steps are now
+implemented** — `src/preprocess_gse40279.R` (heavy, R) and `src/geo_validation.py --features` (light,
+Python).
 
 ### 4a. R environment for preprocessing (once)
 
 ```r
-install.packages("BiocManager")
-BiocManager::install(c("minfi", "EpiDISH", "GEOquery", "sesame"))
-# EpiScore weights: MethylDetectR (Hillary & Marioni) or the published EpiScore CpG tables
-# Clocks: methylclock (Bioconductor) or dnaMethyAge
-BiocManager::install(c("methylclock"))
+install.packages(c("BiocManager", "data.table"))
+BiocManager::install(c("GEOquery", "EpiDISH", "methylclock"))   # minfi/sesame optional (raw IDATs)
 ```
 
-### 4b. Get the data
+### 4b. EpiScore weight tables (once, user-supplied)
 
-```r
-library(GEOquery)
-gse <- getGEO("GSE40279", GSEMatrix = TRUE)[[1]]
-beta <- exprs(gse)                      # CpGs × 656 samples (beta values)
-age  <- as.numeric(gsub("age \\(y\\): ", "", pData(gse)$characteristics_ch1.1))
-# (sex, etc. are in pData too)
+Cell composition and the clock run out of the box. The protein/exposure **EpiScores need published CpG
+weight tables** — drop one CSV per score into `episcore_weights/` (columns `cpg,weight`, optional
+`(Intercept)` row):
+
+```
+episcore_weights/CRP.csv  IL6.csv  GDF15.csv  ADIPOQ.csv  LEP.csv  liver.csv  smoking.csv  [NAD_CD38.csv]
 ```
 
-### 4c. Derive the model features (per sample, all standard)
+Sources: Gadd et al. 2022 *eLife* (protein EpiScores), McCartney et al. 2018 (smoking), or the
+MethylDetectR bundle (Hillary & Marioni). Any missing table → that feature is `NA` and imputed to the
+cohort median downstream (the Python step reports which), so a **partial run still works**.
 
-```r
-library(EpiDISH)
-cell  <- epidish(beta, ref.m = centDHSbloodDMC.m, method = "RPC")$estF   # CD4T,CD8T,NK,B,Mono,Neu
-# features: neutrophil:lymphocyte, CD4:CD8  -> inflammation, immune_aging
-# EpiScores (CRP, IL-6, GDF15, adiponectin, leptin, liver enzymes, smoking): apply the
-#   published CpG weight tables to beta -> inflammation, hepatic, adiposity_lep, adiponectin,
-#   damage_smoke, and a GDF15 EpiScore to *validate* the secretory sub-score
-library(methylclock)
-clock <- DNAmAge(beta)                  # Horvath / Hannum -> EXTERNAL comparison only, never an input
+### 4c. Produce the feature matrix (heavy, R)
+
+```bash
+cd src
+Rscript preprocess_gse40279.R --outdir . --weights episcore_weights
+#  -> features.csv : one row per sample; 7 model features as cohort percentiles (0–1)
+#     + age, sex, clock_age (external), val_inflammation_episcore, val_gdf15_episcore
 ```
 
-Write one CSV, `features.csv`: one row per sample, columns =
-`age, inflammation, immune_aging, nad_depletion, hepatic, adiposity_lep, adiponectin, damage_smoke, clock_age`.
-Each feature is its **cohort percentile (0–1)** — that is what the model layer expects.
+The script downloads GSE40279 (GEOquery), runs EpiDISH cell composition, projects the EpiScore weight
+tables onto the beta matrix, computes the Horvath/Hannum clock (external only), and writes the
+percentile feature matrix. ~16 GB RAM for the 450K matrix.
 
-### 4d. Run the cohort through the model (Python, light)
+### 4d. Run the cohort through the model (light, Python — runs on your PC)
 
-Point the existing `src/geo_validation.py` at `features.csv` instead of the simulated cohort: replace
-the synthetic `feat` dict with each row's columns (already 0–1), then it runs each sample through
-`methylation_layer.run_patient`, computes the aging index + sub-scores, and correlates them with `age`
-and `clock_age`. (A ~15-line edit — the `for age in ages:` loop becomes `for row in features.csv`.)
+```bash
+python3 geo_validation.py --features features.csv
+#  -> geo_validation_real.json + fig_geo_validation_real.png
+```
 
-### 4e. Read out
+This reads `features.csv`, imputes any absent feature to the cohort median (reported), runs every
+sample through `methylation_layer.run_patient`, and writes the correlations + figure. Without
+`--features` the same script runs the literature-calibrated simulated cohort (the pipeline proof).
 
-- `Aging_index` vs chronological age and vs the clock (Pearson/Spearman + scatter).
-- Sub-score-specific, **non-circular** checks: does `Aging_NAD` track age, `Aging_inflammation` track
-  the CRP/IL-6 EpiScore, `Aging_secretory` track the **GDF15 EpiScore**?
-- Age-acceleration: residual(clock~age) vs residual(index~age) — do people the clock calls "old for
-  age" score high on specific mechanistic hallmarks?
+### 4e. Read out (printed + in the JSON)
+
+- `Aging_index` + 7 sub-scores vs chronological age (Pearson + Spearman + slope/decade).
+- `Aging_index` vs the clock (external), and age-acceleration: residual(clock~age) vs residual(index~age).
+- **Non-circular** checks: `Aging_inflammation` vs the CRP/IL-6 EpiScore; `Aging_secretory` vs the GDF15
+  EpiScore.
+- Note the coverage boundary (see the pipeline doc): the blood-feature set drives the
+  inflammation/NAD/nutrient/mito/secretory arms, not genomic-senescence/proteostasis/Sarcopenia — those
+  need additional inputs.
 
 ### Honest split
-4a–4c (download + EpiDISH + EpiScores + clock) are the only heavy, R-based part. 4d–4e reuse this repo
-unchanged. Run 4a–4c where the data and R live; 4d–4e run anywhere Python does — including your PC.
+4c is the only heavy, R-based part. 4d–4e reuse this repo unchanged. Run 4c where the data and R live;
+4d–4e run anywhere Python does — including your PC.
 
 ---
 
