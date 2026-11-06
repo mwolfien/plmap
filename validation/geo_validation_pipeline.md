@@ -8,50 +8,83 @@
 public match for a blood-readout aging model. Alternatives: GSE87571 (wide age range), GSE55763
 (large), GSE132203 (with phenotypes).
 
-**Status.** The machinery is proven on a literature-calibrated simulated cohort (`geo_validation.py`,
-`fig_geo_validation.png`): the aging index tracks simulated age (r ≈ 0.73), NAD-decline and
-inflammaging sub-scores strongest. The step below swaps the simulated feature vectors for real ones.
-It needs the beta matrix + an R methylation stack, so run it where the data lives (or stage it here).
+**Status.** The machinery is proven on a literature-calibrated simulated cohort
+(`python3 geo_validation.py`, `fig_geo_validation.png`): the aging index tracks simulated age
+(r ≈ 0.73), NAD-decline and inflammaging sub-scores strongest. The real-data path is now **wired**:
+`preprocess_gse40279.R` produces the feature matrix and `geo_validation.py --features features.csv`
+consumes it. Preprocessing needs the beta matrix + an R methylation stack + ~16 GB RAM, so run it
+where the data lives; everything after `features.csv` is light Python.
 
-## Steps
+## Two commands
 
-1. **Get the data.** Download the GSE40279 processed beta matrix (GEO supplementary / series matrix)
-   and the sample table (age, sex). ~656 × ~473k CpGs.
+```bash
+# 1. HEAVY, R, where the data + RAM live: raw GEO 450K -> features.csv
+Rscript preprocess_gse40279.R --outdir . --weights episcore_weights
 
-2. **Derive the methylation features** the layer needs (all standard, blood-validated):
-   - **Cell composition** — `EpiDISH` (RPC, `centDHSbloodDMC.m` reference): CD4T, CD8T, NK, B, Mono, Neu.
-     Derived features: neutrophil:lymphocyte ratio, CD4:CD8, naive:memory proxy → `inflammation`,
-     `immune_aging`.
-   - **Protein EpiScores** — Gadd 2022 / Hillary `MethylDetectR` weights: CRP, IL-6, GDF15, adiponectin,
-     leptin, liver enzymes (GGT/ALT) → `inflammation`, `hepatic`, `adiposity_lep`, `adiponectin`,
-     and the GDF15 EpiScore to *validate* the secretory sub-score.
-   - **Smoking EpiScore** (e.g. Elliott/`EpiSmokEr`) → `damage_smoke`.
-   - **Epigenetic clock** — Horvath and/or Hannum (and TFMethyl once available from Patel/Hoffmann) as
-     the **external** readout to compare against — never an input.
+# 2. LIGHT, Python, anywhere (laptop): features.csv -> correlations + figure
+python3 geo_validation.py --features features.csv
+```
 
-3. **Normalize to percentiles.** Convert each feature to its cohort percentile (0–1); that is the
-   value `methylation_layer.features_to_fractions` expects. (Keep the reference cohort fixed so a new
-   patient is placed against it.)
+## Step 1 — `preprocess_gse40279.R` (the heavy R job)
 
-4. **Run each sample through the model.** For each subject, `features_to_fractions(feat)` → input
-   `istate` fractions → `cmaboss_128n` run → read `Aging_index`, the 7 sub-scores, `Sarcopenia`,
-   `Insulin_resistance`, `MSTN`, `IL6` (exactly as `geo_validation.py` does, replacing the simulated
-   `feat` with the real one).
+Downloads GSE40279 (GEOquery), then derives, per sample:
 
-5. **Validate.**
-   - Correlate model `Aging_index` with chronological age and with the clock (Pearson/Spearman).
-   - Per sub-score: does `Aging_NAD` track age, `Aging_inflammation` track the CRP/IL-6 EpiScore,
-     `Aging_secretory` track the GDF15 EpiScore (a direct, non-circular check of that sub-score)?
-   - Age-acceleration test: residual of clock-on-age vs residual of index-on-age — do the people the
-     clock calls "old for their age" also score high on specific mechanistic hallmarks?
-   - Report correlations + the scatter (as in `fig_geo_validation.png`).
+- **Cell composition** — `EpiDISH` RPC with the built-in `centDHSbloodDMC.m` blood reference
+  (CD4T, CD8T, NK, B, Mono, Neu). Derived: neutrophil:lymphocyte ratio → `inflammation`;
+  CD4:CD8 (falls with age) → `immune_aging`. *Runs out of the box.*
+- **Protein / exposure EpiScores** — a projection of published CpG weight tables onto beta:
+  CRP, IL-6, GDF15, adiponectin, leptin, liver, smoking. **You supply the weight tables** as
+  `episcore_weights/<NAME>.csv` (columns `cpg,weight`, optional `(Intercept)` row). Sources:
+  Gadd et al. 2022 *eLife* (protein EpiScores), McCartney et al. 2018 (smoking), or the
+  MethylDetectR bundle (Hillary & Marioni). Any table that is absent → that feature is written
+  `NA` and imputed to the cohort median downstream (reported), so a **partial run still works**.
+- **Epigenetic clock** — `methylclock::DNAmAge` (Horvath/Hannum). **External readout only — never a
+  model input** (this is what keeps the validation non-circular).
 
-6. **Interpret.** Strong index–age correlation = the mechanistic layer recovers aging from real
-   methylation. Sub-score-specific hits (GDF15 EpiScore → secretory sub-score; CRP → inflammaging)
-   are the stronger, non-circular validations. Divergence between clock age and index flags where the
-   model is incomplete (e.g. telomere/epigenetic-drift hallmarks not yet in the network).
+Each model feature is written as a **cohort percentile (0–1)** — exactly what
+`methylation_layer.run_patient` expects.
+
+**`features.csv` schema** (one row per sample):
+
+| column | kind | → model |
+|---|---|---|
+| `sample_id`, `age`, `sex` | metadata | — |
+| `inflammation`, `immune_aging`, `nad_depletion`, `hepatic`, `adiposity_lep`, `adiponectin`, `damage_smoke` | 7 model inputs (percentile 0–1) | `Inflammaging`, `LEP`/`Nutrients`, `ADIPOQ`, `DNA_damage`, `hyperammonemia`/`FGL1`, … |
+| `clock_age` | external (years) | comparison only |
+| `val_inflammation_episcore`, `val_gdf15_episcore` | validation (percentile) | non-circular checks |
+
+> `nad_depletion` has no standard blood EpiScore; supply a CD38/NAD surrogate table as
+> `episcore_weights/NAD_CD38.csv` or it is imputed to the cohort median.
+
+## Step 2 — `geo_validation.py --features features.csv` (light Python)
+
+Runs every sample through the coupled model and reports:
+
+- `Aging_index` + 7 sub-scores vs **chronological age** (Pearson + Spearman + slope/decade).
+- `Aging_index` vs the **clock** (external, non-circular), plus an **age-acceleration** test:
+  residual(clock~age) vs residual(index~age) — do people the clock calls "old for age" also score
+  high mechanistically?
+- **Non-circular molecular checks**: `Aging_inflammation` vs the CRP/IL-6 EpiScore;
+  `Aging_secretory` vs the GDF15 EpiScore.
+- Writes `geo_validation_real.json` + `fig_geo_validation_real.png`.
+
+## What the blood-methylation feature set can and cannot drive (important)
+
+The wiring test (synthetic cohort in the real schema) confirms the layer strongly parameterizes the
+**inflammation / NAD / nutrient-sensing / mitochondrial / secretory** arms — those sub-scores rise
+with age as designed. It does **not**, on its own, drive **genomic-senescence**, **proteostasis**, or
+the **muscle/Sarcopenia** arm, because the 7 blood features don't supply those inputs. Expect those
+sub-scores to be flat vs age until the layer is extended with:
+
+- a damage/senescence EpiScore (e.g. an EpiTOC2 mitotic-age or a p16/senescence surrogate) → genomic-senescence;
+- a proteostasis-relevant signal → proteostasis;
+- muscle-relevant methylation features or clinical/DXA inputs → Sarcopenia (the muscle module was
+  designed to be parameterized from more than blood).
+
+This is an honest coverage boundary, not a failure — it tells the student exactly which inputs to add
+next, and the correlations on the covered arms are the meaningful, non-circular validation.
 
 ## Feasibility note
-Steps 1–2 (download + EpiDISH + EpiScores + clock) are a standard but heavy R job (minfi/EpiDISH +
-reference panels, a large matrix). Steps 3–5 reuse `methylation_layer.py` unchanged. The honest
-split: run 1–2 where the data and R stack live; steps 3–5 run anywhere the model does.
+Step 1 (download + EpiDISH + EpiScores + clock) is a standard but heavy R job (GEOquery/EpiDISH/
+methylclock + reference panels + a large matrix, ~16 GB RAM). Step 2 reuses this repo unchanged and
+runs anywhere Python does. Run step 1 where the data + R live; step 2 on a laptop.

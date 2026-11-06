@@ -6,6 +6,14 @@ __pycache__/
 data/raw/
 *.idat
 *.RData
+# derived per-sample feature matrix + real-run outputs (regenerate from preprocess_gse40279.R)
+features.csv
+src/features.csv
+src/geo_validation_real.json
+src/fig_geo_validation_real.png
+# published EpiScore CpG weight tables (user-supplied, licensing varies) — keep the README
+episcore_weights/*
+!episcore_weights/README.md
 # scratch
 scratch/
 outputs/
