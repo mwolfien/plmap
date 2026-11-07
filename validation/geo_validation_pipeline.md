@@ -11,23 +11,35 @@ public match for a blood-readout aging model. Alternatives: GSE87571 (wide age r
 **Status.** The machinery is proven on a literature-calibrated simulated cohort
 (`python3 geo_validation.py`, `fig_geo_validation.png`): the aging index tracks simulated age
 (r ≈ 0.73), NAD-decline and inflammaging sub-scores strongest. The real-data path is now **wired**:
-`preprocess_gse40279.R` produces the feature matrix and `geo_validation.py --features features.csv`
+`download_gse40279.R` fetches and caches the data once, `preprocess_gse40279.R` produces the feature
+matrix (`--test` on a small age-stratified subset first), and `geo_validation.py --features features.csv`
 consumes it. Preprocessing needs the beta matrix + an R methylation stack + ~16 GB RAM, so run it
 where the data lives; everything after `features.csv` is light Python.
 
-## Two commands
+## Commands (from `src/`)
 
 ```bash
-# 1. HEAVY, R, where the data + RAM live: raw GEO 450K -> features.csv
-Rscript preprocess_gse40279.R --outdir . --weights episcore_weights
+# 0. ONCE, R, needs network: GEO -> cached ../data/raw/gse40279/{beta,pheno}.rds (+ *_test.rds subset)
+Rscript download_gse40279.R
+
+# 1. HEAVY, R, offline: cached matrix -> features.csv   (--test: 48-sample subset -> features_test.csv)
+Rscript preprocess_gse40279.R --test
+Rscript preprocess_gse40279.R
 
 # 2. LIGHT, Python, anywhere (laptop): features.csv -> correlations + figure
 python3 geo_validation.py --features features.csv
 ```
 
+## Step 0 — `download_gse40279.R` (once)
+
+Downloads the GSE40279 series matrix with GEOquery, parses age and sex from the GEO characteristics
+columns, and caches the beta matrix + phenotype as `.rds` under `data/raw/gse40279/` (git-ignored). It
+also writes a small subset (default 48 samples, evenly spaced over the age range) for the `--test` run.
+Re-running reuses the cache; `--force` refetches.
+
 ## Step 1 — `preprocess_gse40279.R` (the heavy R job)
 
-Downloads GSE40279 (GEOquery), then derives, per sample:
+Reads the cache (no network), then derives, per sample:
 
 - **Cell composition** — `EpiDISH` RPC with the built-in `centDHSbloodDMC.m` blood reference
   (CD4T, CD8T, NK, B, Mono, Neu). Derived: neutrophil:lymphocyte ratio → `inflammation`;
@@ -85,6 +97,6 @@ This is an honest coverage boundary, not a failure — it tells the student exac
 next, and the correlations on the covered arms are the meaningful, non-circular validation.
 
 ## Feasibility note
-Step 1 (download + EpiDISH + EpiScores + clock) is a standard but heavy R job (GEOquery/EpiDISH/
-methylclock + reference panels + a large matrix, ~16 GB RAM). Step 2 reuses this repo unchanged and
+Steps 0–1 (download, then EpiDISH + EpiScores + clock) are a standard but heavy R job (GEOquery/EpiDISH/
+methylclock + reference panels + a large matrix, ~16 GB RAM; the `--test` run needs only a few GB). Step 2 reuses this repo unchanged and
 runs anywhere Python does. Run step 1 where the data + R live; step 2 on a laptop.
