@@ -41,12 +41,28 @@ FEATURE_MAP = {
 
 
 def features_to_fractions(feat):
-    """feat: {feature: percentile 0-1}. Returns {input: activation fraction 0-1}."""
-    frac = {}
+    """feat: {feature: percentile 0-1}. Returns {input: activation fraction 0-1}.
+
+    A feature that is missing / None / NaN is skipped (it does NOT drive its inputs),
+    and an input with no present contributor is left unset -> OFF (never a constant
+    mid-level drive). Each input is a WEIGHTED blend of its present contributors,
+    normalized by the summed weight ONLY when that would exceed full drive: this keeps
+    the intended (possibly partial) drive of a single low-weight feature, while
+    preventing several features from saturating a shared input (e.g. Inflammaging)."""
+    num, wsum = {}, {}
     for f, val in feat.items():
+        if val is None:
+            continue
+        try:
+            v = float(val)
+        except (TypeError, ValueError):
+            continue
+        if v != v:                                   # NaN
+            continue
         for inp, w in FEATURE_MAP.get(f, {}).items():
-            frac[inp] = min(1.0, frac.get(inp, 0.0) + w * val)
-    return frac
+            num[inp] = num.get(inp, 0.0) + w * v
+            wsum[inp] = wsum.get(inp, 0.0) + w
+    return {inp: min(1.0, num[inp] / max(1.0, wsum[inp])) for inp in num}
 
 
 def run_patient(feat, extra_inputs=None, sc=1500):

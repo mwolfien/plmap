@@ -77,22 +77,32 @@ def real_mode(path):
 
     ages = col('age')
     clock = col('clock_age') if 'clock_age' in rows[0] else np.full(n, np.nan)
-    feats, imputed = {}, []
+    feats, excluded, imputed = {}, [], []
     for f in MODEL_FEATURES:
         v = col(f) if f in rows[0] else np.full(n, np.nan)
+        if not np.isfinite(v).any():                 # whole column empty -> feature UNUSED
+            excluded.append(f)                       # (its inputs stay OFF, never imputed to a constant)
+            continue
         nmiss = int(np.isnan(v).sum())
-        if nmiss:
-            med = np.nanmedian(v) if np.isfinite(v).any() else 0.5
+        if nmiss:                                     # partial gaps -> per-sample cohort-median impute
+            med = float(np.nanmedian(v))
             v = np.where(np.isnan(v), med, v)
             imputed.append(f'{f} ({nmiss}/{n} -> {med:.2f})')
         feats[f] = np.clip(v, 0.0, 1.0)
+    if excluded:
+        print('  EXCLUDED (no data in column; input left OFF, NOT imputed): ' + ', '.join(excluded))
     if imputed:
-        print('  imputed features (weight table absent or sparse):\n    ' + '\n    '.join(imputed))
+        print('  partially imputed (cohort median): ' + ', '.join(imputed))
+    if len(feats) <= len(MODEL_FEATURES) // 2:
+        print(f'  WARNING: only {len(feats)}/{len(MODEL_FEATURES)} features have data '
+              f'({", ".join(feats)}). Headline correlations reflect a degraded input set; '
+              f'supply the EpiScore weight tables (see episcore_weights/README.md).')
 
-    # run every sample through the coupled model
+    # run every sample through the coupled model (only features with data are passed;
+    # missing ones are simply absent so their inputs are not driven)
     cohort = []
     for i in range(n):
-        feat = {f: float(feats[f][i]) for f in MODEL_FEATURES}
+        feat = {f: float(feats[f][i]) for f in feats}
         r = ML.run_patient(feat, sc=500)
         cohort.append({'sample_id': rows[i].get('sample_id', str(i)), 'age': float(ages[i]),
                        'clock_age': float(clock[i]) if np.isfinite(clock[i]) else None,
@@ -107,6 +117,7 @@ def real_mode(path):
         print(f"{m:26} {c['pearson_r']:10.3f} {c['spearman_r']:11.3f} {c['slope_per_decade']:9.3f}")
 
     out = {'dataset': 'GSE40279 (real)', 'n': n, 'corr_vs_age': corr_age,
+           'features_used': list(feats), 'excluded_features': excluded,
            'imputed_features': imputed, 'cohort': cohort}
 
     idx = np.array([c['readout']['Aging_index'] for c in cohort], float)
