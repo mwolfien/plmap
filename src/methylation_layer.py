@@ -36,7 +36,10 @@ FEATURE_MAP = {
     'adiposity_lep': {'LEP': 1.0, 'Nutrients': 0.6},
     'adiponectin':   {'ADIPOQ': 1.0},
     'damage_smoke':  {'DNA_damage': 1.0},
-    'nad_depletion': {'Inflammaging': 0.3},   # proxy: drives CD38 arm -> NAD decline
+    # nad_depletion is NOT an input: NAD decline is EMERGENT (Inflammaging->CD38->NAD,
+    # DNA_damage->PARP1->NAD) and self-reinforced by the NAD-SIRT1-NFkB-CD38 loop. The
+    # NAD / Aging_NAD nodes are readouts; a measured NAD level is kept only for external
+    # (non-circular) validation, never fed back in.
 }
 
 
