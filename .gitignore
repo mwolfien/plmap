@@ -14,8 +14,11 @@ src/fig_geo_validation_real*.png
 # local Python virtualenv (uv venv / python -m venv)
 .venv/
 # published EpiScore CpG weight tables (user-supplied, licensing varies) — keep the README
-episcore_weights/*
-!episcore_weights/README.md
+src/episcore_weights/*
+!src/episcore_weights/README.md
+# the downloaded source bundle
+Predictors_Shiny_by_Groups.csv
+beta_cpgs.txt
 # scratch
 scratch/
 outputs/

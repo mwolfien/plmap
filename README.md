@@ -28,6 +28,8 @@ src/            runnable model + analysis (run scripts from here)
   geo_validation.py      cohort validation: simulated (default) or real (--features features.csv)
   preprocess_gse40279.R  heavy R step: raw GEO 450K -> features.csv (EpiDISH + EpiScores + clock)
   check_features.py      preflight gate: per-feature coverage + age-correlation on features.csv
+  make_episcore_weights.py  split a MethylDetectR/Gadd weights table -> per-score episcore_weights/*.csv
+  episcore_weights/      EpiScore CpG weight tables (see its README; weights gitignored)
   MUS_module_v3.json     curated muscle edges (191; 149 in executable model)
   P1_curation.json       curated P1 edges
 data/           result JSONs (characterization, scenarios, robustness, aging, methylation, geo)
@@ -48,7 +50,10 @@ python3 run_coupled.py                   # intervention scenarios
 python3 methylation_layer.py             # per-patient demo (4 synthetic profiles)
 python3 geo_validation.py                # simulated-cohort validation (aging index vs age)
 
-# real data (heavy R step first, where the matrix + ~16GB RAM live):
+# real data (heavy R step; run from src/ where the matrix + ~16GB RAM live):
+#   first populate src/episcore_weights/ -> see src/episcore_weights/README.md (one converter command)
+python3 make_episcore_weights.py Predictors_Shiny_by_Groups.csv --outdir episcore_weights \
+    --map CRP.csv="CRP" ADIPOQ.csv="Adiponectin" LEP.csv="Body Fat %" liver.csv="HGF" smoking.csv="Smoking"
 Rscript preprocess_gse40279.R --weights episcore_weights   # -> features.csv
 python3 check_features.py features.csv                      # preflight: fails fast on empty inputs
 python3 geo_validation.py --features features.csv           # -> fig_geo_validation_real.png

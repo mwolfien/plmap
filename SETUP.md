@@ -88,19 +88,32 @@ BiocManager::install(c("GEOquery", "Biobase", "EpiDISH", "methylclock"))   # min
 # download step needs GEOquery + Biobase; processing step needs EpiDISH + methylclock
 ```
 
-### 4b. EpiScore weight tables (once, user-supplied)
+### 4b. EpiScore weight tables (once) — populate `src/episcore_weights/`
 
 Cell composition and the clock run out of the box. The protein/exposure **EpiScores need published CpG
+<<<<<<< HEAD
 weight tables** — drop one CSV per score into `episcore_weights/` at the repo root (columns `cpg,weight`, optional
 `(Intercept)` row):
+=======
+weight tables**, one CSV per score (`cpg,weight`, optional `(Intercept)`) in **`src/episcore_weights/`**
+(that path — not the repo root — because `preprocess_gse40279.R` is run from `src/`). The full recipe,
+mapping, and sources are in `src/episcore_weights/README.md`. The fast path:
+>>>>>>> 9ae43ce (Add EpiScore weights converter + fix folder path convention)
 
-```
-episcore_weights/CRP.csv  IL6.csv  GDF15.csv  ADIPOQ.csv  LEP.csv  liver.csv  smoking.csv  [NAD_CD38.csv]
+```bash
+cd src
+curl -L -o Predictors_Shiny_by_Groups.csv \
+  "https://zenodo.org/records/15548022/files/Predictors_Shiny_by_Groups.csv?download=1"
+# in R once:  writeLines(rownames(beta), "beta_cpgs.txt")
+python3 make_episcore_weights.py Predictors_Shiny_by_Groups.csv \
+    --outdir episcore_weights --beta-cpgs beta_cpgs.txt \
+    --map CRP.csv="CRP" ADIPOQ.csv="Adiponectin" LEP.csv="Body Fat %" liver.csv="HGF" smoking.csv="Smoking"
 ```
 
-Sources: Gadd et al. 2022 *eLife* (protein EpiScores), McCartney et al. 2018 (smoking), or the
-MethylDetectR bundle (Hillary & Marioni). Any missing table → that feature is `NA` and imputed to the
-cohort median downstream (the Python step reports which), so a **partial run still works**.
+That writes `CRP/ADIPOQ/LEP/liver/smoking.csv` (→ inflammation, adiponectin, adiposity_lep, hepatic,
+damage_smoke). `GDF15`/`IL6`/true leptin aren't in the bundle (GDF15 is validation-only; leptin is
+covered by Body Fat %). Any missing table → that feature is `NA` and imputed downstream, so a partial
+run still works.
 
 ### 4c. Download once (R)
 
