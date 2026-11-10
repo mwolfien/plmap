@@ -75,6 +75,7 @@ NR_supp	activates	NAD
 CD38	inhibits	NAD
 PARP1	inhibits	NAD
 Inflammaging	activates	CD38
+NFkB	activates	CD38
 CD38i	inhibits	CD38
 DNA_damage	activates	PARP1
 SIRT6	activates	PARP1

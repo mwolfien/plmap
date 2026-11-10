@@ -47,7 +47,7 @@ Check it works (no data needed):
 cd src
 python3 coupled_model.py        # -> "98 nodes; 22 inputs", writes MUS_P1_coupled.bnd/.cfg
 python3 methylation_layer.py    # 4 synthetic patients -> profiles + recommendations
-python3 geo_validation.py       # calibrated cohort -> aging index vs age (r ≈ 0.73) + figure
+python3 geo_validation.py       # calibrated cohort -> aging index vs age (r ≈ 0.63) + figure
 ```
 
 If `import cmaboss_128n` fails, your `cmaboss` wheel is too old — `uv pip install -U cmaboss` (or `pip install -U cmaboss`)
@@ -130,7 +130,7 @@ Rscript preprocess_gse40279.R            # full   -> features.csv       (~16 GB 
 #  + age, sex, clock_age (external), val_inflammation_episcore, val_gdf15_episcore
 ```
 
-Runs EpiDISH cell composition, projects the EpiScore weight tables (default `../episcore_weights`)
+Runs EpiDISH cell composition, projects the EpiScore weight tables (default `episcore_weights`, i.e. `src/episcore_weights/`)
 onto the beta matrix, computes the Horvath/Hannum clock (external only), and writes the percentile
 feature matrix. No network access. The `--test` run checks the R stack, the weight tables and their
 CpG overlaps; its percentiles are relative to the subset, so treat its numbers as a check, not a result.

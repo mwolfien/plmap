@@ -460,12 +460,12 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> SIRT1 </ci>
+                    <ci> AMPK </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> AMPK </ci>
+                    <ci> SIRT1 </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -500,12 +500,12 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> Metformin </ci>
+                    <ci> Canagliflozin </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> Canagliflozin </ci>
+                    <ci> Metformin </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -558,12 +558,7 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> Resveratrol </ci>
-                    <cn type="integer"> 1 </cn>
-                  </apply>
-                  <apply>
-                    <geq/>
-                    <ci> FGF21R </ci>
+                    <ci> ADIPOQ </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
@@ -578,12 +573,17 @@
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> ADIPOQ </ci>
+                    <ci> FGF21R </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
                     <ci> LKB1 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <geq/>
+                    <ci> Resveratrol </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -593,12 +593,12 @@
                     <or/>
                     <apply>
                       <geq/>
-                      <ci> leucine </ci>
+                      <ci> Complex_I </ci>
                       <cn type="integer"> 1 </cn>
                     </apply>
                     <apply>
                       <geq/>
-                      <ci> Complex_I </ci>
+                      <ci> leucine </ci>
                       <cn type="integer"> 1 </cn>
                     </apply>
                   </apply>
@@ -685,17 +685,17 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> leucine </ci>
-                    <cn type="integer"> 1 </cn>
-                  </apply>
-                  <apply>
-                    <geq/>
                     <ci> Nutrients </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
                     <ci> RHEB </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <geq/>
+                    <ci> leucine </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -705,17 +705,17 @@
                     <or/>
                     <apply>
                       <geq/>
+                      <ci> AMPK </ci>
+                      <cn type="integer"> 1 </cn>
+                    </apply>
+                    <apply>
+                      <geq/>
                       <ci> DR </ci>
                       <cn type="integer"> 1 </cn>
                     </apply>
                     <apply>
                       <geq/>
                       <ci> Rapamycin </ci>
-                      <cn type="integer"> 1 </cn>
-                    </apply>
-                    <apply>
-                      <geq/>
-                      <ci> AMPK </ci>
                       <cn type="integer"> 1 </cn>
                     </apply>
                   </apply>
@@ -789,12 +789,7 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> leucine </ci>
-                    <cn type="integer"> 1 </cn>
-                  </apply>
-                  <apply>
-                    <geq/>
-                    <ci> VDR </ci>
+                    <ci> FNDC5 </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
@@ -804,7 +799,12 @@
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> FNDC5 </ci>
+                    <ci> VDR </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <geq/>
+                    <ci> leucine </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -894,12 +894,12 @@
                 <or/>
                 <apply>
                   <geq/>
-                  <ci> FOXO3 </ci>
+                  <ci> DR </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
                 <apply>
                   <geq/>
-                  <ci> DR </ci>
+                  <ci> FOXO3 </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
                 <apply>
@@ -938,7 +938,7 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> SIRT1 </ci>
+                    <ci> AMPK </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
@@ -948,12 +948,12 @@
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> AMPK </ci>
+                    <ci> FGF21R </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> FGF21R </ci>
+                    <ci> SIRT1 </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -1054,22 +1054,22 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> NAMPT </ci>
-                    <cn type="integer"> 1 </cn>
-                  </apply>
-                  <apply>
-                    <geq/>
                     <ci> NAM </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> NR_supp </ci>
+                    <ci> NAMPT </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
                     <ci> NMN_supp </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <geq/>
+                    <ci> NR_supp </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -1106,12 +1106,12 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> NR_supp </ci>
+                    <ci> NMN </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> NMN </ci>
+                    <ci> NR_supp </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -1140,6 +1140,7 @@
         <qual:listOfInputs>
           <qual:input qual:id="in_CD38_CD38i" qual:qualitativeSpecies="CD38i" qual:transitionEffect="none" qual:sign="negative"/>
           <qual:input qual:id="in_CD38_Inflammaging" qual:qualitativeSpecies="Inflammaging" qual:transitionEffect="none" qual:sign="positive"/>
+          <qual:input qual:id="in_CD38_NFkB" qual:qualitativeSpecies="NFkB" qual:transitionEffect="none" qual:sign="positive"/>
         </qual:listOfInputs>
         <qual:listOfOutputs>
           <qual:output qual:id="out_CD38" qual:qualitativeSpecies="CD38" qual:transitionEffect="assignmentLevel"/>
@@ -1151,9 +1152,17 @@
               <apply>
                 <and/>
                 <apply>
-                  <geq/>
-                  <ci> Inflammaging </ci>
-                  <cn type="integer"> 1 </cn>
+                  <or/>
+                  <apply>
+                    <geq/>
+                    <ci> Inflammaging </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <geq/>
+                    <ci> NFkB </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
                 </apply>
                 <apply>
                   <not/>
@@ -1184,12 +1193,12 @@
                 <or/>
                 <apply>
                   <geq/>
-                  <ci> SIRT6 </ci>
+                  <ci> DNA_damage </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
                 <apply>
                   <geq/>
-                  <ci> DNA_damage </ci>
+                  <ci> SIRT6 </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
               </apply>
@@ -1224,7 +1233,7 @@
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> Resveratrol </ci>
+                    <ci> DR </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
@@ -1234,12 +1243,12 @@
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> DR </ci>
+                    <ci> NAD </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> NAD </ci>
+                    <ci> Resveratrol </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -1401,7 +1410,7 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> hyperammonemia </ci>
+                    <ci> Inflammaging </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
@@ -1411,7 +1420,7 @@
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> Inflammaging </ci>
+                    <ci> hyperammonemia </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -1540,17 +1549,12 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> mTORC2 </ci>
+                    <ci> DR </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
                     <ci> FGF21R </ci>
-                    <cn type="integer"> 1 </cn>
-                  </apply>
-                  <apply>
-                    <geq/>
-                    <ci> DR </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
@@ -1561,6 +1565,11 @@
                   <apply>
                     <geq/>
                     <ci> NMN_supp </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <geq/>
+                    <ci> mTORC2 </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -1799,7 +1808,7 @@
                     <or/>
                     <apply>
                       <geq/>
-                      <ci> Testosterone </ci>
+                      <ci> DCN </ci>
                       <cn type="integer"> 1 </cn>
                     </apply>
                     <apply>
@@ -1809,7 +1818,7 @@
                     </apply>
                     <apply>
                       <geq/>
-                      <ci> DCN </ci>
+                      <ci> Testosterone </ci>
                       <cn type="integer"> 1 </cn>
                     </apply>
                   </apply>
@@ -1909,12 +1918,12 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> smad2_3 </ci>
+                    <ci> NFkB </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> NFkB </ci>
+                    <ci> TRIM63 </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
@@ -1924,7 +1933,7 @@
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> TRIM63 </ci>
+                    <ci> smad2_3 </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -1961,17 +1970,17 @@
                   <or/>
                   <apply>
                     <geq/>
+                    <ci> Autophagy </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <geq/>
                     <ci> FOXO3 </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
                     <ci> UPS </ci>
-                    <cn type="integer"> 1 </cn>
-                  </apply>
-                  <apply>
-                    <geq/>
-                    <ci> Autophagy </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -2179,17 +2188,17 @@
                   <or/>
                   <apply>
                     <geq/>
+                    <ci> FGL1 </ci>
+                    <cn type="integer"> 1 </cn>
+                  </apply>
+                  <apply>
+                    <geq/>
                     <ci> NFkB </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
                     <ci> TNF </ci>
-                    <cn type="integer"> 1 </cn>
-                  </apply>
-                  <apply>
-                    <geq/>
-                    <ci> FGL1 </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -2271,12 +2280,12 @@
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> Proteolysis </ci>
+                    <ci> Mito_dysfunction </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> Mito_dysfunction </ci>
+                    <ci> Proteolysis </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -2345,12 +2354,12 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> Insulin_resistance </ci>
+                    <ci> IGF1 </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> IGF1 </ci>
+                    <ci> Insulin_resistance </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
@@ -2391,12 +2400,12 @@
                   <or/>
                   <apply>
                     <geq/>
-                    <ci> ROS </ci>
+                    <ci> Mito_dysfunction </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                   <apply>
                     <geq/>
-                    <ci> Mito_dysfunction </ci>
+                    <ci> ROS </ci>
                     <cn type="integer"> 1 </cn>
                   </apply>
                 </apply>
@@ -2462,17 +2471,17 @@
                 <or/>
                 <apply>
                   <geq/>
+                  <ci> IL6 </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <geq/>
                   <ci> NFkB </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
                 <apply>
                   <geq/>
                   <ci> TNF </ci>
-                  <cn type="integer"> 1 </cn>
-                </apply>
-                <apply>
-                  <geq/>
-                  <ci> IL6 </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
               </apply>
@@ -2497,7 +2506,7 @@
                 <or/>
                 <apply>
                   <geq/>
-                  <ci> p53 </ci>
+                  <ci> DNA_damage </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
                 <apply>
@@ -2507,7 +2516,7 @@
                 </apply>
                 <apply>
                   <geq/>
-                  <ci> DNA_damage </ci>
+                  <ci> p53 </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
               </apply>
@@ -2541,12 +2550,12 @@
                     <or/>
                     <apply>
                       <geq/>
-                      <ci> Protein_synthesis </ci>
+                      <ci> Autophagy </ci>
                       <cn type="integer"> 1 </cn>
                     </apply>
                     <apply>
                       <geq/>
-                      <ci> Autophagy </ci>
+                      <ci> Protein_synthesis </ci>
                       <cn type="integer"> 1 </cn>
                     </apply>
                   </apply>
@@ -2606,12 +2615,12 @@
                 <or/>
                 <apply>
                   <geq/>
-                  <ci> Aging_inflammation </ci>
+                  <ci> Aging_NAD </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
                 <apply>
                   <geq/>
-                  <ci> Aging_NAD </ci>
+                  <ci> Aging_inflammation </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
                 <apply>
@@ -2626,17 +2635,17 @@
                 </apply>
                 <apply>
                   <geq/>
-                  <ci> Aging_senescence_genomic </ci>
-                  <cn type="integer"> 1 </cn>
-                </apply>
-                <apply>
-                  <geq/>
                   <ci> Aging_proteostasis </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
                 <apply>
                   <geq/>
                   <ci> Aging_secretory </ci>
+                  <cn type="integer"> 1 </cn>
+                </apply>
+                <apply>
+                  <geq/>
+                  <ci> Aging_senescence_genomic </ci>
                   <cn type="integer"> 1 </cn>
                 </apply>
               </apply>
