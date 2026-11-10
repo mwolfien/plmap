@@ -27,6 +27,7 @@ src/            runnable model + analysis (run scripts from here)
   make_figs.py           behaviour-map + dose-response figures
   geo_validation.py      cohort validation: simulated (default) or real (--features features.csv)
   preprocess_gse40279.R  heavy R step: raw GEO 450K -> features.csv (EpiDISH + EpiScores + clock)
+  check_features.py      preflight gate: per-feature coverage + age-correlation on features.csv
   MUS_module_v3.json     curated muscle edges (191; 149 in executable model)
   P1_curation.json       curated P1 edges
 data/           result JSONs (characterization, scenarios, robustness, aging, methylation, geo)
@@ -48,6 +49,7 @@ python3 geo_validation.py                # simulated-cohort validation (aging in
 
 # real data (heavy R step first, where the matrix + ~16GB RAM live):
 Rscript preprocess_gse40279.R --weights episcore_weights   # -> features.csv
+python3 check_features.py features.csv                      # preflight: fails fast on empty inputs
 python3 geo_validation.py --features features.csv           # -> fig_geo_validation_real.png
 ```
 

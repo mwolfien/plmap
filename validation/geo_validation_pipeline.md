@@ -86,6 +86,13 @@ next, and the correlations on the covered arms are the meaningful, non-circular 
 
 ## Troubleshooting weak correlations
 
+Run the preflight gate first — it checks the feature matrix in seconds and exits non-zero if inputs are
+empty, so you catch it before the (slow) model run:
+
+```bash
+python3 check_features.py features.csv      # per-feature coverage + r vs age; FAIL on empty inputs
+```
+
 If `Aging_index` vs age comes back near zero (r ≈ 0.1), check the feature matrix **before** the model:
 
 1. **How many features actually have data?** `geo_validation.py` now prints an `EXCLUDED` line and a
