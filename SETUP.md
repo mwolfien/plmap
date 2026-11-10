@@ -91,14 +91,9 @@ BiocManager::install(c("GEOquery", "Biobase", "EpiDISH", "methylclock"))   # min
 ### 4b. EpiScore weight tables (once) — populate `src/episcore_weights/`
 
 Cell composition and the clock run out of the box. The protein/exposure **EpiScores need published CpG
-<<<<<<< HEAD
-weight tables** — drop one CSV per score into `episcore_weights/` at the repo root (columns `cpg,weight`, optional
-`(Intercept)` row):
-=======
 weight tables**, one CSV per score (`cpg,weight`, optional `(Intercept)`) in **`src/episcore_weights/`**
 (that path — not the repo root — because `preprocess_gse40279.R` is run from `src/`). The full recipe,
 mapping, and sources are in `src/episcore_weights/README.md`. The fast path:
->>>>>>> 9ae43ce (Add EpiScore weights converter + fix folder path convention)
 
 ```bash
 cd src
