@@ -22,7 +22,7 @@ The real-data branch is the "~15-line" wiring promised in SETUP.md, implemented 
 rows -> methylation_layer.run_patient -> correlations. Heavy preprocessing (A's R step) runs where the
 data + RAM live; this script is light Python and runs on a laptop.
 """
-import sys, csv, json, argparse
+import os, sys, csv, json, argparse
 import numpy as np
 import methylation_layer as ML
 
@@ -148,9 +148,12 @@ def real_mode(path):
         for k, v in checks.items():
             print(f'  {k:46} r = {v}')
 
-    json.dump(out, open('geo_validation_real.json', 'w'), indent=1, default=str)
-    _figure(cohort, ages, title_suffix='GSE40279 (real data)', fname='fig_geo_validation_real.png')
-    print('\nsaved geo_validation_real.json + fig_geo_validation_real.png')
+    # a test-subset run (features_test.csv) gets its own outputs so it never overwrites the full run
+    tag = '_test' if os.path.basename(path).startswith('features_test') else ''
+    fjson, fpng = f'geo_validation_real{tag}.json', f'fig_geo_validation_real{tag}.png'
+    json.dump(out, open(fjson, 'w'), indent=1, default=str)
+    _figure(cohort, ages, title_suffix='GSE40279 (real data' + (', TEST subset)' if tag else ')'), fname=fpng)
+    print(f'\nsaved {fjson} + {fpng}')
     return out
 
 

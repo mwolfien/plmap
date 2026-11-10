@@ -9,7 +9,7 @@ integrated index, built from pathway activity and metabolites (not from clocks, 
 independent external check). A **methylation input layer** parameterizes the model per patient.
 
 Status: isolated validation done; methylation layer prototype done; GEO validation pipeline proven
-in-silico (aging index vs age r ≈ 0.73) and **wired for real data** (`preprocess_gse40279.R` →
+in-silico (aging index vs age r ≈ 0.73) and **wired for real data** (`download_gse40279.R` → `preprocess_gse40279.R` →
 `geo_validation.py --features`); organ modules (liver, stem-cell/CHIP) scaffolded.
 
 ## Repository layout
@@ -40,7 +40,8 @@ docs/           schematics (SVG)
 ## Quickstart
 
 ```bash
-pip install -r requirements.txt          # or: conda env create -f environment.yml
+uv venv --python 3.13 && source .venv/bin/activate   # or plain venv / conda, see SETUP.md
+uv pip install -r requirements.txt
 cd src
 python3 coupled_model.py                 # build the 98-node model -> MUS_P1_coupled.bnd/.cfg
 python3 run_coupled.py                   # intervention scenarios

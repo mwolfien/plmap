@@ -1,13 +1,21 @@
 #!/usr/bin/env Rscript
 # =============================================================================
-# preprocess_gse40279.R
-# Raw GEO 450K methylation  ->  model feature matrix (features.csv)
+# preprocess_gse40279.R  --  step 2 of 2 for the real-data run (processing)
+# Cached GSE40279 beta matrix  ->  model feature matrix (features.csv)
 #
-# Turns the GSE40279 whole-blood 450K beta matrix (Hannum 2013, PMID 23177740,
-# 656 samples, ages 19-101) into the exact per-sample features the Prevention &
-# Longevity Map methylation layer consumes:  7 model-input features + age +
-# an EXTERNAL clock age + two validation-only EpiScores. Each model feature is a
-# COHORT PERCENTILE (0-1), which is what src/methylation_layer.run_patient expects.
+# Reads the cache written by download_gse40279.R (no network access here) and
+# turns the whole-blood 450K matrix (Hannum 2013, PMID 23177740) into the exact
+# per-sample features the Prevention & Longevity Map methylation layer consumes:
+# 7 model-input features + age + an EXTERNAL clock age + two validation-only
+# EpiScores. Each model feature is a COHORT PERCENTILE (0-1), which is what
+# src/methylation_layer.run_patient expects.
+#
+# TWO MODES, SAME CODE PATH
+#   --test   uses the small age-stratified subset (beta_test.rds, ~48 samples):
+#            minutes and a few GB RAM -> features_test.csv. Use it to check the
+#            R stack, the weight tables and the CpG overlaps before the full run.
+#            Percentiles are relative to the subset, so numbers are not final.
+#   (none)   full cohort (beta.rds, 656 samples, ~16 GB RAM) -> features.csv
 #
 # DESIGN NOTE (non-circularity): the epigenetic clock is computed for EXTERNAL
 # comparison ONLY. It is never fed back into the model as an input. Likewise the
@@ -20,70 +28,63 @@
 #   - Epigenetic clock (methylclock: Horvath/Hannum) ............. out of the box
 #   - Protein / exposure EpiScores (CRP, IL6, GDF15, adiponectin,
 #     leptin, liver, smoking) ................................... need published
-#       CpG weight tables dropped into  episcore_weights/  (see section 3).
+#       CpG weight tables in episcore_weights/ (see episcore_weights/README.md).
 #   Any EpiScore whose weight table is absent is written as NA and imputed to the
 #   cohort median downstream (geo_validation.py reports which were imputed), so a
 #   PARTIAL run (cell composition + clock + whatever scores you have) still works.
 #
-# Heavy step: this is the only part of the project that needs R/Bioconductor,
-# the raw matrix (~GB) and ~16 GB RAM. Run it where the data lives; everything
-# after features.csv is light Python that runs on a laptop.
-#
-# Usage:
-#   Rscript preprocess_gse40279.R [--outdir .] [--weights episcore_weights]
+# Usage (from src/, after download_gse40279.R):
+#   Rscript preprocess_gse40279.R --test        # quick check on the subset
+#   Rscript preprocess_gse40279.R               # full cohort
+# Options:
+#   --datadir ../data/raw/gse40279   --weights ../episcore_weights   --outdir .
 # Output:
-#   features.csv   (one row per sample; columns documented at the bottom)
+#   features.csv  (features_test.csv with --test); columns documented at the bottom
 # =============================================================================
 
 suppressMessages({
-  need <- c("GEOquery", "EpiDISH", "methylclock", "data.table")
+  need <- c("EpiDISH", "methylclock", "data.table")
   miss <- need[!sapply(need, requireNamespace, quietly = TRUE)]
   if (length(miss)) stop(
     "Missing packages: ", paste(miss, collapse = ", "),
-    "\nInstall with:\n  install.packages('BiocManager')\n",
-    "  BiocManager::install(c('GEOquery','EpiDISH','methylclock','data.table'))")
-  library(GEOquery); library(EpiDISH); library(methylclock); library(data.table)
+    "\nInstall with:\n  install.packages(c('BiocManager','data.table'))\n",
+    "  BiocManager::install(c('EpiDISH','methylclock'))")
+  library(EpiDISH); library(methylclock); library(data.table)
 })
 
 # ---- args -------------------------------------------------------------------
 args    <- commandArgs(trailingOnly = TRUE)
 getarg  <- function(flag, default) { i <- which(args == flag); if (length(i)) args[i + 1] else default }
+test    <- "--test" %in% args
+datadir <- getarg("--datadir", file.path("..", "data", "raw", "gse40279"))
+wdir    <- getarg("--weights", file.path("..", "episcore_weights"))
 outdir  <- getarg("--outdir", ".")
-wdir    <- getarg("--weights", "episcore_weights")
 dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
+sfx     <- if (test) "_test" else ""
+outfile <- file.path(outdir, paste0("features", sfx, ".csv"))
 pctl    <- function(x) { r <- rank(x, na.last = "keep", ties.method = "average"); (r - 1) / (sum(!is.na(x)) - 1) }
 
 # =============================================================================
-# 1. Download + assemble beta matrix and phenotype
+# 1. Load cached beta matrix + phenotype (from download_gse40279.R)
 # =============================================================================
-message("[1/5] Downloading GSE40279 (this is the big step)...")
-gse  <- getGEO("GSE40279", GSEMatrix = TRUE, getGPL = FALSE)[[1]]
-beta <- as.matrix(exprs(gse))                      # CpGs x 656 (beta values 0-1)
-ph   <- pData(gse)
-
-# age + sex live in the characteristics columns; parse defensively.
-grab <- function(ph, key) {
-  col <- names(ph)[sapply(ph, function(c) any(grepl(key, c, ignore.case = TRUE)))][1]
-  sub(paste0(".*", key, "[: ]*"), "", grep(key, ph[[col]], ignore.case = TRUE, value = FALSE))
-}
-age  <- as.numeric(sub(".*age \\(y\\): ",   "", ph[[grep("age",    sapply(ph, function(c) any(grepl("age \\(y\\)", c))))[1]]]))
-if (all(is.na(age))) {                             # fallback parser
-  ac  <- ph[[ names(ph)[grepl("characteristics", names(ph))][
-            which(sapply(ph[grepl("characteristics", names(ph))], function(c) any(grepl("age", c, TRUE))))[1]] ]]
-  age <- as.numeric(gsub("[^0-9.]", "", ac))
-}
-sexc <- ph[[ names(ph)[grepl("characteristics", names(ph))][
-          which(sapply(ph[grepl("characteristics", names(ph))], function(c) any(grepl("gender|sex", c, TRUE))))[1]] ]]
-sex  <- ifelse(grepl("F", sexc, ignore.case = TRUE), "F", "M")
-message(sprintf("    beta: %d CpGs x %d samples | age %.0f-%.0f", nrow(beta), ncol(beta), min(age, na.rm=T), max(age, na.rm=T)))
+f_beta  <- file.path(datadir, paste0("beta", sfx, ".rds"))
+f_pheno <- file.path(datadir, paste0("pheno", sfx, ".rds"))
+if (!file.exists(f_beta) || !file.exists(f_pheno))
+  stop("No cached data at ", f_beta, "\nRun first:  Rscript download_gse40279.R --datadir ", datadir)
+message(sprintf("[1/5] Loading %s cohort from %s ...", if (test) "TEST" else "FULL", datadir))
+beta  <- readRDS(f_beta)
+pheno <- readRDS(f_pheno)
+stopifnot(identical(colnames(beta), pheno$sample_id))
+message(sprintf("    beta: %d CpGs x %d samples | age %.0f-%.0f", nrow(beta), ncol(beta),
+                min(pheno$age, na.rm = TRUE), max(pheno$age, na.rm = TRUE)))
+if (test) message("    TEST MODE: percentiles are relative to this subset; use for checking, not results")
 
 # =============================================================================
 # 2. Cell composition (EpiDISH, built-in blood reference) -> inflammation/immune
 # =============================================================================
 message("[2/5] Estimating leukocyte composition (EpiDISH RPC)...")
-data(centDHSbloodDMC.m)                             # 6-cell blood reference (ships with EpiDISH)
-cell <- epidish(beta.m = beta, ref.m = centDHSbloodDMC.m, method = "RPC")$estF  # CD4T,CD8T,NK,B,Mono,Neu
-cell <- as.data.frame(cell)
+data(centDHSbloodDMC.m, package = "EpiDISH")      # 6-cell blood reference (ships with EpiDISH)
+cell <- as.data.frame(epidish(beta.m = beta, ref.m = centDHSbloodDMC.m, method = "RPC")$estF)  # CD4T,CD8T,NK,B,Mono,Neutro
 nlr  <- cell$Neutro / (cell$CD4T + cell$CD8T + cell$B + cell$NK)   # neutrophil:lymphocyte ratio
 cd48 <- cell$CD4T / pmax(cell$CD8T, 1e-6)                          # CD4:CD8 (falls with immune aging)
 
@@ -95,6 +96,7 @@ cd48 <- cell$CD4T / pmax(cell$CD8T, 1e-6)                          # CD4:CD8 (fa
 #             several of these weight tables ready to drop in.
 # =============================================================================
 message("[3/5] Computing EpiScores from supplied weight tables in '", wdir, "'...")
+if (!dir.exists(wdir)) message("    (weights folder not found -> all EpiScores NA; cell composition + clock still run)")
 episcore <- function(beta, file) {
   fp <- file.path(wdir, file)
   if (!file.exists(fp)) { message("    - ", file, " MISSING -> NA"); return(rep(NA_real_, ncol(beta))) }
@@ -107,13 +109,14 @@ episcore <- function(beta, file) {
   wv <- setNames(w$weight, w$cpg)[common]
   as.numeric(interc + crossprod(beta[common, , drop = FALSE], wv))
 }
-es_crp   <- episcore(beta, "CRP.csv")
-es_il6   <- episcore(beta, "IL6.csv")
-es_gdf15 <- episcore(beta, "GDF15.csv")
-es_adipoq<- episcore(beta, "ADIPOQ.csv")
-es_leptin<- episcore(beta, "LEP.csv")
-es_liver <- episcore(beta, "liver.csv")            # ALT/GGT composite, or a single hepatic EpiScore
-es_smoke <- episcore(beta, "smoking.csv")
+es_crp    <- episcore(beta, "CRP.csv")
+es_il6    <- episcore(beta, "IL6.csv")
+es_gdf15  <- episcore(beta, "GDF15.csv")
+es_adipoq <- episcore(beta, "ADIPOQ.csv")
+es_leptin <- episcore(beta, "LEP.csv")
+es_liver  <- episcore(beta, "liver.csv")           # ALT/GGT composite, or a single hepatic EpiScore
+es_smoke  <- episcore(beta, "smoking.csv")
+es_nad    <- episcore(beta, "NAD_CD38.csv")        # optional; no standard table exists
 
 # =============================================================================
 # 4. Epigenetic clock  -- EXTERNAL comparison ONLY, never a model input
@@ -138,17 +141,21 @@ clock_age <- tryCatch({
 #      val_inflammation_episcore = percentile of mean(CRP,IL6)  -> checks Aging_inflammation
 #      val_gdf15_episcore        = percentile of GDF15          -> checks Aging_secretory
 # =============================================================================
-message("[5/5] Building percentile features + writing features.csv...")
-meanp <- function(...) { m <- cbind(...); rowMeans(apply(m, 2, pctl), na.rm = TRUE) }
+message("[5/5] Building percentile features + writing ", basename(outfile), "...")
+meanp <- function(...) {
+  v <- rowMeans(apply(cbind(...), 2, pctl), na.rm = TRUE)
+  v[is.nan(v)] <- NA                                # all inputs missing -> NA (not NaN)
+  v
+}
 
 feat <- data.table(
-  sample_id     = colnames(beta),
-  age           = age,
-  sex           = sex,
+  sample_id     = pheno$sample_id,
+  age           = pheno$age,
+  sex           = pheno$sex,
   # ---- 7 model-input features (cohort percentiles 0-1) ----
   inflammation  = meanp(es_crp, es_il6, nlr),
   immune_aging  = pctl(-cd48),
-  nad_depletion = episcore(beta, "NAD_CD38.csv") |> pctl(),   # NA unless supplied
+  nad_depletion = pctl(es_nad),
   hepatic       = pctl(es_liver),
   adiposity_lep = pctl(es_leptin),
   adiponectin   = pctl(es_adipoq),
@@ -158,12 +165,12 @@ feat <- data.table(
   val_inflammation_episcore = meanp(es_crp, es_il6),
   val_gdf15_episcore        = pctl(es_gdf15)
 )
-fwrite(feat, file.path(outdir, "features.csv"))
+fwrite(feat, outfile)
 na_cols <- names(feat)[sapply(feat, function(c) all(is.na(c)))]
-message(sprintf("\nDONE -> %s  (%d samples)", file.path(outdir, "features.csv"), nrow(feat)))
+message(sprintf("\nDONE -> %s  (%d samples)", outfile, nrow(feat)))
 if (length(na_cols)) message("  all-NA columns (weight table not supplied; imputed downstream): ",
                              paste(na_cols, collapse = ", "))
-message("  Next:  python3 geo_validation.py --features ", file.path(outdir, "features.csv"))
+message("  Next:  python3 geo_validation.py --features ", outfile)
 
 # -----------------------------------------------------------------------------
 # features.csv columns:
