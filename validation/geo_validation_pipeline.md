@@ -96,6 +96,31 @@ sub-scores to be flat vs age until the layer is extended with:
 This is an honest coverage boundary, not a failure — it tells the student exactly which inputs to add
 next, and the correlations on the covered arms are the meaningful, non-circular validation.
 
+## Troubleshooting weak correlations
+
+Run the preflight gate first — it checks the feature matrix in seconds and exits non-zero if inputs are
+empty, so you catch it before the (slow) model run:
+
+```bash
+python3 check_features.py features.csv      # per-feature coverage + r vs age; FAIL on empty inputs
+```
+
+If `Aging_index` vs age comes back near zero (r ≈ 0.1), check the feature matrix **before** the model:
+
+1. **How many features actually have data?** `geo_validation.py` now prints an `EXCLUDED` line and a
+   `WARNING` when a column is entirely empty. Empty EpiScore columns mean `episcore_weights/` had no
+   table, or the table's CpG IDs did not overlap the beta-matrix rownames (the R script writes `NA` on
+   zero overlap). This is the usual cause — the model then runs on cell-composition features only, whose
+   age ceiling is ~0.18.
+2. **Do the present features track age at all?** Correlate each feature column against `age` directly. In
+   GSE40279, `inflammation` (neutrophil:lymphocyte) tracks age (r ≈ 0.19) but `immune_aging` (CD4:CD8)
+   does not (r ≈ −0.07) — a poorly-estimated feature dilutes the signal, so validate per feature before
+   trusting the index.
+3. **Missing columns are left OFF, not imputed to a constant.** A fully-empty column is excluded so its
+   inputs stay off; combined inputs use a weighted blend (not a capped sum) so shared hubs like
+   Inflammaging cannot saturate. These fixes restore honest dynamic range but cannot create signal that
+   is absent from the inputs — the lift comes from supplying the EpiScore tables.
+
 ## Feasibility note
 Steps 0–1 (download, then EpiDISH + EpiScores + clock) are a standard but heavy R job (GEOquery/EpiDISH/
 methylclock + reference panels + a large matrix, ~16 GB RAM; the `--test` run needs only a few GB). Step 2 reuses this repo unchanged and

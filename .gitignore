@@ -19,3 +19,5 @@ episcore_weights/*
 # scratch
 scratch/
 outputs/
+src/geo_validation.json
+src/fig_geo_validation.png

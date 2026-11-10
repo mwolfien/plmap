@@ -34,7 +34,7 @@ N = {  # node: (up terms, down terms)  term = (weight, expr) ; expr is a node or
  'NAMPT':     ([(0.5, 1), (1, 'AMPK')], [(0.5, 1)]),                               # P1A-022
  'NMN':       ([(0.1, 1), (1, 'NAMPT'), (1, 'NR_supp'), (1.5, 'NMN_supp')], [(0.5, 1), (1, '!NAM'), (1.5, 'CD38')]),  # P1A-001/003/005/006, P1A-010
  'NAD':       ([(0.1, 1), (1, 'NMN'), (0.5, 'NR_supp')], [(0.3, 1), (1.5, 'CD38'), (1, 'PARP1')]),  # P1A-004/033, P1A-007/009
- 'CD38':      ([(0.1, 1), (2, 'Inflammaging')], [(1, 1), (3, 'CD38i')]),           # P1A-013, P1A-029
+ 'CD38':      ([(0.1, 1), (2, 'Inflammaging'), (1, 'NFkB')], [(1, 1), (3, 'CD38i')]),  # P1A-013, P1A-029; NFkB->CD38 (SASP) Covarrubias2020 (33199924) closes NAD-SIRT1-NFkB loop (w=1.0: sweep-optimal for age-tracking vs 0.5/1.5)
  'PARP1':     ([(0.1, 1), (2, 'DNA_damage'), (0.3, 'SIRT6')], [(1, 1)]),           # M2-059 analogue, P1A-026
  'SIRT1':     ([(0.3, 'NAD'), (0.6, 'NAD & AMPK'), (0.6, 'NAD & DR'), (0.4, 'NAD & FGF21R'), (0.3, 'NAD & Resveratrol')], [(0.5, 1), (1, 'PARP1')]),  # P1A-014, -023, P1B-033, P1C-005, P1A-030, P1A-008
  'SIRT3':     ([(1, 'NAD')], [(0.5, 1)]),                                          # P1A-015
