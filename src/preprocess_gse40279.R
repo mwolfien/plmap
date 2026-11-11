@@ -56,6 +56,9 @@ suppressMessages({
 args    <- commandArgs(trailingOnly = TRUE)
 getarg  <- function(flag, default) { i <- which(args == flag); if (length(i)) args[i + 1] else default }
 test    <- "--test" %in% args
+# legacy: also feed the CRP/IL6 EpiScores into the `inflammation` input. Off by default because the
+# same EpiScores form val_inflammation_episcore, which would make that check circular.
+infl_crp <- "--inflammation-with-crp" %in% args
 datadir <- getarg("--datadir", file.path("..", "data", "raw", "gse40279"))
 wdir    <- getarg("--weights", "episcore_weights")   # = src/episcore_weights when run from src/
 outdir  <- getarg("--outdir", ".")
@@ -110,7 +113,7 @@ episcore <- function(beta, file) {
   as.numeric(interc + crossprod(beta[common, , drop = FALSE], wv))
 }
 es_crp    <- episcore(beta, "CRP.csv")
-es_il6    <- episcore(beta, "IL6.csv")
+es_il6    <- episcore(beta, "IL6.csv")              # optional: no IL6 EpiScore in MethylDetectR/Gadd -> normally NA
 es_gdf15  <- episcore(beta, "GDF15.csv")
 es_adipoq <- episcore(beta, "ADIPOQ.csv")
 es_leptin <- episcore(beta, "LEP.csv")
@@ -130,7 +133,9 @@ clock_age <- tryCatch({
 # =============================================================================
 # 5. Assemble model features as COHORT PERCENTILES (0-1) and write features.csv
 #    Feature construction (documented, blood-aging directions):
-#      inflammation  = mean percentile of CRP, IL6, neutrophil:lymphocyte   (higher = more inflamed)
+#      inflammation  = percentile of neutrophil:lymphocyte (EpiDISH)          (higher = more inflamed)
+#                      (--inflammation-with-crp: mean percentile of CRP, IL6, N:L -- legacy, makes the
+#                       inflammation check below circular)
 #      immune_aging  = percentile of LOW CD4:CD8 (ratio falls with age)     (higher = more aged)
 #      nad_depletion = NA unless a CD38/NAD surrogate score is supplied      (imputed median downstream)
 #      hepatic       = percentile of the liver EpiScore
@@ -138,10 +143,15 @@ clock_age <- tryCatch({
 #      adiponectin   = percentile of the adiponectin EpiScore (protective; model treats as ADIPOQ input)
 #      damage_smoke  = percentile of the smoking EpiScore
 #    Validation-only (NOT model inputs):
-#      val_inflammation_episcore = percentile of mean(CRP,IL6)  -> checks Aging_inflammation
+#      val_inflammation_episcore = mean percentile of CRP (+IL6 if a table exists) -> checks
+#                                  Aging_inflammation; independent of the inputs unless
+#                                  --inflammation-with-crp
+#      inflammation_def          = which inflammation definition was used ("NLR" / "NLR+CRP")
 #      val_gdf15_episcore        = percentile of GDF15          -> checks Aging_secretory
 # =============================================================================
 message("[5/5] Building percentile features + writing ", basename(outfile), "...")
+if (infl_crp) message("    --inflammation-with-crp: inflammation includes CRP/IL6, so the ",
+                      "Aging_inflammation vs CRP check is NOT independent")
 meanp <- function(...) {
   v <- rowMeans(apply(cbind(...), 2, pctl), na.rm = TRUE)
   v[is.nan(v)] <- NA                                # all inputs missing -> NA (not NaN)
@@ -153,7 +163,7 @@ feat <- data.table(
   age           = pheno$age,
   sex           = pheno$sex,
   # ---- 7 model-input features (cohort percentiles 0-1) ----
-  inflammation  = meanp(es_crp, es_il6, nlr),
+  inflammation  = if (infl_crp) meanp(es_crp, es_il6, nlr) else pctl(nlr),
   immune_aging  = pctl(-cd48),
   nad_depletion = pctl(es_nad),
   hepatic       = pctl(es_liver),
@@ -163,7 +173,8 @@ feat <- data.table(
   # ---- external / validation (never model inputs) ----
   clock_age                 = clock_age,
   val_inflammation_episcore = meanp(es_crp, es_il6),
-  val_gdf15_episcore        = pctl(es_gdf15)
+  val_gdf15_episcore        = pctl(es_gdf15),
+  inflammation_def          = if (infl_crp) "NLR+CRP" else "NLR"
 )
 fwrite(feat, outfile)
 na_cols <- names(feat)[sapply(feat, function(c) all(is.na(c)))]
@@ -173,7 +184,7 @@ if (length(na_cols)) message("  all-NA columns (weight table not supplied; imput
 message("  Next:  python3 geo_validation.py --features ", outfile)
 
 # -----------------------------------------------------------------------------
-# features.csv columns:
+# features.csv columns (+ inflammation_def: "NLR" or "NLR+CRP", provenance for the inflammation check):
 #   sample_id, age, sex,
 #   inflammation, immune_aging, nad_depletion, hepatic, adiposity_lep,
 #   adiponectin, damage_smoke        <- the 7 model inputs (percentiles 0-1)

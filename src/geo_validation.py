@@ -10,7 +10,8 @@ TWO MODES
         features). Runs every sample through the coupled model, then reports:
           - Aging_index + sub-scores vs chronological age (Pearson/Spearman)
           - Aging_index vs the clock (external, non-circular - the clock is NOT a model input)
-          - NON-CIRCULAR molecular checks: Aging_inflammation vs CRP/IL-6 EpiScore,
+          - molecular checks: Aging_inflammation vs CRP EpiScore (independent when the
+            inflammation input is N:L only, the default),
             Aging_secretory vs GDF15 EpiScore
           - age-acceleration: residual(clock~age) vs residual(index~age)
   (B) SIMULATED:   python3 geo_validation.py        (no --features)
@@ -65,10 +66,13 @@ def run_cohort(cohort, ages):
 
 
 # ============================================================================= REAL DATA
-def real_mode(path):
+def real_mode(path, use_features=None):
     rows = list(csv.DictReader(open(path)))
     n = len(rows)
+    feature_list = [f for f in MODEL_FEATURES if use_features is None or f in use_features]
     print(f'REAL DATA: {path}  ({n} samples)')
+    if use_features is not None:
+        print(f'  feature subset: {", ".join(feature_list)}')
 
     # parse columns; impute each model feature's NA/blank to the cohort median (fallback 0.5)
     def col(name):
@@ -78,7 +82,7 @@ def real_mode(path):
     ages = col('age')
     clock = col('clock_age') if 'clock_age' in rows[0] else np.full(n, np.nan)
     feats, excluded, imputed = {}, [], []
-    for f in MODEL_FEATURES:
+    for f in feature_list:
         v = col(f) if f in rows[0] else np.full(n, np.nan)
         if not np.isfinite(v).any():                 # whole column empty -> feature UNUSED
             excluded.append(f)                       # (its inputs stay OFF, never imputed to a constant)
@@ -93,8 +97,8 @@ def real_mode(path):
         print('  EXCLUDED (no data in column; input left OFF, NOT imputed): ' + ', '.join(excluded))
     if imputed:
         print('  partially imputed (cohort median): ' + ', '.join(imputed))
-    if len(feats) <= len(MODEL_FEATURES) // 2:
-        print(f'  WARNING: only {len(feats)}/{len(MODEL_FEATURES)} features have data '
+    if len(feats) <= max(1, len(feature_list) // 2):
+        print(f'  WARNING: only {len(feats)}/{len(feature_list)} features have data '
               f'({", ".join(feats)}). Headline correlations reflect a degraded input set; '
               f'supply the EpiScore weight tables (see episcore_weights/README.md).')
 
@@ -116,35 +120,64 @@ def real_mode(path):
         c = corr_age[m]
         print(f"{m:26} {c['pearson_r']:10.3f} {c['spearman_r']:11.3f} {c['slope_per_decade']:9.3f}")
 
-    out = {'dataset': 'GSE40279 (real)', 'n': n, 'corr_vs_age': corr_age,
+    # robust aggregate: mean of the 7 hallmark sub-scores (more stable than the model's Aging_index node,
+    # which can collapse under some feature sets; see validation/geo_validation_pipeline.md Findings)
+    SUBM = np.array([[c['readout'][s] for s in ML.SUB] for c in cohort], float)
+    idx_mean = SUBM.mean(1)
+    corr_age['Aging_index_mean'] = {'pearson_r': round(pearson(ages, idx_mean), 3),
+                                    'spearman_r': round(spearman(ages, idx_mean), 3)}
+
+    # OLS ceiling: maximum age signal linearly extractable from the INPUT features (reference line)
+    def _ols_R(names):
+        if not names:
+            return float('nan')
+        X = np.column_stack([feats[f] for f in names] + [np.ones(n)])
+        m = np.all(np.isfinite(X), 1) & np.isfinite(ages)
+        if m.sum() < 5:
+            return float('nan')
+        beta, *_ = np.linalg.lstsq(X[m], ages[m], rcond=None)
+        return round(float(pearson(X[m] @ beta, ages[m])), 3)
+    ols = _ols_R(list(feats))
+    print(f"\nAging_index (model node)      r vs age = {corr_age['Aging_index']['pearson_r']:+.3f}")
+    print(f"Aging_index_mean (sub-scores) r vs age = {corr_age['Aging_index_mean']['pearson_r']:+.3f}"
+          f"   [OLS ceiling from features = {ols}]")
+
+    out = {'dataset': 'GSE40279 (real)', 'n': n, 'corr_vs_age': corr_age, 'ols_ceiling_R': ols,
            'features_used': list(feats), 'excluded_features': excluded,
            'imputed_features': imputed, 'cohort': cohort}
 
-    idx = np.array([c['readout']['Aging_index'] for c in cohort], float)
+    idx_node = np.array([c['readout']['Aging_index'] for c in cohort], float)
 
-    # clock comparison (external, non-circular)
+    # clock comparison (external, non-circular) -- reported for BOTH aggregations, explicitly labelled
     if np.isfinite(clock).sum() > 2:
-        out['Aging_index_vs_clock'] = {'pearson_r': round(pearson(clock, idx), 3)}
-        acc_clock = residual(clock, ages); acc_idx = residual(idx, ages)
-        out['age_acceleration'] = {'pearson_r_resid_index_vs_resid_clock':
-                                   round(pearson(acc_clock, acc_idx), 3),
-                                   'note': 'do people the clock calls old-for-age also score high mechanistically?'}
-        print(f"\nAging_index vs clock r = {out['Aging_index_vs_clock']['pearson_r']}"
-              f" | age-accel (resid-resid) r = {out['age_acceleration']['pearson_r_resid_index_vs_resid_clock']}")
+        acc_clock = residual(clock, ages)
+        for key, idx in (('Aging_index', idx_node), ('Aging_index_mean', idx_mean)):
+            out[f'{key}_vs_clock'] = {'pearson_r': round(pearson(clock, idx), 3)}
+            out[f'{key}_age_acceleration'] = {'pearson_r_resid_index_vs_resid_clock':
+                                              round(pearson(acc_clock, residual(idx, ages)), 3)}
+            print(f"{key + ' vs clock':28} r = {out[f'{key}_vs_clock']['pearson_r']:+.3f}"
+                  f" | age-accel (resid-resid) r = "
+                  f"{out[f'{key}_age_acceleration']['pearson_r_resid_index_vs_resid_clock']:+.3f}")
+        out['age_acceleration_note'] = 'do people the clock calls old-for-age also score high mechanistically?'
 
     # NON-CIRCULAR molecular checks
     checks = {}
     if 'val_inflammation_episcore' in rows[0]:
         v = col('val_inflammation_episcore')
         y = np.array([c['readout']['Aging_inflammation'] for c in cohort], float)
-        checks['Aging_inflammation_vs_CRP_IL6_episcore'] = round(pearson(v, y), 3)
+        # Independent only when `inflammation` was built from N:L alone (preprocess_gse40279.R default,
+        # inflammation_def == 'NLR'). Older features.csv files (no column) and --inflammation-with-crp
+        # runs fed CRP into the input too, so there the check measures transduction, not validity.
+        indep = rows[0].get('inflammation_def', '') == 'NLR'
+        key = 'Aging_inflammation_vs_CRP_episcore' + ('' if indep else ' (overlaps input)')
+        checks[key] = round(pearson(v, y), 3)
     if 'val_gdf15_episcore' in rows[0]:
         v = col('val_gdf15_episcore')
         y = np.array([c['readout']['Aging_secretory'] for c in cohort], float)
         checks['Aging_secretory_vs_GDF15_episcore'] = round(pearson(v, y), 3)
     if checks:
         out['noncircular_checks'] = checks
-        print('\nnon-circular molecular checks (sub-score vs independent EpiScore):')
+        print('\nmolecular checks (sub-score vs EpiScore; "overlaps input" = not independent):')
         for k, v in checks.items():
             print(f'  {k:46} r = {v}')
 
@@ -217,8 +250,11 @@ def _figure(cohort, ages, title_suffix, fname):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--features', help='features.csv from preprocess_gse40279.R (real-data mode)')
+    ap.add_argument('--use-features', help='comma-separated subset of model features to use, e.g. '
+                    '"inflammation,adiponectin,hepatic" (the GSE40279-recommended "core3"); default: all present')
     a = ap.parse_args()
     if a.features:
-        real_mode(a.features)
+        uf = [s.strip() for s in a.use_features.split(',')] if a.use_features else None
+        real_mode(a.features, use_features=uf)
     else:
         simulated_mode()

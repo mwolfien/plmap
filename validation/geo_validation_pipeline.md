@@ -76,8 +76,9 @@ Runs every sample through the coupled model and reports:
 - `Aging_index` vs the **clock** (external, non-circular), plus an **age-acceleration** test:
   residual(clock~age) vs residual(index~age) — do people the clock calls "old for age" also score
   high mechanistically?
-- **Non-circular molecular checks**: `Aging_inflammation` vs the CRP/IL-6 EpiScore;
-  `Aging_secretory` vs the GDF15 EpiScore.
+- **Molecular checks**: `Aging_inflammation` vs the CRP EpiScore (independent: since the N:L-only change
+  CRP is no longer part of the `inflammation` input; `inflammation_def` in `features.csv` records which
+  definition was used), and `Aging_secretory` vs the GDF15 EpiScore (needs a GDF15 table).
 - Writes `geo_validation_real.json` + `fig_geo_validation_real.png`.
 
 ## What the blood-methylation feature set can and cannot drive (important)
@@ -120,6 +121,46 @@ If `Aging_index` vs age comes back near zero (r ≈ 0.1), check the feature matr
    inputs stay off; combined inputs use a weighted blend (not a capped sum) so shared hubs like
    Inflammaging cannot saturate. These fixes restore honest dynamic range but cannot create signal that
    is absent from the inputs — the lift comes from supplying the EpiScore tables.
+
+## Findings (GSE40279 real run, n=656)
+
+A systematic sweep (`src/sweep_configs.py`: feature subsets x index aggregations) over the real cohort:
+
+- **OLS ceiling ≈ 0.40** (in-sample) — the maximum age signal *linearly extractable* from the blood features. This is
+  the number to beat; a mechanistic model that merely re-predicts chronological age adds nothing over an
+  epigenetic clock (which hits r≈0.95; here `clock_age` vs age = 0.946).
+- **Default setup (all features + the model's built-in `Aging_index` node): r ≈ 0.00 vs age** — the signal
+  is cancelled by (a) wrong-signed/flat features and (b) an unstable aggregation node.
+  - Feature-level truth: `inflammation` +0.31 and `adiponectin` +0.18 track age; `adiposity_lep` is
+    **−0.20** (the Body Fat % leptin-substitute falls with age here), `immune_aging` −0.07 and
+    `damage_smoke` −0.06 are flat. The bad ones drag the index to zero.
+- **Two fixes recover it to r ≈ 0.24 (≈60% of the ceiling)** — *in-sample*: the subset was chosen because its
+  features track age in this same cohort, so 0.24 is optimistic until confirmed on held-out samples or a
+  second dataset (e.g. GSE87571):
+  1. **Feature selection** — use `--use-features inflammation,adiponectin,hepatic` ("core3"); drop the
+     wrong-signed/flat features.
+  2. **Aggregation** — use `Aging_index_mean` (mean of the 7 sub-scores), which is robust; the model's
+     built-in node gave +0.24 for core3 but −0.02 for core2, while the mean gave ~0.23 for both.
+- **`Aging_inflammation` vs the CRP/IL6 EpiScore = 0.86–0.88 — a transduction check, NOT independent
+  validation.** The CRP EpiScore is part of the `inflammation` input (`preprocess_gse40279.R`:
+  `inflammation = meanp(CRP, IL6, NLR)`, `val_inflammation_episcore = meanp(CRP, IL6)`; with no IL6 table
+  the check column is just CRP, half of the input). With pure-noise CRP and NLR the same check already
+  gives r ≈ 0.6, and it rises as other drivers of Inflammaging are dropped, which is why it "strengthens"
+  for core3. It shows the input reaches the sub-score intact, nothing more. An independent version needs
+  the check variable kept out of the inputs, e.g. inflammation from NLR only, validated against CRP, or the
+  GDF15 → `Aging_secretory` check (needs a GDF15 weight table). **Done since:** `inflammation` is now
+  built from N:L only by default and CRP stays on the validation side, so the check is independent
+  (`--inflammation-with-crp` restores the old, overlapping definition for comparison). The 0.86–0.88
+  above was measured with the old definition and must be re-run. Caveat: CRP EpiScores partly reflect
+  leukocyte composition, so some shared variance with N:L is expected even when independent by
+  construction.
+- **Age-acceleration ≈ 0.35** (index residual vs clock residual, in-sample; same selection caveat). This is
+  the genuinely non-circular result: nothing from the clock enters the model.
+
+**Recommendation.** Chronological age is a weak target for this model; report **age-acceleration** as
+primary, add a truly independent sub-score check (see above), confirm the chosen subset out-of-sample, and
+benchmark against health outcomes next. Per dataset, run
+`sweep_configs.py` to pick the feature subset, then `geo_validation.py --use-features <subset>`.
 
 ## Feasibility note
 Steps 0–1 (download, then EpiDISH + EpiScores + clock) are a standard but heavy R job (GEOquery/EpiDISH/

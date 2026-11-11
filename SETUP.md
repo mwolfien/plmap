@@ -150,8 +150,8 @@ sample through `methylation_layer.run_patient`, and writes the correlations + fi
 
 - `Aging_index` + 7 sub-scores vs chronological age (Pearson + Spearman + slope/decade).
 - `Aging_index` vs the clock (external), and age-acceleration: residual(clock~age) vs residual(index~age).
-- **Non-circular** checks: `Aging_inflammation` vs the CRP/IL-6 EpiScore; `Aging_secretory` vs the GDF15
-  EpiScore.
+- Molecular checks: `Aging_inflammation` vs the CRP EpiScore (independent: `inflammation` is built from
+  the neutrophil:lymphocyte ratio only); `Aging_secretory` vs the GDF15 EpiScore (needs a GDF15 table).
 - Note the coverage boundary (see the pipeline doc): the blood-feature set drives the
   inflammation/NAD/nutrient/mito/secretory arms, not genomic-senescence/proteostasis/Sarcopenia — those
   need additional inputs.
