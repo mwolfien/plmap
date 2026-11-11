@@ -121,6 +121,31 @@ If `Aging_index` vs age comes back near zero (r ≈ 0.1), check the feature matr
    Inflammaging cannot saturate. These fixes restore honest dynamic range but cannot create signal that
    is absent from the inputs — the lift comes from supplying the EpiScore tables.
 
+## Findings (GSE40279 real run, n=656)
+
+A systematic sweep (`src/sweep_configs.py`: feature subsets x index aggregations) over the real cohort:
+
+- **OLS ceiling ≈ 0.40** — the maximum age signal *linearly extractable* from the blood features. This is
+  the number to beat; a mechanistic model that merely re-predicts chronological age adds nothing over an
+  epigenetic clock (which hits r≈0.95; here `clock_age` vs age = 0.946).
+- **Default setup (all features + the model's built-in `Aging_index` node): r ≈ 0.00 vs age** — the signal
+  is cancelled by (a) wrong-signed/flat features and (b) an unstable aggregation node.
+  - Feature-level truth: `inflammation` +0.31 and `adiponectin` +0.18 track age; `adiposity_lep` is
+    **−0.20** (the Body Fat % leptin-substitute falls with age here), `immune_aging` −0.07 and
+    `damage_smoke` −0.06 are flat. The bad ones drag the index to zero.
+- **Two fixes recover it to r ≈ 0.24 (≈60% of the ceiling):**
+  1. **Feature selection** — use `--use-features inflammation,adiponectin,hepatic` ("core3"); drop the
+     wrong-signed/flat features.
+  2. **Aggregation** — use `Aging_index_mean` (mean of the 7 sub-scores), which is robust; the model's
+     built-in node gave +0.24 for core3 but −0.02 for core2, while the mean gave ~0.23 for both.
+- **The real validation: `Aging_inflammation` vs the independent CRP/IL6 EpiScore = 0.86–0.88** (and it
+  *strengthens* as the feature set is cleaned) — non-circular proof the model transduces molecular state.
+- **Age-acceleration ≈ 0.35** (readouts vs clock residual).
+
+**Recommendation.** Chronological age is a weak target for this model; report **age-acceleration + the
+non-circular sub-score checks** as primary, and benchmark against health outcomes next. Per dataset, run
+`sweep_configs.py` to pick the feature subset, then `geo_validation.py --use-features <subset>`.
+
 ## Feasibility note
 Steps 0–1 (download, then EpiDISH + EpiScores + clock) are a standard but heavy R job (GEOquery/EpiDISH/
 methylclock + reference panels + a large matrix, ~16 GB RAM; the `--test` run needs only a few GB). Step 2 reuses this repo unchanged and

@@ -65,10 +65,13 @@ def run_cohort(cohort, ages):
 
 
 # ============================================================================= REAL DATA
-def real_mode(path):
+def real_mode(path, use_features=None):
     rows = list(csv.DictReader(open(path)))
     n = len(rows)
+    feature_list = [f for f in MODEL_FEATURES if use_features is None or f in use_features]
     print(f'REAL DATA: {path}  ({n} samples)')
+    if use_features is not None:
+        print(f'  feature subset: {", ".join(feature_list)}')
 
     # parse columns; impute each model feature's NA/blank to the cohort median (fallback 0.5)
     def col(name):
@@ -78,7 +81,7 @@ def real_mode(path):
     ages = col('age')
     clock = col('clock_age') if 'clock_age' in rows[0] else np.full(n, np.nan)
     feats, excluded, imputed = {}, [], []
-    for f in MODEL_FEATURES:
+    for f in feature_list:
         v = col(f) if f in rows[0] else np.full(n, np.nan)
         if not np.isfinite(v).any():                 # whole column empty -> feature UNUSED
             excluded.append(f)                       # (its inputs stay OFF, never imputed to a constant)
@@ -93,8 +96,8 @@ def real_mode(path):
         print('  EXCLUDED (no data in column; input left OFF, NOT imputed): ' + ', '.join(excluded))
     if imputed:
         print('  partially imputed (cohort median): ' + ', '.join(imputed))
-    if len(feats) <= len(MODEL_FEATURES) // 2:
-        print(f'  WARNING: only {len(feats)}/{len(MODEL_FEATURES)} features have data '
+    if len(feats) <= max(1, len(feature_list) // 2):
+        print(f'  WARNING: only {len(feats)}/{len(feature_list)} features have data '
               f'({", ".join(feats)}). Headline correlations reflect a degraded input set; '
               f'supply the EpiScore weight tables (see episcore_weights/README.md).')
 
@@ -116,11 +119,33 @@ def real_mode(path):
         c = corr_age[m]
         print(f"{m:26} {c['pearson_r']:10.3f} {c['spearman_r']:11.3f} {c['slope_per_decade']:9.3f}")
 
-    out = {'dataset': 'GSE40279 (real)', 'n': n, 'corr_vs_age': corr_age,
+    # robust aggregate: mean of the 7 hallmark sub-scores (more stable than the model's Aging_index node,
+    # which can collapse under some feature sets; see validation/geo_validation_pipeline.md Findings)
+    SUBM = np.array([[c['readout'][s] for s in ML.SUB] for c in cohort], float)
+    idx_mean = SUBM.mean(1)
+    corr_age['Aging_index_mean'] = {'pearson_r': round(pearson(ages, idx_mean), 3),
+                                    'spearman_r': round(spearman(ages, idx_mean), 3)}
+
+    # OLS ceiling: maximum age signal linearly extractable from the INPUT features (reference line)
+    def _ols_R(names):
+        if not names:
+            return float('nan')
+        X = np.column_stack([feats[f] for f in names] + [np.ones(n)])
+        m = np.all(np.isfinite(X), 1) & np.isfinite(ages)
+        if m.sum() < 5:
+            return float('nan')
+        beta, *_ = np.linalg.lstsq(X[m], ages[m], rcond=None)
+        return round(float(pearson(X[m] @ beta, ages[m])), 3)
+    ols = _ols_R(list(feats))
+    print(f"\nAging_index (model node)      r vs age = {corr_age['Aging_index']['pearson_r']:+.3f}")
+    print(f"Aging_index_mean (sub-scores) r vs age = {corr_age['Aging_index_mean']['pearson_r']:+.3f}"
+          f"   [OLS ceiling from features = {ols}]")
+
+    out = {'dataset': 'GSE40279 (real)', 'n': n, 'corr_vs_age': corr_age, 'ols_ceiling_R': ols,
            'features_used': list(feats), 'excluded_features': excluded,
            'imputed_features': imputed, 'cohort': cohort}
 
-    idx = np.array([c['readout']['Aging_index'] for c in cohort], float)
+    idx = idx_mean   # use the robust mean index for clock / age-acceleration comparisons
 
     # clock comparison (external, non-circular)
     if np.isfinite(clock).sum() > 2:
@@ -217,8 +242,11 @@ def _figure(cohort, ages, title_suffix, fname):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--features', help='features.csv from preprocess_gse40279.R (real-data mode)')
+    ap.add_argument('--use-features', help='comma-separated subset of model features to use, e.g. '
+                    '"inflammation,adiponectin,hepatic" (the GSE40279-recommended "core3"); default: all present')
     a = ap.parse_args()
     if a.features:
-        real_mode(a.features)
+        uf = [s.strip() for s in a.use_features.split(',')] if a.use_features else None
+        real_mode(a.features, use_features=uf)
     else:
         simulated_mode()
