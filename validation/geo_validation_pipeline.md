@@ -10,7 +10,7 @@ public match for a blood-readout aging model. Alternatives: GSE87571 (wide age r
 
 **Status.** The machinery is proven on a literature-calibrated simulated cohort
 (`python3 geo_validation.py`, `fig_geo_validation.png`): the aging index tracks simulated age
-(r ≈ 0.73), NAD-decline and inflammaging sub-scores strongest. The real-data path is now **wired**:
+(r ≈ 0.63; NAD 0.80, inflammation 0.77 — after NAD became emergent), NAD-decline and inflammaging sub-scores strongest. The real-data path is now **wired**:
 `download_gse40279.R` fetches and caches the data once, `preprocess_gse40279.R` produces the feature
 matrix (`--test` on a small age-stratified subset first), and `geo_validation.py --features features.csv`
 consumes it. Preprocessing needs the beta matrix + an R methylation stack + ~16 GB RAM, so run it

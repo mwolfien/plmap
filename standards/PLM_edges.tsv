@@ -76,6 +76,7 @@ NR_supp	+	NAD
 CD38	-	NAD
 PARP1	-	NAD
 Inflammaging	+	CD38
+NFkB	+	CD38
 CD38i	-	CD38
 DNA_damage	+	PARP1
 SIRT6	+	PARP1

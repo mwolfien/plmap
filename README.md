@@ -9,7 +9,7 @@ integrated index, built from pathway activity and metabolites (not from clocks, 
 independent external check). A **methylation input layer** parameterizes the model per patient.
 
 Status: isolated validation done; methylation layer prototype done; GEO validation pipeline proven
-in-silico (aging index vs age r ≈ 0.73) and **wired for real data** (`download_gse40279.R` → `preprocess_gse40279.R` →
+in-silico (aging index vs age r ≈ 0.63) and **wired for real data** (`download_gse40279.R` → `preprocess_gse40279.R` →
 `geo_validation.py --features`); organ modules (liver, stem-cell/CHIP) scaffolded.
 
 ## Repository layout

@@ -37,7 +37,7 @@
 #   Rscript preprocess_gse40279.R --test        # quick check on the subset
 #   Rscript preprocess_gse40279.R               # full cohort
 # Options:
-#   --datadir ../data/raw/gse40279   --weights ../episcore_weights   --outdir .
+#   --datadir ../data/raw/gse40279   --weights episcore_weights   --outdir .
 # Output:
 #   features.csv  (features_test.csv with --test); columns documented at the bottom
 # =============================================================================
@@ -57,7 +57,7 @@ args    <- commandArgs(trailingOnly = TRUE)
 getarg  <- function(flag, default) { i <- which(args == flag); if (length(i)) args[i + 1] else default }
 test    <- "--test" %in% args
 datadir <- getarg("--datadir", file.path("..", "data", "raw", "gse40279"))
-wdir    <- getarg("--weights", file.path("..", "episcore_weights"))
+wdir    <- getarg("--weights", "episcore_weights")   # = src/episcore_weights when run from src/
 outdir  <- getarg("--outdir", ".")
 dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
 sfx     <- if (test) "_test" else ""

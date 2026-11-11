@@ -50,7 +50,7 @@ Node NAM { rate_up = 1; rate_down = 0.2 + (NNMT ? 1 : 0.0); }
 Node NAMPT { rate_up = 0.5 + (AMPK ? 1 : 0.0); rate_down = 0.5; }
 Node NMN { rate_up = 0.1 + (NAMPT ? 1 : 0.0) + (NR_supp ? 1 : 0.0) + (NMN_supp ? 1.5 : 0.0); rate_down = 0.5 + (NAM ? 0.0 : 1) + (CD38 ? 1.5 : 0.0); }
 Node NAD { rate_up = 0.1 + (NMN ? 1 : 0.0) + (NR_supp ? 0.5 : 0.0); rate_down = 0.3 + (CD38 ? 1.5 : 0.0) + (PARP1 ? 1 : 0.0); }
-Node CD38 { rate_up = 0.1 + (Inflammaging ? 2 : 0.0); rate_down = 1 + (CD38i ? 3 : 0.0); }
+Node CD38 { rate_up = 0.1 + (Inflammaging ? 2 : 0.0) + (NFkB ? 1 : 0.0); rate_down = 1 + (CD38i ? 3 : 0.0); }
 Node PARP1 { rate_up = 0.1 + (DNA_damage ? 2 : 0.0) + (SIRT6 ? 0.3 : 0.0); rate_down = 1; }
 Node SIRT1 { rate_up = (NAD ? 0.3 : 0.0) + ((NAD & AMPK) ? 0.6 : 0.0) + ((NAD & DR) ? 0.6 : 0.0) + ((NAD & FGF21R) ? 0.4 : 0.0) + ((NAD & Resveratrol) ? 0.3 : 0.0); rate_down = 0.5 + (PARP1 ? 1 : 0.0); }
 Node SIRT3 { rate_up = (NAD ? 1 : 0.0); rate_down = 0.5; }

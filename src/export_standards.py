@@ -106,7 +106,7 @@ for n in all_nodes:
     out.setQualitativeSpecies(idmap[n]); out.setTransitionEffect(libsbml.OUTPUT_TRANSITION_EFFECT_ASSIGNMENT_LEVEL)
     # canonical sign-logic:  ON if (any activator) and not (any inhibitor); basal-driven if no activators
     def anyexpr(nodes):
-        return '(' + ' || '.join(f'{idmap[x]} >= 1' for x in nodes) + ')' if nodes else ''
+        return '(' + ' || '.join(f'{idmap[x]} >= 1' for x in sorted(nodes)) + ')' if nodes else ''
     if act:
         formula = anyexpr(act) + (f' && !({anyexpr(inh)})' if inh else '')
         default = 0
