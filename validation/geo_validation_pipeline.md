@@ -11,33 +11,48 @@ public match for a blood-readout aging model. Alternatives: GSE87571 (wide age r
 **Status.** The machinery is proven on a literature-calibrated simulated cohort
 (`python3 geo_validation.py`, `fig_geo_validation.png`): the aging index tracks simulated age
 (r ≈ 0.63; NAD 0.80, inflammation 0.77 — after NAD became emergent), NAD-decline and inflammaging sub-scores strongest. The real-data path is now **wired**:
-`download_gse40279.R` fetches and caches the data once, `preprocess_gse40279.R` produces the feature
-matrix (`--test` on a small age-stratified subset first), and `geo_validation.py --features features.csv`
-consumes it. Preprocessing needs the beta matrix + an R methylation stack + ~16 GB RAM, so run it
-where the data lives; everything after `features.csv` is light Python.
+`download_geo.R` fetches and caches the data once, `preprocess_geo.R` produces the feature
+matrix (`--test` on a small age-stratified subset first), and `geo_validation.py --features features_<gse>.csv`
+consumes it. Two cohorts are kept strictly apart: **GSE40279 is the development cohort** (all tuning)
+and **GSE87571 the held-out validation cohort** (run once, with the settings frozen on GSE40279). Preprocessing needs the beta matrix + an R methylation stack + ~16 GB RAM, so run it
+where the data lives; everything after the features file is light Python.
 
 ## Commands (from `src/`)
 
 ```bash
-# 0. ONCE, R, needs network: GEO -> cached ../data/raw/gse40279/{beta,pheno}.rds (+ *_test.rds subset)
-Rscript download_gse40279.R
+# 0. ONCE per cohort, R, needs network: GEO -> cached ../data/raw/<gse>/{beta,pheno}.rds (+ *_test.rds)
+Rscript download_geo.R --gse40279
+Rscript download_geo.R --gse87571
 
-# 1. HEAVY, R, offline: cached matrix -> features.csv   (--test: 48-sample subset -> features_test.csv)
-Rscript preprocess_gse40279.R --test
-Rscript preprocess_gse40279.R
+# 1. HEAVY, R, offline: cached matrix -> features_<gse>.csv   (--test: subset -> features_<gse>_test.csv)
+Rscript preprocess_geo.R --gse40279 --test
+Rscript preprocess_geo.R --gse40279 --by-sex
+Rscript preprocess_geo.R --gse87571 --min-age 19 --by-sex      # validation: same options as dev
 
-# 2. LIGHT, Python, anywhere (laptop): features.csv -> correlations + figure
-python3 geo_validation.py --features features.csv
+# 2. LIGHT, Python, anywhere (laptop): features -> correlations + figure (+ per-sex table)
+python3 geo_validation.py --features features_gse40279.csv --by-sex
+python3 geo_validation.py --features features_gse87571.csv --by-sex   # once, frozen settings
 ```
 
-## Step 0 — `download_gse40279.R` (once)
+## Development vs validation, and sex
 
-Downloads the GSE40279 series matrix with GEOquery, parses age and sex from the GEO characteristics
+- **Tune only on GSE40279**: feature subset (`sweep_configs.py`), index aggregation, pooled vs
+  within-sex percentiles, clock. `sweep_configs.py` refuses to run on GSE87571.
+- **Then run GSE87571 once** with exactly those settings and report every pre-specified metric.
+- **Sex:** body fat, CRP and leukocyte composition differ by sex, so pooled percentiles partly rank
+  sex rather than biology. `--by-sex` ranks each sample against same-sex peers, and
+  `geo_validation.py --by-sex` reports the results for women and men separately. Compare pooled vs
+  within-sex on GSE40279 and freeze the choice before touching GSE87571. Separate model *weights*
+  per sex would be a larger step; within-sex percentiles plus per-sex reporting come first.
+
+## Step 0 — `download_geo.R` (once)
+
+Downloads the named cohort's series matrix with GEOquery, parses age and sex from the GEO characteristics
 columns, and caches the beta matrix + phenotype as `.rds` under `data/raw/gse40279/` (git-ignored). It
 also writes a small subset (default 48 samples, evenly spaced over the age range) for the `--test` run.
 Re-running reuses the cache; `--force` refetches.
 
-## Step 1 — `preprocess_gse40279.R` (the heavy R job)
+## Step 1 — `preprocess_geo.R` (the heavy R job)
 
 Reads the cache (no network), then derives, per sample:
 
@@ -56,19 +71,20 @@ Reads the cache (no network), then derives, per sample:
 Each model feature is written as a **cohort percentile (0–1)** — exactly what
 `methylation_layer.run_patient` expects.
 
-**`features.csv` schema** (one row per sample):
+**`features_<gse>.csv` schema** (one row per sample):
 
 | column | kind | → model |
 |---|---|---|
 | `sample_id`, `age`, `sex` | metadata | — |
 | `inflammation`, `immune_aging`, `nad_depletion`, `hepatic`, `adiposity_lep`, `adiponectin`, `damage_smoke` | 7 model inputs (percentile 0–1) | `Inflammaging`, `LEP`/`Nutrients`, `ADIPOQ`, `DNA_damage`, `hyperammonemia`/`FGL1`, … |
-| `clock_age` | external (years) | comparison only |
-| `val_inflammation_episcore`, `val_gdf15_episcore` | validation (percentile) | non-circular checks |
+| `clock_age` (+ `clock_name`, `clock_hannum`, `clock_horvath`) | external (years) | comparison only |
+| `val_inflammation_episcore`, `val_gdf15_episcore` | validation (percentile) | sub-score checks |
+| `inflammation_def`, `cohort`, `percentile_scope` | provenance | how the file was built |
 
 > `nad_depletion` has no standard blood EpiScore; supply a CD38/NAD surrogate table as
 > `episcore_weights/NAD_CD38.csv` or it is imputed to the cohort median.
 
-## Step 2 — `geo_validation.py --features features.csv` (light Python)
+## Step 2 — `geo_validation.py --features features_<gse>.csv` (light Python)
 
 Runs every sample through the coupled model and reports:
 
@@ -77,7 +93,7 @@ Runs every sample through the coupled model and reports:
   residual(clock~age) vs residual(index~age) — do people the clock calls "old for age" also score
   high mechanistically?
 - **Molecular checks**: `Aging_inflammation` vs the CRP EpiScore (independent: since the N:L-only change
-  CRP is no longer part of the `inflammation` input; `inflammation_def` in `features.csv` records which
+  CRP is no longer part of the `inflammation` input; `inflammation_def` in the features file records which
   definition was used), and `Aging_secretory` vs the GDF15 EpiScore (needs a GDF15 table).
 - Writes `geo_validation_real.json` + `fig_geo_validation_real.png`.
 
@@ -103,7 +119,7 @@ Run the preflight gate first — it checks the feature matrix in seconds and exi
 empty, so you catch it before the (slow) model run:
 
 ```bash
-python3 check_features.py features.csv      # per-feature coverage + r vs age; FAIL on empty inputs
+python3 check_features.py features_gse40279.csv # per-feature coverage + r vs age; FAIL on empty inputs
 ```
 
 If `Aging_index` vs age comes back near zero (r ≈ 0.1), check the feature matrix **before** the model:
@@ -142,7 +158,7 @@ A systematic sweep (`src/sweep_configs.py`: feature subsets x index aggregations
   2. **Aggregation** — use `Aging_index_mean` (mean of the 7 sub-scores), which is robust; the model's
      built-in node gave +0.24 for core3 but −0.02 for core2, while the mean gave ~0.23 for both.
 - **`Aging_inflammation` vs the CRP/IL6 EpiScore = 0.86–0.88 — a transduction check, NOT independent
-  validation.** The CRP EpiScore is part of the `inflammation` input (`preprocess_gse40279.R`:
+  validation.** The CRP EpiScore is part of the `inflammation` input (`preprocess_geo.R`:
   `inflammation = meanp(CRP, IL6, NLR)`, `val_inflammation_episcore = meanp(CRP, IL6)`; with no IL6 table
   the check column is just CRP, half of the input). With pure-noise CRP and NLR the same check already
   gives r ≈ 0.6, and it rises as other drivers of Inflammaging are dropped, which is why it "strengthens"

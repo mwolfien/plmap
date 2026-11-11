@@ -1,23 +1,27 @@
 #!/usr/bin/env Rscript
 # =============================================================================
-# download_gse40279.R  --  step 1 of 2 for the real-data run (download + cache)
+# download_geo.R  --  step 1 of 2 for the real-data run (download + cache)
 #
-# Fetches GSE40279 (Hannum 2013, PMID 23177740; 656 whole-blood 450K samples,
-# ages 19-101) ONCE and caches it as R objects, so the processing step
-# (preprocess_gse40279.R) never touches the network and can be re-run freely.
+# Fetches ONE named GEO methylation cohort ONCE and caches it as R objects, so
+# the processing step (preprocess_geo.R) never touches the network and can be
+# re-run freely. The cohort must be named explicitly (see cohorts.R):
+#   --gse40279   development cohort (Hannum 2013, n=656, ages 19-101)
+#   --gse87571   held-out validation cohort (Johansson 2013, ~730, ages ~14-94)
 #
-# Writes into --datadir (default ../data/raw/gse40279, git-ignored):
+# Writes into --datadir (default ../data/raw/<gse>, git-ignored), one folder per
+# cohort so the two never mix:
 #   beta.rds         CpGs x samples beta matrix (full cohort, ~2.5 GB in RAM)
 #   pheno.rds        data.frame(sample_id, age, sex)
 #   beta_test.rds    small age-stratified subset (--test-n samples, default 48)
 #   pheno_test.rds   matching phenotype rows
-#   GSE40279_series_matrix.txt.gz   GEOquery's own download cache
+#   <GSE>_series_matrix.txt.gz   GEOquery's own download cache
 #
 # Re-running is cheap: if beta.rds + pheno.rds exist it only (re)builds the test
 # subset; pass --force to download again.
 #
 # Usage (from src/):
-#   Rscript download_gse40279.R [--datadir ../data/raw/gse40279] [--test-n 48] [--force]
+#   Rscript download_geo.R --gse40279 [--datadir ../data/raw/gse40279] [--test-n 48] [--force]
+#   Rscript download_geo.R --gse87571
 # Needs: GEOquery, Biobase, data.table  (~16 GB RAM for the full matrix)
 # =============================================================================
 
@@ -33,7 +37,12 @@ suppressMessages({
 
 args    <- commandArgs(trailingOnly = TRUE)
 getarg  <- function(flag, default) { i <- which(args == flag); if (length(i)) args[i + 1] else default }
-datadir <- getarg("--datadir", file.path("..", "data", "raw", "gse40279"))
+source(file.path(script_dir <- (function() {
+  f <- sub("^--file=", "", grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE))
+  if (length(f)) dirname(normalizePath(f[1])) else "." })(), "cohorts.R"))
+cohort  <- resolve_cohort(args)
+message("Cohort: ", cohort$id, " (", cohort$role, ") - ", cohort$desc)
+datadir <- getarg("--datadir", file.path("..", "data", "raw", cohort$slug))
 test_n  <- as.integer(getarg("--test-n", "48"))
 force   <- "--force" %in% args
 dir.create(datadir, showWarnings = FALSE, recursive = TRUE)
@@ -65,13 +74,13 @@ if (!force && file.exists(f_beta) && file.exists(f_pheno)) {
   beta  <- readRDS(f_beta)
   pheno <- readRDS(f_pheno)
 } else {
-  message("[1/2] Downloading GSE40279 series matrix into ", datadir, " (large; GEOquery caches it)...")
-  gse  <- getGEO("GSE40279", GSEMatrix = TRUE, getGPL = FALSE, destdir = datadir)[[1]]
+  message("[1/2] Downloading ", cohort$id, " series matrix into ", datadir, " (large; GEOquery caches it)...")
+  gse  <- getGEO(cohort$id, GSEMatrix = TRUE, getGPL = FALSE, destdir = datadir)[[1]]
   beta <- as.matrix(exprs(gse))
   if (nrow(beta) == 0) {
     # some GEO series keep the betas only as a supplementary file
     message("    series matrix has no values -> fetching the supplementary beta table")
-    sf <- getGEOSuppFiles("GSE40279", baseDir = datadir, makeDirectory = FALSE)
+    sf <- getGEOSuppFiles(cohort$id, baseDir = datadir, makeDirectory = FALSE)
     bf <- grep("beta", rownames(sf), ignore.case = TRUE, value = TRUE)[1]
     if (is.na(bf)) stop("no beta file among supplementary files: ", paste(basename(rownames(sf)), collapse = ", "))
     dt   <- fread(bf)
@@ -98,5 +107,5 @@ saveRDS(pheno[idx, ],             file.path(datadir, "pheno_test.rds"))
 message(sprintf("    test: %d samples, age %.0f-%.0f", length(idx), min(pheno$age[idx]), max(pheno$age[idx])))
 
 message("\nDONE. Next (from src/):\n",
-        "  Rscript preprocess_gse40279.R --test   # quick check on the subset (minutes, low RAM)\n",
-        "  Rscript preprocess_gse40279.R          # full cohort")
+        "  Rscript preprocess_geo.R --", cohort$slug, " --test   # quick check on the subset (minutes, low RAM)\n",
+        "  Rscript preprocess_geo.R --", cohort$slug, "          # full cohort")

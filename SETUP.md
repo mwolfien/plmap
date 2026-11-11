@@ -64,16 +64,24 @@ If `import cmaboss_128n` fails, your `cmaboss` wheel is too old — `uv pip inst
 
 ---
 
-## 4. Real GSE40279 run — step by step
+## 4. Real-data runs — step by step (two cohorts)
 
-GSE40279 = Hannum 2013, 656 whole-blood 450K samples, ages 19–101 (PMID 23177740). Full rationale,
-the feature mapping, the `features.csv` schema and the coverage caveats are in
-`validation/geo_validation_pipeline.md`; this is the operational recipe. Three scripts, run in order:
+Two whole-blood 450K cohorts, kept strictly apart:
+
+| cohort | role | data | flag |
+|---|---|---|---|
+| GSE40279 | **development**: all tuning happens here | Hannum 2013 (PMID 23177740), n = 656, ages 19–101 | `--gse40279` |
+| GSE87571 | **held-out validation**: run once with frozen settings | Johansson 2013, ~730, ages ~14–94 | `--gse87571` |
+
+Every R step names its cohort explicitly; each cohort has its own cache folder (`data/raw/<gse>/`) and
+its own `features_<gse>.csv`. Full rationale, the feature mapping, the features schema and the coverage
+caveats are in `validation/geo_validation_pipeline.md`; this is the operational recipe. Three scripts,
+run in order:
 
 | step | script | what | cost |
 |---|---|---|---|
-| download | `src/download_gse40279.R` | fetch GSE40279 **once**, cache as `.rds` + a small age-stratified test subset | network, ~16 GB RAM, once |
-| process | `src/preprocess_gse40279.R [--test]` | cache → `features.csv` (`--test`: subset → `features_test.csv`) | test: minutes / few GB; full: ~16 GB |
+| download | `src/download_geo.R --<gse>` | fetch a cohort **once**, cache as `.rds` + a small age-stratified test subset | network, ~16 GB RAM, once |
+| process | `src/preprocess_geo.R --<gse> [--test]` | cache → `features_<gse>.csv` (`--test`: subset → `features_<gse>_test.csv`) | test: minutes / few GB; full: ~16 GB |
 | model | `src/geo_validation.py --features …` | features → correlations + figure | light Python, laptop |
 
 Download and processing are separate so the big download happens once and processing can be re-run
@@ -92,7 +100,7 @@ BiocManager::install(c("GEOquery", "Biobase", "EpiDISH", "methylclock"))   # min
 
 Cell composition and the clock run out of the box. The protein/exposure **EpiScores need published CpG
 weight tables**, one CSV per score (`cpg,weight`, optional `(Intercept)`) in **`src/episcore_weights/`**
-(that path — not the repo root — because `preprocess_gse40279.R` is run from `src/`). The full recipe,
+(that path — not the repo root — because `preprocess_geo.R` is run from `src/`). The full recipe,
 mapping, and sources are in `src/episcore_weights/README.md`. The fast path:
 
 ```bash
@@ -114,21 +122,32 @@ run still works.
 
 ```bash
 cd src
-Rscript download_gse40279.R              # -> ../data/raw/gse40279/{beta,pheno}.rds + *_test.rds
+Rscript download_geo.R --gse40279   # -> ../data/raw/gse40279/{beta,pheno}.rds + *_test.rds
+Rscript download_geo.R --gse87571   # -> ../data/raw/gse87571/...   (validation; fetch any time, analyse last)
 ```
 
-Caches the series matrix and the parsed phenotype (age, sex) under `data/raw/gse40279/` (git-ignored),
+Caches the series matrix and the parsed phenotype (age, sex) under `data/raw/<gse>/` (git-ignored),
 plus a 48-sample subset spread evenly over the age range (`--test-n` to change). Re-running skips the
 download if the cache exists (`--force` to refetch).
 
 ### 4d. Produce the feature matrix (R) — test first, then full
 
 ```bash
-Rscript preprocess_gse40279.R --test     # subset -> features_test.csv  (minutes, a few GB RAM)
-Rscript preprocess_gse40279.R            # full   -> features.csv       (~16 GB RAM)
+Rscript preprocess_geo.R --gse40279 --test              # subset -> features_gse40279_test.csv (minutes)
+Rscript preprocess_geo.R --gse40279 --by-sex            # full   -> features_gse40279.csv (~16 GB RAM)
+Rscript preprocess_geo.R --gse87571 --min-age 19 --by-sex   # validation, same options as the dev run
 #  one row per sample; 7 model features as cohort percentiles (0–1)
-#  + age, sex, clock_age (external), val_inflammation_episcore, val_gdf15_episcore
+#  + age, sex, clocks (external), validation EpiScores, provenance columns
 ```
+
+Options:
+- `--by-sex`: percentiles within women and men separately instead of over the pooled cohort, so sex
+  differences (body fat, CRP, cell composition) aren't read as aging biology. Recorded in the
+  `percentile_scope` column. Decide pooled vs within-sex on GSE40279, then use the same on GSE87571.
+- `--min-age 19`: drops GSE87571's adolescents so both cohorts span the same adult age range.
+- `--clock Hannum|Horvath`: which clock fills `clock_age` (default Hannum). The Hannum clock was trained
+  on GSE40279, so its age acceleration there is in-sample; both clocks are always kept as
+  `clock_hannum` / `clock_horvath`.
 
 Runs EpiDISH cell composition, projects the EpiScore weight tables (default `episcore_weights`, i.e. `src/episcore_weights/`)
 onto the beta matrix, computes the Horvath/Hannum clock (external only), and writes the percentile
@@ -138,11 +157,14 @@ CpG overlaps; its percentiles are relative to the subset, so treat its numbers a
 ### 4e. Run the cohort through the model (light, Python — runs on your PC)
 
 ```bash
-python3 geo_validation.py --features features_test.csv   # -> geo_validation_real_test.json + fig_…_test.png
-python3 geo_validation.py --features features.csv        # -> geo_validation_real.json + fig_geo_validation_real.png
+python3 geo_validation.py --features features_gse40279_test.csv   # -> geo_validation_real_gse40279_test.json + fig
+python3 geo_validation.py --features features_gse40279.csv --by-sex   # -> geo_validation_real_gse40279.json + fig
+python3 geo_validation.py --features features_gse87571.csv --by-sex   # validation: frozen settings, once
 ```
 
-This reads `features.csv`, imputes any absent feature to the cohort median (reported), runs every
+Outputs are named after the input file, so cohorts and test runs never overwrite each other.
+`--by-sex` adds a per-sex table (n, index vs age, age acceleration) and a `by_sex` block in the JSON.
+This reads the features file, imputes any absent feature to the cohort median (reported), runs every
 sample through `methylation_layer.run_patient`, and writes the correlations + figure. Without
 `--features` the same script runs the literature-calibrated simulated cohort (the pipeline proof).
 

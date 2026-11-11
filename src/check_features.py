@@ -184,7 +184,7 @@ def main():
         if empty_required:
             print('  -> empty columns usually mean the EpiScore weight tables are absent or their CpG IDs')
             print('     do not overlap the beta-matrix rownames. See episcore_weights/README.md, then')
-            print('     re-run preprocess_gse40279.R and check the per-score "N/M CpGs" overlap lines.')
+            print('     re-run preprocess_geo.R and check the per-score "N/M CpGs" overlap lines.')
         return 1
     print('VERDICT: PASS')
     for w in warnings:

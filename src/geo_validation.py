@@ -5,7 +5,7 @@ Chosen because: whole blood (matches the blood-readout design), wide age span, p
 
 TWO MODES
   (A) REAL DATA:   python3 geo_validation.py --features features.csv
-        Consumes the per-sample feature matrix produced by preprocess_gse40279.R (R/Bioconductor:
+        Consumes the per-sample feature matrix produced by preprocess_geo.R (R/Bioconductor:
         EpiDISH cell composition + protein EpiScores + an epigenetic clock -> cohort-percentile
         features). Runs every sample through the coupled model, then reports:
           - Aging_index + sub-scores vs chronological age (Pearson/Spearman)
@@ -66,7 +66,7 @@ def run_cohort(cohort, ages):
 
 
 # ============================================================================= REAL DATA
-def real_mode(path, use_features=None):
+def real_mode(path, use_features=None, by_sex=False):
     rows = list(csv.DictReader(open(path)))
     n = len(rows)
     feature_list = [f for f in MODEL_FEATURES if use_features is None or f in use_features]
@@ -142,7 +142,9 @@ def real_mode(path, use_features=None):
     print(f"Aging_index_mean (sub-scores) r vs age = {corr_age['Aging_index_mean']['pearson_r']:+.3f}"
           f"   [OLS ceiling from features = {ols}]")
 
-    out = {'dataset': 'GSE40279 (real)', 'n': n, 'corr_vs_age': corr_age, 'ols_ceiling_R': ols,
+    cohort_id = rows[0].get('cohort', 'GSE40279')   # older features.csv files lack the column
+    out = {'dataset': f'{cohort_id} (real)', 'percentile_scope': rows[0].get('percentile_scope', 'pooled'),
+           'clock_name': rows[0].get('clock_name', 'Hannum'), 'n': n, 'corr_vs_age': corr_age, 'ols_ceiling_R': ols,
            'features_used': list(feats), 'excluded_features': excluded,
            'imputed_features': imputed, 'cohort': cohort}
 
@@ -165,7 +167,7 @@ def real_mode(path, use_features=None):
     if 'val_inflammation_episcore' in rows[0]:
         v = col('val_inflammation_episcore')
         y = np.array([c['readout']['Aging_inflammation'] for c in cohort], float)
-        # Independent only when `inflammation` was built from N:L alone (preprocess_gse40279.R default,
+        # Independent only when `inflammation` was built from N:L alone (preprocess_geo.R default,
         # inflammation_def == 'NLR'). Older features.csv files (no column) and --inflammation-with-crp
         # runs fed CRP into the input too, so there the check measures transduction, not validity.
         indep = rows[0].get('inflammation_def', '') == 'NLR'
@@ -181,11 +183,38 @@ def real_mode(path, use_features=None):
         for k, v in checks.items():
             print(f'  {k:46} r = {v}')
 
-    # a test-subset run (features_test.csv) gets its own outputs so it never overwrites the full run
-    tag = '_test' if os.path.basename(path).startswith('features_test') else ''
+    # sex-stratified readout: the same model run, scored separately within women and men
+    if by_sex:
+        sex = np.array([r.get('sex', '') for r in rows])
+        acc_clock = residual(clock, ages) if np.isfinite(clock).sum() > 2 else None
+        out['by_sex'] = {}
+        print(f"\nby sex (scope: {out['percentile_scope']} percentiles)")
+        print(f"{'':4} {'n':>4} {'index r_age':>12} {'mean r_age':>11} {'mean accel':>11}")
+        for g in ('F', 'M'):
+            m = sex == g
+            if m.sum() < 10:
+                print(f"{g:4} {int(m.sum()):4}  (too few samples)")
+                continue
+            ra_node = pearson(ages[m], idx_node[m]); ra_mean = pearson(ages[m], idx_mean[m])
+            acc = (pearson(residual(clock[m], ages[m]), residual(idx_mean[m], ages[m]))
+                   if acc_clock is not None else float('nan'))
+            subs = {s_: round(pearson(ages[m], np.array([c['readout'][s_] for c in cohort], float)[m]), 3)
+                    for s_ in ML.SUB}
+            out['by_sex'][g] = {'n': int(m.sum()), 'Aging_index_r_age': round(ra_node, 3),
+                                'Aging_index_mean_r_age': round(ra_mean, 3),
+                                'Aging_index_mean_age_accel_r': round(acc, 3), 'subscores_r_age': subs}
+            print(f"{g:4} {int(m.sum()):4} {ra_node:12.3f} {ra_mean:11.3f} {acc:11.3f}")
+        if out['percentile_scope'] != 'within_sex':
+            print('  (features are POOLED percentiles; re-run preprocess_geo.R with --by-sex for within-sex percentiles)')
+
+    # outputs are named after the input (features_gse87571.csv -> geo_validation_real_gse87571.json),
+    # so cohorts, test subsets and sex-stratified runs never overwrite each other
+    stem = os.path.splitext(os.path.basename(path))[0]
+    tag = stem[len('features'):] if stem.startswith('features') else '_' + stem
     fjson, fpng = f'geo_validation_real{tag}.json', f'fig_geo_validation_real{tag}.png'
     json.dump(out, open(fjson, 'w'), indent=1, default=str)
-    _figure(cohort, ages, title_suffix='GSE40279 (real data' + (', TEST subset)' if tag else ')'), fname=fpng)
+    _figure(cohort, ages, title_suffix=f'{cohort_id} (real data' + (', TEST subset)' if tag.endswith('_test') else ')'),
+            fname=fpng)
     print(f'\nsaved {fjson} + {fpng}')
     return out
 
@@ -249,12 +278,14 @@ def _figure(cohort, ages, title_suffix, fname):
 # ============================================================================= main
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--features', help='features.csv from preprocess_gse40279.R (real-data mode)')
+    ap.add_argument('--features', help='features_<gse>.csv from preprocess_geo.R (real-data mode)')
+    ap.add_argument('--by-sex', action='store_true',
+                    help='also report the correlations separately for women and men')
     ap.add_argument('--use-features', help='comma-separated subset of model features to use, e.g. '
                     '"inflammation,adiponectin,hepatic" (the GSE40279-recommended "core3"); default: all present')
     a = ap.parse_args()
     if a.features:
         uf = [s.strip() for s in a.use_features.split(',')] if a.use_features else None
-        real_mode(a.features, use_features=uf)
+        real_mode(a.features, use_features=uf, by_sex=a.by_sex)
     else:
         simulated_mode()

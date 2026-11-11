@@ -6,9 +6,9 @@ __pycache__/
 data/raw/
 *.idat
 *.RData
-# derived per-sample feature matrix + real-run outputs (regenerate from preprocess_gse40279.R)
-features.csv
-features_test.csv
+# derived per-sample feature matrices + real-run outputs (regenerate from preprocess_geo.R)
+features*.csv
+sweep_results.json
 src/geo_validation_real*.json
 src/fig_geo_validation_real*.png
 # local Python virtualenv (uv venv / python -m venv)

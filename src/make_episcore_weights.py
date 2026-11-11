@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Turn a published long-format EpiScore weights table into the per-score CSVs that
-preprocess_gse40279.R expects (one file per score, columns: cpg,weight).
+preprocess_geo.R expects (one file per score, columns: cpg,weight).
 
 Works with any "long" weights table that has a CpG column, a weight/coefficient column, and
 (optionally) a predictor/protein-name column — e.g.:
@@ -24,7 +24,7 @@ Typical workflow
   # a single-predictor file (no predictor column) -> one output, no --map key needed:
   python3 make_episcore_weights.py smoking_weights.csv --outdir episcore_weights --single smoking.csv
 
-Then: Rscript preprocess_gse40279.R --weights episcore_weights   (run it where that folder is)
+Then: Rscript preprocess_geo.R --weights episcore_weights   (run it where that folder is)
 """
 import sys, csv, re, os, argparse
 
@@ -171,7 +171,7 @@ def main():
         print(f'  wrote {out}: {len(g["rows"])} CpGs'
               + ('' if g['intercept'] is None else ' (+intercept)')
               + overlap([c for c, _ in g['rows']]))
-    print('\nNext: Rscript preprocess_gse40279.R --weights ' + a.outdir)
+    print('\nNext: Rscript preprocess_geo.R --weights ' + a.outdir)
     return 0
 
 

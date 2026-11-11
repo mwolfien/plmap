@@ -1,45 +1,57 @@
 #!/usr/bin/env Rscript
 # =============================================================================
-# preprocess_gse40279.R  --  step 2 of 2 for the real-data run (processing)
-# Cached GSE40279 beta matrix  ->  model feature matrix (features.csv)
+# preprocess_geo.R  --  step 2 of 2 for the real-data run (processing)
+# Cached GEO beta matrix  ->  model feature matrix (features_<gse>.csv)
 #
-# Reads the cache written by download_gse40279.R (no network access here) and
-# turns the whole-blood 450K matrix (Hannum 2013, PMID 23177740) into the exact
+# Reads the cache written by download_geo.R (no network access here) for ONE
+# explicitly named cohort and turns the whole-blood 450K matrix into the exact
 # per-sample features the Prevention & Longevity Map methylation layer consumes:
-# 7 model-input features + age + an EXTERNAL clock age + two validation-only
+# 7 model-input features + age + sex + an EXTERNAL clock age + validation-only
 # EpiScores. Each model feature is a COHORT PERCENTILE (0-1), which is what
-# src/methylation_layer.run_patient expects.
+# src/methylation_layer.run_patient expects. Percentiles are computed within the
+# cohort, so the two cohorts never share a reference and need no cross-batch
+# normalisation.
+#
+# COHORT (required, see cohorts.R):
+#   --gse40279   development cohort: tune here (feature subset, aggregation, sex handling)
+#   --gse87571   held-out validation cohort: run once with the settings frozen on GSE40279
 #
 # TWO MODES, SAME CODE PATH
-#   --test   uses the small age-stratified subset (beta_test.rds, ~48 samples):
-#            minutes and a few GB RAM -> features_test.csv. Use it to check the
-#            R stack, the weight tables and the CpG overlaps before the full run.
-#            Percentiles are relative to the subset, so numbers are not final.
-#   (none)   full cohort (beta.rds, 656 samples, ~16 GB RAM) -> features.csv
+#   --test   small age-stratified subset (beta_test.rds, ~48 samples): minutes and a
+#            few GB RAM -> features_<gse>_test.csv. Checks the R stack, the weight
+#            tables and the CpG overlaps. Percentiles are relative to the subset.
+#   (none)   full cohort (beta.rds, ~16 GB RAM) -> features_<gse>.csv
+#
+# OPTIONS
+#   --by-sex           percentiles WITHIN each sex instead of over the pooled cohort,
+#                      so sex differences in e.g. body fat or CRP do not masquerade as
+#                      biology. Samples with unknown sex get NA features.
+#   --min-age N        drop samples younger than N before computing percentiles
+#                      (e.g. --min-age 19 aligns GSE87571 with GSE40279's age range)
+#   --clock NAME       clock written to clock_age: Hannum (default) or Horvath. Both are
+#                      always written as clock_hannum / clock_horvath. NOTE: the Hannum
+#                      clock was TRAINED on GSE40279, so on that cohort its age
+#                      acceleration is in-sample; prefer a clock not trained on the
+#                      cohort you analyse.
+#   --inflammation-with-crp   legacy inflammation definition (makes that check circular)
+#   --datadir ../data/raw/<gse>   --weights episcore_weights   --outdir .
 #
 # DESIGN NOTE (non-circularity): the epigenetic clock is computed for EXTERNAL
 # comparison ONLY. It is never fed back into the model as an input. Likewise the
-# CRP/IL-6 and GDF15 EpiScores are written as val_* columns used only to check
-# the model's Aging_inflammation / Aging_secretory sub-scores against an
-# independent molecular signal.
+# CRP and GDF15 EpiScores are written as val_* columns used only to check the
+# model's Aging_inflammation / Aging_secretory sub-scores.
 #
 # WHAT RUNS OUT OF THE BOX vs WHAT YOU SUPPLY
 #   - Cell composition (EpiDISH, built-in blood reference) ....... out of the box
 #   - Epigenetic clock (methylclock: Horvath/Hannum) ............. out of the box
-#   - Protein / exposure EpiScores (CRP, IL6, GDF15, adiponectin,
-#     leptin, liver, smoking) ................................... need published
-#       CpG weight tables in episcore_weights/ (see episcore_weights/README.md).
-#   Any EpiScore whose weight table is absent is written as NA and imputed to the
-#   cohort median downstream (geo_validation.py reports which were imputed), so a
-#   PARTIAL run (cell composition + clock + whatever scores you have) still works.
+#   - Protein / exposure EpiScores ............................... CpG weight tables in
+#       src/episcore_weights/ (see src/episcore_weights/README.md).
+#   Any EpiScore whose weight table is absent is written as NA; a PARTIAL run still works.
 #
-# Usage (from src/, after download_gse40279.R):
-#   Rscript preprocess_gse40279.R --test        # quick check on the subset
-#   Rscript preprocess_gse40279.R               # full cohort
-# Options:
-#   --datadir ../data/raw/gse40279   --weights episcore_weights   --outdir .
-# Output:
-#   features.csv  (features_test.csv with --test); columns documented at the bottom
+# Usage (from src/, after download_geo.R):
+#   Rscript preprocess_geo.R --gse40279 --test
+#   Rscript preprocess_geo.R --gse40279 [--by-sex]
+#   Rscript preprocess_geo.R --gse87571 --min-age 19 [--by-sex]
 # =============================================================================
 
 suppressMessages({
@@ -59,27 +71,45 @@ test    <- "--test" %in% args
 # legacy: also feed the CRP/IL6 EpiScores into the `inflammation` input. Off by default because the
 # same EpiScores form val_inflammation_episcore, which would make that check circular.
 infl_crp <- "--inflammation-with-crp" %in% args
-datadir <- getarg("--datadir", file.path("..", "data", "raw", "gse40279"))
+source(file.path((function() {
+  f <- sub("^--file=", "", grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE))
+  if (length(f)) dirname(normalizePath(f[1])) else "." })(), "cohorts.R"))
+cohort  <- resolve_cohort(args)
+by_sex  <- "--by-sex" %in% args
+min_age <- as.numeric(getarg("--min-age", NA))
+clock_nm <- getarg("--clock", "Hannum")
+if (!clock_nm %in% c("Hannum", "Horvath")) stop("--clock must be Hannum or Horvath")
+message("Cohort: ", cohort$id, " (", cohort$role, ") - ", cohort$desc)
+if (cohort$id == "GSE40279" && clock_nm == "Hannum")
+  message("    note: the Hannum clock was trained on GSE40279 -> its age acceleration here is in-sample")
+datadir <- getarg("--datadir", file.path("..", "data", "raw", cohort$slug))
 wdir    <- getarg("--weights", "episcore_weights")   # = src/episcore_weights when run from src/
 outdir  <- getarg("--outdir", ".")
 dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
 sfx     <- if (test) "_test" else ""
-outfile <- file.path(outdir, paste0("features", sfx, ".csv"))
+outfile <- file.path(outdir, paste0("features_", cohort$slug, sfx, ".csv"))
 pctl    <- function(x) { r <- rank(x, na.last = "keep", ties.method = "average"); (r - 1) / (sum(!is.na(x)) - 1) }
 
 # =============================================================================
-# 1. Load cached beta matrix + phenotype (from download_gse40279.R)
+# 1. Load cached beta matrix + phenotype (from download_geo.R)
 # =============================================================================
 f_beta  <- file.path(datadir, paste0("beta", sfx, ".rds"))
 f_pheno <- file.path(datadir, paste0("pheno", sfx, ".rds"))
 if (!file.exists(f_beta) || !file.exists(f_pheno))
-  stop("No cached data at ", f_beta, "\nRun first:  Rscript download_gse40279.R --datadir ", datadir)
+  stop("No cached data at ", f_beta, "\nRun first:  Rscript download_geo.R --", cohort$slug)
 message(sprintf("[1/5] Loading %s cohort from %s ...", if (test) "TEST" else "FULL", datadir))
 beta  <- readRDS(f_beta)
 pheno <- readRDS(f_pheno)
 stopifnot(identical(colnames(beta), pheno$sample_id))
 message(sprintf("    beta: %d CpGs x %d samples | age %.0f-%.0f", nrow(beta), ncol(beta),
                 min(pheno$age, na.rm = TRUE), max(pheno$age, na.rm = TRUE)))
+if (!is.na(min_age)) {
+  keep  <- !is.na(pheno$age) & pheno$age >= min_age
+  message(sprintf("    --min-age %g: keeping %d of %d samples", min_age, sum(keep), length(keep)))
+  beta  <- beta[, keep, drop = FALSE]; pheno <- pheno[keep, ]
+}
+message("    sex: ", paste(names(table(pheno$sex, useNA = "ifany")), table(pheno$sex, useNA = "ifany"),
+                           sep = "=", collapse = " "))
 if (test) message("    TEST MODE: percentiles are relative to this subset; use for checking, not results")
 
 # =============================================================================
@@ -125,10 +155,13 @@ es_nad    <- episcore(beta, "NAD_CD38.csv")        # optional; no standard table
 # 4. Epigenetic clock  -- EXTERNAL comparison ONLY, never a model input
 # =============================================================================
 message("[4/5] Computing epigenetic clock (methylclock)...")
-clock_age <- tryCatch({
+clocks <- tryCatch({
   cl <- DNAmAge(beta, clocks = c("Horvath", "Hannum"))
-  if ("Hannum" %in% names(cl)) as.numeric(cl$Hannum) else as.numeric(cl[[2]])
-}, error = function(e) { message("    clock failed (", conditionMessage(e), ") -> NA"); rep(NA_real_, ncol(beta)) })
+  list(Hannum  = if ("Hannum"  %in% names(cl)) as.numeric(cl$Hannum)  else rep(NA_real_, ncol(beta)),
+       Horvath = if ("Horvath" %in% names(cl)) as.numeric(cl$Horvath) else rep(NA_real_, ncol(beta)))
+}, error = function(e) { message("    clock failed (", conditionMessage(e), ") -> NA")
+  list(Hannum = rep(NA_real_, ncol(beta)), Horvath = rep(NA_real_, ncol(beta))) })
+clock_age <- clocks[[clock_nm]]
 
 # =============================================================================
 # 5. Assemble model features as COHORT PERCENTILES (0-1) and write features.csv
@@ -152,8 +185,17 @@ clock_age <- tryCatch({
 message("[5/5] Building percentile features + writing ", basename(outfile), "...")
 if (infl_crp) message("    --inflammation-with-crp: inflammation includes CRP/IL6, so the ",
                       "Aging_inflammation vs CRP check is NOT independent")
+# percentile over the pooled cohort, or within each sex with --by-sex
+P <- function(x) {
+  if (!by_sex) return(pctl(x))
+  out <- rep(NA_real_, length(x))
+  for (g in c("F", "M")) { i <- which(pheno$sex == g); if (length(i) > 1) out[i] <- pctl(x[i]) }
+  out
+}
+if (by_sex) message("    --by-sex: percentiles computed within F and M separately",
+                    if (any(!pheno$sex %in% c("F", "M"))) " (unknown-sex samples -> NA)" else "")
 meanp <- function(...) {
-  v <- rowMeans(apply(cbind(...), 2, pctl), na.rm = TRUE)
+  v <- rowMeans(apply(cbind(...), 2, P), na.rm = TRUE)
   v[is.nan(v)] <- NA                                # all inputs missing -> NA (not NaN)
   v
 }
@@ -163,31 +205,39 @@ feat <- data.table(
   age           = pheno$age,
   sex           = pheno$sex,
   # ---- 7 model-input features (cohort percentiles 0-1) ----
-  inflammation  = if (infl_crp) meanp(es_crp, es_il6, nlr) else pctl(nlr),
-  immune_aging  = pctl(-cd48),
-  nad_depletion = pctl(es_nad),
-  hepatic       = pctl(es_liver),
-  adiposity_lep = pctl(es_leptin),
-  adiponectin   = pctl(es_adipoq),
-  damage_smoke  = pctl(es_smoke),
+  inflammation  = if (infl_crp) meanp(es_crp, es_il6, nlr) else P(nlr),
+  immune_aging  = P(-cd48),
+  nad_depletion = P(es_nad),
+  hepatic       = P(es_liver),
+  adiposity_lep = P(es_leptin),
+  adiponectin   = P(es_adipoq),
+  damage_smoke  = P(es_smoke),
   # ---- external / validation (never model inputs) ----
   clock_age                 = clock_age,
+  clock_name                = clock_nm,
+  clock_hannum              = clocks$Hannum,
+  clock_horvath             = clocks$Horvath,
   val_inflammation_episcore = meanp(es_crp, es_il6),
-  val_gdf15_episcore        = pctl(es_gdf15),
-  inflammation_def          = if (infl_crp) "NLR+CRP" else "NLR"
+  val_gdf15_episcore        = P(es_gdf15),
+  inflammation_def          = if (infl_crp) "NLR+CRP" else "NLR",
+  # ---- provenance ----
+  cohort                    = cohort$id,
+  percentile_scope          = if (by_sex) "within_sex" else "pooled"
 )
 fwrite(feat, outfile)
 na_cols <- names(feat)[sapply(feat, function(c) all(is.na(c)))]
 message(sprintf("\nDONE -> %s  (%d samples)", outfile, nrow(feat)))
 if (length(na_cols)) message("  all-NA columns (weight table not supplied; imputed downstream): ",
                              paste(na_cols, collapse = ", "))
-message("  Next:  python3 geo_validation.py --features ", outfile)
+message("  Next:  python3 geo_validation.py --features ", outfile, if (by_sex) " --by-sex" else "")
 
 # -----------------------------------------------------------------------------
 # features.csv columns (+ inflammation_def: "NLR" or "NLR+CRP", provenance for the inflammation check):
 #   sample_id, age, sex,
 #   inflammation, immune_aging, nad_depletion, hepatic, adiposity_lep,
 #   adiponectin, damage_smoke        <- the 7 model inputs (percentiles 0-1)
-#   clock_age                        <- EXTERNAL clock (years), comparison only
+#   clock_age                        <- EXTERNAL clock (years), comparison only (clock_name says which)
+#   clock_hannum, clock_horvath      <- both clocks, always
+#   cohort, percentile_scope         <- provenance ("pooled" / "within_sex")
 #   val_inflammation_episcore, val_gdf15_episcore  <- validation percentiles only
 # -----------------------------------------------------------------------------
