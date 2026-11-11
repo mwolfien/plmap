@@ -12,6 +12,8 @@ Usage:
   python3 sweep_configs.py --features features.csv                 # full cohort (slow)
   python3 sweep_configs.py --features features.csv --subsample 160 # fast age-stratified screen
   python3 sweep_configs.py --features features.csv --sc 300 --workers 2 --out sweep.json
+  python3 sweep_configs.py --features features_gse40279.csv --sex F   # within one sex
+Refuses to run on GSE87571 (the held-out validation cohort).
 
 Findings on GSE40279 (see validation/geo_validation_pipeline.md): the full feature set + the model's
 built-in Aging_index node gives r~0 vs age because wrong-signed/flat features and an unstable
@@ -84,9 +86,16 @@ def main():
     ap.add_argument('--subsample', type=int, default=0, help='age-stratified subsample size (0 = full cohort)')
     ap.add_argument('--workers', type=int, default=2)
     ap.add_argument('--out', default='sweep_results.json')
+    ap.add_argument('--sex', choices=['F', 'M'], help='sweep within one sex only (development cohort only)')
     a = ap.parse_args()
 
     rows = list(csv.DictReader(open(a.features)))
+    if rows and rows[0].get('cohort') == 'GSE87571':
+        raise SystemExit('GSE87571 is the held-out validation cohort: do not tune on it. '
+                         'Sweep the development cohort (GSE40279) and freeze the settings.')
+    if a.sex:
+        rows = [r for r in rows if r.get('sex') == a.sex]
+        print(f"sex = {a.sex}: {len(rows)} samples (scope: {rows[0].get('percentile_scope', 'pooled') if rows else '-'})")
     age = np.array([num(r['age']) for r in rows]); clock = np.array([num(r.get('clock_age', '')) for r in rows])
     vinf = np.array([num(r.get('val_inflammation_episcore', '')) for r in rows])
     if a.subsample and a.subsample < len(rows):

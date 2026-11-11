@@ -6,7 +6,7 @@ these; four of the five files below light up `adiponectin`, `adiposity_lep`, `he
 `damage_smoke`, and `CRP.csv` forms the inflammation validation column (`inflammation` itself comes
 from the EpiDISH neutrophil:lymphocyte ratio).
 
-**Location matters.** `preprocess_gse40279.R` lives in `src/` and is run from `src/`, so it looks for
+**Location matters.** `preprocess_geo.R` lives in `src/` and is run from `src/`, so it looks for
 `episcore_weights/` *relative to `src/`* — i.e. **this folder, `src/episcore_weights/`**. (Putting it at
 the repo root is the classic "weights folder not found → all EpiScores NA" trap.)
 
