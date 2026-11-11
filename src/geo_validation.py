@@ -10,7 +10,8 @@ TWO MODES
         features). Runs every sample through the coupled model, then reports:
           - Aging_index + sub-scores vs chronological age (Pearson/Spearman)
           - Aging_index vs the clock (external, non-circular - the clock is NOT a model input)
-          - NON-CIRCULAR molecular checks: Aging_inflammation vs CRP/IL-6 EpiScore,
+          - molecular checks: Aging_inflammation vs CRP EpiScore (independent when the
+            inflammation input is N:L only, the default),
             Aging_secretory vs GDF15 EpiScore
           - age-acceleration: residual(clock~age) vs residual(index~age)
   (B) SIMULATED:   python3 geo_validation.py        (no --features)
@@ -164,16 +165,19 @@ def real_mode(path, use_features=None):
     if 'val_inflammation_episcore' in rows[0]:
         v = col('val_inflammation_episcore')
         y = np.array([c['readout']['Aging_inflammation'] for c in cohort], float)
-        # NOT independent: the CRP/IL6 EpiScores are also part of the `inflammation` input feature
-        # (preprocess_gse40279.R), so this checks transduction, not external validity.
-        checks['Aging_inflammation_vs_CRP_IL6_episcore (overlaps input)'] = round(pearson(v, y), 3)
+        # Independent only when `inflammation` was built from N:L alone (preprocess_gse40279.R default,
+        # inflammation_def == 'NLR'). Older features.csv files (no column) and --inflammation-with-crp
+        # runs fed CRP into the input too, so there the check measures transduction, not validity.
+        indep = rows[0].get('inflammation_def', '') == 'NLR'
+        key = 'Aging_inflammation_vs_CRP_episcore' + ('' if indep else ' (overlaps input)')
+        checks[key] = round(pearson(v, y), 3)
     if 'val_gdf15_episcore' in rows[0]:
         v = col('val_gdf15_episcore')
         y = np.array([c['readout']['Aging_secretory'] for c in cohort], float)
         checks['Aging_secretory_vs_GDF15_episcore'] = round(pearson(v, y), 3)
     if checks:
         out['noncircular_checks'] = checks
-        print('\nmolecular checks (sub-score vs EpiScore; only GDF15 is independent of the inputs):')
+        print('\nmolecular checks (sub-score vs EpiScore; "overlaps input" = not independent):')
         for k, v in checks.items():
             print(f'  {k:46} r = {v}')
 

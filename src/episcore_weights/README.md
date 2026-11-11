@@ -2,8 +2,9 @@
 
 This folder holds the CpG weight tables that turn the blood 450K matrix into the model's
 protein/exposure features. Cell composition (EpiDISH) and the clock (methylclock) run without any of
-these; the five feature files below are what light up `inflammation`, `adiponectin`, `adiposity_lep`,
-`hepatic`, and `damage_smoke`.
+these; four of the five files below light up `adiponectin`, `adiposity_lep`, `hepatic` and
+`damage_smoke`, and `CRP.csv` forms the inflammation validation column (`inflammation` itself comes
+from the EpiDISH neutrophil:lymphocyte ratio).
 
 **Location matters.** `preprocess_gse40279.R` lives in `src/` and is run from `src/`, so it looks for
 `episcore_weights/` *relative to `src/`* — i.e. **this folder, `src/episcore_weights/`**. (Putting it at
@@ -46,14 +47,14 @@ python3 make_episcore_weights.py Predictors_Shiny_by_Groups.csv \
 
 | file | predictor | CpGs | model feature | note |
 |---|---|---|---|---|
-| `CRP.csv`     | `CRP`         | 100 | `inflammation` | combined with the neutrophil:lymphocyte ratio |
+| `CRP.csv`     | `CRP`         | 100 | `val_inflammation_episcore` (validation only) | `inflammation` itself is the neutrophil:lymphocyte ratio; `--inflammation-with-crp` puts CRP back into the input (legacy) |
 | `ADIPOQ.csv`  | `Adiponectin` | 39  | `adiponectin`  | |
 | `LEP.csv`     | `Body Fat %`  | 968 | `adiposity_lep`| **substitute** — true leptin isn't in the bundle; body-fat % drives the same LEP/Nutrients inputs |
 | `liver.csv`   | `HGF`         | 72  | `hepatic`      | HGF rises with liver injury (correct sign); avoid SHBG, which is *inversely* related to liver fat |
 | `smoking.csv` | `Smoking`     | 233 | `damage_smoke` | no separate EpiSmokEr needed |
 
 Not available in MethylDetectR / the Gadd files: **GDF15, IL6, true leptin**. Consequences:
-`IL6` doesn't matter (inflammation runs on CRP + N:L); leptin is covered by Body Fat %; **GDF15 is
+`IL6` doesn't matter (inflammation runs on N:L; CRP alone forms the validation column); leptin is covered by Body Fat %; **GDF15 is
 validation-only** — the `Aging_secretory` vs GDF15 non-circular check simply won't run unless you add a
 `GDF15.csv` from another source. `NAD_CD38.csv` is optional (NAD depletion is an emergent model state).
 

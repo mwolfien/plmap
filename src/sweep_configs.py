@@ -4,7 +4,8 @@
 Answers "which setup extracts the most age / age-acceleration signal, and how much is even there?"
 For each feature-subset config it runs the cohort through the coupled model, then scores several
 index aggregations against (a) chronological age, (b) age-acceleration (clock residual), and the
-(c) non-circular Aging_inflammation vs CRP/IL6 EpiScore check. It also prints the OLS ceiling -- the
+(c) Aging_inflammation vs CRP EpiScore check (independent only for features.csv files built with
+the default N:L-only inflammation input; see the inflammation_def column). It also prints the OLS ceiling -- the
 maximum age signal linearly extractable from the input features -- as the reference to beat.
 
 Usage:
@@ -15,8 +16,8 @@ Usage:
 Findings on GSE40279 (see validation/geo_validation_pipeline.md): the full feature set + the model's
 built-in Aging_index node gives r~0 vs age because wrong-signed/flat features and an unstable
 aggregation cancel the signal; the "core3" subset (inflammation, adiponectin, hepatic) with a mean of
-sub-scores recovers r~0.24 (in-sample OLS ceiling ~0.40). The infl_vs_CRP column is NOT independent:
-the CRP EpiScore is part of the inflammation input, so it measures transduction, not validity.
+sub-scores recovers r~0.24 (in-sample OLS ceiling ~0.40). For features.csv files built before inflammation
+became N:L-only, infl_vs_CRP is NOT independent: CRP was part of the input (transduction, not validity).
 """
 import csv, json, argparse
 import numpy as np

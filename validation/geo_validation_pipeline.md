@@ -76,8 +76,9 @@ Runs every sample through the coupled model and reports:
 - `Aging_index` vs the **clock** (external, non-circular), plus an **age-acceleration** test:
   residual(clock~age) vs residual(index~age) — do people the clock calls "old for age" also score
   high mechanistically?
-- **Non-circular molecular checks**: `Aging_inflammation` vs the CRP/IL-6 EpiScore;
-  `Aging_secretory` vs the GDF15 EpiScore.
+- **Molecular checks**: `Aging_inflammation` vs the CRP EpiScore (independent: since the N:L-only change
+  CRP is no longer part of the `inflammation` input; `inflammation_def` in `features.csv` records which
+  definition was used), and `Aging_secretory` vs the GDF15 EpiScore (needs a GDF15 table).
 - Writes `geo_validation_real.json` + `fig_geo_validation_real.png`.
 
 ## What the blood-methylation feature set can and cannot drive (important)
@@ -147,7 +148,12 @@ A systematic sweep (`src/sweep_configs.py`: feature subsets x index aggregations
   gives r ≈ 0.6, and it rises as other drivers of Inflammaging are dropped, which is why it "strengthens"
   for core3. It shows the input reaches the sub-score intact, nothing more. An independent version needs
   the check variable kept out of the inputs, e.g. inflammation from NLR only, validated against CRP, or the
-  GDF15 → `Aging_secretory` check (needs a GDF15 weight table).
+  GDF15 → `Aging_secretory` check (needs a GDF15 weight table). **Done since:** `inflammation` is now
+  built from N:L only by default and CRP stays on the validation side, so the check is independent
+  (`--inflammation-with-crp` restores the old, overlapping definition for comparison). The 0.86–0.88
+  above was measured with the old definition and must be re-run. Caveat: CRP EpiScores partly reflect
+  leukocyte composition, so some shared variance with N:L is expected even when independent by
+  construction.
 - **Age-acceleration ≈ 0.35** (index residual vs clock residual, in-sample; same selection caveat). This is
   the genuinely non-circular result: nothing from the clock enters the model.
 
