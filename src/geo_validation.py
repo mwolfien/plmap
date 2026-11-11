@@ -145,31 +145,35 @@ def real_mode(path, use_features=None):
            'features_used': list(feats), 'excluded_features': excluded,
            'imputed_features': imputed, 'cohort': cohort}
 
-    idx = idx_mean   # use the robust mean index for clock / age-acceleration comparisons
+    idx_node = np.array([c['readout']['Aging_index'] for c in cohort], float)
 
-    # clock comparison (external, non-circular)
+    # clock comparison (external, non-circular) -- reported for BOTH aggregations, explicitly labelled
     if np.isfinite(clock).sum() > 2:
-        out['Aging_index_vs_clock'] = {'pearson_r': round(pearson(clock, idx), 3)}
-        acc_clock = residual(clock, ages); acc_idx = residual(idx, ages)
-        out['age_acceleration'] = {'pearson_r_resid_index_vs_resid_clock':
-                                   round(pearson(acc_clock, acc_idx), 3),
-                                   'note': 'do people the clock calls old-for-age also score high mechanistically?'}
-        print(f"\nAging_index vs clock r = {out['Aging_index_vs_clock']['pearson_r']}"
-              f" | age-accel (resid-resid) r = {out['age_acceleration']['pearson_r_resid_index_vs_resid_clock']}")
+        acc_clock = residual(clock, ages)
+        for key, idx in (('Aging_index', idx_node), ('Aging_index_mean', idx_mean)):
+            out[f'{key}_vs_clock'] = {'pearson_r': round(pearson(clock, idx), 3)}
+            out[f'{key}_age_acceleration'] = {'pearson_r_resid_index_vs_resid_clock':
+                                              round(pearson(acc_clock, residual(idx, ages)), 3)}
+            print(f"{key + ' vs clock':28} r = {out[f'{key}_vs_clock']['pearson_r']:+.3f}"
+                  f" | age-accel (resid-resid) r = "
+                  f"{out[f'{key}_age_acceleration']['pearson_r_resid_index_vs_resid_clock']:+.3f}")
+        out['age_acceleration_note'] = 'do people the clock calls old-for-age also score high mechanistically?'
 
     # NON-CIRCULAR molecular checks
     checks = {}
     if 'val_inflammation_episcore' in rows[0]:
         v = col('val_inflammation_episcore')
         y = np.array([c['readout']['Aging_inflammation'] for c in cohort], float)
-        checks['Aging_inflammation_vs_CRP_IL6_episcore'] = round(pearson(v, y), 3)
+        # NOT independent: the CRP/IL6 EpiScores are also part of the `inflammation` input feature
+        # (preprocess_gse40279.R), so this checks transduction, not external validity.
+        checks['Aging_inflammation_vs_CRP_IL6_episcore (overlaps input)'] = round(pearson(v, y), 3)
     if 'val_gdf15_episcore' in rows[0]:
         v = col('val_gdf15_episcore')
         y = np.array([c['readout']['Aging_secretory'] for c in cohort], float)
         checks['Aging_secretory_vs_GDF15_episcore'] = round(pearson(v, y), 3)
     if checks:
         out['noncircular_checks'] = checks
-        print('\nnon-circular molecular checks (sub-score vs independent EpiScore):')
+        print('\nmolecular checks (sub-score vs EpiScore; only GDF15 is independent of the inputs):')
         for k, v in checks.items():
             print(f'  {k:46} r = {v}')
 

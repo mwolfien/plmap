@@ -15,7 +15,8 @@ Usage:
 Findings on GSE40279 (see validation/geo_validation_pipeline.md): the full feature set + the model's
 built-in Aging_index node gives r~0 vs age because wrong-signed/flat features and an unstable
 aggregation cancel the signal; the "core3" subset (inflammation, adiponectin, hepatic) with a mean of
-sub-scores recovers r~0.24 (OLS ceiling ~0.40), and the non-circular inflammation check reaches ~0.86.
+sub-scores recovers r~0.24 (in-sample OLS ceiling ~0.40). The infl_vs_CRP column is NOT independent:
+the CRP EpiScore is part of the inflammation input, so it measures transduction, not validity.
 """
 import csv, json, argparse
 import numpy as np
@@ -33,7 +34,6 @@ CONFIGS = {
     'core3': ['inflammation', 'adiponectin', 'hepatic'],
     'core2': ['inflammation', 'adiponectin'],
 }
-_SC = 250
 
 
 def num(x):
@@ -63,8 +63,9 @@ def ranknorm(M):
     return R
 
 
-def _worker(feat):
-    return ML.run_patient(feat, sc=_SC)
+def _worker(args):
+    feat, sc = args                      # sc passed explicitly: globals don't reach spawn-based workers (macOS/Windows)
+    return ML.run_patient(feat, sc=sc)
 
 
 def ols_R(rows, names, age):
@@ -76,7 +77,6 @@ def ols_R(rows, names, age):
 
 
 def main():
-    global _SC
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--features', required=True)
     ap.add_argument('--sc', type=int, default=250, help='MaBoSS sample_count per run (lower = faster screen)')
@@ -84,7 +84,6 @@ def main():
     ap.add_argument('--workers', type=int, default=2)
     ap.add_argument('--out', default='sweep_results.json')
     a = ap.parse_args()
-    _SC = a.sc
 
     rows = list(csv.DictReader(open(a.features)))
     age = np.array([num(r['age']) for r in rows]); clock = np.array([num(r.get('clock_age', '')) for r in rows])
@@ -95,6 +94,8 @@ def main():
     n = len(rows); accel = resid(clock, age)
     ceiling = ols_R(rows, [f for f in ALL if np.isfinite([num(r[f]) for r in rows]).any()], age)
     print(f"n={n}  OLS ceiling (all live features -> age) R = {ceiling}\n")
+    print("NOTE: configs are chosen on THIS cohort, so the best r_age is optimistic (selection bias);"
+          " confirm the pick on held-out samples or a second dataset.\n")
     print(f"{'config':11} {'aggregation':16} {'r_age':>7} {'r_accel':>8} {'infl_vs_CRP':>11}")
 
     result = {'n': n, 'ols_ceiling_R': ceiling, 'rows': []}
@@ -102,7 +103,7 @@ def main():
     for cname, flist in CONFIGS.items():
         feats = [{f: num(r[f]) for f in flist if np.isfinite(num(r[f]))} for r in rows]
         with Pool(a.workers) as p:
-            outs = p.map(_worker, feats)
+            outs = p.map(_worker, [(f, a.sc) for f in feats])
         M = np.array([[o[s] for s in SUB] for o in outs])
         infl = np.array([o['Aging_inflammation'] for o in outs]); ic = pear(vinf, infl)
         aggs = {'model_Aging_index': np.array([o['Aging_index'] for o in outs]),
